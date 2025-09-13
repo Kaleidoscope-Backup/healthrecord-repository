@@ -2,6 +2,8 @@
 .git
 .gitignore
 
+ecs-task-definition.json
+
 # Ignore documentation
 README.md
 
