@@ -1,74 +1,74 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ReferenceRange Resolver
 ================================*/
 
-//ReferenceRangeResolver ..
+// ReferenceRangeResolver ..
 type ReferenceRangeResolver struct {
 	L *model.ReferenceRange
 }
 
-//Id ..
+// Id ..
 func (r *ReferenceRangeResolver) Id() string {
 	return r.L.Id
 }
 
-//LowerLimit ..
+// LowerLimit ..
 func (r *ReferenceRangeResolver) LowerLimit() *int32 {
 	return r.L.LowerLimit
 }
 
-//HigherLimit ..
+// HigherLimit ..
 func (r *ReferenceRangeResolver) HigherLimit() *int32 {
 	return r.L.HigherLimit
 }
 
-//RangeUnit ..
+// RangeUnit ..
 func (r *ReferenceRangeResolver) RangeUnit() *string {
 	return r.L.RangeUnit
 }
 
-//Range ..
+// Range ..
 func (r *ReferenceRangeResolver) Range() *RangeResolver {
 	return &RangeResolver{r.L.Range}
 }
 
-//AgeMin ..
+// AgeMin ..
 func (r *ReferenceRangeResolver) AgeMin() *int32 {
 	return r.L.AgeMin
 }
 
-//AgeMax ..
+// AgeMax ..
 func (r *ReferenceRangeResolver) AgeMax() *int32 {
 	return r.L.AgeMax
 }
 
-//AgeUnit ..
+// AgeUnit ..
 func (r *ReferenceRangeResolver) AgeUnit() *string {
 	return r.L.AgeUnit
 }
 
-//AgeGroup ..
+// AgeGroup ..
 func (r *ReferenceRangeResolver) AgeGroup() *[]model.AgeGroup {
 	return r.L.AgeGroup
 }
 
-//Type ..
+// Type ..
 func (r *ReferenceRangeResolver) Type() model.ReferenceRangeType {
 	return r.L.Type
 }
 
-//AppliesTo ..
+// AppliesTo ..
 func (r *ReferenceRangeResolver) AppliesTo() *[]string {
 	return r.L.AppliesTo
 }
 
-//AppliesToCode ..
+// AppliesToCode ..
 func (r *ReferenceRangeResolver) AppliesToCode() *[]*ClinicalCodeResolver {
 
 	if r.L.AppliesToCode != nil {

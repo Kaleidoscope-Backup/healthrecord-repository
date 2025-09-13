@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	c "github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	logging "github.com/op/go-logging"
-	c "gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//CreateSleepRecord ...
+// CreateSleepRecord ...
 func (r *Resolver) CreateSleepRecord(ctx context.Context, args *struct {
 	SleepRecord *model.SleepRecordCreate
 }) (*SleepRecordResolver, error) {

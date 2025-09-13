@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 Health Record service
 ==========================================================================================*/
 
-//HealthRecordService is for creating health record
+// HealthRecordService is for creating health record
 type HealthRecordService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewHealthRecordService ...
+// NewHealthRecordService ...
 func NewHealthRecordService(dal mserver.DataAccessLayer, log *logging.Logger) *HealthRecordService {
 	return &HealthRecordService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewHealthRecordService(dal mserver.DataAccessLayer, log *logging.Logger) *H
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *HealthRecordService) FindByID(id string) (*model.HealthRecord, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -47,7 +47,7 @@ func (u *HealthRecordService) FindByID(id string) (*model.HealthRecord, error) {
 	return hr, nil
 }
 
-//FindByConsumerID ..
+// FindByConsumerID ..
 func (u *HealthRecordService) FindByConsumerID(id string) (*[]*model.HealthRecord, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")

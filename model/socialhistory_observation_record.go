@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//SocialHistoryObservationType ...
+// SocialHistoryObservationType ...
 type SocialHistoryObservationType string
 
 const (
@@ -28,7 +28,7 @@ const (
 	OTHER SocialHistoryObservationType = "OTHER"
 )
 
-//SocialHistoryObservationStatus ...
+// SocialHistoryObservationStatus ...
 type SocialHistoryObservationStatus string
 
 const (
@@ -75,14 +75,14 @@ func (t SocialHistoryObservationStatus) toDescription() string {
 	return ""
 }
 
-//SocialHistoryObservationRecordQueryParam ...
+// SocialHistoryObservationRecordQueryParam ...
 type SocialHistoryObservationRecordQueryParam struct {
 	ConsumerID string                          `json:"consumerID"`
 	Type       *SocialHistoryObservationType   `json:"type"`
 	Status     *SocialHistoryObservationStatus `json:"status"`
 }
 
-//SocialHistoryObservationRecordCreate ...
+// SocialHistoryObservationRecordCreate ...
 type SocialHistoryObservationRecordCreate struct {
 	HealthRecordCreate
 	Type         SocialHistoryObservationType   `json:"type"`
@@ -95,7 +95,7 @@ type SocialHistoryObservationRecordCreate struct {
 	End          *util.Time                     `json:"end"`
 }
 
-//SocialHistoryObservationRecord ...
+// SocialHistoryObservationRecord ...
 type SocialHistoryObservationRecord struct {
 	HealthRecord
 	Id           string                         `json:"id" bson:"_id"`

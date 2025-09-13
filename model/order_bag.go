@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//PaymentType ...
+// PaymentType ...
 type PaymentType string
 
 const (
@@ -25,7 +25,7 @@ const (
 	PAYPAL PaymentType = "PAYPAL"
 )
 
-//OrderBagCreate ..
+// OrderBagCreate ..
 type OrderBagCreate struct {
 	PaymentType     *PaymentType   `json:"paymentType"`
 	ExternalID      string         `json:"externalID"`
@@ -35,7 +35,7 @@ type OrderBagCreate struct {
 	OrderedItems    *[]OrderCreate `json:"orderedItems"`
 }
 
-//OrderBag ..
+// OrderBag ..
 type OrderBag struct {
 	Id              string             `json:"id" bson:"_id"`
 	PaymentType     *PaymentType       `json:"paymentType" bson:"paymentType"`

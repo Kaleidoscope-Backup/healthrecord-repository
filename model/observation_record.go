@@ -1,10 +1,10 @@
 package model
 
 import (
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/mongo-lib/models"
 )
 
-//ObservationStatus ...
+// ObservationStatus ...
 type ObservationStatus string
 
 const (
@@ -33,7 +33,7 @@ const (
 	OBSERVATION_UNKNOWN ObservationStatus = "OBSERVATION_UNKNOWN"
 )
 
-//ObservationCategory ...
+// ObservationCategory ...
 type ObservationCategory string
 
 const (
@@ -59,12 +59,12 @@ const (
 	OBSERVATION_CATEGORY_THERAPY ObservationCategory = "OBSERVATION_CATEGORY_THERAPY"
 )
 
-//ObservationRecordsCreate ...
+// ObservationRecordsCreate ...
 type ObservationRecordsCreate struct {
 	Observations *[]ObservationRecordCreate `json:"observations"`
 }
 
-//ObservationRecordCreate ...
+// ObservationRecordCreate ...
 type ObservationRecordCreate struct {
 	HealthRecordCreate
 	Status               ObservationStatus      `json:"status"`
@@ -87,7 +87,7 @@ type ObservationRecordCreate struct {
 	ReferenceRange       *[]ReferenceRangeInput `json:"referenceRange"`
 }
 
-//ObservationRecord ...
+// ObservationRecord ...
 type ObservationRecord struct {
 	HealthRecord
 	Id                   string              `json:"id" bson:"_id"`

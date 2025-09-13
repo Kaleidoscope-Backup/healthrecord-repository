@@ -4,27 +4,27 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 AcknowledgementService
 ==========================================================================================*/
 
-//AcknowledgementService ..
+// AcknowledgementService ..
 type AcknowledgementService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewAcknowledgementService ..
+// NewAcknowledgementService ..
 func NewAcknowledgementService(dal mserver.DataAccessLayer, log *logging.Logger) *AcknowledgementService {
 	return &AcknowledgementService{dal: dal, log: log}
 }
 
-//FindByID ...
+// FindByID ...
 func (u *AcknowledgementService) FindByID(id string) (*model.Acknowledgement, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -49,7 +49,7 @@ func (u *AcknowledgementService) FindByID(id string) (*model.Acknowledgement, er
 Mutation Operations
 ==========================================================================================*/
 
-//CreateAcknowledgement will create a new ack in Mongo using the Data Access Layer
+// CreateAcknowledgement will create a new ack in Mongo using the Data Access Layer
 func (u *AcknowledgementService) CreateAcknowledgement(ack *model.Acknowledgement) (*model.Acknowledgement, error) {
 	//Validate required fields on Model element are being passed in
 	if &ack.Created == nil ||

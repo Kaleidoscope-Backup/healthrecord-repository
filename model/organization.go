@@ -1,10 +1,10 @@
 package model
 
 import (
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/mongo-lib/models"
 )
 
-//OrganizationType ...
+// OrganizationType ...
 type OrganizationType string
 
 const (
@@ -20,14 +20,14 @@ const (
 	EDUCATIONAL_INSTITUTE OrganizationType = "EDUCATIONAL_INSTITUTE"
 )
 
-//OrganizationQueryParam ...
+// OrganizationQueryParam ...
 type OrganizationQueryParam struct {
 	Name  *string           `json:"name"`
 	Email *string           `json:"email"`
 	Type  *OrganizationType `json:"type"`
 }
 
-//OrganizationCreate ....
+// OrganizationCreate ....
 type OrganizationCreate struct {
 	Name         string               `json:"name"`
 	Email        *string              `json:"email"`
@@ -40,7 +40,7 @@ type OrganizationCreate struct {
 	Address      *[]AddressInput      `json:"address"`
 }
 
-//SourceOrganizationID ...
+// SourceOrganizationID ...
 type SourceOrganizationID struct {
 	Id       string       `json:"id" bson:"_id"`
 	SourceID string       `json:"sourceID" bson:"sourceID"`
@@ -48,7 +48,7 @@ type SourceOrganizationID struct {
 	Meta     *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//Organization represents a business entity
+// Organization represents a business entity
 type Organization struct {
 	Id       string                `json:"id" bson:"_id"`
 	Name     string                `json:"name" bson:"name"`

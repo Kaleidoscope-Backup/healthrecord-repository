@@ -2,9 +2,9 @@ package service
 
 import (
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 type HeartRateService struct {

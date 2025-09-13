@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 ProductService
 ==========================================================================================*/
 
-//ProductService ..
+// ProductService ..
 type ProductService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewProductService ..
+// NewProductService ..
 func NewProductService(dal mserver.DataAccessLayer, log *logging.Logger) *ProductService {
 	return &ProductService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewProductService(dal mserver.DataAccessLayer, log *logging.Logger) *Produc
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *ProductService) FindByID(id string) (*model.Product, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -49,7 +49,7 @@ func (u *ProductService) FindByID(id string) (*model.Product, error) {
 	return product, nil
 }
 
-//FindByParam ...
+// FindByParam ...
 func (u *ProductService) FindByParam(param *model.ProductQueryParam) (*[]*model.Product, error) {
 	if param == nil {
 		return nil, errors.New("Missing parameter")
@@ -100,7 +100,7 @@ func (u *ProductService) FindByParam(param *model.ProductQueryParam) (*[]*model.
 	return &productArr, nil
 }
 
-//FindProducts ...
+// FindProducts ...
 func (u *ProductService) FindProducts(supplierID string) (*[]*model.Product, error) {
 	if supplierID == "" {
 		return nil, errors.New("Missing parameter id")
@@ -131,7 +131,7 @@ func (u *ProductService) FindProducts(supplierID string) (*[]*model.Product, err
 Mutation Operations
 ==========================================================================================*/
 
-//UpdateProduct ...
+// UpdateProduct ...
 func (u *ProductService) UpdateProduct(product *model.Product) (*model.Product, error) {
 
 	if product != nil {
@@ -146,7 +146,7 @@ func (u *ProductService) UpdateProduct(product *model.Product) (*model.Product, 
 	return nil, nil
 }
 
-//CreateProduct will create a new Product in Mongo using the Data Access Layer
+// CreateProduct will create a new Product in Mongo using the Data Access Layer
 func (u *ProductService) CreateProduct(product *model.Product) (*model.Product, error) {
 
 	id, err := u.dal.Post(product)

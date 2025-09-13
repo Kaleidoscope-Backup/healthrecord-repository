@@ -4,9 +4,9 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 // ListService ...

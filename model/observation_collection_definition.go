@@ -1,15 +1,15 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//ObservationDefinitionCollectionQueryParam ...
+// ObservationDefinitionCollectionQueryParam ...
 type ObservationDefinitionCollectionQueryParam struct {
 	Name      *string   `json:"name"`
 	Publisher *string   `json:"publisher"`
 	Language  *Language `json:"language"`
 }
 
-//MeasurementDefinitionInput ...
+// MeasurementDefinitionInput ...
 type MeasurementDefinitionInput struct {
 	Name            string                 `json:"name"`
 	Unit            string                 `json:"unit"`
@@ -21,7 +21,7 @@ type MeasurementDefinitionInput struct {
 	ReferenceRanges *[]ReferenceRangeInput `json:"referenceRanges"`
 }
 
-//MeasurementDefinition ...
+// MeasurementDefinition ...
 type MeasurementDefinition struct {
 	Id              string            `json:"id" bson:"_id"`
 	Name            string            `json:"name" bson:"name"`
@@ -34,7 +34,7 @@ type MeasurementDefinition struct {
 	ReferenceRanges *[]ReferenceRange `json:"referenceRanges" bson:"referenceRanges"`
 }
 
-//ObservationDefinitionCollectionInput ...
+// ObservationDefinitionCollectionInput ...
 type ObservationDefinitionCollectionInput struct {
 	Name         string                        `json:"name"`
 	Purpose      *string                       `json:"purpose"`
@@ -47,7 +47,7 @@ type ObservationDefinitionCollectionInput struct {
 	Measurements *[]MeasurementDefinitionInput `json:"measurements"`
 }
 
-//ObservationDefinitionCollection ...
+// ObservationDefinitionCollection ...
 type ObservationDefinitionCollection struct {
 	Id           string                   `json:"id" bson:"_id"`
 	Name         string                   `json:"name" bson:"name"`

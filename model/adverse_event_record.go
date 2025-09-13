@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//AdverseEventCategory ...
+// AdverseEventCategory ...
 type AdverseEventCategory string
 
 const (
@@ -14,7 +14,7 @@ const (
 	AE_OTHER AdverseEventCategory = "AE_OTHER"
 )
 
-//AdverseEventRecordCreate ...
+// AdverseEventRecordCreate ...
 type AdverseEventRecordCreate struct {
 	HealthRecordCreate
 	Category      AdverseEventCategory `json:"category"`
@@ -28,7 +28,7 @@ type AdverseEventRecordCreate struct {
 	Recorder      *ReferenceActorInput `json:"recorder"`
 }
 
-//AdverseEventRecord ...
+// AdverseEventRecord ...
 type AdverseEventRecord struct {
 	HealthRecord
 	Id            string               `json:"id" bson:"_id"`

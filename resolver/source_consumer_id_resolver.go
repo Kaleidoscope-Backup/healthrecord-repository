@@ -1,55 +1,55 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 SourceConsumerIDResolver
 ================================*/
 
-//SourceConsumerIDResolver ..
+// SourceConsumerIDResolver ..
 type SourceConsumerIDResolver struct {
 	M *model.SourceConsumerID
 }
 
-//Id ..
+// Id ..
 func (r *SourceConsumerIDResolver) Id() string {
 	return r.M.Id
 }
 
-//System ..
+// System ..
 func (r *SourceConsumerIDResolver) System() string {
 	return r.M.System
 }
 
-//Value ..
+// Value ..
 func (r *SourceConsumerIDResolver) Value() string {
 	return r.M.Value
 }
 
-//Assigner ..
+// Assigner ..
 func (r *SourceConsumerIDResolver) Assigner() string {
 	return r.M.Assigner
 }
 
-//Use ..
+// Use ..
 func (r *SourceConsumerIDResolver) Use() *model.SourceConsumerIDUse {
 	return r.M.Use
 }
 
-//Type ..
+// Type ..
 func (r *SourceConsumerIDResolver) Type() *model.SourceConsumerIDType {
 	return r.M.Type
 }
 
-//Start ..
+// Start ..
 func (r *SourceConsumerIDResolver) Start() *util.Time {
 	return r.M.Start
 }
 
-//End ..
+// End ..
 func (r *SourceConsumerIDResolver) End() *util.Time {
 	return r.M.End
 }

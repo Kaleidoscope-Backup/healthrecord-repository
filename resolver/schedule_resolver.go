@@ -1,39 +1,39 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Schedule Resolver
 ================================*/
 
-//ScheduleResolver ..
+// ScheduleResolver ..
 type ScheduleResolver struct {
 	S *model.Schedule
 }
 
-//Id ..
+// Id ..
 func (r *ScheduleResolver) Id() string {
 	return r.S.Id
 }
 
-//Active ..
+// Active ..
 func (r *ScheduleResolver) Active() bool {
 	return r.S.Active
 }
 
-//PlanningHorizon ..
+// PlanningHorizon ..
 func (r *ScheduleResolver) PlanningHorizon() *PeriodResolver {
 	return &PeriodResolver{&r.S.PlanningHorizon}
 }
 
-//ServiceCategory ..
+// ServiceCategory ..
 func (r *ScheduleResolver) ServiceCategory() *[]string {
 	return r.S.ServiceCategory
 }
 
-//ServiceCategoryCode array ..
+// ServiceCategoryCode array ..
 func (r *ScheduleResolver) ServiceCategoryCode() *[]*ClinicalCodeResolver {
 
 	if r.S.ServiceCategoryCode != nil {
@@ -58,12 +58,12 @@ func (r *ScheduleResolver) ServiceCategoryCode() *[]*ClinicalCodeResolver {
 	return nil
 }
 
-//Speciality ..
+// Speciality ..
 func (r *ScheduleResolver) Speciality() *[]string {
 	return r.S.Speciality
 }
 
-//SpecialityCode array ..
+// SpecialityCode array ..
 func (r *ScheduleResolver) SpecialityCode() *[]*ClinicalCodeResolver {
 
 	if r.S.SpecialityCode != nil {
@@ -88,7 +88,7 @@ func (r *ScheduleResolver) SpecialityCode() *[]*ClinicalCodeResolver {
 	return nil
 }
 
-//Actor array ..
+// Actor array ..
 func (r *ScheduleResolver) Actor() *[]*ReferenceActorResolver {
 
 	if r.S.Actor != nil {
@@ -113,7 +113,7 @@ func (r *ScheduleResolver) Actor() *[]*ReferenceActorResolver {
 	return nil
 }
 
-//Comment ..
+// Comment ..
 func (r *ScheduleResolver) Comment() *string {
 	return r.S.Comment
 }

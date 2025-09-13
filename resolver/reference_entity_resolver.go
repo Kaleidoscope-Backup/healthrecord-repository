@@ -1,29 +1,29 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ReferenceEntityResolver
 ================================*/
 
-//ReferenceEntityResolver ..
+// ReferenceEntityResolver ..
 type ReferenceEntityResolver struct {
 	M *model.ReferenceEntity
 }
 
-//Id ..
+// Id ..
 func (r *ReferenceEntityResolver) Id() string {
 	return r.M.Id
 }
 
-//EntityType ..
+// EntityType ..
 func (r *ReferenceEntityResolver) EntityType() model.EntityType {
 	return r.M.EntityType
 }
 
-//EntityID ..
+// EntityID ..
 func (r *ReferenceEntityResolver) EntityID() string {
 	return r.M.EntityID
 }

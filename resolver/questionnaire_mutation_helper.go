@@ -1,13 +1,13 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
 	"golang.org/x/net/context"
 )
 
-//CreateAnswerFromInput ...
+// CreateAnswerFromInput ...
 func CreateAnswerFromInput(ctx context.Context, input *model.AnswerInput) *model.Answer {
 	if input != nil {
 		answer := &model.Answer{}
@@ -56,7 +56,7 @@ func CreateAnswerFromInput(ctx context.Context, input *model.AnswerInput) *model
 	return nil
 }
 
-//CreateQuestionFromInput ...
+// CreateQuestionFromInput ...
 func CreateQuestionFromInput(ctx context.Context, input *model.QuestionInput) (*model.Question, error) {
 
 	if input != nil {
@@ -161,7 +161,7 @@ func CreateQuestionFromInput(ctx context.Context, input *model.QuestionInput) (*
 	return nil, nil
 }
 
-//CreateCriteriaFromInput ...
+// CreateCriteriaFromInput ...
 func CreateCriteriaFromInput(input *model.CriteriaInput) *model.Criteria {
 	if input != nil {
 		criteria := &model.Criteria{}

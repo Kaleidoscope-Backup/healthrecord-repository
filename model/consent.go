@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//ConsentAction ...
+// ConsentAction ...
 type ConsentAction string
 
 const (
@@ -21,7 +21,7 @@ const (
 	CORRECT ConsentAction = "CORRECT"
 )
 
-//PurposeOfUse ...
+// PurposeOfUse ...
 type PurposeOfUse string
 
 const (
@@ -68,7 +68,7 @@ const (
 	EMERGENCY_TREATMENT PurposeOfUse = "EMERGENCY_TREATMENT"
 )
 
-//ConsentCreate ...
+// ConsentCreate ...
 type ConsentCreate struct {
 	Name                  *string                `json:"name"`
 	Content               *string                `json:"content"`
@@ -84,7 +84,7 @@ type ConsentCreate struct {
 	DateTime              util.Time              `json:"dateTime"`
 }
 
-//Consent ...
+// Consent ...
 type Consent struct {
 	Id                    string            `json:"id" bson:"_id"`
 	Name                  *string           `json:"name" bson:"name"`

@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//CustomerFeedbackInput ...
+// CustomerFeedbackInput ...
 type CustomerFeedbackInput struct {
 	By          ReferenceActorInput  `json:"by"`
 	Application ReferenceEntityInput `json:"application"`
@@ -15,7 +15,7 @@ type CustomerFeedbackInput struct {
 	Images      *[]AttachmentInput   `json:"images"`
 }
 
-//CustomerFeedback ...
+// CustomerFeedback ...
 type CustomerFeedback struct {
 	Id          string          `json:"id" bson:"_id"`
 	By          ReferenceActor  `json:"by" bson:"by"`

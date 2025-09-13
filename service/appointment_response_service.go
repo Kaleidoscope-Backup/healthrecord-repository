@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 AppointmentResponseService
 ==========================================================================================*/
 
-//AppointmentResponseService ..
+// AppointmentResponseService ..
 type AppointmentResponseService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewAppointmentResponseService ..
+// NewAppointmentResponseService ..
 func NewAppointmentResponseService(dal mserver.DataAccessLayer, log *logging.Logger) *AppointmentResponseService {
 	return &AppointmentResponseService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewAppointmentResponseService(dal mserver.DataAccessLayer, log *logging.Log
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *AppointmentResponseService) FindByID(id string) (*model.AppointmentResponse, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -53,7 +53,7 @@ func (u *AppointmentResponseService) FindByID(id string) (*model.AppointmentResp
 Mutation Operations
 ==========================================================================================*/
 
-//CreateAppointmentResponse will create a new AppointmentResponse in Mongo using the Data Access Layer
+// CreateAppointmentResponse will create a new AppointmentResponse in Mongo using the Data Access Layer
 func (u *AppointmentResponseService) CreateAppointmentResponse(appRsp *model.AppointmentResponse) (*model.AppointmentResponse, error) {
 	//Validate required fields on Model element are being passed in
 	if &appRsp.Status == nil {

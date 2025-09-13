@@ -1,13 +1,13 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//Consent ...
+// Consent ...
 func (r *Resolver) Consent(ctx context.Context, args struct {
 	ID string
 }) (*ConsentResolver, error) {
@@ -21,7 +21,7 @@ func (r *Resolver) Consent(ctx context.Context, args struct {
 	return &ConsentResolver{consent}, nil
 }
 
-//Consents ..
+// Consents ..
 func (r *Resolver) Consents(ctx context.Context, args struct {
 	ConsumerID string
 }) (*[]*ConsentResolver, error) {

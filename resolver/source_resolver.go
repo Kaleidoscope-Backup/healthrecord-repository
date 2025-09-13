@@ -1,30 +1,30 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//SourceResolver ..
+// SourceResolver ..
 type SourceResolver struct {
 	S *model.Source
 }
 
-//Id ..
+// Id ..
 func (r *SourceResolver) Id() string {
 	return r.S.Id
 }
 
-//Name ..
+// Name ..
 func (r *SourceResolver) Name() string {
 	return r.S.Name
 }
 
-//URI ..
+// URI ..
 func (r *SourceResolver) URI() string {
 	return r.S.URI
 }
 
-//Description ..
+// Description ..
 func (r *SourceResolver) Description() *string {
 	return r.S.Description
 }

@@ -1,40 +1,40 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//AnswerResolver ..
+// AnswerResolver ..
 type AnswerResolver struct {
 	Q *model.Answer
 }
 
-//Id ..
+// Id ..
 func (r *AnswerResolver) Id() string {
 	return r.Q.Id
 }
 
-//Code ..
+// Code ..
 func (r *AnswerResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.Q.Code}
 }
 
-//QuestionText ..
+// QuestionText ..
 func (r *AnswerResolver) QuestionText() string {
 	return r.Q.QuestionText
 }
 
-//LinkID ..
+// LinkID ..
 func (r *AnswerResolver) LinkID() string {
 	return r.Q.LinkID
 }
 
-//AnswerValue ..
+// AnswerValue ..
 func (r *AnswerResolver) AnswerValue() *ValueResolver {
 	return &ValueResolver{r.Q.AnswerValue}
 }
 
-//SelectedOptions ..
+// SelectedOptions ..
 func (r *AnswerResolver) SelectedOptions() *[]*SelectedOptionResolver {
 	if r.Q.SelectedOptions != nil {
 		var crs []*SelectedOptionResolver
@@ -61,7 +61,7 @@ func resolveSelectedOptionResolver(selectedOption *model.SelectedOption) *Select
 	return &SelectedOptionResolver{selectedOption}
 }
 
-//Items array ..
+// Items array ..
 func (r *AnswerResolver) Items() *[]*AnswerResolver {
 
 	if r.Q.Items != nil {

@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//ProcedureStatus ...
+// ProcedureStatus ...
 type ProcedureStatus string
 
 const (
@@ -22,7 +22,7 @@ const (
 	PROCEDURE_UNKNOWN ProcedureStatus = "PROCEDURE_UNKNOWN"
 )
 
-//ProcedureOutcome ...
+// ProcedureOutcome ...
 type ProcedureOutcome string
 
 const (
@@ -34,7 +34,7 @@ const (
 	PROCEDURE_PARTIALLY_SUCCESSFUL ProcedureOutcome = "PROCEDURE_PARTIALLY_SUCCESSFUL"
 )
 
-//ProcedureCategory ...
+// ProcedureCategory ...
 type ProcedureCategory string
 
 const (
@@ -46,7 +46,7 @@ const (
 	PROCEDURE_SURGERY ProcedureCategory = "PROCEDURE_SURGERY"
 )
 
-//ProcedureCode ...
+// ProcedureCode ...
 type ProcedureCode string
 
 const (
@@ -58,7 +58,7 @@ const (
 	CODE_46947000  ProcedureCode = "Chiropractic manipulation"
 )
 
-//ProcedurRecordCreate ...
+// ProcedurRecordCreate ...
 type ProcedurRecordCreate struct {
 	HealthRecordCreate
 	Status              ProcedureStatus      `json:"status"`
@@ -75,7 +75,7 @@ type ProcedurRecordCreate struct {
 	Report              *string              `json:"report"`
 }
 
-//ProcedureRecord ...
+// ProcedureRecord ...
 type ProcedureRecord struct {
 	HealthRecord
 	Id                  string            `json:"id" bson:"_id"`

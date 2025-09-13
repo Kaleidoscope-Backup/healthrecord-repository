@@ -9,8 +9,8 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"gitlab.com/karte/mongo-lib/models"
-	"gitlab.com/karte/mongo-lib/search"
+	"github.com/karte/mongo-lib/models"
+	"github.com/karte/mongo-lib/search"
 )
 
 var fhirJSONContentType = []string{"application/json; application/fhir+json; charset=utf-8"}
@@ -96,7 +96,7 @@ func (rc *ResourceController) ShowHandler(c *gin.Context) {
 	c.Render(http.StatusOK, CustomJSONRenderer{resource})
 }
 
-//EverythingHandler handles requests for everything related to a Patient or Encounter resource.
+// EverythingHandler handles requests for everything related to a Patient or Encounter resource.
 func (rc *ResourceController) EverythingHandler(c *gin.Context) {
 	defer func() {
 		if r := recover(); r != nil {

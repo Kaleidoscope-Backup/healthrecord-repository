@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//Race ...
+// Race ...
 type Race string
 
 const (
@@ -28,7 +28,7 @@ const (
 	WHITE Race = "WHITE"
 )
 
-//Gender ...
+// Gender ...
 type Gender string
 
 const (
@@ -49,7 +49,7 @@ func (t Gender) toDescription() string {
 	return ""
 }
 
-//MarritalStatus ...
+// MarritalStatus ...
 type MarritalStatus string
 
 const (
@@ -81,13 +81,13 @@ const (
 	ANNULLED MarritalStatus = "ANNULLED"
 )
 
-//LoginInfoInput ...
+// LoginInfoInput ...
 type LoginInfoInput struct {
 	Email    string `json:"email"`
 	Password string `json:"password"`
 }
 
-//ConsumerCreate ....
+// ConsumerCreate ....
 type ConsumerCreate struct {
 	ActorCreate
 	Password string `json:"password"`
@@ -106,7 +106,7 @@ type ConsumerCreate struct {
 	Photo               *string         `json:"photo"`
 }
 
-//ConsumerUpdate ....
+// ConsumerUpdate ....
 type ConsumerUpdate struct {
 	Id                 string          `json:"id"`
 	FirstName          *string         `json:"firstName"`
@@ -121,7 +121,7 @@ type ConsumerUpdate struct {
 	Photo              *string         `json:"photo"`
 }
 
-//Consumer is an actor in our system representing a patient whose health record is of importance
+// Consumer is an actor in our system representing a patient whose health record is of importance
 type Consumer struct {
 	Actor
 	Id                 string              `json:"id" bson:"_id"`

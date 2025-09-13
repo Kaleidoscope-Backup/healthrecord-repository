@@ -1,79 +1,79 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Product Resolver
 ================================*/
 
-//ProductResolver ..
+// ProductResolver ..
 type ProductResolver struct {
 	P *model.Product
 }
 
-//Id ..
+// Id ..
 func (r *ProductResolver) Id() string {
 	return r.P.Id
 }
 
-//Name ..
+// Name ..
 func (r *ProductResolver) Name() string {
 	return r.P.Name
 }
 
-//Category ..
+// Category ..
 func (r *ProductResolver) Category() string {
 	return r.P.Category
 }
 
-//Language ..
+// Language ..
 func (r *ProductResolver) Language() model.Language {
 	return r.P.Language
 }
 
-//Label ..
+// Label ..
 func (r *ProductResolver) Label() string {
 	return r.P.Label
 }
 
-//Description ..
+// Description ..
 func (r *ProductResolver) Description() *string {
 	return r.P.Description
 }
 
-//Image ..
+// Image ..
 func (r *ProductResolver) Image() *string {
 	return r.P.Image
 }
 
-//Supplier ..
+// Supplier ..
 func (r *ProductResolver) Supplier() string {
 	return r.P.Supplier
 }
 
-//UnitPrice ..
+// UnitPrice ..
 func (r *ProductResolver) UnitPrice() *float64 {
 	return r.P.UnitPrice
 }
 
-//Currency ..
+// Currency ..
 func (r *ProductResolver) Currency() model.Currency {
 	return r.P.Currency
 }
 
-//Vendor ..
+// Vendor ..
 func (r *ProductResolver) Vendor() *string {
 	return r.P.Vendor
 }
 
-//Code ..
+// Code ..
 func (r *ProductResolver) Code() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.P.Code}
 }
 
-//AdditionalData array ..
+// AdditionalData array ..
 func (r *ProductResolver) AdditionalData() *[]*AttributeResolver {
 
 	if r.P.AdditionalData != nil {
@@ -97,7 +97,7 @@ func (r *ProductResolver) AdditionalData() *[]*AttributeResolver {
 	return nil
 }
 
-//Artifacts array of reference range ..
+// Artifacts array of reference range ..
 func (r *ProductResolver) Artifacts() *[]*AttachmentResolver {
 
 	if r.P.Artifacts != nil {

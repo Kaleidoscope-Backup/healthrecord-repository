@@ -7,9 +7,9 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"gitlab.com/karte/healthrecord-repository/model"
-	. "gitlab.com/karte/healthrecord-repository/service"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	. "github.com/karte/healthrecord-repository/service"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 var _ = Describe("MedicationService", func() {

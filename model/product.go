@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//ProductQueryParam ...
+// ProductQueryParam ...
 type ProductQueryParam struct {
 	Category *string   `json:"category"`
 	Language *Language `json:"language"`
@@ -11,7 +11,7 @@ type ProductQueryParam struct {
 	Vendor   *string   `json:"vendor"`
 }
 
-//ProductUpdate ..
+// ProductUpdate ..
 type ProductUpdate struct {
 	Id             string             `json:"id"`
 	Name           *string            `json:"name"`
@@ -23,7 +23,7 @@ type ProductUpdate struct {
 	Artifacts      *[]AttachmentInput `json:"artifacts"`
 }
 
-//ProductCreate ..
+// ProductCreate ..
 type ProductCreate struct {
 	Name           string             `json:"name"`
 	Category       string             `json:"category"`
@@ -40,7 +40,7 @@ type ProductCreate struct {
 	Artifacts      *[]AttachmentInput `json:"artifacts"`
 }
 
-//Product ..
+// Product ..
 type Product struct {
 	Id             string        `json:"id" bson:"_id"`
 	Name           string        `json:"name" bson:"name"`

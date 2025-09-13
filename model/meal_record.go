@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//MealType ...
+// MealType ...
 type MealType string
 
 const (
@@ -16,7 +16,7 @@ const (
 	SNACK MealType = "SNACK"
 )
 
-//MealRecordCreate ...
+// MealRecordCreate ...
 type MealRecordCreate struct {
 	HealthRecordCreate
 	MealType           MealType `json:"mealType"`
@@ -38,7 +38,7 @@ type MealRecordCreate struct {
 	VitaminC           *float64 `json:"vitaminC"`
 }
 
-//MealRecord ...
+// MealRecord ...
 type MealRecord struct {
 	HealthRecord
 	Id                 string       `json:"id" bson:"_id"`

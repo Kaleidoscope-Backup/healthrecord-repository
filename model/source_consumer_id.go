@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//SourceConsumerIDInput is for input ...
+// SourceConsumerIDInput is for input ...
 type SourceConsumerIDInput struct {
 	System   string                `json:"system" bson:"system"`
 	Value    string                `json:"qualification" bson:"qualification"`
@@ -29,7 +29,7 @@ type SourceConsumerID struct {
 	Meta     *models.Meta          //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//SourceConsumerIDUse ...
+// SourceConsumerIDUse ...
 type SourceConsumerIDUse string
 
 const (
@@ -43,7 +43,7 @@ const (
 	SECONDARY SourceConsumerIDUse = "SECONDARY"
 )
 
-//SourceConsumerIDType ...
+// SourceConsumerIDType ...
 type SourceConsumerIDType string
 
 const (

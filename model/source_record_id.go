@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//SourceRecordIDInput ...
+// SourceRecordIDInput ...
 type SourceRecordIDInput struct {
 	System string `json:"system"`
 	Value  string `json:"qualification"`

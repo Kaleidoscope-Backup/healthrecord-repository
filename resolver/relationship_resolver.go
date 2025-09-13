@@ -1,64 +1,64 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Relationship Resolver
 ================================*/
 
-//RelationshipResolver ...
+// RelationshipResolver ...
 type RelationshipResolver struct {
 	R *model.Relationship
 }
 
-//Id ...
+// Id ...
 func (r *RelationshipResolver) Id() string {
 	return r.R.Id
 }
 
-//Active ...
+// Active ...
 func (r *RelationshipResolver) Active() bool {
 	return r.R.Active
 }
 
-//From ...
+// From ...
 func (r *RelationshipResolver) From() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.R.From}
 }
 
-//To ...
+// To ...
 func (r *RelationshipResolver) To() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.R.To}
 }
 
-//Label ...
+// Label ...
 func (r *RelationshipResolver) Label() string {
 	return r.R.Label
 }
 
-//Type ...
+// Type ...
 func (r *RelationshipResolver) Type() *model.RelationshipType {
 	return r.R.Type
 }
 
-//Code ...
+// Code ...
 func (r *RelationshipResolver) Code() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.R.Code}
 }
 
-//Consent ...
+// Consent ...
 func (r *RelationshipResolver) Consent() *string {
 	return r.R.Consent
 }
 
-//Period ...
+// Period ...
 func (r *RelationshipResolver) Period() *PeriodResolver {
 	return &PeriodResolver{r.R.Period}
 }
 
-//AdditionalData array ..
+// AdditionalData array ..
 func (r *RelationshipResolver) AdditionalData() *[]*AttributeResolver {
 
 	if r.R.AdditionalData != nil {

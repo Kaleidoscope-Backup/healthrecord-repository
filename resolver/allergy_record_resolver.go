@@ -1,56 +1,56 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 AllergyRecord Resolver
 ================================*/
 
-//AllergyRecordResolver ..
+// AllergyRecordResolver ..
 type AllergyRecordResolver struct {
 	HealthRecordResolver
 	U *model.AllergyRecord
 }
 
-//Id ..
+// Id ..
 func (r *AllergyRecordResolver) Id() string {
 	return r.U.Id
 }
 
-//OnsetDate ..
+// OnsetDate ..
 func (r *AllergyRecordResolver) OnsetDate() *AllergyOnsetResolver {
 	return &AllergyOnsetResolver{r.U.OnsetDate}
 }
 
-//LastOccurrence ..
+// LastOccurrence ..
 func (r *AllergyRecordResolver) LastOccurrence() *util.Time {
 	return r.U.LastOccurrence
 }
 
-//Category ..
+// Category ..
 func (r *AllergyRecordResolver) Category() model.AllergyCategory {
 	return r.U.Category
 }
 
-//Criticality ..
+// Criticality ..
 func (r *AllergyRecordResolver) Criticality() model.AllergyCriticality {
 	return r.U.Criticality
 }
 
-//Status ..
+// Status ..
 func (r *AllergyRecordResolver) Status() model.AllergyStatus {
 	return r.U.Status
 }
 
-//Code ..
+// Code ..
 func (r *AllergyRecordResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.U.Code}
 }
 
-//Reactions array ..
+// Reactions array ..
 func (r *AllergyRecordResolver) Reactions() *[]*AllergyReactionResolver {
 
 	if r.U.Reactions != nil {

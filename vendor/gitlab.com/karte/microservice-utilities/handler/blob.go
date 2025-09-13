@@ -13,7 +13,7 @@ import (
 )
 
 const maxUploadSize = 5 * 1024 // 5 mb
-const uploadPath = "/Users/mjw/go/src/gitlab.com/karte/blob-service/tmp"
+const uploadPath = "/Users/mjw/go/src/github.com/karte/blob-service/tmp"
 
 func CreateFileHandler() http.HandlerFunc {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

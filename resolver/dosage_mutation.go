@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//CreateDosage ..
+// CreateDosage ..
 func (r *Resolver) CreateDosage(ctx context.Context, args *struct {
 	Value     int32
 	Frequency string

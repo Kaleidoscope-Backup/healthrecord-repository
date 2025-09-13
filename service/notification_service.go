@@ -4,27 +4,27 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 NotificationService
 ==========================================================================================*/
 
-//NotificationService ..
+// NotificationService ..
 type NotificationService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewNotificationService ..
+// NewNotificationService ..
 func NewNotificationService(dal mserver.DataAccessLayer, log *logging.Logger) *NotificationService {
 	return &NotificationService{dal: dal, log: log}
 }
 
-//FindByID ...
+// FindByID ...
 func (u *NotificationService) FindByID(id string) (*model.Notification, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -45,7 +45,7 @@ func (u *NotificationService) FindByID(id string) (*model.Notification, error) {
 	return notification, nil
 }
 
-//FindActiveNotifications ...
+// FindActiveNotifications ...
 func (u *NotificationService) FindActiveNotifications(consumerID string) (*[]*model.Notification, error) {
 	if consumerID == "" {
 		return nil, errors.New("Missing parameter id")
@@ -73,7 +73,7 @@ func (u *NotificationService) FindActiveNotifications(consumerID string) (*[]*mo
 	return &notificationdArr, nil
 }
 
-//UpdateNotification ...
+// UpdateNotification ...
 func (u *NotificationService) UpdateNotification(notification *model.Notification) (*model.Notification, error) {
 	if notification.Id == "" {
 		return nil, errors.New("Missing a required field: aborting before saving to the DB")
@@ -86,7 +86,7 @@ func (u *NotificationService) UpdateNotification(notification *model.Notificatio
 	return notification, nil
 }
 
-//CreateNotification will create a new notification in Mongo using the Data Access Layer
+// CreateNotification will create a new notification in Mongo using the Data Access Layer
 func (u *NotificationService) CreateNotification(notification *model.Notification) (*model.Notification, error) {
 	//Validate required fields on Model element are being passed in
 	if notification.Status == "" ||

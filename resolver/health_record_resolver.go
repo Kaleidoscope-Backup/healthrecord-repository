@@ -1,8 +1,8 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -10,82 +10,82 @@ import (
 Health Record Resolver
 ================================*/
 
-//HealthRecordResolver ...
+// HealthRecordResolver ...
 type HealthRecordResolver struct {
 	M *model.HealthRecord
 }
 
-//Id ...
+// Id ...
 func (r *HealthRecordResolver) Id() string {
 	return r.M.Id
 }
 
-//ConsumerID ...
+// ConsumerID ...
 func (r *HealthRecordResolver) ConsumerID() string {
 	return r.M.ConsumerID
 }
 
-//PreviousRecord ...
+// PreviousRecord ...
 func (r *HealthRecordResolver) PreviousRecord() *string {
 	return r.M.PreviousRecord
 }
 
-//RecordType ...
+// RecordType ...
 func (r *HealthRecordResolver) RecordType() model.HealthRecordType {
 	return r.M.RecordType
 }
 
-//TransactionType ...
+// TransactionType ...
 func (r *HealthRecordResolver) TransactionType() model.HealthRecordTransactionType {
 	return r.M.TransactionType
 }
 
-//Name ...
+// Name ...
 func (r *HealthRecordResolver) Name() string {
 	return r.M.Name
 }
 
-//Description ...
+// Description ...
 func (r *HealthRecordResolver) Description() *string {
 	return r.M.Description
 }
 
-//Occurred ...
+// Occurred ...
 func (r *HealthRecordResolver) Occurred() util.Time {
 	return r.M.Occurred
 }
 
-//Created ...
+// Created ...
 func (r *HealthRecordResolver) Created() util.Time {
 	return r.M.Created
 }
 
-//CreatedBy ...
+// CreatedBy ...
 func (r *HealthRecordResolver) CreatedBy() *string {
 	return r.M.CreatedBy
 }
 
-//Source ...
+// Source ...
 func (r *HealthRecordResolver) Source() string {
 	return r.M.Source
 }
 
-//Organization ..
+// Organization ..
 func (r *HealthRecordResolver) Organization() *string {
 	return r.M.Organization
 }
 
-//SourceRecordID ..
+// SourceRecordID ..
 func (r *HealthRecordResolver) SourceRecordID() *SourceRecordIDResolver {
 	return &SourceRecordIDResolver{r.M.SourceRecordID}
 }
 
-//Location ..
+// Location ..
 func (r *HealthRecordResolver) Location() *GeoLocationResolver {
 	return &GeoLocationResolver{r.M.Location}
 }
 
-//References array ..
+// References array ..
 func (r *HealthRecordResolver) References() *[]*ReferenceHealthRecordResolver {
 
 	if r.M.References != nil {
@@ -114,7 +114,7 @@ func resolveReference(c *model.ReferenceHealthRecord) *ReferenceHealthRecordReso
 	return &ReferenceHealthRecordResolver{c}
 }
 
-//ToObservationRecord ...
+// ToObservationRecord ...
 func (r *HealthRecordResolver) ToObservationRecord() (*ObservationRecordResolver, bool) {
 	var resolver *ObservationRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -123,7 +123,7 @@ func (r *HealthRecordResolver) ToObservationRecord() (*ObservationRecordResolver
 	return resolver, true
 }
 
-//ToDiagnosticReportRecord ...
+// ToDiagnosticReportRecord ...
 func (r *HealthRecordResolver) ToDiagnosticReportRecord() (*DiagnosticReportRecordResolver, bool) {
 	var resolver *DiagnosticReportRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -132,7 +132,7 @@ func (r *HealthRecordResolver) ToDiagnosticReportRecord() (*DiagnosticReportReco
 	return resolver, true
 }
 
-//ToNutritionOrderRecord ...
+// ToNutritionOrderRecord ...
 func (r *HealthRecordResolver) ToNutritionOrderRecord() (*NutritionOrderRecordResolver, bool) {
 	var resolver *NutritionOrderRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -141,7 +141,7 @@ func (r *HealthRecordResolver) ToNutritionOrderRecord() (*NutritionOrderRecordRe
 	return resolver, true
 }
 
-//ToAppointmentRecord ...
+// ToAppointmentRecord ...
 func (r *HealthRecordResolver) ToAppointmentRecord() (*AppointmentRecordResolver, bool) {
 	var resolver *AppointmentRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -150,7 +150,7 @@ func (r *HealthRecordResolver) ToAppointmentRecord() (*AppointmentRecordResolver
 	return resolver, true
 }
 
-//ToAdverseEventRecord ...
+// ToAdverseEventRecord ...
 func (r *HealthRecordResolver) ToAdverseEventRecord() (*AdverseEventRecordResolver, bool) {
 	var resolver *AdverseEventRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -159,7 +159,7 @@ func (r *HealthRecordResolver) ToAdverseEventRecord() (*AdverseEventRecordResolv
 	return resolver, true
 }
 
-//ToSleepRecord ...
+// ToSleepRecord ...
 func (r *HealthRecordResolver) ToSleepRecord() (*SleepRecordResolver, bool) {
 	var resolver *SleepRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -168,7 +168,7 @@ func (r *HealthRecordResolver) ToSleepRecord() (*SleepRecordResolver, bool) {
 	return resolver, true
 }
 
-//ToGoalRecord ...
+// ToGoalRecord ...
 func (r *HealthRecordResolver) ToGoalRecord() (*GoalRecordResolver, bool) {
 	var resolver *GoalRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -177,7 +177,7 @@ func (r *HealthRecordResolver) ToGoalRecord() (*GoalRecordResolver, bool) {
 	return resolver, true
 }
 
-//ToMealRecord ...
+// ToMealRecord ...
 func (r *HealthRecordResolver) ToMealRecord() (*MealRecordResolver, bool) {
 	var resolver *MealRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -186,7 +186,7 @@ func (r *HealthRecordResolver) ToMealRecord() (*MealRecordResolver, bool) {
 	return resolver, true
 }
 
-//ToActivityRecord ...
+// ToActivityRecord ...
 func (r *HealthRecordResolver) ToActivityRecord() (*ActivityRecordResolver, bool) {
 	var resolver *ActivityRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -195,7 +195,7 @@ func (r *HealthRecordResolver) ToActivityRecord() (*ActivityRecordResolver, bool
 	return resolver, true
 }
 
-//ToImmunizationRecord ...
+// ToImmunizationRecord ...
 func (r *HealthRecordResolver) ToImmunizationRecord() (*ImmunizationRecordResolver, bool) {
 	var resolver *ImmunizationRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -204,7 +204,7 @@ func (r *HealthRecordResolver) ToImmunizationRecord() (*ImmunizationRecordResolv
 	return resolver, true
 }
 
-//ToVitalObservationRecord ...
+// ToVitalObservationRecord ...
 func (r *HealthRecordResolver) ToVitalObservationRecord() (*VitalObservationRecordResolver, bool) {
 	var resolver *VitalObservationRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -213,7 +213,7 @@ func (r *HealthRecordResolver) ToVitalObservationRecord() (*VitalObservationReco
 	return resolver, true
 }
 
-//ToProcedureRecord ...
+// ToProcedureRecord ...
 func (r *HealthRecordResolver) ToProcedureRecord() (*ProcedureRecordResolver, bool) {
 	var resolver *ProcedureRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -222,7 +222,7 @@ func (r *HealthRecordResolver) ToProcedureRecord() (*ProcedureRecordResolver, bo
 	return resolver, true
 }
 
-//ToSocialHistoryObservationRecord ...
+// ToSocialHistoryObservationRecord ...
 func (r *HealthRecordResolver) ToSocialHistoryObservationRecord() (*SocialHistoryObservationRecordResolver, bool) {
 	var resolver *SocialHistoryObservationRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -231,7 +231,7 @@ func (r *HealthRecordResolver) ToSocialHistoryObservationRecord() (*SocialHistor
 	return resolver, true
 }
 
-//ToImagingResultObservationRecord ...
+// ToImagingResultObservationRecord ...
 func (r *HealthRecordResolver) ToImagingResultObservationRecord() (*ImagingResultObservationRecordResolver, bool) {
 	var resolver *ImagingResultObservationRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -240,7 +240,7 @@ func (r *HealthRecordResolver) ToImagingResultObservationRecord() (*ImagingResul
 	return resolver, true
 }
 
-//ToLabResultObservationRecord ...
+// ToLabResultObservationRecord ...
 func (r *HealthRecordResolver) ToLabResultObservationRecord() (*LabResultObservationRecordResolver, bool) {
 	var resolver *LabResultObservationRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -249,7 +249,7 @@ func (r *HealthRecordResolver) ToLabResultObservationRecord() (*LabResultObserva
 	return resolver, true
 }
 
-//ToPersonalCharacteristicsObservationRecord ...
+// ToPersonalCharacteristicsObservationRecord ...
 func (r *HealthRecordResolver) ToPersonalCharacteristicsObservationRecord() (*PersonalCharacteristicsObservationRecordResolver, bool) {
 	var resolver *PersonalCharacteristicsObservationRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -258,7 +258,7 @@ func (r *HealthRecordResolver) ToPersonalCharacteristicsObservationRecord() (*Pe
 	return resolver, true
 }
 
-//ToFamilyMemberHistoryRecord ...
+// ToFamilyMemberHistoryRecord ...
 func (r *HealthRecordResolver) ToFamilyMemberHistoryRecord() (*FamilyMemberHistoryRecordResolver, bool) {
 	var resolver *FamilyMemberHistoryRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -267,7 +267,7 @@ func (r *HealthRecordResolver) ToFamilyMemberHistoryRecord() (*FamilyMemberHisto
 	return resolver, true
 }
 
-//ToClinicalAssesmentObservationRecord ...
+// ToClinicalAssesmentObservationRecord ...
 func (r *HealthRecordResolver) ToClinicalAssesmentObservationRecord() (*ClinicalAssesmentObservationRecordResolver, bool) {
 	var resolver *ClinicalAssesmentObservationRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -276,7 +276,7 @@ func (r *HealthRecordResolver) ToClinicalAssesmentObservationRecord() (*Clinical
 	return resolver, true
 }
 
-//ToConditionRecord ...
+// ToConditionRecord ...
 func (r *HealthRecordResolver) ToConditionRecord() (*ConditionRecordResolver, bool) {
 	var resolver *ConditionRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -285,7 +285,7 @@ func (r *HealthRecordResolver) ToConditionRecord() (*ConditionRecordResolver, bo
 	return resolver, true
 }
 
-//ToEncounterRecord ...
+// ToEncounterRecord ...
 func (r *HealthRecordResolver) ToEncounterRecord() (*EncounterRecordResolver, bool) {
 	var resolver *EncounterRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -294,7 +294,7 @@ func (r *HealthRecordResolver) ToEncounterRecord() (*EncounterRecordResolver, bo
 	return resolver, true
 }
 
-//ToAllergyRecord ...
+// ToAllergyRecord ...
 func (r *HealthRecordResolver) ToAllergyRecord() (*AllergyRecordResolver, bool) {
 	var resolver *AllergyRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -303,7 +303,7 @@ func (r *HealthRecordResolver) ToAllergyRecord() (*AllergyRecordResolver, bool) 
 	return resolver, true
 }
 
-//ToMedicationRecord ...
+// ToMedicationRecord ...
 func (r *HealthRecordResolver) ToMedicationRecord() (*MedicationRecordResolver, bool) {
 	var resolver *MedicationRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -312,7 +312,7 @@ func (r *HealthRecordResolver) ToMedicationRecord() (*MedicationRecordResolver, 
 	return resolver, true
 }
 
-//ToMolecularSequenceRecord ...
+// ToMolecularSequenceRecord ...
 func (r *HealthRecordResolver) ToMolecularSequenceRecord() (*MolecularSequenceRecordResolver, bool) {
 	var resolver *MolecularSequenceRecordResolver
 	bsonBytes, _ := bson.Marshal(r.M)
@@ -325,17 +325,17 @@ func (r *HealthRecordResolver) ToMolecularSequenceRecord() (*MolecularSequenceRe
 Diagnosis Resolver
 ================================*/
 
-//DiagnosisResolver ...
+// DiagnosisResolver ...
 type DiagnosisResolver struct {
 	M *model.Diagnosis
 }
 
-//Name ...
+// Name ...
 func (r *DiagnosisResolver) Name() string {
 	return r.M.Name
 }
 
-//Name ...
+// Name ...
 func (r *DiagnosisResolver) Code() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.M.Code}
 }
@@ -344,17 +344,17 @@ func (r *DiagnosisResolver) Code() *ClinicalCodeResolver {
 Reason Resolver
 ================================*/
 
-//ReasonResolver ...
+// ReasonResolver ...
 type ReasonResolver struct {
 	M *model.Reason
 }
 
-//Name ...
+// Name ...
 func (r *ReasonResolver) Name() string {
 	return r.M.Name
 }
 
-//Name ...
+// Name ...
 func (r *ReasonResolver) Code() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.M.Code}
 }

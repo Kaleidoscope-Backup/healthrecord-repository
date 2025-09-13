@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//SleepStageType ...
+// SleepStageType ...
 type SleepStageType string
 
 const (
@@ -23,7 +23,7 @@ const (
 	STAGE_N4 SleepStageType = "STAGE_N4"
 )
 
-//Sleep stage ...
+// Sleep stage ...
 type SleepStage struct {
 	Id              string          `json:"id" bson:"_id"`
 	Type            *SleepStageType `json:"type" bson:"type"`
@@ -34,7 +34,7 @@ type SleepStage struct {
 	Meta            *models.Meta    //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//Sleep stage input ...
+// Sleep stage input ...
 type SleepStageInput struct {
 	Type            *SleepStageType `json:"type"`
 	Duration        *float64        `json:"duration"`
@@ -43,7 +43,7 @@ type SleepStageInput struct {
 	SleepPeriodTime *float64        `json:"sleepPeriodTime"`
 }
 
-//SleepContinuity ...
+// SleepContinuity ...
 type SleepContinuity struct {
 	Id              string       `json:"id" bson:"_id"`
 	SourceOfArousal *string      `json:"sourceOfArousal" bson:"sourceOfArousal"`
@@ -56,7 +56,7 @@ type SleepContinuity struct {
 	Meta            *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//SleepContinuityInput ...
+// SleepContinuityInput ...
 type SleepContinuityInput struct {
 	SourceOfArousal *string  `json:"sourceOfArousal"`
 	NermCount       *int32   `json:"nermCount"`
@@ -67,7 +67,7 @@ type SleepContinuityInput struct {
 	TotalIndex      *float64 `json:"totalIndex"`
 }
 
-//SleepRecordCreate ...
+// SleepRecordCreate ...
 type SleepRecordCreate struct {
 	HealthRecordCreate
 	StartTime          util.Time               `json:"startTime"`
@@ -86,7 +86,7 @@ type SleepRecordCreate struct {
 	SleepContinuities  *[]SleepContinuityInput `json:"sleepContinuities"`
 }
 
-//SleepRecord ...
+// SleepRecord ...
 type SleepRecord struct {
 	HealthRecord
 	Id                 string             `json:"id" bson:"_id"`

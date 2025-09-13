@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -14,13 +14,13 @@ import (
 NutritionOrderRecord  service
 ==========================================================================================*/
 
-//NutritionOrderRecordService is for creating habit
+// NutritionOrderRecordService is for creating habit
 type NutritionOrderRecordService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewNutritionOrderRecordService Data Access Layer
+// NewNutritionOrderRecordService Data Access Layer
 func NewNutritionOrderRecordService(dal mserver.DataAccessLayer, log *logging.Logger) *NutritionOrderRecordService {
 	return &NutritionOrderRecordService{dal: dal, log: log}
 }
@@ -29,7 +29,7 @@ func NewNutritionOrderRecordService(dal mserver.DataAccessLayer, log *logging.Lo
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *NutritionOrderRecordService) FindByID(id string) (*model.NutritionOrderRecord, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -48,7 +48,7 @@ func (u *NutritionOrderRecordService) FindByID(id string) (*model.NutritionOrder
 	return nutritionOrder, nil
 }
 
-//FindByConsumerID ..
+// FindByConsumerID ..
 func (u *NutritionOrderRecordService) FindByConsumerID(id string) (*[]*model.NutritionOrderRecord, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -75,7 +75,7 @@ func (u *NutritionOrderRecordService) FindByConsumerID(id string) (*[]*model.Nut
 Mutation Operations
 ==========================================================================================*/
 
-//CreateNutritionOrderRecord will create a new record in Mongo using the Data Access Layer ...
+// CreateNutritionOrderRecord will create a new record in Mongo using the Data Access Layer ...
 func (u *NutritionOrderRecordService) CreateNutritionOrderRecord(nutritionOrderRecord *model.NutritionOrderRecord) (*model.NutritionOrderRecord, error) {
 
 	if &nutritionOrderRecord.Status == nil || &nutritionOrderRecord.Orderer == nil || &nutritionOrderRecord.Product == nil || &nutritionOrderRecord.RouteOfAdministration == nil {

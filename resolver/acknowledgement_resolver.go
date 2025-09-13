@@ -1,45 +1,45 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 Acknowledgement Resolver
 ================================*/
 
-//AcknowledgementResolver ..
+// AcknowledgementResolver ..
 type AcknowledgementResolver struct {
 	A *model.Acknowledgement
 }
 
-//Id ..
+// Id ..
 func (r *AcknowledgementResolver) Id() string {
 	return r.A.Id
 }
 
-//Created ..
+// Created ..
 func (r *AcknowledgementResolver) Created() util.Time {
 	return r.A.Created
 }
 
-//ConsumerID ..
+// ConsumerID ..
 func (r *AcknowledgementResolver) ConsumerID() string {
 	return r.A.ConsumerID
 }
 
-//RefrenceNotification ..
+// RefrenceNotification ..
 func (r *AcknowledgementResolver) RefrenceNotification() string {
 	return r.A.RefrenceNotification
 }
 
-//AckOption ..
+// AckOption ..
 func (r *AcknowledgementResolver) AckOption() string {
 	return r.A.AckOption
 }
 
-//Note ..
+// Note ..
 func (r *AcknowledgementResolver) Note() *string {
 	return r.A.Note
 }

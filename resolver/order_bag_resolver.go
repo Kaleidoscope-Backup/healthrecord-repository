@@ -1,45 +1,45 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 OrderBagResolver Resolver
 ================================*/
 
-//OrderBagResolver ..
+// OrderBagResolver ..
 type OrderBagResolver struct {
 	OB *model.OrderBag
 }
 
-//Id ..
+// Id ..
 func (r *OrderBagResolver) Id() string {
 	return r.OB.Id
 }
 
-//ExternalID ..
+// ExternalID ..
 func (r *OrderBagResolver) ExternalID() string {
 	return r.OB.ExternalID
 }
 
-//PaymentType ..
+// PaymentType ..
 func (r *OrderBagResolver) PaymentType() *model.PaymentType {
 	return r.OB.PaymentType
 }
 
-//ConsumerID ..
+// ConsumerID ..
 func (r *OrderBagResolver) ConsumerID() string {
 	return r.OB.ConsumerID
 }
 
-//TimeStamp ..
+// TimeStamp ..
 func (r *OrderBagResolver) TimeStamp() util.Time {
 	return r.OB.TimeStamp
 }
 
-//ShippingAddress array ..
+// ShippingAddress array ..
 func (r *OrderBagResolver) ShippingAddress() *AddressResolver {
 
 	if r.OB.ShippingAddress != nil {
@@ -50,7 +50,7 @@ func (r *OrderBagResolver) ShippingAddress() *AddressResolver {
 	return nil
 }
 
-//OrderedItems array ..
+// OrderedItems array ..
 func (r *OrderBagResolver) OrderedItems() *[]*ReferenceEntityResolver {
 
 	if r.OB.OrderedItems != nil {

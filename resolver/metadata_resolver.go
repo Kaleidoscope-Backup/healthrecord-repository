@@ -1,34 +1,34 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 MetaData Resolver
 ================================*/
 
-//MetaDataResolver ..
+// MetaDataResolver ..
 type MetaDataResolver struct {
 	A *model.MetaData
 }
 
-//Id ..
+// Id ..
 func (r *MetaDataResolver) Id() string {
 	return r.A.Id
 }
 
-//Name ..
+// Name ..
 func (r *MetaDataResolver) Name() string {
 	return r.A.Name
 }
 
-//Value ..
+// Value ..
 func (r *MetaDataResolver) Value() string {
 	return r.A.Value
 }
 
-//Attributes ..
+// Attributes ..
 func (r *MetaDataResolver) Attributes() *[]*MetaDataResolver {
 
 	if r.A.Attributes != nil {

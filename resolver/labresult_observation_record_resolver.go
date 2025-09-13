@@ -1,60 +1,60 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 LabResultObservationRecord Resolver
 ================================*/
 
-//LabResultObservationRecordResolver ..
+// LabResultObservationRecordResolver ..
 type LabResultObservationRecordResolver struct {
 	HealthRecordResolver
 	C *model.LabResultObservationRecord
 }
 
-//Id ..
+// Id ..
 func (r *LabResultObservationRecordResolver) Id() string {
 	return r.C.Id
 }
 
-//Category ..
+// Category ..
 func (r *LabResultObservationRecordResolver) Category() string {
 	return r.C.Category
 }
 
-//Code ..
+// Code ..
 func (r *LabResultObservationRecordResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.C.Code}
 }
 
-//Specimen ..
+// Specimen ..
 func (r *LabResultObservationRecordResolver) Specimen() *string {
 	return r.C.Specimen
 }
 
-//Comment ..
+// Comment ..
 func (r *LabResultObservationRecordResolver) Comment() *string {
 	return r.C.Comment
 }
 
-//Method ..
+// Method ..
 func (r *LabResultObservationRecordResolver) Method() *string {
 	return r.C.Method
 }
 
-//Interpretation ..
+// Interpretation ..
 func (r *LabResultObservationRecordResolver) Interpretation() *string {
 	return r.C.Interpretation
 }
 
-//MethodCode ..
+// MethodCode ..
 func (r *LabResultObservationRecordResolver) MethodCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.C.MethodCode}
 }
 
-//Observations array ..
+// Observations array ..
 func (r *LabResultObservationRecordResolver) Observations() *[]*LabResultObservationResolver {
 
 	if r.C.Observations != nil {

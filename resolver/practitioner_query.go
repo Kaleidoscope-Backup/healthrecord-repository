@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//Practitioner Query
+// Practitioner Query
 func (r *Resolver) Practitioner(ctx context.Context, args struct {
 	ID string
 }) (*PractitionerResolver, error) {
@@ -37,7 +37,7 @@ func resolvePractitionerByID(ctx context.Context, ID *string) (*model.Practition
 	return nil, nil
 }
 
-//PractitionerByEmail Query
+// PractitionerByEmail Query
 func (r *Resolver) PractitionerByEmail(ctx context.Context, args struct {
 	EmailID string
 }) (*[]*PractitionerResolver, error) {

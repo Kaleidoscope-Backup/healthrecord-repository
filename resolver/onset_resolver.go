@@ -1,35 +1,35 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 Onset Resolver
 ================================*/
 
-//OnsetResolver ..
+// OnsetResolver ..
 type OnsetResolver struct {
 	M *model.Onset
 }
 
-//Id ..
+// Id ..
 func (r *OnsetResolver) Id() string {
 	return r.M.Id
 }
 
-//Date ..
+// Date ..
 func (r *OnsetResolver) Date() *util.Time {
 	return r.M.Date
 }
 
-//Age ..
+// Age ..
 func (r *OnsetResolver) Age() *string {
 	return r.M.Age
 }
 
-//Note ..
+// Note ..
 func (r *OnsetResolver) Note() *string {
 	return r.M.Note
 }

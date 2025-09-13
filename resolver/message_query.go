@@ -1,13 +1,13 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//Message Query
+// Message Query
 func (r *Resolver) Message(ctx context.Context, args struct {
 	ID string
 }) (*MessageResolver, error) {
@@ -22,7 +22,7 @@ func (r *Resolver) Message(ctx context.Context, args struct {
 	return &MessageResolver{message}, nil
 }
 
-//Conversation ...
+// Conversation ...
 func (r *Resolver) Conversation(ctx context.Context, args struct {
 	From string
 	To   string

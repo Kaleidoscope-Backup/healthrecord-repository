@@ -1,10 +1,10 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//CreateAddress ...
+// CreateAddress ...
 func CreateAddress(addressCreate *model.AddressInput) *model.Address {
 	address := &model.Address{}
 

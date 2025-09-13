@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -14,13 +14,13 @@ import (
 ObservationDefinitionCollection  service
 ==========================================================================================*/
 
-//ObservationDefinitionCollectionService is for creating habit
+// ObservationDefinitionCollectionService is for creating habit
 type ObservationDefinitionCollectionService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewObservationDefinitionCollectionService Data Access Layer
+// NewObservationDefinitionCollectionService Data Access Layer
 func NewObservationDefinitionCollectionService(dal mserver.DataAccessLayer, log *logging.Logger) *ObservationDefinitionCollectionService {
 	return &ObservationDefinitionCollectionService{dal: dal, log: log}
 }
@@ -29,7 +29,7 @@ func NewObservationDefinitionCollectionService(dal mserver.DataAccessLayer, log 
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *ObservationDefinitionCollectionService) FindByID(id string) (*model.ObservationDefinitionCollection, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -48,7 +48,7 @@ func (u *ObservationDefinitionCollectionService) FindByID(id string) (*model.Obs
 	return obsCollectDef, nil
 }
 
-//FindObservationDefinitionCollections ...
+// FindObservationDefinitionCollections ...
 func (u *ObservationDefinitionCollectionService) FindObservationDefinitionCollections(param *model.ObservationDefinitionCollectionQueryParam) (*[]*model.ObservationDefinitionCollection, error) {
 	if param == nil {
 		return nil, errors.New("Missing parameter")
@@ -90,7 +90,7 @@ func (u *ObservationDefinitionCollectionService) FindObservationDefinitionCollec
 Mutation Operations
 ==========================================================================================*/
 
-//CreateObservationDefinitionCollection will create a new record in Mongo using the Data Access Layer ...
+// CreateObservationDefinitionCollection will create a new record in Mongo using the Data Access Layer ...
 func (u *ObservationDefinitionCollectionService) CreateObservationDefinitionCollection(obsCollectDef *model.ObservationDefinitionCollection) (*model.ObservationDefinitionCollection, error) {
 
 	if obsCollectDef.Name == "" || &obsCollectDef.Language == nil {

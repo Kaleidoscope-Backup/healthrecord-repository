@@ -1,29 +1,29 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Attribute Resolver
 ================================*/
 
-//AttributeResolver ..
+// AttributeResolver ..
 type AttributeResolver struct {
 	A *model.Attribute
 }
 
-//Id ..
+// Id ..
 func (r *AttributeResolver) Id() string {
 	return r.A.Id
 }
 
-//Name ..
+// Name ..
 func (r *AttributeResolver) Name() string {
 	return r.A.Name
 }
 
-//Value ..
+// Value ..
 func (r *AttributeResolver) Value() *ValueResolver {
 	return &ValueResolver{&r.A.Value}
 }

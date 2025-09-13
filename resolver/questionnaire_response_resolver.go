@@ -1,51 +1,51 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
-//QuestionnaireResponseResolver ..
+// QuestionnaireResponseResolver ..
 type QuestionnaireResponseResolver struct {
 	Q *model.QuestionnaireResponse
 }
 
-//Id ..
+// Id ..
 func (r *QuestionnaireResponseResolver) Id() string {
 	return r.Q.Id
 }
 
-//Code ..
+// Code ..
 func (r *QuestionnaireResponseResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.Q.Code}
 }
 
-//Questionnaire ..
+// Questionnaire ..
 func (r *QuestionnaireResponseResolver) Questionnaire() string {
 	return r.Q.Questionnaire
 }
 
-//ConsumerID ..
+// ConsumerID ..
 func (r *QuestionnaireResponseResolver) ConsumerID() string {
 	return r.Q.ConsumerID
 }
 
-//TimeStamp ..
+// TimeStamp ..
 func (r *QuestionnaireResponseResolver) TimeStamp() util.Time {
 	return r.Q.TimeStamp
 }
 
-//Context ..
+// Context ..
 func (r *QuestionnaireResponseResolver) Context() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{r.Q.Context}
 }
 
-//Location ..
+// Location ..
 func (r *QuestionnaireResponseResolver) Location() *GeoLocationResolver {
 	return &GeoLocationResolver{r.Q.Location}
 }
 
-//Items array ..
+// Items array ..
 func (r *QuestionnaireResponseResolver) Items() *[]*AnswerResolver {
 
 	if r.Q.Items != nil {

@@ -1,32 +1,32 @@
 package resolver
 
-import "gitlab.com/karte/healthrecord-repository/model"
+import "github.com/karte/healthrecord-repository/model"
 
 /*==============================
 CodableConceptResolver Resolver
 ================================*/
 
-//CodableConceptResolver ..
+// CodableConceptResolver ..
 type CodableConceptResolver struct {
 	C *model.CodableConcept
 }
 
-//Id ..
+// Id ..
 func (r *CodableConceptResolver) Id() string {
 	return r.C.Id
 }
 
-//Text ..
+// Text ..
 func (r *CodableConceptResolver) Text() *string {
 	return r.C.Text
 }
 
-//ConceptClass ..
+// ConceptClass ..
 func (r *CodableConceptResolver) ConceptClass() string {
 	return r.C.ConceptClass
 }
 
-//Coding array ..
+// Coding array ..
 func (r *CodableConceptResolver) Coding() *[]*CodeResolver {
 
 	if r.C.Coding != nil {

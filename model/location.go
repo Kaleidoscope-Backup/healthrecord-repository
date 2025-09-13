@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//LocationMode ...
+// LocationMode ...
 type LocationMode string
 
 const (
@@ -16,7 +16,7 @@ const (
 	LOCATION_INSTANCE LocationMode = "LOCATION_INSTANCE"
 )
 
-//LocationPhysicalType ...
+// LocationPhysicalType ...
 type LocationPhysicalType string
 
 const (
@@ -63,7 +63,7 @@ const (
 	LOCATION_JURISDICTION LocationPhysicalType = "LOCATION_JURISDICTION"
 )
 
-//LocationInput ...
+// LocationInput ...
 type LocationInput struct {
 	Name                 string                 `json:"name" bson:"name"`
 	Alias                *[]string              `json:"alias" bson:"alias"`
@@ -83,7 +83,7 @@ type LocationInput struct {
 	ClosingTime          *util.Time             `json:"closingTime" bson:"closingTime"`
 }
 
-//Location ...
+// Location ...
 type Location struct {
 	Id                   string                `json:"id" bson:"_id"`
 	Name                 string                `json:"name" bson:"name"`

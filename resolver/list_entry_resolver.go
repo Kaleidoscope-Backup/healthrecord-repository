@@ -1,35 +1,35 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 ListEntry Resolver
 ================================*/
 
-//ListEntryResolver ..
+// ListEntryResolver ..
 type ListEntryResolver struct {
 	L *model.ListEntry
 }
 
-//Id ..
+// Id ..
 func (r *ListEntryResolver) Id() string {
 	return r.L.Id
 }
 
-//Date ..
+// Date ..
 func (r *ListEntryResolver) Date() *util.Time {
 	return r.L.Date
 }
 
-//Deleted ..
+// Deleted ..
 func (r *ListEntryResolver) Deleted() *bool {
 	return r.L.Deleted
 }
 
-//Entry array ..
+// Entry array ..
 func (r *ListEntryResolver) Entry() *[]*AttributeResolver {
 
 	if r.L.Entry != nil {

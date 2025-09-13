@@ -1,25 +1,25 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//StrengthResolver ..
+// StrengthResolver ..
 type StrengthResolver struct {
 	M *model.Strength
 }
 
-//Id ..
+// Id ..
 func (r *StrengthResolver) Id() string {
 	return r.M.Id
 }
 
-//Number ..
+// Number ..
 func (r *StrengthResolver) Number() int32 {
 	return r.M.Number
 }
 
-//Unit ..
+// Unit ..
 func (r *StrengthResolver) Unit() string {
 	return r.M.Unit
 }

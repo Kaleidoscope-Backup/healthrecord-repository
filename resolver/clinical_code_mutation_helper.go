@@ -1,8 +1,8 @@
 package resolver
 
-import "gitlab.com/karte/healthrecord-repository/model"
+import "github.com/karte/healthrecord-repository/model"
 
-//Resolve
+// Resolve
 func resolveClinicalCodeFromName(name string) *model.ClinicalCode {
 	cc := &model.ClinicalCode{}
 

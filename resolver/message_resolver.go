@@ -1,45 +1,45 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 Message Resolver
 ================================*/
 
-//MessageResolver ..
+// MessageResolver ..
 type MessageResolver struct {
 	M *model.Message
 }
 
-//Id ..
+// Id ..
 func (r *MessageResolver) Id() string {
 	return r.M.Id
 }
 
-//Message ..
+// Message ..
 func (r *MessageResolver) Message() string {
 	return r.M.Message
 }
 
-//CreatedAt ..
+// CreatedAt ..
 func (r *MessageResolver) CreatedAt() util.Time {
 	return r.M.CreatedAt
 }
 
-//From ..
+// From ..
 func (r *MessageResolver) From() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.M.From}
 }
 
-//To ..
+// To ..
 func (r *MessageResolver) To() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.M.To}
 }
 
-//Attachments ..
+// Attachments ..
 func (r *MessageResolver) Attachments() *[]*AttachmentResolver {
 
 	if r.M.Attachments != nil {
@@ -63,7 +63,7 @@ func (r *MessageResolver) Attachments() *[]*AttachmentResolver {
 	return nil
 }
 
-//Records ..
+// Records ..
 func (r *MessageResolver) Records() *[]*ReferenceHealthRecordResolver {
 
 	if r.M.Records != nil {

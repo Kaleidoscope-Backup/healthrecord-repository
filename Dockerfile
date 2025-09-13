@@ -1,18 +1,23 @@
-# Start from a Debian image with the latest version of Go installed
-# and a workspace (GOPATH) configured at /go.
-FROM golang:latest
+FROM golang:1.24
 EXPOSE 5000
 
-ENV SRC_DIR=/go/src/gitlab.com/karte/healthrecord-repository/
-# Add the source code:
-COPY . $SRC_DIR
+ENV SRC_DIR=/go/src/github.com/karte/healthrecord-repository/
 WORKDIR $SRC_DIR
 
-# Build it:
-RUN export PATH=$PATH:$GOPATH/bin
-RUN go get ./...
-RUN go get -v github.com/kevinburke/go-bindata
-RUN go get -v github.com/kevinburke/go-bindata/...
+# Copy source
+COPY . .
+
+# Initialize Go modules (only if not already present)
+RUN go mod init github.com/karte/healthrecord-repository || true
+RUN go mod tidy
+
+# Install dependencies
+RUN go install github.com/kevinburke/go-bindata/...@latest
+
+# Generate schema code
 RUN go generate ./schema
-RUN go build cmd/health_record_repository/main.go
-ENTRYPOINT ["health_record_repository"]
+
+# Build binary
+RUN go build -o health_record_repository ./cmd/health_record_repository
+
+ENTRYPOINT ["./health_record_repository"]

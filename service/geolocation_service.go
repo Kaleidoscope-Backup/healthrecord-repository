@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 GeoLocation service
 ==========================================================================================*/
 
-//GeoLocationService ..
+// GeoLocationService ..
 type GeoLocationService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewGeoLocationService creates a new GeoLocation service that has all calls to the database, queries and mutations via the Data Access Layer
+// NewGeoLocationService creates a new GeoLocation service that has all calls to the database, queries and mutations via the Data Access Layer
 func NewGeoLocationService(dal mserver.DataAccessLayer, log *logging.Logger) *GeoLocationService {
 	return &GeoLocationService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewGeoLocationService(dal mserver.DataAccessLayer, log *logging.Logger) *Ge
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *GeoLocationService) FindByID(id string) (*model.GeoLocation, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -53,7 +53,7 @@ func (u *GeoLocationService) FindByID(id string) (*model.GeoLocation, error) {
 Mutation Operations
 ==========================================================================================*/
 
-//CreateGeoLocation will create a new geo location in Mongo using the Data Access Layer
+// CreateGeoLocation will create a new geo location in Mongo using the Data Access Layer
 func (u *GeoLocationService) CreateGeoLocation(location *model.GeoLocation) (*model.GeoLocation, error) {
 
 	if &location.Latitude == nil || &location.Longitude == nil {

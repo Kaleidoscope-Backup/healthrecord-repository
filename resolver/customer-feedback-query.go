@@ -1,13 +1,13 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/service"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//CustomerFeedback ...
+// CustomerFeedback ...
 func (r *Resolver) CustomerFeedback(ctx context.Context, args struct {
 	ID string
 }) (*CustomerFeedbackResolver, error) {
@@ -21,7 +21,7 @@ func (r *Resolver) CustomerFeedback(ctx context.Context, args struct {
 	return &CustomerFeedbackResolver{feedback}, nil
 }
 
-//CustomerFeedbacks ...
+// CustomerFeedbacks ...
 func (r *Resolver) CustomerFeedbacks(ctx context.Context, args struct {
 	ApplicationID string
 }) (*[]*CustomerFeedbackResolver, error) {

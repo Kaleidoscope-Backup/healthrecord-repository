@@ -1,25 +1,25 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 FamilyMemberHistoryRecord  Resolver
 ================================*/
 
-//FamilyMemberHistoryRecordResolver ...
+// FamilyMemberHistoryRecordResolver ...
 type FamilyMemberHistoryRecordResolver struct {
 	HealthRecordResolver
 	M *model.FamilyMemberHistoryRecord
 }
 
-//Id ...
+// Id ...
 func (r *FamilyMemberHistoryRecordResolver) Id() string {
 	return r.M.Id
 }
 
-//MemberHistory array ..
+// MemberHistory array ..
 func (r *FamilyMemberHistoryRecordResolver) MemberHistory() *[]*FamilyMemberHistoryResolver {
 
 	if r.M.MemberHistory != nil {

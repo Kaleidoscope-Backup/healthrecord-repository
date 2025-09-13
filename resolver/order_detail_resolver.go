@@ -1,110 +1,110 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 OrderDetailResolver Resolver
 ================================*/
 
-//OrderDetailResolver ..
+// OrderDetailResolver ..
 type OrderDetailResolver struct {
 	OR *model.OrderDetail
 }
 
-//Id ..
+// Id ..
 func (r *OrderDetailResolver) Id() string {
 	return r.OR.Id
 }
 
-//Status ..
+// Status ..
 func (r *OrderDetailResolver) Status() *model.OrderStatus {
 	return r.OR.Status
 }
 
-//Priority ..
+// Priority ..
 func (r *OrderDetailResolver) Priority() *model.Priority {
 	return r.OR.Priority
 }
 
-//FromName ..
+// FromName ..
 func (r *OrderDetailResolver) FromName() *string {
 	return r.OR.FromName
 }
 
-//FromID ..
+// FromID ..
 func (r *OrderDetailResolver) FromID() *string {
 	return r.OR.FromID
 }
 
-//ToName ..
+// ToName ..
 func (r *OrderDetailResolver) ToName() *string {
 	return r.OR.ToName
 }
 
-//ToID ..
+// ToID ..
 func (r *OrderDetailResolver) ToID() *string {
 	return r.OR.ToID
 }
 
-//Quantity ..
+// Quantity ..
 func (r *OrderDetailResolver) Quantity() *int32 {
 	return r.OR.Quantity
 }
 
-//TotalPrice ..
+// TotalPrice ..
 func (r *OrderDetailResolver) TotalPrice() *float64 {
 	return r.OR.TotalPrice
 }
 
-//TimeStamp ..
+// TimeStamp ..
 func (r *OrderDetailResolver) TimeStamp() *util.Time {
 	return r.OR.TimeStamp
 }
 
-//Name ..
+// Name ..
 func (r *OrderDetailResolver) Name() *string {
 	return r.OR.Name
 }
 
-//Category ..
+// Category ..
 func (r *OrderDetailResolver) Category() *string {
 	return r.OR.Category
 }
 
-//Label ..
+// Label ..
 func (r *OrderDetailResolver) Label() *string {
 	return r.OR.Label
 }
 
-//Description ..
+// Description ..
 func (r *OrderDetailResolver) Description() *string {
 	return r.OR.Description
 }
 
-//Image ..
+// Image ..
 func (r *OrderDetailResolver) Image() *string {
 	return r.OR.Image
 }
 
-//Supplier ..
+// Supplier ..
 func (r *OrderDetailResolver) Supplier() *string {
 	return r.OR.Supplier
 }
 
-//Vendor ..
+// Vendor ..
 func (r *OrderDetailResolver) Vendor() *string {
 	return r.OR.Vendor
 }
 
-//UnitPrice ..
+// UnitPrice ..
 func (r *OrderDetailResolver) UnitPrice() *float64 {
 	return r.OR.UnitPrice
 }
 
-//Currency ..
+// Currency ..
 func (r *OrderDetailResolver) Currency() *model.Currency {
 	return r.OR.Currency
 }

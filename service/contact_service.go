@@ -2,22 +2,22 @@ package service
 
 import (
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 Contact service
 ==========================================================================================*/
 
-//ContactService is for creating contact
+// ContactService is for creating contact
 type ContactService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewContactervice creates a new Contact service that has all calls to the database, queries and mutations via the Data Access Layer
+// NewContactervice creates a new Contact service that has all calls to the database, queries and mutations via the Data Access Layer
 func NewContactervice(dal mserver.DataAccessLayer, log *logging.Logger) *ContactService {
 	return &ContactService{dal: dal, log: log}
 }
@@ -26,7 +26,7 @@ func NewContactervice(dal mserver.DataAccessLayer, log *logging.Logger) *Contact
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *ContactService) FindByID(id string) (*model.Contact, error) {
 	//find the matching Contact (if any) from Mongo
 	p, err := u.dal.Get(id, "Contact")
@@ -45,7 +45,7 @@ func (u *ContactService) FindByID(id string) (*model.Contact, error) {
 Mutation Operations
 ==========================================================================================*/
 
-//CreateContact will create a new geo location in Mongo using the Data Access Layer
+// CreateContact will create a new geo location in Mongo using the Data Access Layer
 func (u *ContactService) CreateContact(contact *model.Contact) (*model.Contact, error) {
 	_, err := u.dal.Post(contact)
 	if err != nil {

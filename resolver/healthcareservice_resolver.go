@@ -1,71 +1,71 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
-//HealthcareServiceResolver ..
+// HealthcareServiceResolver ..
 type HealthcareServiceResolver struct {
 	H *model.HealthcareService
 }
 
-//Id ..
+// Id ..
 func (r *HealthcareServiceResolver) Id() string {
 	return r.H.Id
 }
 
-//Active ..
+// Active ..
 func (r *HealthcareServiceResolver) Active() bool {
 	return r.H.Active
 }
 
-//ProvidedBy ..
+// ProvidedBy ..
 func (r *HealthcareServiceResolver) ProvidedBy() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.H.ProvidedBy}
 }
 
-//Category ..
+// Category ..
 func (r *HealthcareServiceResolver) Category() *[]model.HealthcareServiceCategory {
 	return r.H.Category
 }
 
-//Type ..
+// Type ..
 func (r *HealthcareServiceResolver) Type() string {
 	return r.H.Type
 }
 
-//TypeCode ..
+// TypeCode ..
 func (r *HealthcareServiceResolver) TypeCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.H.TypeCode}
 }
 
-//Speciality ..
+// Speciality ..
 func (r *HealthcareServiceResolver) Speciality() *string {
 	return r.H.Speciality
 }
 
-//SpecialityCode ..
+// SpecialityCode ..
 func (r *HealthcareServiceResolver) SpecialityCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.H.SpecialityCode}
 }
 
-//Location ..
+// Location ..
 func (r *HealthcareServiceResolver) Location() *AddressResolver {
 	return &AddressResolver{&r.H.Location}
 }
 
-//Name ..
+// Name ..
 func (r *HealthcareServiceResolver) Name() string {
 	return r.H.Name
 }
 
-//Comment ..
+// Comment ..
 func (r *HealthcareServiceResolver) Comment() *string {
 	return r.H.Comment
 }
 
-//Photo array ..
+// Photo array ..
 func (r *HealthcareServiceResolver) Photo() *[]*AttachmentResolver {
 
 	if r.H.Photo != nil {
@@ -89,7 +89,7 @@ func (r *HealthcareServiceResolver) Photo() *[]*AttachmentResolver {
 	return nil
 }
 
-//Telecom array ..
+// Telecom array ..
 func (r *HealthcareServiceResolver) Telecom() *[]*ContactPointResolver {
 
 	if r.H.Telecom != nil {
@@ -113,7 +113,7 @@ func (r *HealthcareServiceResolver) Telecom() *[]*ContactPointResolver {
 	return nil
 }
 
-//CoverageArea array ..
+// CoverageArea array ..
 func (r *HealthcareServiceResolver) CoverageArea() *[]*LocationResolver {
 
 	if r.H.CoverageArea != nil {
@@ -137,37 +137,37 @@ func (r *HealthcareServiceResolver) CoverageArea() *[]*LocationResolver {
 	return nil
 }
 
-//SeviceProvision ..
+// SeviceProvision ..
 func (r *HealthcareServiceResolver) SeviceProvision() *string {
 	return r.H.SeviceProvision
 }
 
-//SeviceProvisionCode ..
+// SeviceProvisionCode ..
 func (r *HealthcareServiceResolver) SeviceProvisionCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.H.SeviceProvisionCode}
 }
 
-//Eligibility ..
+// Eligibility ..
 func (r *HealthcareServiceResolver) Eligibility() *string {
 	return r.H.Eligibility
 }
 
-//EligibilityCode ..
+// EligibilityCode ..
 func (r *HealthcareServiceResolver) EligibilityCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.H.EligibilityCode}
 }
 
-//EligibilityComment ..
+// EligibilityComment ..
 func (r *HealthcareServiceResolver) EligibilityComment() *string {
 	return r.H.EligibilityComment
 }
 
-//Program ..
+// Program ..
 func (r *HealthcareServiceResolver) Program() *[]string {
 	return r.H.Program
 }
 
-//ProgramCodes array ..
+// ProgramCodes array ..
 func (r *HealthcareServiceResolver) ProgramCodes() *[]*CodableConceptResolver {
 
 	if r.H.ProgramCodes != nil {
@@ -191,12 +191,12 @@ func (r *HealthcareServiceResolver) ProgramCodes() *[]*CodableConceptResolver {
 	return nil
 }
 
-//Characteristic ..
+// Characteristic ..
 func (r *HealthcareServiceResolver) Characteristic() *[]string {
 	return r.H.Characteristic
 }
 
-//CharacteristicCodes array ..
+// CharacteristicCodes array ..
 func (r *HealthcareServiceResolver) CharacteristicCodes() *[]*CodableConceptResolver {
 
 	if r.H.CharacteristicCodes != nil {
@@ -220,12 +220,12 @@ func (r *HealthcareServiceResolver) CharacteristicCodes() *[]*CodableConceptReso
 	return nil
 }
 
-//Communication ..
+// Communication ..
 func (r *HealthcareServiceResolver) Communication() *[]string {
 	return r.H.Communication
 }
 
-//CommunicationCodes array ..
+// CommunicationCodes array ..
 func (r *HealthcareServiceResolver) CommunicationCodes() *[]*CodableConceptResolver {
 
 	if r.H.CommunicationCodes != nil {
@@ -249,12 +249,12 @@ func (r *HealthcareServiceResolver) CommunicationCodes() *[]*CodableConceptResol
 	return nil
 }
 
-//ReferralMethod ..
+// ReferralMethod ..
 func (r *HealthcareServiceResolver) ReferralMethod() *[]string {
 	return r.H.ReferralMethod
 }
 
-//ReferralMethodCodes array ..
+// ReferralMethodCodes array ..
 func (r *HealthcareServiceResolver) ReferralMethodCodes() *[]*CodableConceptResolver {
 
 	if r.H.ReferralMethodCodes != nil {
@@ -278,47 +278,47 @@ func (r *HealthcareServiceResolver) ReferralMethodCodes() *[]*CodableConceptReso
 	return nil
 }
 
-//AppointmentRequired ..
+// AppointmentRequired ..
 func (r *HealthcareServiceResolver) AppointmentRequired() *bool {
 	return r.H.AppointmentRequired
 }
 
-//AllDay ..
+// AllDay ..
 func (r *HealthcareServiceResolver) AllDay() *bool {
 	return r.H.AllDay
 }
 
-//AvailableDaysOfWeek ..
+// AvailableDaysOfWeek ..
 func (r *HealthcareServiceResolver) AvailableDaysOfWeek() *model.DaysOfWeek {
 	return r.H.AvailableDaysOfWeek
 }
 
-//AvailableStartTime ..
+// AvailableStartTime ..
 func (r *HealthcareServiceResolver) AvailableStartTime() *util.Time {
 	return r.H.AvailableStartTime
 }
 
-//AvailableEndTime ..
+// AvailableEndTime ..
 func (r *HealthcareServiceResolver) AvailableEndTime() *util.Time {
 	return r.H.AvailableEndTime
 }
 
-//NotAvailableDescription ..
+// NotAvailableDescription ..
 func (r *HealthcareServiceResolver) NotAvailableDescription() *string {
 	return r.H.NotAvailableDescription
 }
 
-//NotAvailableDuring ..
+// NotAvailableDuring ..
 func (r *HealthcareServiceResolver) NotAvailableDuring() *PeriodResolver {
 	return &PeriodResolver{r.H.NotAvailableDuring}
 }
 
-//AvailabilityException ..
+// AvailabilityException ..
 func (r *HealthcareServiceResolver) AvailabilityException() *string {
 	return r.H.AvailabilityException
 }
 
-//Endpoints array ..
+// Endpoints array ..
 func (r *HealthcareServiceResolver) Endpoints() *[]*EndpointResolver {
 
 	if r.H.Endpoints != nil {

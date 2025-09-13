@@ -1,40 +1,40 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 NutritionOrderRecord Resolver
 ================================*/
 
-//NutritionOrderRecordResolver ..
+// NutritionOrderRecordResolver ..
 type NutritionOrderRecordResolver struct {
 	HealthRecordResolver
 	U *model.NutritionOrderRecord
 }
 
-//Id ..
+// Id ..
 func (r *NutritionOrderRecordResolver) Id() string {
 	return r.U.Id
 }
 
-//Status ..
+// Status ..
 func (r *NutritionOrderRecordResolver) Status() model.NutritionOrderStatus {
 	return r.U.Status
 }
 
-//Orderer ..
+// Orderer ..
 func (r *NutritionOrderRecordResolver) Orderer() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.U.Orderer}
 }
 
-//Product ..
+// Product ..
 func (r *NutritionOrderRecordResolver) Product() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{&r.U.Product}
 }
 
-//AllergyIntolerence array ..
+// AllergyIntolerence array ..
 func (r *NutritionOrderRecordResolver) AllergyIntolerence() *[]*ReferenceHealthRecordResolver {
 
 	if r.U.AllergyIntolerence != nil {
@@ -58,17 +58,17 @@ func (r *NutritionOrderRecordResolver) AllergyIntolerence() *[]*ReferenceHealthR
 	return nil
 }
 
-//FoodPreferenceModifier ..
+// FoodPreferenceModifier ..
 func (r *NutritionOrderRecordResolver) FoodPreferenceModifier() *[]model.Diet {
 	return r.U.FoodPreferenceModifier
 }
 
-//ExcludeFoodModifier ..
+// ExcludeFoodModifier ..
 func (r *NutritionOrderRecordResolver) ExcludeFoodModifier() *[]string {
 	return r.U.ExcludeFoodModifier
 }
 
-//ExcludeFoodModifierCode array ..
+// ExcludeFoodModifierCode array ..
 func (r *NutritionOrderRecordResolver) ExcludeFoodModifierCode() *[]*CodableConceptResolver {
 
 	if r.U.ExcludeFoodModifierCode != nil {
@@ -92,22 +92,22 @@ func (r *NutritionOrderRecordResolver) ExcludeFoodModifierCode() *[]*CodableConc
 	return nil
 }
 
-//RouteOfAdministration ..
+// RouteOfAdministration ..
 func (r *NutritionOrderRecordResolver) RouteOfAdministration() model.AdministrationRoute {
 	return r.U.RouteOfAdministration
 }
 
-//RouteOfAdministrationCode ..
+// RouteOfAdministrationCode ..
 func (r *NutritionOrderRecordResolver) RouteOfAdministrationCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.U.RouteOfAdministrationCode}
 }
 
-//MaxVolumeToDeliver ..
+// MaxVolumeToDeliver ..
 func (r *NutritionOrderRecordResolver) MaxVolumeToDeliver() *int32 {
 	return r.U.MaxVolumeToDeliver
 }
 
-//AdministrationInstruction ..
+// AdministrationInstruction ..
 func (r *NutritionOrderRecordResolver) AdministrationInstruction() *string {
 	return r.U.AdministrationInstruction
 }

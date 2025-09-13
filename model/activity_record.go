@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//ActivityType ...
+// ActivityType ...
 type ActivityType string
 
 const (
@@ -175,7 +175,7 @@ const (
 	ACTIVITY_TYPE_OTHER ActivityType = "ACTIVITY_TYPE_OTHER"
 )
 
-//ActivityRecordQueryParam ...
+// ActivityRecordQueryParam ...
 type ActivityRecordQueryParam struct {
 	ConsumerID   string        `json:"consumerID"`
 	ActivityType *ActivityType `json:"activityType"`
@@ -183,7 +183,7 @@ type ActivityRecordQueryParam struct {
 	Limit        *int32        `json:"limit"`
 }
 
-//ActivityRecordCreate ...
+// ActivityRecordCreate ...
 type ActivityRecordCreate struct {
 	HealthRecordCreate
 	ActivityType  ActivityType         `json:"activityType"`
@@ -203,7 +203,7 @@ type ActivityRecordCreate struct {
 	Sedentary     *int32               `json:"sedentary"`
 }
 
-//ActivityRecord ...
+// ActivityRecord ...
 type ActivityRecord struct {
 	HealthRecord
 	Id            string          `json:"id" bson:"_id"`

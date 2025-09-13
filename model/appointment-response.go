@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/healthrecord-repository/util"
+import "github.com/karte/healthrecord-repository/util"
 
-//AppointmentResponseStatus ...
+// AppointmentResponseStatus ...
 type AppointmentResponseStatus string
 
 const (
@@ -22,7 +22,7 @@ const (
 	APPOINTMENT_RESPONSE_STATUS_ENTEREDINERROR AppointmentResponseStatus = "APPOINTMENT_RESPONSE_STATUS_ENTEREDINERROR"
 )
 
-//AppointmentResponseCreate ...
+// AppointmentResponseCreate ...
 type AppointmentResponseCreate struct {
 	Status      AppointmentResponseStatus `json:"status"`
 	Appointment ReferenceEntityInput      `json:"appointment"`
@@ -32,7 +32,7 @@ type AppointmentResponseCreate struct {
 	Comment     *string                   `json:"comment" bson:"comment"`
 }
 
-//AppointmentResponse ...
+// AppointmentResponse ...
 type AppointmentResponse struct {
 	Id          string                    `json:"id" bson:"_id"`
 	Status      AppointmentResponseStatus `json:"status" bson:"status"`

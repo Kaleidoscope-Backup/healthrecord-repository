@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"gitlab.com/karte/mongo-lib/mserver"
+	"github.com/karte/mongo-lib/mserver"
 )
 
 // Config is used to hold information about the configuration of the Karte server.

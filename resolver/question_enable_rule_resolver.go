@@ -1,45 +1,45 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//QuestionEnableRuleResolver ..
+// QuestionEnableRuleResolver ..
 type QuestionEnableRuleResolver struct {
 	Q *model.QuestionEnableRule
 }
 
-//Id ..
+// Id ..
 func (r *QuestionEnableRuleResolver) Id() string {
 	return r.Q.Id
 }
 
-//HasAnswer ..
+// HasAnswer ..
 func (r *QuestionEnableRuleResolver) HasAnswer() *bool {
 	return r.Q.HasAnswer
 }
 
-//Question ..
+// Question ..
 func (r *QuestionEnableRuleResolver) Question() *int32 {
 	return r.Q.Question
 }
 
-//Answers ..
+// Answers ..
 func (r *QuestionEnableRuleResolver) Answers() *ValueResolver {
 	return &ValueResolver{r.Q.Answers}
 }
 
-//Option ..
+// Option ..
 func (r *QuestionEnableRuleResolver) Option() *int32 {
 	return r.Q.Option
 }
 
-//EnablingRule ..
+// EnablingRule ..
 func (r *QuestionEnableRuleResolver) EnablingRule() model.QuestionEnableRuleType {
 	return r.Q.EnablingRule
 }
 
-//Criteria array ..
+// Criteria array ..
 func (r *QuestionEnableRuleResolver) Criteria() *[]*CriteriaResolver {
 
 	if r.Q.Criteria != nil {

@@ -4,24 +4,25 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	// "gitlab.com/karte/healthrecord-repository/service"
 
-	"gitlab.com/karte/mongo-lib/mserver"
+	// "github.com/karte/healthrecord-repository/service"
+
+	"github.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 SourceConsumerIDService
 ==========================================================================================*/
 
-//SourceConsumerIDService ..
+// SourceConsumerIDService ..
 type SourceConsumerIDService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewSourceConsumerIDService ..
+// NewSourceConsumerIDService ..
 func NewSourceConsumerIDService(dal mserver.DataAccessLayer, log *logging.Logger) *SourceConsumerIDService {
 	return &SourceConsumerIDService{dal: dal, log: log}
 }
@@ -30,7 +31,7 @@ func NewSourceConsumerIDService(dal mserver.DataAccessLayer, log *logging.Logger
 Query Operations
 ==========================================================================================*/
 
-//FindById ..
+// FindById ..
 func (u *SourceConsumerIDService) FindById(id string) (*model.SourceConsumerID, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -55,7 +56,7 @@ func (u *SourceConsumerIDService) FindById(id string) (*model.SourceConsumerID, 
 Mutation Operations
 ==========================================================================================*/
 
-//CreateSourceConsumerID will create a new SourceConsumerID in Mongo using the Data Access Layer
+// CreateSourceConsumerID will create a new SourceConsumerID in Mongo using the Data Access Layer
 func (u *SourceConsumerIDService) CreateSourceConsumerID(sourceConsumerID *model.SourceConsumerID) (*model.SourceConsumerID, error) {
 	//Validate required fields on Model element are being passed in
 	if sourceConsumerID.System == "" {

@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//NotificationStatus ...
+// NotificationStatus ...
 type NotificationStatus string
 
 const (
@@ -15,7 +15,7 @@ const (
 	ACKNOWLEDGED_NOTIFICATION NotificationStatus = "ACKNOWLEDGED_NOTIFICATION"
 )
 
-//NotificationCreate ..
+// NotificationCreate ..
 type NotificationCreate struct {
 	Name        string               `json:"name"`
 	Category    string               `json:"category"`
@@ -27,7 +27,7 @@ type NotificationCreate struct {
 	AckOptions  []string             `json:"ackOptions"`
 }
 
-//Notification ..
+// Notification ..
 type Notification struct {
 	Id          string             `json:"id" bson:"_id"`
 	Name        string             `json:"name" bson:"name"`

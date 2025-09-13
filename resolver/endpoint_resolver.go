@@ -1,65 +1,65 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//EndpointResolver ..
+// EndpointResolver ..
 type EndpointResolver struct {
 	E *model.Endpoint
 }
 
-//Id ..
+// Id ..
 func (r *EndpointResolver) Id() string {
 	return r.E.Id
 }
 
-//Status ..
+// Status ..
 func (r *EndpointResolver) Status() model.EndpointStatus {
 	return r.E.Status
 }
 
-//Name ..
+// Name ..
 func (r *EndpointResolver) Name() string {
 	return r.E.Name
 }
 
-//ConnectionType ..
+// ConnectionType ..
 func (r *EndpointResolver) ConnectionType() model.EndpointConnectionType {
 	return r.E.ConnectionType
 }
 
-//ManagingOrganization ..
+// ManagingOrganization ..
 func (r *EndpointResolver) ManagingOrganization() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.E.ManagingOrganization}
 }
 
-//Period ..
+// Period ..
 func (r *EndpointResolver) Period() *PeriodResolver {
 	return &PeriodResolver{r.E.Period}
 }
 
-//PayloadType ..
+// PayloadType ..
 func (r *EndpointResolver) PayloadType() *[]string {
 	return r.E.PayloadType
 }
 
-//PlayloadMimeType ..
+// PlayloadMimeType ..
 func (r *EndpointResolver) PlayloadMimeType() *[]string {
 	return r.E.PlayloadMimeType
 }
 
-//Address ..
+// Address ..
 func (r *EndpointResolver) Address() string {
 	return r.E.Address
 }
 
-//Header ..
+// Header ..
 func (r *EndpointResolver) Header() *[]string {
 	return r.E.Header
 }
 
-//Contact array ..
+// Contact array ..
 func (r *EndpointResolver) Contact() *[]*ContactPointResolver {
 
 	if r.E.Contact != nil {
@@ -83,7 +83,7 @@ func (r *EndpointResolver) Contact() *[]*ContactPointResolver {
 	return nil
 }
 
-//PayloadTypeCode array ..
+// PayloadTypeCode array ..
 func (r *EndpointResolver) PayloadTypeCode() *[]*CodableConceptResolver {
 
 	if r.E.PayloadTypeCode != nil {
@@ -107,7 +107,7 @@ func (r *EndpointResolver) PayloadTypeCode() *[]*CodableConceptResolver {
 	return nil
 }
 
-//PlayloadMimeTypeCode array ..
+// PlayloadMimeTypeCode array ..
 func (r *EndpointResolver) PlayloadMimeTypeCode() *[]*CodableConceptResolver {
 
 	if r.E.PlayloadMimeTypeCode != nil {
@@ -131,7 +131,7 @@ func (r *EndpointResolver) PlayloadMimeTypeCode() *[]*CodableConceptResolver {
 	return nil
 }
 
-//ResolveEndpointResolver ...
+// ResolveEndpointResolver ...
 func ResolveEndpointResolver(endpoint *model.Endpoint) *EndpointResolver {
 	if endpoint != nil {
 		return &EndpointResolver{endpoint}

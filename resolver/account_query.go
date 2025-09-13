@@ -1,13 +1,13 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//VerifyAccount ...
+// VerifyAccount ...
 func (r *Resolver) VerifyAccount(ctx context.Context, args *struct {
 	VerificationInfo *model.AccountVerifyInput
 }) (*ResultResolver, error) {
@@ -21,7 +21,7 @@ func (r *Resolver) VerifyAccount(ctx context.Context, args *struct {
 	return &resultResolver, nil
 }
 
-//GenerateOtp ...
+// GenerateOtp ...
 func (r *Resolver) GenerateOtp(ctx context.Context, args struct {
 	UserName string
 }) (*AccountAttributeResolver, error) {

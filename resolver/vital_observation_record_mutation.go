@@ -3,14 +3,14 @@ package resolver
 import (
 	"errors"
 
+	c "github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	logging "github.com/op/go-logging"
-	c "gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//CreateVitalObservationRecord ...
+// CreateVitalObservationRecord ...
 func (r *Resolver) CreateVitalObservationRecord(ctx context.Context, args *struct {
 	VitalObservationRecord *model.VitalObservationRecordCreate
 }) (*VitalObservationRecordResolver, error) {

@@ -3,9 +3,9 @@ package service
 import (
 	"errors"
 
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -13,13 +13,13 @@ import (
 CodableConceptService
 ==========================================================================================*/
 
-//CodableConceptService ...
+// CodableConceptService ...
 type CodableConceptService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewCodableConceptService ...
+// NewCodableConceptService ...
 func NewCodableConceptService(dal mserver.DataAccessLayer, log *logging.Logger) *CodableConceptService {
 	return &CodableConceptService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewCodableConceptService(dal mserver.DataAccessLayer, log *logging.Logger) 
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *CodableConceptService) FindByID(id string) (*model.CodableConcept, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -51,7 +51,7 @@ func (u *CodableConceptService) FindByID(id string) (*model.CodableConcept, erro
 Mutation Operations
 ==========================================================================================*/
 
-//CreateCodableConcept will create a new CodableConcept in Mongo using the Data Access Layer
+// CreateCodableConcept will create a new CodableConcept in Mongo using the Data Access Layer
 func (u *CodableConceptService) CreateCodableConcept(codableConcept *model.CodableConcept) (*model.CodableConcept, error) {
 
 	_, err := u.dal.Post(codableConcept)

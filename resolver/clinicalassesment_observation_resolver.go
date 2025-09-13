@@ -1,39 +1,39 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ClinicalAssesmentObservation Resolver
 ================================*/
 
-//ClinicalAssesmentObservationResolver ..
+// ClinicalAssesmentObservationResolver ..
 type ClinicalAssesmentObservationResolver struct {
 	C *model.ClinicalAssesmentObservation
 }
 
-//Id ..
+// Id ..
 func (r *ClinicalAssesmentObservationResolver) Id() string {
 	return r.C.Id
 }
 
-//Name ..
+// Name ..
 func (r *ClinicalAssesmentObservationResolver) Name() string {
 	return r.C.Name
 }
 
-//Value ..
+// Value ..
 func (r *ClinicalAssesmentObservationResolver) Value() string {
 	return r.C.Value
 }
 
-//Score ..
+// Score ..
 func (r *ClinicalAssesmentObservationResolver) Score() *int32 {
 	return r.C.Score
 }
 
-//Code ..
+// Code ..
 func (r *ClinicalAssesmentObservationResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.C.Code}
 }

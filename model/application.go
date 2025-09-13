@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//ApplicationMetadataType meta data types
+// ApplicationMetadataType meta data types
 type ApplicationMetadataType string
 
 const (
@@ -16,7 +16,7 @@ const (
 	APPMETADATA_RECOMMENDATION ApplicationMetadataType = "APPMETADATA_RECOMMENDATION"
 )
 
-//ApplicationType enum ...
+// ApplicationType enum ...
 type ApplicationType string
 
 const (
@@ -28,7 +28,7 @@ const (
 	WEB_APP ApplicationType = "WEB_APP"
 )
 
-//ApplicationCreate ...
+// ApplicationCreate ...
 type ApplicationCreate struct {
 	Name            string              `json:"name" bson:"name"`
 	CallbackURL     *string             `json:"callbackURL"`
@@ -41,7 +41,7 @@ type ApplicationCreate struct {
 	Attributes      *[]MetaDataInput    `json:"attributes" bson:"attributes"`
 }
 
-//Application ...
+// Application ...
 type Application struct {
 	Id              string           `json:"id" bson:"_id"`
 	Name            string           `json:"name" bson:"name"`
@@ -56,7 +56,7 @@ type Application struct {
 	Meta            *models.Meta     //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//ApplicationProfile ...
+// ApplicationProfile ...
 type ApplicationProfile struct {
 	Name       string      `json:"name"`
 	Value      string      `json:"value"`

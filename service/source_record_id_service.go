@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 SourceRecordIDService
 ==========================================================================================*/
 
-//SourceRecordIDService ..
+// SourceRecordIDService ..
 type SourceRecordIDService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewSourceRecordIDService ..
+// NewSourceRecordIDService ..
 func NewSourceRecordIDService(dal mserver.DataAccessLayer, log *logging.Logger) *SourceRecordIDService {
 	return &SourceRecordIDService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewSourceRecordIDService(dal mserver.DataAccessLayer, log *logging.Logger) 
 Query Operations
 ==========================================================================================*/
 
-//FindById ..
+// FindById ..
 func (u *SourceRecordIDService) FindById(id string) (*model.SourceRecordID, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -53,7 +53,7 @@ func (u *SourceRecordIDService) FindById(id string) (*model.SourceRecordID, erro
 Mutation Operations
 ==========================================================================================*/
 
-//CreateSourceRecordID will create a new SourceRecordID in Mongo using the Data Access Layer
+// CreateSourceRecordID will create a new SourceRecordID in Mongo using the Data Access Layer
 func (u *SourceRecordIDService) CreateSourceRecordID(sourceRecordID *model.SourceRecordID) (*model.SourceRecordID, error) {
 	//Validate required fields on Model element are being passed in
 	if sourceRecordID.System == "" {

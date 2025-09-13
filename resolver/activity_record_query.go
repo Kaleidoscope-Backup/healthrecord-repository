@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//ActivityRecord ...
+// ActivityRecord ...
 func (r *Resolver) ActivityRecord(ctx context.Context, args struct {
 	ID string
 }) (*ActivityRecordResolver, error) {
@@ -23,7 +23,7 @@ func (r *Resolver) ActivityRecord(ctx context.Context, args struct {
 	return &ActivityRecordResolver{healthRecordResolver, activityRecord}, nil
 }
 
-//ActivityRecords ..
+// ActivityRecords ..
 func (r *Resolver) ActivityRecords(ctx context.Context, args struct {
 	Params *model.ActivityRecordQueryParam
 }) (*[]*ActivityRecordResolver, error) {
@@ -45,7 +45,7 @@ func (r *Resolver) ActivityRecords(ctx context.Context, args struct {
 	return &acrrArr, nil
 }
 
-//ActivityRecordsByConsumerID ..
+// ActivityRecordsByConsumerID ..
 func (r *Resolver) ActivityRecordsByConsumerID(ctx context.Context, args struct {
 	ConsumerID string
 }) (*[]*ActivityRecordResolver, error) {

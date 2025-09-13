@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//LabResultObservationCreate ...
+// LabResultObservationCreate ...
 type LabResultObservationCreate struct {
 	Name      string                 `json:"name"`
 	Value     ValueInput             `json:"value"`
@@ -12,7 +12,7 @@ type LabResultObservationCreate struct {
 	Artifacts *[]AttachmentInput     `json:"artifacts"`
 }
 
-//LabResultObservation ...
+// LabResultObservation ...
 type LabResultObservation struct {
 	Id        string            `json:"id" bson:"_id"`
 	Name      string            `json:"name" bson:"name"`
@@ -24,7 +24,7 @@ type LabResultObservation struct {
 	Meta      *models.Meta      //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//LabResultObservationRecordQueryParam ...
+// LabResultObservationRecordQueryParam ...
 type LabResultObservationRecordQueryParam struct {
 	ConsumerID      string    `json:"consumerID"`
 	Name            *string   `json:"name"`
@@ -32,7 +32,7 @@ type LabResultObservationRecordQueryParam struct {
 	ObservationName *[]string `json:"observationName"`
 }
 
-//LabResultObservationRecordCreate ...
+// LabResultObservationRecordCreate ...
 type LabResultObservationRecordCreate struct {
 	HealthRecordCreate
 	Category       string                        `json:"category"`
@@ -45,7 +45,7 @@ type LabResultObservationRecordCreate struct {
 	Observations   *[]LabResultObservationCreate `json:"observations"`
 }
 
-//LabResultObservationRecord ...
+// LabResultObservationRecord ...
 type LabResultObservationRecord struct {
 	HealthRecord
 	Id             string                  `json:"id" bson:"_id"`

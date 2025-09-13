@@ -1,23 +1,23 @@
 package resolver
 
-import "gitlab.com/karte/healthrecord-repository/model"
+import "github.com/karte/healthrecord-repository/model"
 
-//PageInfoResolver ...
+// PageInfoResolver ...
 type PageInfoResolver struct {
 	U *model.PageInfo
 }
 
-//StartCursor ...
+// StartCursor ...
 func (r *PageInfoResolver) StartCursor() *string {
 	return r.U.StartCursor
 }
 
-//EndCursor ...
+// EndCursor ...
 func (r *PageInfoResolver) EndCursor() *string {
 	return r.U.EndCursor
 }
 
-//HasNext ...
+// HasNext ...
 func (r *PageInfoResolver) HasNext() bool {
 	return r.U.HasNext
 }

@@ -1,86 +1,86 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 SleepRecordResolver
 ================================*/
 
-//SleepRecordResolver ..
+// SleepRecordResolver ..
 type SleepRecordResolver struct {
 	HealthRecordResolver
 	C *model.SleepRecord
 }
 
-//Id ..
+// Id ..
 func (r *SleepRecordResolver) Id() string {
 	return r.C.Id
 }
 
-//StartTime ..
+// StartTime ..
 func (r *SleepRecordResolver) StartTime() util.Time {
 	return r.C.StartTime
 }
 
-//EndTime ..
+// EndTime ..
 func (r *SleepRecordResolver) EndTime() util.Time {
 	return r.C.EndTime
 }
 
-//MainSleep ..
+// MainSleep ..
 func (r *SleepRecordResolver) MainSleep() *bool {
 	return r.C.MainSleep
 }
 
-//TimeUnit ..
+// TimeUnit ..
 func (r *SleepRecordResolver) TimeUnit() *string {
 	return r.C.TimeUnit
 }
 
-//TotalRecordingTime ..
+// TotalRecordingTime ..
 func (r *SleepRecordResolver) TotalRecordingTime() *float64 {
 	return r.C.TotalRecordingTime
 }
 
-//TotalSleepTime ..
+// TotalSleepTime ..
 func (r *SleepRecordResolver) TotalSleepTime() *float64 {
 	return r.C.TotalSleepTime
 }
 
-//TimeAwake ..
+// TimeAwake ..
 func (r *SleepRecordResolver) TimeAwake() *float64 {
 	return r.C.TimeAwake
 }
 
-//SleepEfficiency ..
+// SleepEfficiency ..
 func (r *SleepRecordResolver) SleepEfficiency() *float64 {
 	return r.C.SleepEfficiency
 }
 
-//TimeToFallAsleep ..
+// TimeToFallAsleep ..
 func (r *SleepRecordResolver) TimeToFallAsleep() *float64 {
 	return r.C.TimeToFallAsleep
 }
 
-//NumberOfAwekenings ..
+// NumberOfAwekenings ..
 func (r *SleepRecordResolver) NumberOfAwekenings() *int32 {
 	return r.C.NumberOfAwekenings
 }
 
-//TimeAfterWakeup ..
+// TimeAfterWakeup ..
 func (r *SleepRecordResolver) TimeAfterWakeup() *float64 {
 	return r.C.TimeAfterWakeup
 }
 
-//TimeInBed ..
+// TimeInBed ..
 func (r *SleepRecordResolver) TimeInBed() *float64 {
 	return r.C.TimeInBed
 }
 
-//SleepStageSummary array ..
+// SleepStageSummary array ..
 func (r *SleepRecordResolver) SleepStageSummary() *[]*SleepStageResolver {
 
 	if r.C.SleepStageSummary != nil {
@@ -108,7 +108,7 @@ func resolveSleepStageResolver(c *model.SleepStage) *SleepStageResolver {
 	return &SleepStageResolver{c}
 }
 
-//SleepContinuities array ..
+// SleepContinuities array ..
 func (r *SleepRecordResolver) SleepContinuities() *[]*SleepContinuityResolver {
 
 	if r.C.SleepContinuities != nil {

@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//MessageInput ...
+// MessageInput ...
 type MessageInput struct {
 	From        ReferenceActorInput           `json:"from"`
 	To          ReferenceActorInput           `json:"to"`
@@ -15,7 +15,7 @@ type MessageInput struct {
 	CreatedAt   util.Time                     `json:"createdAt"`
 }
 
-//Message ...
+// Message ...
 type Message struct {
 	Id          string                   `json:"id" bson:"_id"`
 	From        ReferenceActor           `json:"from" bson:"from"`

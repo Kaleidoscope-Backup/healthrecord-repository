@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//SocialHistoryObservationRecord ...
+// SocialHistoryObservationRecord ...
 func (r *Resolver) SocialHistoryObservationRecord(ctx context.Context, args struct {
 	ID string
 }) (*SocialHistoryObservationRecordResolver, error) {
@@ -24,7 +24,7 @@ func (r *Resolver) SocialHistoryObservationRecord(ctx context.Context, args stru
 	return &SocialHistoryObservationRecordResolver{healthRecordResolver, addictionRecord}, nil
 }
 
-//SocialHistoryObservationRecords ..
+// SocialHistoryObservationRecords ..
 func (r *Resolver) SocialHistoryObservationRecords(ctx context.Context, args struct {
 	Params *model.SocialHistoryObservationRecordQueryParam
 }) (*[]*SocialHistoryObservationRecordResolver, error) {
@@ -46,7 +46,7 @@ func (r *Resolver) SocialHistoryObservationRecords(ctx context.Context, args str
 	return &shorrArr, nil
 }
 
-//SocialHistoryObservationRecordsByConsumerID ..
+// SocialHistoryObservationRecordsByConsumerID ..
 func (r *Resolver) SocialHistoryObservationRecordsByConsumerID(ctx context.Context, args struct {
 	ConsumerID string
 }) (*[]*SocialHistoryObservationRecordResolver, error) {

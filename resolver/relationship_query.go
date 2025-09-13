@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//Relationship ...
+// Relationship ...
 func (r *Resolver) Relationship(ctx context.Context, args struct {
 	ID string
 }) (*RelationshipResolver, error) {
@@ -22,7 +22,7 @@ func (r *Resolver) Relationship(ctx context.Context, args struct {
 	return &RelationshipResolver{relationship}, nil
 }
 
-//RelationshipFrom ...
+// RelationshipFrom ...
 func (r *Resolver) RelationshipFrom(ctx context.Context, args struct {
 	FromID string
 }) (*[]*RelationshipResolver, error) {
@@ -43,7 +43,7 @@ func (r *Resolver) RelationshipFrom(ctx context.Context, args struct {
 	return &rl, nil
 }
 
-//RelationshipTo ...
+// RelationshipTo ...
 func (r *Resolver) RelationshipTo(ctx context.Context, args struct {
 	ToID string
 }) (*[]*RelationshipResolver, error) {
@@ -64,7 +64,7 @@ func (r *Resolver) RelationshipTo(ctx context.Context, args struct {
 	return &rl, nil
 }
 
-//Relationships ...
+// Relationships ...
 func (r *Resolver) Relationships(ctx context.Context, args struct {
 	Params *model.RelationshipQueryParam
 }) (*[]*RelationshipResolver, error) {

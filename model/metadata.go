@@ -1,14 +1,14 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//AttributeInput ...
+// AttributeInput ...
 type AttributeInput struct {
 	Name  string     `json:"name"`
 	Value ValueInput `json:"value"`
 }
 
-//Attribute ...
+// Attribute ...
 type Attribute struct {
 	Id    string       `json:"id" bson:"_id"`
 	Name  string       `json:"name" bson:"name"`
@@ -16,14 +16,14 @@ type Attribute struct {
 	Meta  *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//MetaDataInput ...
+// MetaDataInput ...
 type MetaDataInput struct {
 	Name       string           `json:"name"`
 	Value      string           `json:"value"`
 	Attributes *[]MetaDataInput `json:"attributes"`
 }
 
-//MetaData ...
+// MetaData ...
 type MetaData struct {
 	Id         string       `json:"id" bson:"_id"`
 	Name       string       `json:"name" bson:"name"`

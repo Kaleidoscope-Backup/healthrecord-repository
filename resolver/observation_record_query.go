@@ -1,13 +1,13 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//ObservationRecord Query
+// ObservationRecord Query
 func (r *Resolver) ObservationRecord(ctx context.Context, args struct {
 	ID string
 }) (*ObservationRecordResolver, error) {
@@ -23,7 +23,7 @@ func (r *Resolver) ObservationRecord(ctx context.Context, args struct {
 	return &ObservationRecordResolver{healthRecordResolver, observation}, nil
 }
 
-//ObservationRecords ..
+// ObservationRecords ..
 func (r *Resolver) ObservationRecords(ctx context.Context, args struct {
 	ConsumerID string
 }) (*[]*ObservationRecordResolver, error) {

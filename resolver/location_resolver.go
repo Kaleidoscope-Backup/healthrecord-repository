@@ -1,56 +1,56 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
-//LocationResolver ..
+// LocationResolver ..
 type LocationResolver struct {
 	L *model.Location
 }
 
-//Id ..
+// Id ..
 func (r *LocationResolver) Id() string {
 	return r.L.Id
 }
 
-//Name ..
+// Name ..
 func (r *LocationResolver) Name() string {
 	return r.L.Name
 }
 
-//Alias ..
+// Alias ..
 func (r *LocationResolver) Alias() *[]string {
 	return r.L.Alias
 }
 
-//Description ..
+// Description ..
 func (r *LocationResolver) Description() *string {
 	return r.L.Description
 }
 
-//PhysicalType ..
+// PhysicalType ..
 func (r *LocationResolver) PhysicalType() *model.LocationPhysicalType {
 	return r.L.PhysicalType
 }
 
-//ManagingOrganization ..
+// ManagingOrganization ..
 func (r *LocationResolver) ManagingOrganization() *ReferenceActorResolver {
 	return &ReferenceActorResolver{r.L.ManagingOrganization}
 }
 
-//Mode ..
+// Mode ..
 func (r *LocationResolver) Mode() model.LocationMode {
 	return r.L.Mode
 }
 
-//Type ..
+// Type ..
 func (r *LocationResolver) Type() *[]string {
 	return r.L.Type
 }
 
-//TypeCode array ..
+// TypeCode array ..
 func (r *LocationResolver) TypeCode() *[]*CodableConceptResolver {
 
 	if r.L.TypeCode != nil {
@@ -74,7 +74,7 @@ func (r *LocationResolver) TypeCode() *[]*CodableConceptResolver {
 	return nil
 }
 
-//Telecom array ..
+// Telecom array ..
 func (r *LocationResolver) Telecom() *[]*ContactPointResolver {
 
 	if r.L.Telecom != nil {
@@ -98,12 +98,12 @@ func (r *LocationResolver) Telecom() *[]*ContactPointResolver {
 	return nil
 }
 
-//Address ..
+// Address ..
 func (r *LocationResolver) Address() *AddressResolver {
 	return &AddressResolver{&r.L.Address}
 }
 
-//Position array ..
+// Position array ..
 func (r *LocationResolver) Position() *[]*GeoLocationResolver {
 
 	if r.L.Position != nil {
@@ -127,32 +127,32 @@ func (r *LocationResolver) Position() *[]*GeoLocationResolver {
 	return nil
 }
 
-//PartOf ..
+// PartOf ..
 func (r *LocationResolver) PartOf() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{r.L.PartOf}
 }
 
-//AllDay ..
+// AllDay ..
 func (r *LocationResolver) AllDay() *bool {
 	return r.L.AllDay
 }
 
-//DaysOfWeek ..
+// DaysOfWeek ..
 func (r *LocationResolver) DaysOfWeek() *model.DaysOfWeek {
 	return r.L.DaysOfWeek
 }
 
-//OpeningTime ..
+// OpeningTime ..
 func (r *LocationResolver) OpeningTime() *util.Time {
 	return r.L.OpeningTime
 }
 
-//ClosingTime ..
+// ClosingTime ..
 func (r *LocationResolver) ClosingTime() *util.Time {
 	return r.L.ClosingTime
 }
 
-//ResolveLocationResolver ...
+// ResolveLocationResolver ...
 func ResolveLocationResolver(location *model.Location) *LocationResolver {
 	if location != nil {
 		return &LocationResolver{location}

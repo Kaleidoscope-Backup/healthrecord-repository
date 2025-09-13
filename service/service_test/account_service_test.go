@@ -4,8 +4,8 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"gitlab.com/karte/healthrecord-repository/model"
-	. "gitlab.com/karte/healthrecord-repository/service"
+	"github.com/karte/healthrecord-repository/model"
+	. "github.com/karte/healthrecord-repository/service"
 )
 
 var _ = Describe("AccountService", func() {

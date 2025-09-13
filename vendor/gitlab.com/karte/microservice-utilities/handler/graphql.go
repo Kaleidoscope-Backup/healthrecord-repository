@@ -5,10 +5,10 @@ import (
 	"net/http"
 
 	"github.com/graph-gophers/graphql-go"
-	"gitlab.com/karte/microservice-utilities/loader"
+	"github.com/karte/microservice-utilities/loader"
 )
 
-//GraphQL ...
+// GraphQL ...
 type GraphQL struct {
 	Schema  *graphql.Schema
 	Loaders loader.LoaderCollection

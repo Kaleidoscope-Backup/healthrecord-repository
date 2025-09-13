@@ -1,44 +1,44 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 GeoLocation Resolver
 ================================*/
 
-//GeoLocationResolver ..
+// GeoLocationResolver ..
 type GeoLocationResolver struct {
 	G *model.GeoLocation
 }
 
-//Id ..
+// Id ..
 func (r *GeoLocationResolver) Id() string {
 	return r.G.Id
 }
 
-//Name ..
+// Name ..
 func (r *GeoLocationResolver) Name() *string {
 	return r.G.Name
 }
 
-//Latitude ..
+// Latitude ..
 func (r *GeoLocationResolver) Latitude() float64 {
 	return r.G.Latitude
 }
 
-//Longitude ..
+// Longitude ..
 func (r *GeoLocationResolver) Longitude() float64 {
 	return r.G.Longitude
 }
 
-//Elevation ..
+// Elevation ..
 func (r *GeoLocationResolver) Elevation() *float64 {
 	return r.G.Elevation
 }
 
-//ResolveGeoLocationResolver ...
+// ResolveGeoLocationResolver ...
 func ResolveGeoLocationResolver(location *model.GeoLocation) *GeoLocationResolver {
 	if location != nil {
 		return &GeoLocationResolver{location}

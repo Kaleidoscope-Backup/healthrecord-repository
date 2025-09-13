@@ -1,59 +1,59 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ObservationDefinitionCollection Resolver
 ================================*/
 
-//ObservationDefinitionCollectionResolver ...
+// ObservationDefinitionCollectionResolver ...
 type ObservationDefinitionCollectionResolver struct {
 	O *model.ObservationDefinitionCollection
 }
 
-//Id ...
+// Id ...
 func (r *ObservationDefinitionCollectionResolver) Id() string {
 	return r.O.Id
 }
 
-//Name ...
+// Name ...
 func (r *ObservationDefinitionCollectionResolver) Name() string {
 	return r.O.Name
 }
 
-//Description ...
+// Description ...
 func (r *ObservationDefinitionCollectionResolver) Description() *string {
 	return r.O.Description
 }
 
-//Purpose ...
+// Purpose ...
 func (r *ObservationDefinitionCollectionResolver) Purpose() *string {
 	return r.O.Purpose
 }
 
-//Publisher ...
+// Publisher ...
 func (r *ObservationDefinitionCollectionResolver) Publisher() *string {
 	return r.O.Publisher
 }
 
-//Source ...
+// Source ...
 func (r *ObservationDefinitionCollectionResolver) Source() *SourceResolver {
 	return &SourceResolver{r.O.Source}
 }
 
-//Language ...
+// Language ...
 func (r *ObservationDefinitionCollectionResolver) Language() model.Language {
 	return r.O.Language
 }
 
-//Code ...
+// Code ...
 func (r *ObservationDefinitionCollectionResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.O.Code}
 }
 
-//Measurements array ..
+// Measurements array ..
 func (r *ObservationDefinitionCollectionResolver) Measurements() *[]*MeasurementDefinitionResolver {
 
 	if r.O.Measurements != nil {
@@ -77,7 +77,7 @@ func (r *ObservationDefinitionCollectionResolver) Measurements() *[]*Measurement
 	return nil
 }
 
-//Attributes array ..
+// Attributes array ..
 func (r *ObservationDefinitionCollectionResolver) Attributes() *[]*AttributeResolver {
 
 	if r.O.Attributes != nil {

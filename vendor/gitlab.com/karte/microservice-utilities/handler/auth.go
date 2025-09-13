@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"gitlab.com/karte/microservice-utilities/auth0"
+	"github.com/karte/microservice-utilities/auth0"
 )
 
 func AuthScopeHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {

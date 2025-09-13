@@ -1,116 +1,116 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
-//TimingResolver ..
+// TimingResolver ..
 type TimingResolver struct {
 	T *model.Timing
 }
 
-//Id ..
+// Id ..
 func (r *TimingResolver) Id() string {
 	return r.T.Id
 }
 
-//Event ..
+// Event ..
 func (r *TimingResolver) Event() *util.Time {
 	return r.T.Event
 }
 
-//BoundsType ..
+// BoundsType ..
 func (r *TimingResolver) BoundsType() *model.FrequenceBoundsType {
 	return r.T.BoundsType
 }
 
-//BoundsDuration ..
+// BoundsDuration ..
 func (r *TimingResolver) BoundsDuration() *int32 {
 	return r.T.BoundsDuration
 }
 
-//BoundsRange ..
+// BoundsRange ..
 func (r *TimingResolver) BoundsRange() *RangeResolver {
 	return &RangeResolver{r.T.BoundsRange}
 }
 
-//BoundsPeriod ..
+// BoundsPeriod ..
 func (r *TimingResolver) BoundsPeriod() *PeriodResolver {
 	return &PeriodResolver{r.T.BoundsPeriod}
 }
 
-//Count ..
+// Count ..
 func (r *TimingResolver) Count() *int32 {
 	return r.T.Count
 }
 
-//CountMax ..
+// CountMax ..
 func (r *TimingResolver) CountMax() *int32 {
 	return r.T.CountMax
 }
 
-//Duration ..
+// Duration ..
 func (r *TimingResolver) Duration() *float64 {
 	return r.T.Duration
 }
 
-//DurationMax ..
+// DurationMax ..
 func (r *TimingResolver) DurationMax() *float64 {
 	return r.T.DurationMax
 }
 
-//DurationUnit ..
+// DurationUnit ..
 func (r *TimingResolver) DurationUnit() *model.UnitOfTime {
 	return r.T.DurationUnit
 }
 
-//Frequency ..
+// Frequency ..
 func (r *TimingResolver) Frequency() *int32 {
 	return r.T.Frequency
 }
 
-//FrequencyMax ..
+// FrequencyMax ..
 func (r *TimingResolver) FrequencyMax() *int32 {
 	return r.T.FrequencyMax
 }
 
-//Period ..
+// Period ..
 func (r *TimingResolver) Period() *float64 {
 	return r.T.Period
 }
 
-//PeriodMax ..
+// PeriodMax ..
 func (r *TimingResolver) PeriodMax() *float64 {
 	return r.T.PeriodMax
 }
 
-//PeriodUnit ..
+// PeriodUnit ..
 func (r *TimingResolver) PeriodUnit() *model.UnitOfTime {
 	return r.T.PeriodUnit
 }
 
-//DayOfWeek ..
+// DayOfWeek ..
 func (r *TimingResolver) DayOfWeek() *model.DaysOfWeek {
 	return r.T.DayOfWeek
 }
 
-//Time ..
+// Time ..
 func (r *TimingResolver) Time() *util.Time {
 	return r.T.Time
 }
 
-//When ..
+// When ..
 func (r *TimingResolver) When() *model.EventTiming {
 	return r.T.When
 }
 
-//Offset ..
+// Offset ..
 func (r *TimingResolver) Offset() *int32 {
 	return r.T.Offset
 }
 
-//Code ..
+// Code ..
 func (r *TimingResolver) Code() *model.TimingAbbreviation {
 	return r.T.Code
 }

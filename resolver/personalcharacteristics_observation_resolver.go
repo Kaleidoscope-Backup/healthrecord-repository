@@ -1,34 +1,34 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 PersonalCharacteristicsObservation Resolver
 ================================*/
 
-//PersonalCharacteristicsObservationResolver ..
+// PersonalCharacteristicsObservationResolver ..
 type PersonalCharacteristicsObservationResolver struct {
 	C *model.PersonalCharacteristicsObservation
 }
 
-//Id ..
+// Id ..
 func (r *PersonalCharacteristicsObservationResolver) Id() string {
 	return r.C.Id
 }
 
-//Type ..
+// Type ..
 func (r *PersonalCharacteristicsObservationResolver) Type() model.PersonalCharacteristics {
 	return r.C.Type
 }
 
-//Value ..
+// Value ..
 func (r *PersonalCharacteristicsObservationResolver) Value() string {
 	return r.C.Value
 }
 
-//Code ..
+// Code ..
 func (r *PersonalCharacteristicsObservationResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.C.Code}
 }

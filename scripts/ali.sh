@@ -10,12 +10,12 @@ DATABASE_PASSWORD="yOHWMazpHwrsjBlk1"
 DATABASE_BASE_NAME="karte-health-records"
 NAME="hr"
 
-CI_APPLICATION_REPOSITORY="registry.gitlab.com/karte/healthrecord-repository/develop"
+CI_APPLICATION_REPOSITORY="registry.github.com/karte/healthrecord-repository/develop"
 CI_APPLICATION_TAG=$1
 SERVICE_URL=$NAME'.cb1793cd09e3443a0a3b713c5ab9d8b58.cn-beijing.alicontainer.com'
 echo $SERVICE_URL
 
-helm repo add karte https://gitlab.com/karte-public/helm-repository/raw/master/
+helm repo add karte https://github.com/karte-public/helm-repository/raw/master/
 helm fetch karte/auto-deploy-app --untar
 mv auto-deploy-app/ chart
 helm dependency update chart/

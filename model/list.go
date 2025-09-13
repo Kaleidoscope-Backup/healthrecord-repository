@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//ListStatus ...
+// ListStatus ...
 type ListStatus string
 
 const (
@@ -19,7 +19,7 @@ const (
 	LIST_ENTERED_IN_ERROR ListStatus = "LIST_ENTERED_IN_ERROR"
 )
 
-//ListMode ...
+// ListMode ...
 type ListMode string
 
 const (
@@ -33,7 +33,7 @@ const (
 	LIST_CHANGES ListMode = "LIST_CHANGES"
 )
 
-//ListEntry ...
+// ListEntry ...
 type ListEntry struct {
 	Id      string       `json:"id" bson:"_id"`
 	Date    *util.Time   `json:"date" bson:"date"`
@@ -42,14 +42,14 @@ type ListEntry struct {
 	Meta    *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//ListEntryInput ...
+// ListEntryInput ...
 type ListEntryInput struct {
 	Date    *util.Time        `json:"date"`
 	Deleted *bool             `json:"deleted"`
 	Entry   *[]AttributeInput `json:"entry"`
 }
 
-//ListInput ...
+// ListInput ...
 type ListInput struct {
 	Status  ListStatus            `json:"status"`
 	Mode    ListMode              `json:"mode"`
@@ -62,7 +62,7 @@ type ListInput struct {
 	Items   *[]ListEntryInput     `json:"items"`
 }
 
-//List ...
+// List ...
 type List struct {
 	Id      string           `json:"id" bson:"_id"`
 	Status  ListStatus       `json:"status" bson:"status"`

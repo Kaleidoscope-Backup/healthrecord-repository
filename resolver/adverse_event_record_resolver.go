@@ -1,65 +1,65 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 AdverseEventRecord Resolver
 ================================*/
 
-//AdverseEventRecordResolver ..
+// AdverseEventRecordResolver ..
 type AdverseEventRecordResolver struct {
 	HealthRecordResolver
 	A *model.AdverseEventRecord
 }
 
-//Id ..
+// Id ..
 func (r *AdverseEventRecordResolver) Id() string {
 	return r.A.Id
 }
 
-//Category ..
+// Category ..
 func (r *AdverseEventRecordResolver) Category() model.AdverseEventCategory {
 	return r.A.Category
 }
 
-//CategoryCode ..
+// CategoryCode ..
 func (r *AdverseEventRecordResolver) CategoryCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.A.CategoryCode}
 }
 
-//EventType ..
+// EventType ..
 func (r *AdverseEventRecordResolver) EventType() string {
 	return r.A.EventType
 }
 
-//EventTypeCode ..
+// EventTypeCode ..
 func (r *AdverseEventRecordResolver) EventTypeCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.A.EventTypeCode}
 }
 
-//Location ..
+// Location ..
 func (r *AdverseEventRecordResolver) Location() *GeoLocationResolver {
 	return &GeoLocationResolver{r.A.Location}
 }
 
-//Seriousness ..
+// Seriousness ..
 func (r *AdverseEventRecordResolver) Seriousness() *model.Severity {
 	return r.A.Seriousness
 }
 
-//Outcome ..
+// Outcome ..
 func (r *AdverseEventRecordResolver) Outcome() *string {
 	return r.A.Outcome
 }
 
-//OutcomeCode ..
+// OutcomeCode ..
 func (r *AdverseEventRecordResolver) OutcomeCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.A.OutcomeCode}
 }
 
-//Recorder ..
+// Recorder ..
 func (r *AdverseEventRecordResolver) Recorder() *ReferenceActorResolver {
 	return &ReferenceActorResolver{r.A.Recorder}
 }

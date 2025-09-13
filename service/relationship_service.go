@@ -4,10 +4,10 @@ import (
 	"errors"
 	"strconv"
 
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -15,18 +15,18 @@ import (
 RelationshipService
 ==========================================================================================*/
 
-//RelationshipService ..
+// RelationshipService ..
 type RelationshipService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewRelationshipService ..
+// NewRelationshipService ..
 func NewRelationshipService(dal mserver.DataAccessLayer, log *logging.Logger) *RelationshipService {
 	return &RelationshipService{dal: dal, log: log}
 }
 
-//FindByID ...
+// FindByID ...
 func (u *RelationshipService) FindByID(id string) (*model.Relationship, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -47,7 +47,7 @@ func (u *RelationshipService) FindByID(id string) (*model.Relationship, error) {
 	return relation, nil
 }
 
-//FindByRelationshipParams ...
+// FindByRelationshipParams ...
 func (u *RelationshipService) FindByRelationshipParams(fromID *string, fromType *model.ActorType, toID *string, toType *model.ActorType, relType *model.RelationshipType, label *string) (*[]*model.Relationship, error) {
 	if fromType == nil && toType == nil && fromID == nil && toID == nil {
 		return nil, errors.New("Missing parameter - either from id, to id, from type, or to type should be provided")
@@ -103,7 +103,7 @@ func (u *RelationshipService) FindByRelationshipParams(fromID *string, fromType 
 	return &relationshipArr, nil
 }
 
-//CreateRelationship will create a new relationship in Mongo using the Data Access Layer
+// CreateRelationship will create a new relationship in Mongo using the Data Access Layer
 func (u *RelationshipService) CreateRelationship(relationship *model.Relationship) (*model.Relationship, error) {
 	//Validate required fields on Model element are being passed in
 	if &relationship.Active == nil ||

@@ -1,60 +1,60 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 ReferralRequest Resolver
 ================================*/
 
-//ReferralRequestResolver ..
+// ReferralRequestResolver ..
 type ReferralRequestResolver struct {
 	R *model.ReferralRequest
 }
 
-//Id ..
+// Id ..
 func (r *ReferralRequestResolver) Id() string {
 	return r.R.Id
 }
 
-//Description ..
+// Description ..
 func (r *ReferralRequestResolver) Description() *string {
 	return r.R.Description
 }
 
-//Status ..
+// Status ..
 func (r *ReferralRequestResolver) Status() model.ReferralRequestStatus {
 	return r.R.Status
 }
 
-//Occurence ..
+// Occurence ..
 func (r *ReferralRequestResolver) Occurence() util.Time {
 	return r.R.Occurence
 }
 
-//StatusCode ..
+// StatusCode ..
 func (r *ReferralRequestResolver) StatusCode() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.R.StatusCode}
 }
 
-//Subject ..
+// Subject ..
 func (r *ReferralRequestResolver) Subject() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.R.Subject}
 }
 
-//Requester ..
+// Requester ..
 func (r *ReferralRequestResolver) Requester() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.R.Requester}
 }
 
-//Recipient ..
+// Recipient ..
 func (r *ReferralRequestResolver) Recipient() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.R.Recipient}
 }
 
-//BasedOn array ..
+// BasedOn array ..
 func (r *ReferralRequestResolver) BasedOn() *[]*ReferenceHealthRecordResolver {
 
 	if r.R.BasedOn != nil {

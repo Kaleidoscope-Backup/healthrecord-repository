@@ -5,27 +5,27 @@ import (
 	"fmt"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 EncounterRecordService
 ==========================================================================================*/
 
-//EncounterRecordService ..
+// EncounterRecordService ..
 type EncounterRecordService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewEncounterRecordService ..
+// NewEncounterRecordService ..
 func NewEncounterRecordService(dal mserver.DataAccessLayer, log *logging.Logger) *EncounterRecordService {
 	return &EncounterRecordService{dal: dal, log: log}
 }
 
-//FindById ...
+// FindById ...
 func (ers *EncounterRecordService) FindById(id string) (*model.EncounterRecord, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -46,7 +46,7 @@ func (ers *EncounterRecordService) FindById(id string) (*model.EncounterRecord, 
 	return encounterRecord, nil
 }
 
-//FindByConsumerID ..
+// FindByConsumerID ..
 func (ers *EncounterRecordService) FindByConsumerID(id string) (*[]*model.EncounterRecord, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -73,7 +73,7 @@ func (ers *EncounterRecordService) FindByConsumerID(id string) (*[]*model.Encoun
 Mutation Operations
 ==========================================================================================*/
 
-//CreateEncounterRecord will create a new EncounterRecord in Mongo using the Data Access Layer
+// CreateEncounterRecord will create a new EncounterRecord in Mongo using the Data Access Layer
 func (ers *EncounterRecordService) CreateEncounterRecord(encounterRecord *model.EncounterRecord) (*model.EncounterRecord, error) {
 
 	hError := ValidateHealthRecord(&encounterRecord.HealthRecord)

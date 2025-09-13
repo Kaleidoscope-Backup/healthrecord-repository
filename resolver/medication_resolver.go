@@ -1,141 +1,141 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 Medication Resolver
 ================================*/
 
-//MedicationResolver ..
+// MedicationResolver ..
 type MedicationResolver struct {
 	M *model.Medication
 }
 
-//Id ..
+// Id ..
 func (r *MedicationResolver) Id() string {
 	return r.M.Id
 }
 
-//Code ..
+// Code ..
 func (r *MedicationResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.M.Code}
 }
 
-//MedicationStatus ..
+// MedicationStatus ..
 func (r *MedicationResolver) MedicationStatus() model.MedicationStatus {
 	return r.M.MedicationStatus
 }
 
-//ProductName ..
+// ProductName ..
 func (r *MedicationResolver) ProductName() string {
 	return r.M.ProductName
 }
 
-//IsOverTheCounter ..
+// IsOverTheCounter ..
 func (r *MedicationResolver) IsOverTheCounter() bool {
 	return r.M.IsOverTheCounter
 }
 
-//Route ..
+// Route ..
 func (r *MedicationResolver) Route() model.AdministrationRoute {
 	return r.M.Route
 }
 
-//Instructions ..
+// Instructions ..
 func (r *MedicationResolver) Instructions() string {
 	return r.M.Instructions
 }
 
-//Dosage ..
+// Dosage ..
 func (r *MedicationResolver) Dosage() *DosageResolver {
 	return &DosageResolver{r.M.Dosage}
 }
 
-//RefillsRemaining ..
+// RefillsRemaining ..
 func (r *MedicationResolver) RefillsRemaining() *int32 {
 	return r.M.RefillsRemaining
 }
 
-//RefillsTotal ..
+// RefillsTotal ..
 func (r *MedicationResolver) RefillsTotal() *int32 {
 	return r.M.RefillsTotal
 }
 
-//Strength ..
+// Strength ..
 func (r *MedicationResolver) Strength() *StrengthResolver {
 	return &StrengthResolver{r.M.Strength}
 }
 
-//Start ..
+// Start ..
 func (r *MedicationResolver) Start() util.Time {
 	return r.M.Start
 }
 
-//End ..
+// End ..
 func (r *MedicationResolver) End() *util.Time {
 	return r.M.End
 }
 
 //Fields coming from Knowledge graph
 
-//Manufacturer ..
+// Manufacturer ..
 func (r *MedicationResolver) Manufacturer() *string {
 	var ret = "Not available"
 	return &ret
 }
 
-//NdcCode ..
+// NdcCode ..
 func (r *MedicationResolver) NdcCode() *string {
 	var ret = "Not available"
 	return &ret
 }
 
-//Rxcui ..
+// Rxcui ..
 func (r *MedicationResolver) Rxcui() *string {
 	var ret = "Not available"
 	return &ret
 }
 
-//CommonBrandName ..
+// CommonBrandName ..
 func (r *MedicationResolver) CommonBrandName() *string {
 	var ret = "Not available"
 	return &ret
 }
 
-//AlcoholWarning ..
+// AlcoholWarning ..
 func (r *MedicationResolver) AlcoholWarning() *string {
 	var ret = "Not available"
 	return &ret
 }
 
-//FoodWarning ..
+// FoodWarning ..
 func (r *MedicationResolver) FoodWarning() *string {
 	var ret = "Not available"
 	return &ret
 }
 
-//BreastFeedingWarning ..
+// BreastFeedingWarning ..
 func (r *MedicationResolver) BreastFeedingWarning() *string {
 	var ret = "Not available"
 	return &ret
 }
 
-//Warning ..
+// Warning ..
 func (r *MedicationResolver) Warning() *string {
 	var ret = "Not available"
 	return &ret
 }
 
-//Overdose ..
+// Overdose ..
 func (r *MedicationResolver) Overdose() *string {
 	var ret = "Not available"
 	return &ret
 }
 
-//SideEffects ..
+// SideEffects ..
 func (r *MedicationResolver) SideEffects() *[]*string {
 	return nil
 }

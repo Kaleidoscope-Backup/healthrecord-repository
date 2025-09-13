@@ -4,18 +4,18 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
-//HealthcareServiceService ...
+// HealthcareServiceService ...
 type HealthcareServiceService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewHealthcareServiceService ...
+// NewHealthcareServiceService ...
 func NewHealthcareServiceService(dal mserver.DataAccessLayer, log *logging.Logger) *HealthcareServiceService {
 	return &HealthcareServiceService{dal: dal, log: log}
 }
@@ -24,7 +24,7 @@ func NewHealthcareServiceService(dal mserver.DataAccessLayer, log *logging.Logge
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *HealthcareServiceService) FindByID(id string) (*model.HealthcareService, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -47,7 +47,7 @@ func (u *HealthcareServiceService) FindByID(id string) (*model.HealthcareService
 Mutation Operations
 ==========================================================================================*/
 
-//CreateHealthcareService ...
+// CreateHealthcareService ...
 func (u *HealthcareServiceService) CreateHealthcareService(healthcareService *model.HealthcareService) (*model.HealthcareService, error) {
 	//Validate required fields on Model element are being passed in
 	if healthcareService == nil {

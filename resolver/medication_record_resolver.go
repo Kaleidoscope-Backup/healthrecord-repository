@@ -1,46 +1,46 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 MedicationRecord Resolver
 ================================*/
 
-//MedicationRecordResolver ..
+// MedicationRecordResolver ..
 type MedicationRecordResolver struct {
 	HealthRecordResolver
 	U *model.MedicationRecord
 }
 
-//Id ..
+// Id ..
 func (r *MedicationRecordResolver) Id() string {
 	return r.U.Id
 }
 
-//PrescribedBy ..
+// PrescribedBy ..
 func (r *MedicationRecordResolver) PrescribedBy() *string {
 	return r.U.PrescribedBy
 }
 
-//DispensingOrganization ..
+// DispensingOrganization ..
 func (r *MedicationRecordResolver) DispensingOrganization() *string {
 	return r.U.DispensingOrganization
 }
 
-//PrescribedOn ..
+// PrescribedOn ..
 func (r *MedicationRecordResolver) PrescribedOn() *util.Time {
 	return r.U.PrescribedOn
 }
 
-//Expiration ..
+// Expiration ..
 func (r *MedicationRecordResolver) Expiration() *util.Time {
 	return r.U.Expiration
 }
 
-//Medications array ..
+// Medications array ..
 func (r *MedicationRecordResolver) Medications() *[]*MedicationResolver {
 
 	if r.U.Medications != nil {

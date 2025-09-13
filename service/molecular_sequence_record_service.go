@@ -5,23 +5,23 @@ import (
 	"fmt"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 MolecularSequenceRecord  service
 ==========================================================================================*/
 
-//MolecularSequenceRecordService ...
+// MolecularSequenceRecordService ...
 type MolecularSequenceRecordService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewMolecularSequenceRecordService Data Access Layer
+// NewMolecularSequenceRecordService Data Access Layer
 func NewMolecularSequenceRecordService(dal mserver.DataAccessLayer, log *logging.Logger) *MolecularSequenceRecordService {
 	return &MolecularSequenceRecordService{dal: dal, log: log}
 }
@@ -30,7 +30,7 @@ func NewMolecularSequenceRecordService(dal mserver.DataAccessLayer, log *logging
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *MolecularSequenceRecordService) FindByID(id string) (*model.MolecularSequenceRecord, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -49,7 +49,7 @@ func (u *MolecularSequenceRecordService) FindByID(id string) (*model.MolecularSe
 	return molSequence, nil
 }
 
-//FindByConsumerID ..
+// FindByConsumerID ..
 func (u *MolecularSequenceRecordService) FindByConsumerID(id string) (*[]*model.MolecularSequenceRecord, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -76,7 +76,7 @@ func (u *MolecularSequenceRecordService) FindByConsumerID(id string) (*[]*model.
 Mutation Operations
 ==========================================================================================*/
 
-//CreateMolecularSequenceRecord ...
+// CreateMolecularSequenceRecord ...
 func (u *MolecularSequenceRecordService) CreateMolecularSequenceRecord(molecularSequenceRecord *model.MolecularSequenceRecord) (*model.MolecularSequenceRecord, error) {
 
 	id, err := u.dal.Post(molecularSequenceRecord)

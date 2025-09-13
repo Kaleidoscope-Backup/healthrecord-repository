@@ -1,55 +1,55 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 Review Resolver
 ================================*/
 
-//ReviewResolver ..
+// ReviewResolver ..
 type ReviewResolver struct {
 	R *model.Review
 }
 
-//Id ..
+// Id ..
 func (r *ReviewResolver) Id() string {
 	return r.R.Id
 }
 
-//Comment ..
+// Comment ..
 func (r *ReviewResolver) Comment() string {
 	return r.R.Comment
 }
 
-//CreatedAt ..
+// CreatedAt ..
 func (r *ReviewResolver) CreatedAt() util.Time {
 	return r.R.CreatedAt
 }
 
-//Rating ..
+// Rating ..
 func (r *ReviewResolver) Rating() *RatingResolver {
 	return &RatingResolver{r.R.Rating}
 }
 
-//Emotion ..
+// Emotion ..
 func (r *ReviewResolver) Emotion() *model.Emotion {
 	return r.R.Emotion
 }
 
-//Context ..
+// Context ..
 func (r *ReviewResolver) Context() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{&r.R.Context}
 }
 
-//By ..
+// By ..
 func (r *ReviewResolver) By() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.R.By}
 }
 
-//Images array ..
+// Images array ..
 func (r *ReviewResolver) Images() *[]*AttachmentResolver {
 
 	if r.R.Images != nil {
@@ -74,7 +74,7 @@ func (r *ReviewResolver) Images() *[]*AttachmentResolver {
 	return nil
 }
 
-//Comments array ..
+// Comments array ..
 func (r *ReviewResolver) Comments() *[]*CommentResolver {
 
 	if r.R.Comments != nil {

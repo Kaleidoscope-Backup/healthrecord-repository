@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//ImagingResultObservationRecordCreate ...
+// ImagingResultObservationRecordCreate ...
 type ImagingResultObservationRecordCreate struct {
 	HealthRecordCreate
 	Code           *CodableConceptInput `json:"code"`
@@ -11,7 +11,7 @@ type ImagingResultObservationRecordCreate struct {
 	Observations   *[]AttachmentInput   `json:"observations"`
 }
 
-//ImagingResultObservationRecord ...
+// ImagingResultObservationRecord ...
 type ImagingResultObservationRecord struct {
 	HealthRecord
 	Id             string          `json:"id" bson:"_id"`

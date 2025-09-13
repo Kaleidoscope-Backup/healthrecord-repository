@@ -1,15 +1,15 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//ClinicalTrialCreate ...
+// ClinicalTrialCreate ...
 type ClinicalTrialCreate struct {
 	NCT    string `json:"nctCode"`
 	Period Period `json:"period"`
 	Reason string `json:"reason"`
 }
 
-//ClinicalTrial ...
+// ClinicalTrial ...
 type ClinicalTrial struct {
 	Id         string        `json:"id" bson:"_id"`
 	NCT        string        `json:"nctCode" bson:"nctCode"`

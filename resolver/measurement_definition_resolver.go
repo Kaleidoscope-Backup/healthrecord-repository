@@ -1,54 +1,54 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 MeasurementDefinition Resolver
 ================================*/
 
-//MeasurementDefinitionResolver ..
+// MeasurementDefinitionResolver ..
 type MeasurementDefinitionResolver struct {
 	M *model.MeasurementDefinition
 }
 
-//Id ..
+// Id ..
 func (r *MeasurementDefinitionResolver) Id() string {
 	return r.M.Id
 }
 
-//Name ..
+// Name ..
 func (r *MeasurementDefinitionResolver) Name() string {
 	return r.M.Name
 }
 
-//Unit ..
+// Unit ..
 func (r *MeasurementDefinitionResolver) Unit() string {
 	return r.M.Unit
 }
 
-//LowerLimit ..
+// LowerLimit ..
 func (r *MeasurementDefinitionResolver) LowerLimit() int32 {
 	return r.M.LowerLimit
 }
 
-//UpperLimit ..
+// UpperLimit ..
 func (r *MeasurementDefinitionResolver) UpperLimit() int32 {
 	return r.M.UpperLimit
 }
 
-//Code ..
+// Code ..
 func (r *MeasurementDefinitionResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.M.Code}
 }
 
-//ObservationType ..
+// ObservationType ..
 func (r *MeasurementDefinitionResolver) ObservationType() *model.HealthRecordType {
 	return r.M.ObservationType
 }
 
-//ReferenceRanges array ..
+// ReferenceRanges array ..
 func (r *MeasurementDefinitionResolver) ReferenceRanges() *[]*ReferenceRangeResolver {
 
 	if r.M.ReferenceRanges != nil {
@@ -72,7 +72,7 @@ func (r *MeasurementDefinitionResolver) ReferenceRanges() *[]*ReferenceRangeReso
 	return nil
 }
 
-//Attributes array ..
+// Attributes array ..
 func (r *MeasurementDefinitionResolver) Attributes() *[]*AttributeResolver {
 
 	if r.M.Attributes != nil {

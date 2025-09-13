@@ -1,80 +1,80 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 Value Resolver
 ================================*/
 
-//ValueResolver ..
+// ValueResolver ..
 type ValueResolver struct {
 	V *model.Value
 }
 
-//Id ..
+// Id ..
 func (r *ValueResolver) Id() string {
 	return r.V.Id
 }
 
-//ValueType ..
+// ValueType ..
 func (r *ValueResolver) ValueType() model.ValueType {
 	return r.V.ValueType
 }
 
-//ValueQuantity ..
+// ValueQuantity ..
 func (r *ValueResolver) ValueQuantity() *int32 {
 	return r.V.ValueQuantity
 }
 
-//ValueDecimal ..
+// ValueDecimal ..
 func (r *ValueResolver) ValueDecimal() *float64 {
 	return r.V.ValueDecimal
 }
 
-//ValueBoolean ..
+// ValueBoolean ..
 func (r *ValueResolver) ValueBoolean() *bool {
 	return r.V.ValueBoolean
 }
 
-//ValueRatio ..
+// ValueRatio ..
 func (r *ValueResolver) ValueRatio() *RatioResolver {
 	return &RatioResolver{r.V.ValueRatio}
 }
 
-//ValueRange ..
+// ValueRange ..
 func (r *ValueResolver) ValueRange() *RangeResolver {
 	return &RangeResolver{r.V.ValueRange}
 }
 
-//ValueText ..
+// ValueText ..
 func (r *ValueResolver) ValueText() *string {
 	return r.V.ValueText
 }
 
-//ValueDate ..
+// ValueDate ..
 func (r *ValueResolver) ValueDate() *util.Time {
 	return r.V.ValueDate
 }
 
-//ValuePeriod ..
+// ValuePeriod ..
 func (r *ValueResolver) ValuePeriod() *PeriodResolver {
 	return &PeriodResolver{r.V.ValuePeriod}
 }
 
-//ValueRating ..
+// ValueRating ..
 func (r *ValueResolver) ValueRating() *RatingResolver {
 	return &RatingResolver{r.V.ValueRating}
 }
 
-//ValueReferenceEntity ..
+// ValueReferenceEntity ..
 func (r *ValueResolver) ValueReferenceEntity() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{r.V.ValueReferenceEntity}
 }
 
-//Unit ..
+// Unit ..
 func (r *ValueResolver) Unit() *string {
 	return r.V.Unit
 }

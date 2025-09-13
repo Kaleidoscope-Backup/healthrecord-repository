@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//ConceptClass ...
+// ConceptClass ...
 func (r *Resolver) ConceptClass(ctx context.Context, args struct {
 	ID string
 }) (*ConceptClassResolver, error) {
@@ -22,7 +22,7 @@ func (r *Resolver) ConceptClass(ctx context.Context, args struct {
 	return &ConceptClassResolver{conceptClass}, nil
 }
 
-//ConceptClasses ...
+// ConceptClasses ...
 func (r *Resolver) ConceptClasses(ctx context.Context, args struct {
 	Param *model.ConceptClassQueryParam
 }) *[]*ConceptClassResolver {

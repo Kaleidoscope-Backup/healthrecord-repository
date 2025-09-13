@@ -5,23 +5,23 @@ import (
 	"strconv"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 CustomerFeedback service
 ==========================================================================================*/
 
-//CustomerFeedbackService is for creating customer feedback
+// CustomerFeedbackService is for creating customer feedback
 type CustomerFeedbackService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewCustomerFeedbackService ...
+// NewCustomerFeedbackService ...
 func NewCustomerFeedbackService(dal mserver.DataAccessLayer, log *logging.Logger) *CustomerFeedbackService {
 	return &CustomerFeedbackService{dal: dal, log: log}
 }
@@ -30,7 +30,7 @@ func NewCustomerFeedbackService(dal mserver.DataAccessLayer, log *logging.Logger
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *CustomerFeedbackService) FindByID(id string) (*model.CustomerFeedback, error) {
 
 	if id == "" {
@@ -50,7 +50,7 @@ func (u *CustomerFeedbackService) FindByID(id string) (*model.CustomerFeedback, 
 	return feedback, nil
 }
 
-//FindByApplicationID ...
+// FindByApplicationID ...
 func (u *CustomerFeedbackService) FindByApplicationID(applicationID *string) (*[]*model.CustomerFeedback, error) {
 	if applicationID == nil {
 		return nil, errors.New("Missing parameter - application ID should be provided")
@@ -83,7 +83,7 @@ func (u *CustomerFeedbackService) FindByApplicationID(applicationID *string) (*[
 Mutation Operations
 ==========================================================================================*/
 
-//CreateCustomerFeedback ...
+// CreateCustomerFeedback ...
 func (u *CustomerFeedbackService) CreateCustomerFeedback(feedback *model.CustomerFeedback) (*model.CustomerFeedback, error) {
 	id, err := u.dal.Post(feedback)
 	if err != nil {

@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/healthrecord-repository/util"
+import "github.com/karte/healthrecord-repository/util"
 
-//ReferralRequestStatus ...
+// ReferralRequestStatus ...
 type ReferralRequestStatus string
 
 const (
@@ -22,7 +22,7 @@ const (
 	REFERRALREQUEST_UNKNOWN ReferralRequestStatus = "REFERRALREQUEST_UNKNOWN"
 )
 
-//ReferralRequestCreate ...
+// ReferralRequestCreate ...
 type ReferralRequestCreate struct {
 	BasedOn     *[]ReferenceHealthRecordInput `json:"basedOn"`
 	Status      ReferralRequestStatus         `json:"status"`
@@ -34,7 +34,7 @@ type ReferralRequestCreate struct {
 	Occurence   util.Time                     `json:"occurence"`
 }
 
-//ReferralRequest ...
+// ReferralRequest ...
 type ReferralRequest struct {
 	Id          string                   `json:"id" bson:"_id"`
 	BasedOn     *[]ReferenceHealthRecord `json:"basedOn" bson:"basedOn"`

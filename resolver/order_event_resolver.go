@@ -1,60 +1,60 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 OrderEventResolver Resolver
 ================================*/
 
-//OrderEventResolver ..
+// OrderEventResolver ..
 type OrderEventResolver struct {
 	OE *model.OrderEvent
 }
 
-//Id ..
+// Id ..
 func (r *OrderEventResolver) Id() string {
 	return r.OE.Id
 }
 
-//OrderID ..
+// OrderID ..
 func (r *OrderEventResolver) OrderID() string {
 	return r.OE.OrderID
 }
 
-//ExternalID ..
+// ExternalID ..
 func (r *OrderEventResolver) ExternalID() *string {
 	return r.OE.ExternalID
 }
 
-//Type ..
+// Type ..
 func (r *OrderEventResolver) Type() model.OrderEventType {
 	return r.OE.Type
 }
 
-//Code ..
+// Code ..
 func (r *OrderEventResolver) Code() *string {
 	return r.OE.Code
 }
 
-//From ..
+// From ..
 func (r *OrderEventResolver) From() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.OE.From}
 }
 
-//To ..
+// To ..
 func (r *OrderEventResolver) To() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.OE.To}
 }
 
-//TimeStamp ..
+// TimeStamp ..
 func (r *OrderEventResolver) TimeStamp() util.Time {
 	return r.OE.TimeStamp
 }
 
-//AdditionalData array ..
+// AdditionalData array ..
 func (r *OrderEventResolver) AdditionalData() *[]*AttributeResolver {
 
 	if r.OE.AdditionalData != nil {

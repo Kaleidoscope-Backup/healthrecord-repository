@@ -1,6 +1,6 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
 type HeartRate struct {
 	Id    string       `json:"id" bson:"_id"`

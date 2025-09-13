@@ -1,10 +1,10 @@
 package model
 
 import (
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/mongo-lib/models"
 )
 
-//AccountStatus enum ...
+// AccountStatus enum ...
 type AccountStatus string
 
 const (
@@ -24,7 +24,7 @@ const (
 	DELETED AccountStatus = "DELETED"
 )
 
-//SecretQuestionAndAnswer ...
+// SecretQuestionAndAnswer ...
 type SecretQuestionAndAnswer struct {
 	Id       string       `json:"id" bson:"_id"`
 	Question string       `json:"question" bson:"question"`
@@ -32,7 +32,7 @@ type SecretQuestionAndAnswer struct {
 	Meta     *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//AccountVerifyInput ...
+// AccountVerifyInput ...
 type AccountVerifyInput struct {
 	UserName string `json:"userName"`
 	Secret   string `json:"secret"`
@@ -43,7 +43,7 @@ type AccountAttribute struct {
 	OtpCode string `json:"otpCode"`
 }
 
-//Account ..
+// Account ..
 type Account struct {
 	Id                       string                     `json:"id" bson:"_id"`
 	ActorID                  string                     `json:"actorID" bson:"actorID"`

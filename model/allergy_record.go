@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//AllergyStatus ...
+// AllergyStatus ...
 type AllergyStatus string
 
 const (
@@ -17,7 +17,7 @@ const (
 	ALLERGY_RESOLVED AllergyStatus = "ALLERGY_RESOLVED"
 )
 
-//AllergyCategory ...
+// AllergyCategory ...
 type AllergyCategory string
 
 const (
@@ -31,7 +31,7 @@ const (
 	ALLERGY_BIOLOGIC AllergyCategory = "ALLERGY_BIOLOGIC"
 )
 
-//AllergyCriticality ...
+// AllergyCriticality ...
 type AllergyCriticality string
 
 const (
@@ -43,14 +43,14 @@ const (
 	ALLERGY_UNABLE_TO_ASSES AllergyCriticality = "ALLERGY_UNABLE_TO_ASSES"
 )
 
-//AllergyOnsetCreate ...
+// AllergyOnsetCreate ...
 type AllergyOnsetCreate struct {
 	OnsetDate *util.Time `json:"onsetDate"`
 	OnsetAge  *string    `json:"onsetAge"`
 	OnsetNote *string    `json:"onsetNote"`
 }
 
-//AllergyReactionInput ...
+// AllergyReactionInput ...
 type AllergyReactionInput struct {
 	Substance         string               `json:"substance"`
 	SubstanceCode     *CodableConceptInput `json:"substanceCode"`
@@ -62,7 +62,7 @@ type AllergyReactionInput struct {
 	Severity          *Severity            `json:"severity"`
 }
 
-//AllergyReaction ...
+// AllergyReaction ...
 type AllergyReaction struct {
 	Id                string          `json:"id" bson:"_id"`
 	Substance         string          `json:"substance" bson:"substance"`
@@ -76,7 +76,7 @@ type AllergyReaction struct {
 	Meta              *models.Meta    //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//AllergyOnset ...
+// AllergyOnset ...
 type AllergyOnset struct {
 	Id        string       `json:"id" bson:"_id"`
 	OnsetDate *util.Time   `json:"onsetDate" bson:"onsetDate"`
@@ -85,7 +85,7 @@ type AllergyOnset struct {
 	Meta      *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//AllergyRecordCreate ...
+// AllergyRecordCreate ...
 type AllergyRecordCreate struct {
 	HealthRecordCreate
 	OnsetDate      *AllergyOnsetCreate     `json:"onsetDate"`
@@ -97,7 +97,7 @@ type AllergyRecordCreate struct {
 	Reactions      *[]AllergyReactionInput `json:"reactions"`
 }
 
-//AllergyRecord ...
+// AllergyRecord ...
 type AllergyRecord struct {
 	HealthRecord
 	Id             string             `json:"id" bson:"_id"`

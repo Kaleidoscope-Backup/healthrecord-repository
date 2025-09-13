@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//HealthcareServiceCategory ...
+// HealthcareServiceCategory ...
 type HealthcareServiceCategory string
 
 const (
@@ -115,7 +115,7 @@ const (
 	SERVICE_TRANSPORT HealthcareServiceCategory = "SERVICE_TRANSPORT"
 )
 
-//HealthcareServiceCreateInput ...
+// HealthcareServiceCreateInput ...
 type HealthcareServiceCreateInput struct {
 	Active                  bool                         `json:"active" bson:"active"`
 	ProvidedBy              ReferenceActorInput          `json:"providedBy" bson:"providedBy"`
@@ -154,7 +154,7 @@ type HealthcareServiceCreateInput struct {
 	Endpoints               *[]EndpointInput             `json:"endpoint" bson:"endpoint"`
 }
 
-//HealthcareService ...
+// HealthcareService ...
 type HealthcareService struct {
 	Id                      string                       `json:"id" bson:"_id"`
 	Active                  bool                         `json:"active" bson:"active"`

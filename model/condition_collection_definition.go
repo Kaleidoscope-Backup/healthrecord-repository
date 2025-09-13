@@ -1,14 +1,14 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//ConditionTypeInput ...
+// ConditionTypeInput ...
 type ConditionTypeInput struct {
 	Name string               `json:"name"`
 	Code *CodableConceptInput `json:"code"`
 }
 
-//ConditionType ...
+// ConditionType ...
 type ConditionType struct {
 	Id   string          `json:"id" bson:"_id"`
 	Name string          `json:"name" bson:"name"`
@@ -16,7 +16,7 @@ type ConditionType struct {
 	Meta *models.Meta    //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//ConditionDefinitionCollectionInput ...
+// ConditionDefinitionCollectionInput ...
 type ConditionDefinitionCollectionInput struct {
 	Name       string                `json:"name"`
 	Code       *CodableConceptInput  `json:"code"`
@@ -25,7 +25,7 @@ type ConditionDefinitionCollectionInput struct {
 	Conditions *[]ConditionTypeInput `json:"conditions"`
 }
 
-//ConditionDefinitionCollection ...
+// ConditionDefinitionCollection ...
 type ConditionDefinitionCollection struct {
 	Id         string           `json:"id" bson:"_id"`
 	Name       string           `json:"name" bson:"name"`

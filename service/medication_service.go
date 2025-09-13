@@ -4,27 +4,27 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 MedicationService
 ==========================================================================================*/
 
-//MedicationService ..
+// MedicationService ..
 type MedicationService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewMedicationService ..
+// NewMedicationService ..
 func NewMedicationService(dal mserver.DataAccessLayer, log *logging.Logger) *MedicationService {
 	return &MedicationService{dal: dal, log: log}
 }
 
-//FindById ...
+// FindById ...
 func (u *MedicationService) FindById(id string) (*model.Medication, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -49,7 +49,7 @@ func (u *MedicationService) FindById(id string) (*model.Medication, error) {
 Mutation Operations
 ==========================================================================================*/
 
-//CreateMedication will create a new medication in Mongo using the Data Access Layer
+// CreateMedication will create a new medication in Mongo using the Data Access Layer
 func (u *MedicationService) CreateMedication(medication *model.Medication) (*model.Medication, error) {
 	//Validate required fields on Model element are being passed in
 	if medication.MedicationStatus == "" ||

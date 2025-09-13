@@ -1,44 +1,44 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Organization Resolver
 ================================*/
 
-//OrganizationResolver ..
+// OrganizationResolver ..
 type OrganizationResolver struct {
 	M *model.Organization
 }
 
-//Id ..
+// Id ..
 func (r *OrganizationResolver) Id() string {
 	return r.M.Id
 }
 
-//Name ..
+// Name ..
 func (r *OrganizationResolver) Name() string {
 	return r.M.Name
 }
 
-//Email ..
+// Email ..
 func (r *OrganizationResolver) Email() *string {
 	return r.M.Email
 }
 
-//Photo ..
+// Photo ..
 func (r *OrganizationResolver) Photo() *string {
 	return r.M.Photo
 }
 
-//SourceID ..
+// SourceID ..
 func (r *OrganizationResolver) SourceID() *SourceOrganizationIDResolver {
 	return &SourceOrganizationIDResolver{r.M.SourceID}
 }
 
-//Address array ..
+// Address array ..
 func (r *OrganizationResolver) Address() *[]*AddressResolver {
 	var addrsResolvers []*AddressResolver
 	var addrArray []model.Address
@@ -63,17 +63,17 @@ func resolveAddress(addr *model.Address) *AddressResolver {
 	return &AddressResolver{addr}
 }
 
-//Type ..
+// Type ..
 func (r *OrganizationResolver) Type() model.OrganizationType {
 	return r.M.Type
 }
 
-//PartOf ..
+// PartOf ..
 func (r *OrganizationResolver) PartOf() *string {
 	return r.M.PartOf
 }
 
-//Contacts ..
+// Contacts ..
 func (r *OrganizationResolver) Contacts() *[]*ContactPointResolver {
 	if r.M.Contacts != nil {
 		var crs []*ContactPointResolver

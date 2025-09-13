@@ -5,23 +5,23 @@ import (
 	"fmt"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 Procedure Record service
 ==========================================================================================*/
 
-//ProcedureRecordService is for creating habit
+// ProcedureRecordService is for creating habit
 type ProcedureRecordService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewProcedureRecordService creates a new Procedure service that has all calls to the database, queries and mutations via the Data Access Layer
+// NewProcedureRecordService creates a new Procedure service that has all calls to the database, queries and mutations via the Data Access Layer
 func NewProcedureRecordService(dal mserver.DataAccessLayer, log *logging.Logger) *ProcedureRecordService {
 	return &ProcedureRecordService{dal: dal, log: log}
 }
@@ -30,7 +30,7 @@ func NewProcedureRecordService(dal mserver.DataAccessLayer, log *logging.Logger)
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *ProcedureRecordService) FindByID(id string) (*model.ProcedureRecord, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -49,7 +49,7 @@ func (u *ProcedureRecordService) FindByID(id string) (*model.ProcedureRecord, er
 	return procedure, nil
 }
 
-//FindByConsumerID ..
+// FindByConsumerID ..
 func (u *ProcedureRecordService) FindByConsumerID(id string) (*[]*model.ProcedureRecord, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -76,7 +76,7 @@ func (u *ProcedureRecordService) FindByConsumerID(id string) (*[]*model.Procedur
 Mutation Operations
 ==========================================================================================*/
 
-//CreateProcedureRecord will create a new procedure in Mongo using the Data Access Layer ...
+// CreateProcedureRecord will create a new procedure in Mongo using the Data Access Layer ...
 func (u *ProcedureRecordService) CreateProcedureRecord(procedureRecord *model.ProcedureRecord) (*model.ProcedureRecord, error) {
 
 	if &procedureRecord.Category == nil || &procedureRecord.Status == nil {

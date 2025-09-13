@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"time"
 
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 func createCompleteEMRHealthRecordObjectForTest(recordType model.HealthRecordType, prevRecord string) *model.HealthRecord {

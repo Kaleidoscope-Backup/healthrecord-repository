@@ -7,8 +7,8 @@ package resolver_functional_test
 // 	. "github.com/onsi/ginkgo"
 // 	. "github.com/onsi/gomega"
 // 	"github.com/shurcooL/graphql"
-// 	"gitlab.com/karte/healthrecord-repository/model"
-// 	"gitlab.com/karte/healthrecord-repository/util"
+// 	"github.com/karte/healthrecord-repository/model"
+// 	"github.com/karte/healthrecord-repository/util"
 // )
 
 // var _ = Describe("MedicationMutation", func() {

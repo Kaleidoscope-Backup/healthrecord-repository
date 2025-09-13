@@ -12,7 +12,7 @@ import (
 
 	mgo "github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/mongo-lib/models"
 )
 
 // This is a MongoDB internal error code for an interrupted operation, see:

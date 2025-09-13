@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//Organization Query
+// Organization Query
 func (r *Resolver) Organization(ctx context.Context, args struct {
 	ID string
 }) (*OrganizationResolver, error) {
@@ -23,7 +23,7 @@ func (r *Resolver) Organization(ctx context.Context, args struct {
 	return &OrganizationResolver{organization}, nil
 }
 
-//Organizations ...
+// Organizations ...
 func (r *Resolver) Organizations(ctx context.Context, args struct {
 	Param *model.OrganizationQueryParam
 }) *[]*OrganizationResolver {
@@ -44,7 +44,7 @@ func (r *Resolver) Organizations(ctx context.Context, args struct {
 	return &l
 }
 
-//OrganizationMembers ...
+// OrganizationMembers ...
 func (r *Resolver) OrganizationMembers(ctx context.Context, args struct {
 	ID string
 }) *[]*PractitionerResolver {

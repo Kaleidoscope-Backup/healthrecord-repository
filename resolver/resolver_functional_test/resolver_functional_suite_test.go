@@ -11,25 +11,25 @@ import (
 	"time"
 
 	"github.com/codegangsta/negroni"
+	c "github.com/karte/healthrecord-repository/constant"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/shurcooL/graphql"
-	c "gitlab.com/karte/healthrecord-repository/constant"
 	"golang.org/x/oauth2"
 
 	"github.com/globalsign/mgo"
 	graphqlGo "github.com/graph-gophers/graphql-go"
-	"gitlab.com/karte/healthrecord-repository/resolver"
-	"gitlab.com/karte/healthrecord-repository/schema"
-	"gitlab.com/karte/healthrecord-repository/service"
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/microservice-utilities/auth0"
-	h "gitlab.com/karte/microservice-utilities/handler"
-	"gitlab.com/karte/microservice-utilities/loader"
-	"gitlab.com/karte/mongo-lib/mserver"
+	"github.com/karte/healthrecord-repository/resolver"
+	"github.com/karte/healthrecord-repository/schema"
+	"github.com/karte/healthrecord-repository/service"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/microservice-utilities/auth0"
+	h "github.com/karte/microservice-utilities/handler"
+	"github.com/karte/microservice-utilities/loader"
+	"github.com/karte/mongo-lib/mserver"
 )
 
-//GLOBALS
+// GLOBALS
 var client *graphql.Client
 var ctx context.Context
 

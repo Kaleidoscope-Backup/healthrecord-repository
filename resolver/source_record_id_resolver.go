@@ -1,29 +1,29 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Source Record ID Resolver
 ================================*/
 
-//SourceRecordIDResolver ...
+// SourceRecordIDResolver ...
 type SourceRecordIDResolver struct {
 	M *model.SourceRecordID
 }
 
-//Id ...
+// Id ...
 func (r *SourceRecordIDResolver) Id() string {
 	return r.M.Id
 }
 
-//System ...
+// System ...
 func (r *SourceRecordIDResolver) System() string {
 	return r.M.System
 }
 
-//Value ...
+// Value ...
 func (r *SourceRecordIDResolver) Value() string {
 	return r.M.Value
 }

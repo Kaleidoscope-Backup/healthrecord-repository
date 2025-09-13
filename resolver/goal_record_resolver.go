@@ -1,81 +1,81 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 GoalRecord Resolver
 ================================*/
 
-//GoalRecordResolver ..
+// GoalRecordResolver ..
 type GoalRecordResolver struct {
 	HealthRecordResolver
 	G *model.GoalRecord
 }
 
-//Id ..
+// Id ..
 func (r *GoalRecordResolver) Id() string {
 	return r.G.Id
 }
 
-//Category ..
+// Category ..
 func (r *GoalRecordResolver) Category() model.GoalCategory {
 	return r.G.Category
 }
 
-//CategoryCode ..
+// CategoryCode ..
 func (r *GoalRecordResolver) CategoryCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.G.CategoryCode}
 }
 
-//Priority ..
+// Priority ..
 func (r *GoalRecordResolver) Priority() *model.Priority {
 	return r.G.Priority
 }
 
-//Start ..
+// Start ..
 func (r *GoalRecordResolver) Start() util.Time {
 	return r.G.Start
 }
 
-//DueDate ..
+// DueDate ..
 func (r *GoalRecordResolver) DueDate() *util.Time {
 	return r.G.DueDate
 }
 
-//DueDuration ..
+// DueDuration ..
 func (r *GoalRecordResolver) DueDuration() *int32 {
 	return r.G.DueDuration
 }
 
-//Measure ..
+// Measure ..
 func (r *GoalRecordResolver) Measure() string {
 	return r.G.Measure
 }
 
-//MeasureCode ..
+// MeasureCode ..
 func (r *GoalRecordResolver) MeasureCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.G.MeasureCode}
 }
 
-//Target ..
+// Target ..
 func (r *GoalRecordResolver) Target() *ValueResolver {
 	return &ValueResolver{&r.G.Target}
 }
 
-//ExpressedBy ..
+// ExpressedBy ..
 func (r *GoalRecordResolver) ExpressedBy() *ReferenceActorResolver {
 	return &ReferenceActorResolver{r.G.ExpressedBy}
 }
 
-//Note ..
+// Note ..
 func (r *GoalRecordResolver) Note() *string {
 	return r.G.Note
 }
 
-//Outcomes array ..
+// Outcomes array ..
 func (r *GoalRecordResolver) Outcomes() *[]*ReferenceHealthRecordResolver {
 
 	if r.G.Outcomes != nil {

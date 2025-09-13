@@ -1,55 +1,55 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 Comment Resolver
 ================================*/
 
-//CommentResolver ..
+// CommentResolver ..
 type CommentResolver struct {
 	C *model.Comment
 }
 
-//Id ..
+// Id ..
 func (r *CommentResolver) Id() string {
 	return r.C.Id
 }
 
-//ExternalID ..
+// ExternalID ..
 func (r *CommentResolver) ExternalID() string {
 	return r.C.ExternalID
 }
 
-//CreatedAt ..
+// CreatedAt ..
 func (r *CommentResolver) CreatedAt() util.Time {
 	return r.C.CreatedAt
 }
 
-//CommentText ..
+// CommentText ..
 func (r *CommentResolver) CommentText() string {
 	return r.C.CommentText
 }
 
-//CommentedBy ..
+// CommentedBy ..
 func (r *CommentResolver) CommentedBy() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.C.CommentedBy}
 }
 
-//Context ..
+// Context ..
 func (r *CommentResolver) Context() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{&r.C.Context}
 }
 
-//Location ..
+// Location ..
 func (r *CommentResolver) Location() *GeoLocationResolver {
 	return &GeoLocationResolver{r.C.Location}
 }
 
-//Attachments array ..
+// Attachments array ..
 func (r *CommentResolver) Attachments() *[]*AttachmentResolver {
 
 	if r.C.Attachments != nil {
@@ -74,7 +74,7 @@ func (r *CommentResolver) Attachments() *[]*AttachmentResolver {
 	return nil
 }
 
-//Comments array ..
+// Comments array ..
 func (r *CommentResolver) Comments() *[]*CommentResolver {
 
 	if r.C.Comments != nil {
@@ -99,7 +99,7 @@ func (r *CommentResolver) Comments() *[]*CommentResolver {
 	return nil
 }
 
-//ResolveCommentResolver ...
+// ResolveCommentResolver ...
 func ResolveCommentResolver(comment *model.Comment) *CommentResolver {
 	if comment != nil {
 		return &CommentResolver{comment}

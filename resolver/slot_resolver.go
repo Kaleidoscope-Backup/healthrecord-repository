@@ -1,44 +1,44 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Slot Resolver
 ================================*/
 
-//SlotResolver ..
+// SlotResolver ..
 type SlotResolver struct {
 	S *model.Slot
 }
 
-//Id ..
+// Id ..
 func (r *SlotResolver) Id() string {
 	return r.S.Id
 }
 
-//Status ..
+// Status ..
 func (r *SlotResolver) Status() model.SlotStatus {
 	return r.S.Status
 }
 
-//OverBooked ..
+// OverBooked ..
 func (r *SlotResolver) OverBooked() *bool {
 	return r.S.OverBooked
 }
 
-//StatusCode ..
+// StatusCode ..
 func (r *SlotResolver) StatusCode() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.S.StatusCode}
 }
 
-//Speciality ..
+// Speciality ..
 func (r *SlotResolver) Speciality() *[]string {
 	return r.S.Speciality
 }
 
-//SpecialityCode array ..
+// SpecialityCode array ..
 func (r *SlotResolver) SpecialityCode() *[]*ClinicalCodeResolver {
 
 	if r.S.SpecialityCode != nil {
@@ -63,12 +63,12 @@ func (r *SlotResolver) SpecialityCode() *[]*ClinicalCodeResolver {
 	return nil
 }
 
-//ServiceType ..
+// ServiceType ..
 func (r *SlotResolver) ServiceType() *[]string {
 	return r.S.ServiceType
 }
 
-//ServiceTypeCode array ..
+// ServiceTypeCode array ..
 func (r *SlotResolver) ServiceTypeCode() *[]*ClinicalCodeResolver {
 
 	if r.S.SpecialityCode != nil {
@@ -93,17 +93,17 @@ func (r *SlotResolver) ServiceTypeCode() *[]*ClinicalCodeResolver {
 	return nil
 }
 
-//Schedule ..
+// Schedule ..
 func (r *SlotResolver) Schedule() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{&r.S.Schedule}
 }
 
-//Comment ..
+// Comment ..
 func (r *SlotResolver) Comment() *string {
 	return r.S.Comment
 }
 
-//Period ..
+// Period ..
 func (r *SlotResolver) Period() *PeriodResolver {
 	return &PeriodResolver{r.S.Period}
 }

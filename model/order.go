@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//OrderStatus ...
+// OrderStatus ...
 type OrderStatus string
 
 const (
@@ -25,7 +25,7 @@ const (
 	ORDER_UNKNOWN OrderStatus = "ORDER_UNKNOWN"
 )
 
-//OrderQueryParam ..
+// OrderQueryParam ..
 type OrderQueryParam struct {
 	Status      *OrderStatus `json:"status"`
 	FromID      string       `json:"fromID"`
@@ -34,7 +34,7 @@ type OrderQueryParam struct {
 	OrderedItem *string      `json:"orderedItem"`
 }
 
-//OrderCreate ..
+// OrderCreate ..
 type OrderCreate struct {
 	Status          OrderStatus          `json:"status"`
 	Priority        Priority             `json:"priority"`
@@ -50,7 +50,7 @@ type OrderCreate struct {
 	ShippingAddress *AddressInput        `json:"shippingAddress"`
 }
 
-//Order ..
+// Order ..
 type Order struct {
 	Id              string          `json:"id" bson:"_id"`
 	Status          OrderStatus     `json:"status" bson:"status"`

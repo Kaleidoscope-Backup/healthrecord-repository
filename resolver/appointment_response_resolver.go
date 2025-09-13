@@ -1,50 +1,50 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 AppointmentResponse Resolver
 ================================*/
 
-//AppointmentResponseResolver ..
+// AppointmentResponseResolver ..
 type AppointmentResponseResolver struct {
 	A *model.AppointmentResponse
 }
 
-//Id ..
+// Id ..
 func (r *AppointmentResponseResolver) Id() string {
 	return r.A.Id
 }
 
-//Status ..
+// Status ..
 func (r *AppointmentResponseResolver) Status() model.AppointmentResponseStatus {
 	return r.A.Status
 }
 
-//Appointment ..
+// Appointment ..
 func (r *AppointmentResponseResolver) Appointment() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{&r.A.Appointment}
 }
 
-//Start ..
+// Start ..
 func (r *AppointmentResponseResolver) Start() util.Time {
 	return r.A.Start
 }
 
-//End ..
+// End ..
 func (r *AppointmentResponseResolver) End() util.Time {
 	return r.A.End
 }
 
-//Actor ..
+// Actor ..
 func (r *AppointmentResponseResolver) Actor() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.A.Actor}
 }
 
-//Comment ..
+// Comment ..
 func (r *AppointmentResponseResolver) Comment() *string {
 	return r.A.Comment
 }

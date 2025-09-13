@@ -1,51 +1,51 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 Consumer Resolver
 ================================*/
 
-//ConsumerResolver ..
+// ConsumerResolver ..
 type ConsumerResolver struct {
 	ActorResolver
 	U *model.Consumer
 }
 
-//Id ..
+// Id ..
 func (r *ConsumerResolver) Id() string {
 	return r.U.Id
 }
 
-//Photo ..
+// Photo ..
 func (r *ConsumerResolver) Photo() *string {
 	return r.U.Photo
 }
 
-//Ethnicity ..
+// Ethnicity ..
 func (r *ConsumerResolver) Ethnicity() *string {
 	return r.U.Ethnicity
 }
 
-//Race ..
+// Race ..
 func (r *ConsumerResolver) Race() *model.Race {
 	return r.U.Race
 }
 
-//MarritalStatus ..
+// MarritalStatus ..
 func (r *ConsumerResolver) MarritalStatus() *model.MarritalStatus {
 	return r.U.MarritalStatus
 }
 
-//Gender ..
+// Gender ..
 func (r *ConsumerResolver) Gender() *model.Gender {
 	return r.U.Gender
 }
 
-//EmergencyContacts array ..
+// EmergencyContacts array ..
 func (r *ConsumerResolver) EmergencyContacts() *[]*ContactResolver {
 	var cprs []*ContactResolver
 	var cps []model.Contact
@@ -70,22 +70,22 @@ func resolveContact(c *model.Contact) *ContactResolver {
 	return &ContactResolver{c}
 }
 
-//DateOfBirth ..
+// DateOfBirth ..
 func (r *ConsumerResolver) DateOfBirth() *util.Time {
 	return r.U.DateOfBirth
 }
 
-//Address ..
+// Address ..
 func (r *ConsumerResolver) Address() *AddressResolver {
 	return &AddressResolver{r.U.Address}
 }
 
-//PrimaryContact ..
+// PrimaryContact ..
 func (r *ConsumerResolver) PrimaryContact() *ContactPointResolver {
 	return &ContactPointResolver{r.U.PrimaryContact}
 }
 
-//AdditionalContacts array ..
+// AdditionalContacts array ..
 func (r *ConsumerResolver) AdditionalContacts() *[]*ContactPointResolver {
 
 	if r.U.AdditionalContacts != nil {
@@ -113,7 +113,7 @@ func resolveContactPoint(cp *model.ContactPoint) *ContactPointResolver {
 	return &ContactPointResolver{cp}
 }
 
-//SourceIDs array ..
+// SourceIDs array ..
 func (r *ConsumerResolver) SourceIDs() *[]*SourceConsumerIDResolver {
 
 	if r.U.SourceIDs != nil {

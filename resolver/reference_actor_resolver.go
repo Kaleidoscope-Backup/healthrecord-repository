@@ -1,29 +1,29 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Reference Actor Resolver
 ================================*/
 
-//ReferenceActorResolver ..
+// ReferenceActorResolver ..
 type ReferenceActorResolver struct {
 	L *model.ReferenceActor
 }
 
-//Id ..
+// Id ..
 func (r *ReferenceActorResolver) Id() string {
 	return r.L.Id
 }
 
-//ActorType ..
+// ActorType ..
 func (r *ReferenceActorResolver) ActorType() model.ActorType {
 	return r.L.ActorType
 }
 
-//ActorID ..
+// ActorID ..
 func (r *ReferenceActorResolver) ActorID() string {
 	return r.L.ActorID
 }

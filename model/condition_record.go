@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//ConditionStatus ...
+// ConditionStatus ...
 type ConditionStatus string
 
 const (
@@ -22,7 +22,7 @@ const (
 	CONDITION_RESOLVED ConditionStatus = "CONDITION_RESOLVED"
 )
 
-//ConditionRecordCreate ...
+// ConditionRecordCreate ...
 type ConditionRecordCreate struct {
 	HealthRecordCreate
 	Code               *CodableConceptInput `json:"code"`
@@ -37,7 +37,7 @@ type ConditionRecordCreate struct {
 	Evidence           *[]SymptomInput      `json:"evidence" bson:"evidene"`
 }
 
-//ConditionRecord ...
+// ConditionRecord ...
 type ConditionRecord struct {
 	HealthRecord
 	Id                 string          `json:"id" bson:"_id"`

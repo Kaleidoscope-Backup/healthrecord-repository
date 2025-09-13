@@ -5,24 +5,24 @@ import (
 	"strconv"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 OrderService
 ==========================================================================================*/
 
-//OrderService ..
+// OrderService ..
 type OrderService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewOrderService ..
+// NewOrderService ..
 func NewOrderService(dal mserver.DataAccessLayer, log *logging.Logger) *OrderService {
 	return &OrderService{dal: dal, log: log}
 }
@@ -31,7 +31,7 @@ func NewOrderService(dal mserver.DataAccessLayer, log *logging.Logger) *OrderSer
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *OrderService) FindByID(id string) (*model.Order, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -85,7 +85,7 @@ func (u *OrderService) FindByConsumerID(id string) (*[]*model.Order, error) {
 	return &orders, nil
 }
 
-//FindOrders ...
+// FindOrders ...
 func (u *OrderService) FindOrders(param *model.OrderQueryParam) (*[]*model.Order, error) {
 	if param == nil {
 		return nil, errors.New("Missing parameter")
@@ -134,7 +134,7 @@ func (u *OrderService) FindOrders(param *model.OrderQueryParam) (*[]*model.Order
 	return &orderArr, nil
 }
 
-//FindOrdersBySupplier ...
+// FindOrdersBySupplier ...
 func (u *OrderService) FindOrdersBySupplier(supplierID string) (*[]*model.Order, error) {
 	if supplierID == "" {
 		return nil, errors.New("Missing parameter id")
@@ -167,7 +167,7 @@ func (u *OrderService) FindOrdersBySupplier(supplierID string) (*[]*model.Order,
 Mutation Operations
 ==========================================================================================*/
 
-//CreateOrder will create a new Product in Mongo using the Data Access Layer
+// CreateOrder will create a new Product in Mongo using the Data Access Layer
 func (u *OrderService) CreateOrder(order *model.Order) (*model.Order, error) {
 
 	id, err := u.dal.Post(order)

@@ -1,86 +1,86 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
-//ConsentResolver ..
+// ConsentResolver ..
 type ConsentResolver struct {
 	m *model.Consent
 }
 
-//Id ..
+// Id ..
 func (r *ConsentResolver) Id() string {
 	return r.m.Id
 }
 
-//Category ..
+// Category ..
 func (r *ConsentResolver) Category() string {
 	return r.m.Category
 }
 
-//CategoryCode ..
+// CategoryCode ..
 func (r *ConsentResolver) CategoryCode() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.m.CategoryCode}
 }
 
-//ConsumerID ..
+// ConsumerID ..
 func (r *ConsentResolver) ConsumerID() string {
 	return r.m.ConsumerID
 }
 
-//Custodian ..
+// Custodian ..
 func (r *ConsentResolver) Custodian() *string {
 	return r.m.Custodian
 }
 
-//Name ..
+// Name ..
 func (r *ConsentResolver) Name() *string {
 	return r.m.Name
 }
 
-//Content ..
+// Content ..
 func (r *ConsentResolver) Content() *string {
 	return r.m.Content
 }
 
-//Action ..
+// Action ..
 func (r *ConsentResolver) Action() *model.ConsentAction {
 	return r.m.Action
 }
 
-//Purpose ..
+// Purpose ..
 func (r *ConsentResolver) Purpose() model.PurposeOfUse {
 	return r.m.Purpose
 }
 
-//PurposeCode ..
+// PurposeCode ..
 func (r *ConsentResolver) PurposeCode() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.m.PurposeCode}
 }
 
-//Context ..
+// Context ..
 func (r *ConsentResolver) Context() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{r.m.Context}
 }
 
-//QuestionnaireResponse ..
+// QuestionnaireResponse ..
 func (r *ConsentResolver) QuestionnaireResponse() *string {
 	return r.m.QuestionnaireResponse
 }
 
-//Period ..
+// Period ..
 func (r *ConsentResolver) Period() *PeriodResolver {
 	return &PeriodResolver{r.m.Period}
 }
 
-//DateTime ..
+// DateTime ..
 func (r *ConsentResolver) DateTime() util.Time {
 	return r.m.DateTime
 }
 
-//ConsentingParty array ..
+// ConsentingParty array ..
 func (r *ConsentResolver) ConsentingParty() *[]*ReferenceActorResolver {
 
 	if r.m.ConsentingParty != nil {

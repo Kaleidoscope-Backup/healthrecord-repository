@@ -1,15 +1,15 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
+	"github.com/karte/mongo-lib/models"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
-	"gitlab.com/karte/mongo-lib/models"
 	"golang.org/x/net/context"
 )
 
-//CreateObservationDefinitionCollection ...
+// CreateObservationDefinitionCollection ...
 func (r *Resolver) CreateObservationDefinitionCollection(ctx context.Context, args *struct {
 	ObservationDefinitionCollection *model.ObservationDefinitionCollectionInput
 }) (*ObservationDefinitionCollectionResolver, error) {

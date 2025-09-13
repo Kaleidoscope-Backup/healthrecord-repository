@@ -11,8 +11,8 @@ import (
 
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
-	"gitlab.com/karte/mongo-lib/models"
-	"gitlab.com/karte/mongo-lib/search"
+	"github.com/karte/mongo-lib/models"
+	"github.com/karte/mongo-lib/search"
 )
 
 // MasterSession manages a master session connected to the Mongo database.

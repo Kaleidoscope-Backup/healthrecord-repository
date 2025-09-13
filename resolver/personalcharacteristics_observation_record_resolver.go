@@ -1,25 +1,25 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 PersonalCharacteristicsObservationRecord Resolver
 ================================*/
 
-//PersonalCharacteristicsObservationRecordResolver ..
+// PersonalCharacteristicsObservationRecordResolver ..
 type PersonalCharacteristicsObservationRecordResolver struct {
 	HealthRecordResolver
 	C *model.PersonalCharacteristicsObservationRecord
 }
 
-//Id ..
+// Id ..
 func (r *PersonalCharacteristicsObservationRecordResolver) Id() string {
 	return r.C.Id
 }
 
-//Observations array ..
+// Observations array ..
 func (r *PersonalCharacteristicsObservationRecordResolver) Observations() *[]*PersonalCharacteristicsObservationResolver {
 
 	if r.C.Observations != nil {

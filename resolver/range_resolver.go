@@ -1,29 +1,29 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Range Resolver
 ================================*/
 
-//RangeResolver ..
+// RangeResolver ..
 type RangeResolver struct {
 	L *model.Range
 }
 
-//Id ..
+// Id ..
 func (r *RangeResolver) Id() string {
 	return r.L.Id
 }
 
-//Min ..
+// Min ..
 func (r *RangeResolver) Min() int32 {
 	return r.L.Min
 }
 
-//Max ..
+// Max ..
 func (r *RangeResolver) Max() int32 {
 	return r.L.Max
 }

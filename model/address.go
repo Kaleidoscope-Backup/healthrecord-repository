@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//AddressInput ...
+// AddressInput ...
 type AddressInput struct {
 	Name         *string `json:"name" bson:"name"`
 	StreetNumber string  `json:"streetNumber"`
@@ -13,7 +13,7 @@ type AddressInput struct {
 	ZipCode      string  `json:"zipCode,omitempty"`
 }
 
-//Address represents any location
+// Address represents any location
 type Address struct {
 	Id           string       `json:"id" bson:"_id"`
 	Name         *string      `json:"name" bson:"name"`

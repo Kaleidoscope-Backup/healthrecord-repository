@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//ReferenceRangeType ...
+// ReferenceRangeType ...
 type ReferenceRangeType string
 
 const (
@@ -28,7 +28,7 @@ const (
 	NOT_RECOMMENDED ReferenceRangeType = "NOT_RECOMMENDED"
 )
 
-//ReferenceRangeInput ...
+// ReferenceRangeInput ...
 type ReferenceRangeInput struct {
 	Range         *RangeInput          `json:"range"`
 	LowerLimit    *int32               `json:"lowerLimit"`
@@ -44,7 +44,7 @@ type ReferenceRangeInput struct {
 	Meta          *models.Meta         //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//ReferenceRange ...
+// ReferenceRange ...
 type ReferenceRange struct {
 	Id            string             `json:"id" bson:"_id"`
 	Range         *Range             `json:"range" bson:"range"`

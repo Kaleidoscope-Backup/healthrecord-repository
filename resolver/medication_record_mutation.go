@@ -1,10 +1,10 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
@@ -38,7 +38,7 @@ func (r *Resolver) CreateMedicationRecord(ctx context.Context, args *struct {
 	return &MedicationRecordResolver{healthRecordResolver, medicationRecord}, nil
 }
 
-//CreateMedications will create an array of Medications object from an Array of MedicationCreate input objects
+// CreateMedications will create an array of Medications object from an Array of MedicationCreate input objects
 func createMedications(ctx context.Context, medicationsCreate *[]model.MedicationCreate) *[]model.Medication {
 	var medications []model.Medication
 
@@ -56,7 +56,7 @@ func createMedications(ctx context.Context, medicationsCreate *[]model.Medicatio
 	return nil
 }
 
-//createMedication will create a medication object from a MedicationCreate input object
+// createMedication will create a medication object from a MedicationCreate input object
 func createMedication(ctx context.Context, medicationCreate *model.MedicationCreate) (*model.Medication, error) {
 	var medication *model.Medication
 	medication = &model.Medication{}

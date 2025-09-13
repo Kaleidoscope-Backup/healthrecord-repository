@@ -1,10 +1,10 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
@@ -23,7 +23,7 @@ func CreateGeolocationFromInput(input *model.GeoLocationInput) *model.GeoLocatio
 	return nil
 }
 
-//CreateTextFromInput ...
+// CreateTextFromInput ...
 func CreateTextFromInput(input *model.TextInput) *model.Text {
 	if input != nil && input.Content != nil {
 		var text *model.Text
@@ -45,7 +45,7 @@ func CreateTextFromInput(input *model.TextInput) *model.Text {
 	return nil
 }
 
-//CreateTextContentFromInput ...
+// CreateTextContentFromInput ...
 func CreateTextContentFromInput(input *model.TextContentInput) *model.TextContent {
 	if input != nil {
 		var text *model.TextContent
@@ -58,7 +58,7 @@ func CreateTextContentFromInput(input *model.TextContentInput) *model.TextConten
 	return nil
 }
 
-//CreateCodableConceptFromInput ...
+// CreateCodableConceptFromInput ...
 func CreateCodableConceptFromInput(ctx context.Context, input *model.CodableConceptInput) (*model.CodableConcept, error) {
 	if input != nil {
 		conceptClass, err := ctx.Value(constant.ConceptClassService).(*service.ConceptClassService).FindByID(input.ConceptClass)
@@ -89,7 +89,7 @@ func CreateCodableConceptFromInput(ctx context.Context, input *model.CodableConc
 	return nil, nil
 }
 
-//CreateCodeFromInput ...
+// CreateCodeFromInput ...
 func CreateCodeFromInput(input *model.CodeInput) *model.Code {
 	if input != nil {
 		var code *model.Code
@@ -108,7 +108,7 @@ func CreateCodeFromInput(input *model.CodeInput) *model.Code {
 	return nil
 }
 
-//CreateSourceFromInput ...
+// CreateSourceFromInput ...
 func CreateSourceFromInput(input *model.SourceInput) *model.Source {
 	if input != nil {
 		var source *model.Source
@@ -123,7 +123,7 @@ func CreateSourceFromInput(input *model.SourceInput) *model.Source {
 	return nil
 }
 
-//CreateAttachmentFromInput ...
+// CreateAttachmentFromInput ...
 func CreateAttachmentFromInput(input *model.AttachmentInput) *model.Attachment {
 	if input != nil {
 		var attachment *model.Attachment
@@ -141,7 +141,7 @@ func CreateAttachmentFromInput(input *model.AttachmentInput) *model.Attachment {
 	return nil
 }
 
-//CreateAttributeFromInput ...
+// CreateAttributeFromInput ...
 func CreateAttributeFromInput(input *model.AttributeInput) *model.Attribute {
 	if input != nil {
 		var attribute *model.Attribute
@@ -156,7 +156,7 @@ func CreateAttributeFromInput(input *model.AttributeInput) *model.Attribute {
 	return nil
 }
 
-//CreateMetaDataFromInput ...
+// CreateMetaDataFromInput ...
 func CreateMetaDataFromInput(input *model.MetaDataInput) *model.MetaData {
 	if input != nil {
 		var metaData *model.MetaData
@@ -182,7 +182,7 @@ func CreateMetaDataFromInput(input *model.MetaDataInput) *model.MetaData {
 	return nil
 }
 
-//CreateReferenceRangeFromInput ...
+// CreateReferenceRangeFromInput ...
 func CreateReferenceRangeFromInput(input *model.ReferenceRangeInput) *model.ReferenceRange {
 	if input != nil {
 		refRange := &model.ReferenceRange{}
@@ -215,7 +215,7 @@ func CreateReferenceRangeFromInput(input *model.ReferenceRangeInput) *model.Refe
 	return nil
 }
 
-//CreateClinicalCodeFromInput ...
+// CreateClinicalCodeFromInput ...
 func CreateClinicalCodeFromInput(input *model.ClinicalCodeInput) *model.ClinicalCode {
 	if input != nil {
 		code := &model.ClinicalCode{}
@@ -231,7 +231,7 @@ func CreateClinicalCodeFromInput(input *model.ClinicalCodeInput) *model.Clinical
 	return nil
 }
 
-//CreateContactPointFromInput ...
+// CreateContactPointFromInput ...
 func CreateContactPointFromInput(input *model.ContactPointInput) *model.ContactPoint {
 	if input != nil {
 		contact := &model.ContactPoint{}
@@ -247,7 +247,7 @@ func CreateContactPointFromInput(input *model.ContactPointInput) *model.ContactP
 	return nil
 }
 
-//CreatePeriodFromInput ...
+// CreatePeriodFromInput ...
 func CreatePeriodFromInput(input *model.PeriodInput) *model.Period {
 	if input != nil {
 		period := &model.Period{}
@@ -259,7 +259,7 @@ func CreatePeriodFromInput(input *model.PeriodInput) *model.Period {
 	return nil
 }
 
-//CreateReferenceEntityFromInput ...
+// CreateReferenceEntityFromInput ...
 func CreateReferenceEntityFromInput(ctx context.Context, input *model.ReferenceEntityInput) (*model.ReferenceEntity, error) {
 	if input != nil {
 
@@ -372,7 +372,7 @@ func CreateReferenceEntityFromInput(ctx context.Context, input *model.ReferenceE
 	return nil, nil
 }
 
-//CreateReferenceActorFromInput ...
+// CreateReferenceActorFromInput ...
 func CreateReferenceActorFromInput(ctx context.Context, input *model.ReferenceActorInput) (*model.ReferenceActor, error) {
 	if input != nil {
 		// if patient or consumer
@@ -412,7 +412,7 @@ func CreateReferenceActorFromInput(ctx context.Context, input *model.ReferenceAc
 	return nil, nil
 }
 
-//CreateReferenceHealthRecordInput ...
+// CreateReferenceHealthRecordInput ...
 func CreateReferenceHealthRecordInput(input *model.ReferenceHealthRecordInput) *model.ReferenceHealthRecord {
 	if input != nil {
 		refEntity := &model.ReferenceHealthRecord{}
@@ -425,7 +425,7 @@ func CreateReferenceHealthRecordInput(input *model.ReferenceHealthRecordInput) *
 	return nil
 }
 
-//CreateRatingFromInput ...
+// CreateRatingFromInput ...
 func CreateRatingFromInput(rating *model.RatingInput) *model.Rating {
 	if rating != nil {
 		var value *model.Rating
@@ -440,7 +440,7 @@ func CreateRatingFromInput(rating *model.RatingInput) *model.Rating {
 	return nil
 }
 
-//CreateRangeFromInput ...
+// CreateRangeFromInput ...
 func CreateRangeFromInput(valueRange *model.RangeInput) *model.Range {
 	if valueRange != nil {
 		var value *model.Range
@@ -454,7 +454,7 @@ func CreateRangeFromInput(valueRange *model.RangeInput) *model.Range {
 	return nil
 }
 
-//CreateRatioFromInput ...
+// CreateRatioFromInput ...
 func CreateRatioFromInput(valueRatio *model.RatioInput) *model.Ratio {
 	if valueRatio != nil {
 		var value *model.Ratio
@@ -468,7 +468,7 @@ func CreateRatioFromInput(valueRatio *model.RatioInput) *model.Ratio {
 	return nil
 }
 
-//CreateValue ...
+// CreateValue ...
 func CreateValue(valueInput *model.ValueInput) *model.Value {
 
 	if valueInput != nil {
@@ -512,7 +512,7 @@ func CreateValue(valueInput *model.ValueInput) *model.Value {
 	return nil
 }
 
-//CreateMeasurementFromInput ...
+// CreateMeasurementFromInput ...
 func CreateMeasurementFromInput(ctx context.Context, input *model.MeasurementDefinitionInput) *model.MeasurementDefinition {
 	if input != nil {
 		measurement := &model.MeasurementDefinition{}

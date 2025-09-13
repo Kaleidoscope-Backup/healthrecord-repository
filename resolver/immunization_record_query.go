@@ -1,13 +1,13 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//ImmunizationRecord ...
+// ImmunizationRecord ...
 func (r *Resolver) ImmunizationRecord(ctx context.Context, args struct {
 	ID string
 }) (*ImmunizationRecordResolver, error) {
@@ -23,7 +23,7 @@ func (r *Resolver) ImmunizationRecord(ctx context.Context, args struct {
 	return &ImmunizationRecordResolver{healthRecordResolver, immunizationRecord}, nil
 }
 
-//ImmunizationRecords ..
+// ImmunizationRecords ..
 func (r *Resolver) ImmunizationRecords(ctx context.Context, args struct {
 	ConsumerID string
 }) (*[]*ImmunizationRecordResolver, error) {

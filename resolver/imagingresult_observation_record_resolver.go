@@ -1,40 +1,40 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ImagingResultObservationRecord Resolver
 ================================*/
 
-//ImagingResultObservationRecordResolver ..
+// ImagingResultObservationRecordResolver ..
 type ImagingResultObservationRecordResolver struct {
 	HealthRecordResolver
 	C *model.ImagingResultObservationRecord
 }
 
-//Id ..
+// Id ..
 func (r *ImagingResultObservationRecordResolver) Id() string {
 	return r.C.Id
 }
 
-//Code ..
+// Code ..
 func (r *ImagingResultObservationRecordResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.C.Code}
 }
 
-//Comment ..
+// Comment ..
 func (r *ImagingResultObservationRecordResolver) Comment() *string {
 	return r.C.Comment
 }
 
-//Interpretation ..
+// Interpretation ..
 func (r *ImagingResultObservationRecordResolver) Interpretation() *string {
 	return r.C.Interpretation
 }
 
-//Observations array ..
+// Observations array ..
 func (r *ImagingResultObservationRecordResolver) Observations() *[]*AttachmentResolver {
 
 	if r.C.Observations != nil {

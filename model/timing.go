@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//UnitOfTime ...
+// UnitOfTime ...
 type UnitOfTime string
 
 const (
@@ -31,7 +31,7 @@ const (
 	YEAR UnitOfTime = "YEAR"
 )
 
-//DaysOfWeek ...
+// DaysOfWeek ...
 type DaysOfWeek string
 
 const (
@@ -57,7 +57,7 @@ const (
 	SUNDAY DaysOfWeek = "SUNDAY"
 )
 
-//EventTiming ...
+// EventTiming ...
 type EventTiming string
 
 const (
@@ -104,7 +104,7 @@ const (
 	EVENT_PCV EventTiming = "EVENT_PCV"
 )
 
-//TimingAbbreviation ...
+// TimingAbbreviation ...
 type TimingAbbreviation string
 
 const (
@@ -133,7 +133,7 @@ const (
 	Q6H TimingAbbreviation = "Q6H"
 )
 
-//FrequenceBoundsType ...
+// FrequenceBoundsType ...
 type FrequenceBoundsType string
 
 const (
@@ -147,7 +147,7 @@ const (
 	FREQUENCY_BOUNDS_PERIOD FrequenceBoundsType = "FREQUENCY_BOUNDS_PERIOD"
 )
 
-//TimingInput ...
+// TimingInput ...
 type TimingInput struct {
 	Event          *util.Time           `json:"event"`
 	BoundsType     *FrequenceBoundsType `json:"boundsType"`
@@ -172,7 +172,7 @@ type TimingInput struct {
 	Meta           *models.Meta         //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//Timing ...
+// Timing ...
 type Timing struct {
 	Id             string               `json:"id" bson:"_id"`
 	Event          *util.Time           `json:"event" bson:"event"`

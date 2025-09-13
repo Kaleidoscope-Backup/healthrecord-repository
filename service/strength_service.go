@@ -4,24 +4,25 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	// "gitlab.com/karte/healthrecord-repository/service"
 
-	"gitlab.com/karte/mongo-lib/mserver"
+	// "github.com/karte/healthrecord-repository/service"
+
+	"github.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 StrengthService
 ==========================================================================================*/
 
-//StrengthService ..
+// StrengthService ..
 type StrengthService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewStrengthService ..
+// NewStrengthService ..
 func NewStrengthService(dal mserver.DataAccessLayer, log *logging.Logger) *StrengthService {
 	return &StrengthService{dal: dal, log: log}
 }
@@ -30,7 +31,7 @@ func NewStrengthService(dal mserver.DataAccessLayer, log *logging.Logger) *Stren
 Query Operations
 ==========================================================================================*/
 
-//FindById ..
+// FindById ..
 func (u *StrengthService) FindById(id string) (*model.Strength, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -55,7 +56,7 @@ func (u *StrengthService) FindById(id string) (*model.Strength, error) {
 Mutation Operations
 ==========================================================================================*/
 
-//CreateStrength will create a new Strength in Mongo using the Data Access Layer
+// CreateStrength will create a new Strength in Mongo using the Data Access Layer
 func (u *StrengthService) CreateStrength(strength *model.Strength) (*model.Strength, error) {
 	//Validate required fields on Model element are being passed in
 	if strength.Unit == "" {

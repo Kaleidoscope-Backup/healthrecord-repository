@@ -1,29 +1,29 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Text Content Resolver
 ================================*/
 
-//TextContentResolver ..
+// TextContentResolver ..
 type TextContentResolver struct {
 	T *model.TextContent
 }
 
-//Id ..
+// Id ..
 func (r *TextContentResolver) Id() string {
 	return r.T.Id
 }
 
-//Content ..
+// Content ..
 func (r *TextContentResolver) Content() string {
 	return r.T.Content
 }
 
-//Language ..
+// Language ..
 func (r *TextContentResolver) Language() model.Language {
 	return r.T.Language
 }

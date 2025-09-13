@@ -1,26 +1,26 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
-//DeviceCalibrationResolver ..
+// DeviceCalibrationResolver ..
 type DeviceCalibrationResolver struct {
 	D *model.DeviceCalibration
 }
 
-//Id ..
+// Id ..
 func (r *DeviceCalibrationResolver) Id() string {
 	return r.D.Id
 }
 
-//State ..
+// State ..
 func (r *DeviceCalibrationResolver) State() model.DeviceMetricCalibrationState {
 	return r.D.State
 }
 
-//Time ..
+// Time ..
 func (r *DeviceCalibrationResolver) Time() util.Time {
 	return r.D.Time
 }

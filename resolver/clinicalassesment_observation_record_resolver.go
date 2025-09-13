@@ -1,50 +1,50 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ClinicalAssesmentObservationRecord Resolver
 ================================*/
 
-//ClinicalAssesmentObservationRecordResolver ..
+// ClinicalAssesmentObservationRecordResolver ..
 type ClinicalAssesmentObservationRecordResolver struct {
 	HealthRecordResolver
 	C *model.ClinicalAssesmentObservationRecord
 }
 
-//Id ..
+// Id ..
 func (r *ClinicalAssesmentObservationRecordResolver) Id() string {
 	return r.C.Id
 }
 
-//Code ..
+// Code ..
 func (r *ClinicalAssesmentObservationRecordResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.C.Code}
 }
 
-//Comment ..
+// Comment ..
 func (r *ClinicalAssesmentObservationRecordResolver) Comment() *string {
 	return r.C.Comment
 }
 
-//Method ..
+// Method ..
 func (r *ClinicalAssesmentObservationRecordResolver) Method() *string {
 	return r.C.Method
 }
 
-//MethodCode ..
+// MethodCode ..
 func (r *ClinicalAssesmentObservationRecordResolver) MethodCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.C.MethodCode}
 }
 
-//Interpretation ..
+// Interpretation ..
 func (r *ClinicalAssesmentObservationRecordResolver) Interpretation() *string {
 	return r.C.Interpretation
 }
 
-//Observations array ..
+// Observations array ..
 func (r *ClinicalAssesmentObservationRecordResolver) Observations() *[]*ClinicalAssesmentObservationResolver {
 
 	if r.C.Observations != nil {

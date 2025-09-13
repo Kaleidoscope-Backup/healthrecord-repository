@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	c "github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	logging "github.com/op/go-logging"
-	c "gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//CreateObservationRecords ...
+// CreateObservationRecords ...
 func (r *Resolver) CreateObservationRecords(ctx context.Context, args *struct {
 	ObservationRecords *model.ObservationRecordsCreate
 }) (*[]*ObservationRecordResolver, error) {
@@ -40,7 +40,7 @@ func (r *Resolver) CreateObservationRecords(ctx context.Context, args *struct {
 
 }
 
-//CreateObservationRecord ...
+// CreateObservationRecord ...
 func (r *Resolver) CreateObservationRecord(ctx context.Context, args *struct {
 	ObservationRecord *model.ObservationRecordCreate
 }) (*ObservationRecordResolver, error) {

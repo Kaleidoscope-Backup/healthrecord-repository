@@ -5,22 +5,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 ClinicalCodeService
 ==========================================================================================*/
 
-//ClinicalCodeService ...
+// ClinicalCodeService ...
 type ClinicalCodeService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewClinicalCodeService ..
+// NewClinicalCodeService ..
 func NewClinicalCodeService(dal mserver.DataAccessLayer, log *logging.Logger) *ClinicalCodeService {
 	return &ClinicalCodeService{dal: dal, log: log}
 }
@@ -29,7 +29,7 @@ func NewClinicalCodeService(dal mserver.DataAccessLayer, log *logging.Logger) *C
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *ClinicalCodeService) FindByID(id string) (*model.ClinicalCode, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -54,7 +54,7 @@ func (u *ClinicalCodeService) FindByID(id string) (*model.ClinicalCode, error) {
 Mutation Operations
 ==========================================================================================*/
 
-//CreateClinicalCode ...
+// CreateClinicalCode ...
 func (u *ClinicalCodeService) CreateClinicalCode(ctx context.Context, clinicalCode *model.ClinicalCode) (*model.ClinicalCode, error) {
 
 	//Validate required fields on Model element are being passed in

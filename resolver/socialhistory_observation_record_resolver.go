@@ -1,61 +1,61 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 HabitRecord Resolver
 ================================*/
 
-//SocialHistoryObservationRecordResolver ..
+// SocialHistoryObservationRecordResolver ..
 type SocialHistoryObservationRecordResolver struct {
 	HealthRecordResolver
 	U *model.SocialHistoryObservationRecord
 }
 
-//Id ..
+// Id ..
 func (r *SocialHistoryObservationRecordResolver) Id() string {
 	return r.U.Id
 }
 
-//Type ..
+// Type ..
 func (r *SocialHistoryObservationRecordResolver) Type() model.SocialHistoryObservationType {
 	return r.U.Type
 }
 
-//Status ..
+// Status ..
 func (r *SocialHistoryObservationRecordResolver) Status() model.SocialHistoryObservationStatus {
 	return r.U.Status
 }
 
-//Duration ..
+// Duration ..
 func (r *SocialHistoryObservationRecordResolver) Duration() *int32 {
 	return r.U.Duration
 }
 
-//DurationUnit ..
+// DurationUnit ..
 func (r *SocialHistoryObservationRecordResolver) DurationUnit() *string {
 	return r.U.DurationUnit
 }
 
-//Start ..
+// Start ..
 func (r *SocialHistoryObservationRecordResolver) Start() *util.Time {
 	return r.U.Start
 }
 
-//End ..
+// End ..
 func (r *SocialHistoryObservationRecordResolver) End() *util.Time {
 	return r.U.End
 }
 
-//Code ..
+// Code ..
 func (r *SocialHistoryObservationRecordResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.U.Code}
 }
 
-//Value ..
+// Value ..
 func (r *SocialHistoryObservationRecordResolver) Value() *ValueResolver {
 	return &ValueResolver{r.U.Value}
 }

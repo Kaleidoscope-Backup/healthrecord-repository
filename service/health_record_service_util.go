@@ -5,14 +5,14 @@ import (
 	"net/url"
 	"reflect"
 
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/models"
-	"gitlab.com/karte/mongo-lib/mserver"
-	"gitlab.com/karte/mongo-lib/search"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/models"
+	"github.com/karte/mongo-lib/mserver"
+	"github.com/karte/mongo-lib/search"
 	"gopkg.in/mgo.v2/bson"
 )
 
-//ValidateHealthRecord ...
+// ValidateHealthRecord ...
 func ValidateHealthRecord(healthRecord *model.HealthRecord) error {
 
 	if &healthRecord.TransactionType == nil {
@@ -42,7 +42,7 @@ func ValidateHealthRecord(healthRecord *model.HealthRecord) error {
 	return nil
 }
 
-//FindHealthRecordsByConsumerID does a search across the mongo database to surface all records associated to that Consumer
+// FindHealthRecordsByConsumerID does a search across the mongo database to surface all records associated to that Consumer
 func FindHealthRecordsByConsumerID(consumerID string, recordType interface{}, dal mserver.DataAccessLayer) (recordArr []interface{}, err error) {
 	var bundle *models.Bundle
 

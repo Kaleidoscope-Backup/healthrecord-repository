@@ -1,70 +1,70 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 Order Resolver
 ================================*/
 
-//OrderResolver ..
+// OrderResolver ..
 type OrderResolver struct {
 	O *model.Order
 }
 
-//Id ..
+// Id ..
 func (r *OrderResolver) Id() string {
 	return r.O.Id
 }
 
-//Status ..
+// Status ..
 func (r *OrderResolver) Status() model.OrderStatus {
 	return r.O.Status
 }
 
-//Priority ..
+// Priority ..
 func (r *OrderResolver) Priority() model.Priority {
 	return r.O.Priority
 }
 
-//From ..
+// From ..
 func (r *OrderResolver) From() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.O.From}
 }
 
-//To ..
+// To ..
 func (r *OrderResolver) To() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.O.To}
 }
 
-//Requester ..
+// Requester ..
 func (r *OrderResolver) Requester() *ReferenceActorResolver {
 	return &ReferenceActorResolver{r.O.Requester}
 }
 
-//Supplier ..
+// Supplier ..
 func (r *OrderResolver) Supplier() string {
 	return r.O.Supplier
 }
 
-//Quantity ..
+// Quantity ..
 func (r *OrderResolver) Quantity() int32 {
 	return r.O.Quantity
 }
 
-//TotalPrice ..
+// TotalPrice ..
 func (r *OrderResolver) TotalPrice() *float64 {
 	return r.O.TotalPrice
 }
 
-//OrderedItem ..
+// OrderedItem ..
 func (r *OrderResolver) OrderedItem() string {
 	return r.O.OrderedItem
 }
 
-//ShippingAddress array ..
+// ShippingAddress array ..
 func (r *OrderResolver) ShippingAddress() *AddressResolver {
 
 	if r.O.ShippingAddress != nil {
@@ -75,7 +75,7 @@ func (r *OrderResolver) ShippingAddress() *AddressResolver {
 	return nil
 }
 
-//Attributes array ..
+// Attributes array ..
 func (r *OrderResolver) Attributes() *[]*AttributeResolver {
 	var attrResolvers []*AttributeResolver
 	var attrArray []model.Attribute
@@ -99,7 +99,7 @@ func (r *OrderResolver) Attributes() *[]*AttributeResolver {
 	return nil
 }
 
-//TimeStamp ..
+// TimeStamp ..
 func (r *OrderResolver) TimeStamp() util.Time {
 	return r.O.TimeStamp
 }

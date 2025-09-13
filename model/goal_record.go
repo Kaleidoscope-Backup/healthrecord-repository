@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//GoalCategory ...
+// GoalCategory ...
 type GoalCategory string
 
 const (
@@ -23,7 +23,7 @@ const (
 	OTHER_GOAL GoalCategory = "OTHER_GOAL"
 )
 
-//GoalRecordCreate ...
+// GoalRecordCreate ...
 type GoalRecordCreate struct {
 	HealthRecordCreate
 	Category     GoalCategory                  `json:"goalCategory"`
@@ -40,7 +40,7 @@ type GoalRecordCreate struct {
 	Note         *string                       `json:"note"`
 }
 
-//GoalRecord ...
+// GoalRecord ...
 type GoalRecord struct {
 	HealthRecord
 	Id           string                   `json:"id" bson:"_id"`

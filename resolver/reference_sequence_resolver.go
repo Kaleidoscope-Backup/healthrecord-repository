@@ -1,44 +1,44 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ReferenceSequence Resolver
 ================================*/
 
-//ReferenceSequenceResolver ..
+// ReferenceSequenceResolver ..
 type ReferenceSequenceResolver struct {
 	R *model.ReferenceSequence
 }
 
-//Id ..
+// Id ..
 func (r *ReferenceSequenceResolver) Id() string {
 	return r.R.Id
 }
 
-//GenomeBuild ..
+// GenomeBuild ..
 func (r *ReferenceSequenceResolver) GenomeBuild() string {
 	return r.R.GenomeBuild
 }
 
-//AccessionID ..
+// AccessionID ..
 func (r *ReferenceSequenceResolver) AccessionID() *string {
 	return r.R.AccessionID
 }
 
-//WindowStart ..
+// WindowStart ..
 func (r *ReferenceSequenceResolver) WindowStart() *int32 {
 	return r.R.WindowStart
 }
 
-//WindowEnd ..
+// WindowEnd ..
 func (r *ReferenceSequenceResolver) WindowEnd() *int32 {
 	return r.R.WindowEnd
 }
 
-//ReferenceSeqString ..
+// ReferenceSeqString ..
 func (r *ReferenceSequenceResolver) ReferenceSeqString() *string {
 	return r.R.ReferenceSeqString
 }

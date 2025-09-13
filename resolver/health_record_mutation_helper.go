@@ -4,15 +4,15 @@ import (
 	"errors"
 	"time"
 
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
+	"github.com/karte/healthrecord-repository/util"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
-	"gitlab.com/karte/healthrecord-repository/util"
 	"golang.org/x/net/context"
 )
 
-//CreateSymptomFromInput ...
+// CreateSymptomFromInput ...
 func CreateSymptomFromInput(ctx context.Context, input *model.SymptomInput) (*model.Symptom, error) {
 	if input != nil {
 		symptom := &model.Symptom{}
@@ -30,7 +30,7 @@ func CreateSymptomFromInput(ctx context.Context, input *model.SymptomInput) (*mo
 	return nil, nil
 }
 
-//CreateOnsetFromInput ...
+// CreateOnsetFromInput ...
 func CreateOnsetFromInput(onsetInput *model.OnsetInput) *model.Onset {
 	var onset *model.Onset
 	onset = &model.Onset{}
@@ -41,7 +41,7 @@ func CreateOnsetFromInput(onsetInput *model.OnsetInput) *model.Onset {
 	return onset
 }
 
-//CreateAbatementFromInput ...
+// CreateAbatementFromInput ...
 func CreateAbatementFromInput(abatementInput *model.AbatementInput) *model.Abatement {
 	var abatement *model.Abatement
 	abatement = &model.Abatement{}
@@ -52,7 +52,7 @@ func CreateAbatementFromInput(abatementInput *model.AbatementInput) *model.Abate
 	return abatement
 }
 
-//CreateHealthRecord ...
+// CreateHealthRecord ...
 func CreateHealthRecord(ctx context.Context, healthRecordCreate *model.HealthRecordCreate, recordType model.HealthRecordType) (*model.HealthRecord, error) {
 	healthRecord := &model.HealthRecord{}
 
@@ -113,7 +113,7 @@ func CreateHealthRecord(ctx context.Context, healthRecordCreate *model.HealthRec
 	return healthRecord, nil
 }
 
-//CreateReasons will create an array of Reasons object from an Array of ReasonCreate input objects
+// CreateReasons will create an array of Reasons object from an Array of ReasonCreate input objects
 func createReasons(reasonsCreate *[]model.ReasonInput) *[]model.Reason {
 	var reasons []model.Reason
 
@@ -131,7 +131,7 @@ func createReasons(reasonsCreate *[]model.ReasonInput) *[]model.Reason {
 	return nil
 }
 
-//createReason will create a medication object from a MedicationCreate input object
+// createReason will create a medication object from a MedicationCreate input object
 func createReason(reasonCreate *model.ReasonInput) *model.Reason {
 	reason := &model.Reason{}
 
@@ -146,7 +146,7 @@ func createReason(reasonCreate *model.ReasonInput) *model.Reason {
 	return reason
 }
 
-//CreateDiagnosisArray will create an array of Diagnosis objects from an Array of DiagnosisCreate input objects
+// CreateDiagnosisArray will create an array of Diagnosis objects from an Array of DiagnosisCreate input objects
 func createDiagnosisArray(diagnosisCreateArray *[]model.DiagnosisInput) *[]model.Diagnosis {
 	var diagnosisArray []model.Diagnosis
 
@@ -164,7 +164,7 @@ func createDiagnosisArray(diagnosisCreateArray *[]model.DiagnosisInput) *[]model
 	return nil
 }
 
-//createReason will create a medication object from a MedicationCreate input object
+// createReason will create a medication object from a MedicationCreate input object
 func createDiagnosis(diagnosisCreate *model.DiagnosisInput) *model.Diagnosis {
 	diagnosis := &model.Diagnosis{}
 

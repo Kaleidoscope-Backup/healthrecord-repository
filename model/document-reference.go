@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//DocumentReferenceStatus ...
+// DocumentReferenceStatus ...
 type DocumentReferenceStatus string
 
 const (
@@ -19,7 +19,7 @@ const (
 	DOCUMENT_ENTERED_IN_ERROR DocumentReferenceStatus = "DOCUMENT_ENTERED_IN_ERROR"
 )
 
-//CompositionStatus ...
+// CompositionStatus ...
 type CompositionStatus string
 
 const (
@@ -39,7 +39,7 @@ const (
 	COMPOSITIONSTATUS_ENTERED_IN_ERROR CompositionStatus = "COMPOSITIONSTATUS_ENTERED_IN_ERROR"
 )
 
-//DocumentReferenceQueryParam ...
+// DocumentReferenceQueryParam ...
 type DocumentReferenceQueryParam struct {
 	Type      *string  `json:"type"`
 	Language  Language `json:"language"`
@@ -47,13 +47,13 @@ type DocumentReferenceQueryParam struct {
 	Custodian string   `json:"custodian"`
 }
 
-//DocumentContentInput ...
+// DocumentContentInput ...
 type DocumentContentInput struct {
 	Content    string           `json:"content"`
 	Attachment *AttachmentInput `json:"attachment"`
 }
 
-//DocumentContent ...
+// DocumentContent ...
 type DocumentContent struct {
 	Id         string       `json:"id" bson:"_id"`
 	Content    string       `json:"content" bson:"content"`
@@ -61,7 +61,7 @@ type DocumentContent struct {
 	Meta       *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//DocumentReferenceInput ...
+// DocumentReferenceInput ...
 type DocumentReferenceInput struct {
 	Language          Language                `json:"language"`
 	Status            DocumentReferenceStatus `json:"status"`
@@ -80,7 +80,7 @@ type DocumentReferenceInput struct {
 	Content           *[]DocumentContentInput `json:"content"`
 }
 
-//DocumentReference ...
+// DocumentReference ...
 type DocumentReference struct {
 	Id                string                  `json:"id" bson:"_id"`
 	Language          Language                `json:"language" bson:"language"`

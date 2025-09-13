@@ -1,6 +1,6 @@
 package model
 
-import "gitlab.com/karte/healthrecord-repository/util"
+import "github.com/karte/healthrecord-repository/util"
 
 const (
 	// NameNodeURL - Name node URL Key
@@ -10,7 +10,7 @@ const (
 	S3BucketURL = "S3BucketURL"
 )
 
-//ExportFormatType ...
+// ExportFormatType ...
 type ExportFormatType string
 
 const (
@@ -21,7 +21,7 @@ const (
 	JSON_FORMAT ExportFormatType = "JSON_FORMAT"
 )
 
-//ExportStorageType ...
+// ExportStorageType ...
 type ExportStorageType string
 
 const (
@@ -35,7 +35,7 @@ const (
 	STORAGE_S3 ExportStorageType = "STORAGE_S3"
 )
 
-//ExportParams ...
+// ExportParams ...
 type ExportParams struct {
 	Ids            *[]string         `json:"ids"`
 	Format         ExportFormatType  `json:"format"`

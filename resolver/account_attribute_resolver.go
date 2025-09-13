@@ -1,17 +1,17 @@
 package resolver
 
-import "gitlab.com/karte/healthrecord-repository/model"
+import "github.com/karte/healthrecord-repository/model"
 
 /*==============================
 AccountAttribute Resolver
 ================================*/
 
-//AccountAttributeResolver ..
+// AccountAttributeResolver ..
 type AccountAttributeResolver struct {
 	A *model.AccountAttribute
 }
 
-//OtpCode ..
+// OtpCode ..
 func (r *AccountAttributeResolver) OtpCode() string {
 	return r.A.OtpCode
 }

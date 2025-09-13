@@ -1,54 +1,54 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 SleepContinuityResolver
 ================================*/
 
-//SleepContinuityResolver ..
+// SleepContinuityResolver ..
 type SleepContinuityResolver struct {
 	M *model.SleepContinuity
 }
 
-//Id ..
+// Id ..
 func (r *SleepContinuityResolver) Id() string {
 	return r.M.Id
 }
 
-//SourceOfArousal ..
+// SourceOfArousal ..
 func (r *SleepContinuityResolver) SourceOfArousal() *string {
 	return r.M.SourceOfArousal
 }
 
-//NermCount ..
+// NermCount ..
 func (r *SleepContinuityResolver) NermCount() *int32 {
 	return r.M.NermCount
 }
 
-//NermIndex ..
+// NermIndex ..
 func (r *SleepContinuityResolver) NermIndex() *float64 {
 	return r.M.NermIndex
 }
 
-//RemCount ..
+// RemCount ..
 func (r *SleepContinuityResolver) RemCount() *int32 {
 	return r.M.RemCount
 }
 
-//RemIndex ..
+// RemIndex ..
 func (r *SleepContinuityResolver) RemIndex() *float64 {
 	return r.M.RemIndex
 }
 
-//TotalCount ..
+// TotalCount ..
 func (r *SleepContinuityResolver) TotalCount() *int32 {
 	return r.M.TotalCount
 }
 
-//TotalIndex ..
+// TotalIndex ..
 func (r *SleepContinuityResolver) TotalIndex() *float64 {
 	return r.M.TotalIndex
 }

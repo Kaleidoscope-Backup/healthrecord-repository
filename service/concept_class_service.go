@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 ConceptClass service
 ==========================================================================================*/
 
-//ConceptClassService is for creating clinical trial
+// ConceptClassService is for creating clinical trial
 type ConceptClassService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewConceptClassService creates a new ConceptClass service that has all calls to the database, queries and mutations via the Data Access Layer
+// NewConceptClassService creates a new ConceptClass service that has all calls to the database, queries and mutations via the Data Access Layer
 func NewConceptClassService(dal mserver.DataAccessLayer, log *logging.Logger) *ConceptClassService {
 	return &ConceptClassService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewConceptClassService(dal mserver.DataAccessLayer, log *logging.Logger) *C
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *ConceptClassService) FindByID(id string) (*model.ConceptClass, error) {
 
 	if id == "" {
@@ -48,7 +48,7 @@ func (u *ConceptClassService) FindByID(id string) (*model.ConceptClass, error) {
 	return concept, nil
 }
 
-//FindByParam ...
+// FindByParam ...
 func (u *ConceptClassService) FindByParam(param *model.ConceptClassQueryParam) (*[]*model.ConceptClass, error) {
 	if param == nil {
 		return nil, errors.New("Missing parameter")
@@ -105,7 +105,7 @@ func (u *ConceptClassService) FindByParam(param *model.ConceptClassQueryParam) (
 Mutation Operations
 ==========================================================================================*/
 
-//CreateConceptClass will create a new clinical trial in Mongo using the Data Access Layer
+// CreateConceptClass will create a new clinical trial in Mongo using the Data Access Layer
 func (u *ConceptClassService) CreateConceptClass(concept *model.ConceptClass) (*model.ConceptClass, error) {
 	id, err := u.dal.Post(concept)
 	if err != nil {

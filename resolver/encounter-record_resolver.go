@@ -1,31 +1,31 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 EncounterRecord Resolver
 ================================*/
 
-//EncounterRecordResolver ..
+// EncounterRecordResolver ..
 type EncounterRecordResolver struct {
 	HealthRecordResolver
 	M *model.EncounterRecord
 }
 
-//Id ..
+// Id ..
 func (r *EncounterRecordResolver) Id() string {
 	return r.M.Id
 }
 
-//AttendedBy ..
+// AttendedBy ..
 func (r *EncounterRecordResolver) AttendedBy() *PractitionerResolver {
 	return &PractitionerResolver{ActorResolver{&r.M.AttendedBy.Actor}, r.M.AttendedBy}
 }
 
-//Reasons array ..
+// Reasons array ..
 func (r *EncounterRecordResolver) Reasons() *[]*ReasonResolver {
 
 	if r.M.Reasons != nil {
@@ -53,7 +53,7 @@ func resolveReason(r *model.Reason) *ReasonResolver {
 	return &ReasonResolver{r}
 }
 
-//Diagnosis array ..
+// Diagnosis array ..
 func (r *EncounterRecordResolver) Diagnosis() *[]*DiagnosisResolver {
 
 	if r.M.Diagnosis != nil {
@@ -81,7 +81,7 @@ func resolveDiagnosis(d *model.Diagnosis) *DiagnosisResolver {
 	return &DiagnosisResolver{d}
 }
 
-//Prescriptions array ..
+// Prescriptions array ..
 func (r *EncounterRecordResolver) Prescriptions() *[]*MedicationResolver {
 
 	if r.M.Prescriptions != nil {
@@ -109,7 +109,7 @@ func resolvePrescription(m *model.Medication) *MedicationResolver {
 	return &MedicationResolver{m}
 }
 
-//Orders array ..
+// Orders array ..
 func (r *EncounterRecordResolver) Orders() *[]*EncounterOrderResolver {
 
 	if r.M.Orders != nil {
@@ -141,37 +141,37 @@ func resolveEncounterOrder(m *model.EncounterOrder) *EncounterOrderResolver {
 EncounterOrderResolver
 ================================*/
 
-//EncounterOrderResolver ..
+// EncounterOrderResolver ..
 type EncounterOrderResolver struct {
 	M *model.EncounterOrder
 }
 
-//Name ..
+// Name ..
 func (r *EncounterOrderResolver) Name() string {
 	return r.M.Name
 }
 
-//Code ..
+// Code ..
 func (r *EncounterOrderResolver) Code() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.M.Code}
 }
 
-//ExpectedDate ..
+// ExpectedDate ..
 func (r *EncounterOrderResolver) ExpectedDate() *util.Time {
 	return r.M.ExpectedDate
 }
 
-//ExpirationDate ..
+// ExpirationDate ..
 func (r *EncounterOrderResolver) ExpirationDate() *util.Time {
 	return r.M.ExpirationDate
 }
 
-//ProcedureCode ..
+// ProcedureCode ..
 func (r *EncounterOrderResolver) ProcedureCode() model.ProcedureCode {
 	return r.M.ProcedureCode
 }
 
-//Type ..
+// Type ..
 func (r *EncounterOrderResolver) Type() *string {
 	return r.M.Type
 }

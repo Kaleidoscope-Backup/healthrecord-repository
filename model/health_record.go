@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//HealthRecordType ...
+// HealthRecordType ...
 type HealthRecordType string
 
 const (
@@ -41,7 +41,7 @@ const (
 	MOLECULAR_SEQUENCE                   HealthRecordType = "MOLECULAR_SEQUENCE"
 )
 
-//HealthRecordTransactionType ...
+// HealthRecordTransactionType ...
 type HealthRecordTransactionType string
 
 const (
@@ -51,13 +51,13 @@ const (
 	DELETE HealthRecordTransactionType = "DELETE"
 )
 
-//ReferenceHealthRecordInput ...
+// ReferenceHealthRecordInput ...
 type ReferenceHealthRecordInput struct {
 	Type         HealthRecordType `bson:"type,omitempty"`
 	ReferencedID string           `bson:"referenceid,omitempty"`
 }
 
-//ReferenceHealthRecord ...
+// ReferenceHealthRecord ...
 type ReferenceHealthRecord struct {
 	Id           string           `json:"id" bson:"_id"`
 	Type         HealthRecordType `bson:"type,omitempty" json:"type,omitempty"`
@@ -65,7 +65,7 @@ type ReferenceHealthRecord struct {
 	Meta         *models.Meta     //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//HealthRecordCreate ...
+// HealthRecordCreate ...
 type HealthRecordCreate struct {
 	ConsumerID     string                        `json:"consumerID"`
 	Name           string                        `json:"name"`
@@ -78,7 +78,7 @@ type HealthRecordCreate struct {
 	Location       *GeoLocationInput             `json:"location"`
 }
 
-//HealthRecord ...
+// HealthRecord ...
 type HealthRecord struct {
 	Id              string                      `json:"id" bson:"_id,omitempty"`
 	ConsumerID      string                      `json:"consumerID" bson:"consumerID"`
@@ -98,31 +98,31 @@ type HealthRecord struct {
 	Meta            *models.Meta                //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//HealthRecords ...
+// HealthRecords ...
 type HealthRecords struct {
 	Count   int32          `json:"count" bson:"count"`
 	Records []HealthRecord `json:"records" bson:"records"`
 	Meta    *models.Meta   //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//Diagnosis ...
+// Diagnosis ...
 type Diagnosis struct {
 	Name string        `json:"name" bson:"name"`
 	Code *ClinicalCode `json:"clinicalCode" bson:"clinicalCode"`
 }
 
-//DiagnosisInput ...
+// DiagnosisInput ...
 type DiagnosisInput struct {
 	Name string `json:"name"`
 }
 
-//Reason ...
+// Reason ...
 type Reason struct {
 	Name string        `json:"name" bson:"name"`
 	Code *ClinicalCode `json:"clinicalCode" bson:"clinicalCode"`
 }
 
-//ReasonInput ...
+// ReasonInput ...
 type ReasonInput struct {
 	Name string `json:"name"`
 }

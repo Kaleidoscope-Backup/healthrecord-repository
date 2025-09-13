@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//CommentInput ...
+// CommentInput ...
 type CommentInput struct {
 	CommentText string               `json:"commentText"`
 	Context     ReferenceEntityInput `json:"context"`
@@ -14,7 +14,7 @@ type CommentInput struct {
 	Location    *GeoLocationInput    `json:"location"`
 }
 
-//CommentOnCommentInput ...
+// CommentOnCommentInput ...
 type CommentOnCommentInput struct {
 	ExternalID  string              `json:"externalID"`
 	CommentText string              `json:"commentText"`
@@ -22,7 +22,7 @@ type CommentOnCommentInput struct {
 	CommentedBy ReferenceActorInput `json:"commentedBy"`
 }
 
-//Comment ...
+// Comment ...
 type Comment struct {
 	Id          string          `json:"id" bson:"_id"`
 	ExternalID  string          `json:"externalID" bson:"externalID"`

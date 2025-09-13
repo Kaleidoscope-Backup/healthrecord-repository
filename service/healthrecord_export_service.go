@@ -9,23 +9,23 @@ import (
 	"os"
 
 	"github.com/colinmarc/hdfs"
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
 )
 
-//HealthRecordExportService ...
+// HealthRecordExportService ...
 type HealthRecordExportService struct {
 	ctx context.Context
 	log *logging.Logger
 }
 
-//NewHealthRecordExportService ...
+// NewHealthRecordExportService ...
 func NewHealthRecordExportService(ctx context.Context, log *logging.Logger) *HealthRecordExportService {
 	return &HealthRecordExportService{ctx: ctx, log: log}
 }
 
-//Export ...
+// Export ...
 func (u *HealthRecordExportService) Export(param *model.ExportParams) error {
 	if param == nil {
 		return errors.New("Missing parameter - Param cannot be NULL")
@@ -41,7 +41,7 @@ func (u *HealthRecordExportService) Export(param *model.ExportParams) error {
 	}
 }
 
-//ExportToJSON ...
+// ExportToJSON ...
 func (u *HealthRecordExportService) ExportToJSON(param *model.ExportParams) error {
 	if param == nil && param.Ids == nil && len(*param.Ids) <= 0 {
 		return errors.New("Missing parameter - ID input should have atleast one value")
@@ -132,7 +132,7 @@ func (u *HealthRecordExportService) writeJSONToHDFS(param *model.ExportParams, j
 	return nil
 }
 
-//ExportToCSV ...
+// ExportToCSV ...
 func (u *HealthRecordExportService) ExportToCSV(param *model.ExportParams) error {
 	if param == nil && param.Ids == nil && len(*param.Ids) <= 0 {
 		return errors.New("Missing parameter - ID input should have atleast one value")

@@ -1,81 +1,81 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
-//DeviceResolver ..
+// DeviceResolver ..
 type DeviceResolver struct {
 	d *model.Device
 }
 
-//Id ..
+// Id ..
 func (r *DeviceResolver) Id() string {
 	return r.d.Id
 }
 
-//Status ..
+// Status ..
 func (r *DeviceResolver) Status() model.DeviceStatus {
 	return r.d.Status
 }
 
-//Udi ..
+// Udi ..
 func (r *DeviceResolver) Udi() *DeviceUniqueIdentifierResolver {
 	return &DeviceUniqueIdentifierResolver{r.d.Udi}
 }
 
-//Type ..
+// Type ..
 func (r *DeviceResolver) Type() string {
 	return r.d.Type
 }
 
-//TypeCode ..
+// TypeCode ..
 func (r *DeviceResolver) TypeCode() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.d.TypeCode}
 }
 
-//LotNumber ..
+// LotNumber ..
 func (r *DeviceResolver) LotNumber() *string {
 	return r.d.LotNumber
 }
 
-//Manufacturer ..
+// Manufacturer ..
 func (r *DeviceResolver) Manufacturer() *string {
 	return r.d.Manufacturer
 }
 
-//ManufacturerDate ..
+// ManufacturerDate ..
 func (r *DeviceResolver) ManufacturerDate() *util.Time {
 	return r.d.ManufacturerDate
 }
 
-//ExpirationDate ..
+// ExpirationDate ..
 func (r *DeviceResolver) ExpirationDate() *util.Time {
 	return r.d.ExpirationDate
 }
 
-//Model ..
+// Model ..
 func (r *DeviceResolver) Model() *string {
 	return r.d.Model
 }
 
-//Version ..
+// Version ..
 func (r *DeviceResolver) Version() *string {
 	return r.d.Version
 }
 
-//Consumer ..
+// Consumer ..
 func (r *DeviceResolver) Consumer() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.d.Consumer}
 }
 
-//Owner ..
+// Owner ..
 func (r *DeviceResolver) Owner() *ReferenceActorResolver {
 	return &ReferenceActorResolver{r.d.Owner}
 }
 
-//Contact ..
+// Contact ..
 func (r *DeviceResolver) Contact() *ContactPointResolver {
 	return &ContactPointResolver{r.d.Contact}
 }

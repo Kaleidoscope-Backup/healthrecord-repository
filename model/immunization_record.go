@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//ImmunizationRecordCreate ...
+// ImmunizationRecordCreate ...
 type ImmunizationRecordCreate struct {
 	HealthRecordCreate
 	Code             *CodableConceptInput `json:"code"`
@@ -21,7 +21,7 @@ type ImmunizationRecordCreate struct {
 	ExperiationDate  *util.Time           `json:"experiationDate"`
 }
 
-//ImmunizationRecord ...
+// ImmunizationRecord ...
 type ImmunizationRecord struct {
 	HealthRecord
 	Id               string               `json:"id" bson:"_id"`

@@ -1,91 +1,91 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
-//DocumentReferenceResolver ..
+// DocumentReferenceResolver ..
 type DocumentReferenceResolver struct {
 	D *model.DocumentReference
 }
 
-//Id ..
+// Id ..
 func (r *DocumentReferenceResolver) Id() string {
 	return r.D.Id
 }
 
-//Language ..
+// Language ..
 func (r *DocumentReferenceResolver) Language() model.Language {
 	return r.D.Language
 }
 
-//Status ..
+// Status ..
 func (r *DocumentReferenceResolver) Status() model.DocumentReferenceStatus {
 	return r.D.Status
 }
 
-//CompositionStatus ..
+// CompositionStatus ..
 func (r *DocumentReferenceResolver) CompositionStatus() model.CompositionStatus {
 	return r.D.CompositionStatus
 }
 
-//Type ..
+// Type ..
 func (r *DocumentReferenceResolver) Type() string {
 	return r.D.Type
 }
 
-//TypeCode ..
+// TypeCode ..
 func (r *DocumentReferenceResolver) TypeCode() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.D.TypeCode}
 }
 
-//Class ..
+// Class ..
 func (r *DocumentReferenceResolver) Class() string {
 	return r.D.Class
 }
 
-//ClassCode ..
+// ClassCode ..
 func (r *DocumentReferenceResolver) ClassCode() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.D.ClassCode}
 }
 
-//Created ..
+// Created ..
 func (r *DocumentReferenceResolver) Created() util.Time {
 	return r.D.Created
 }
 
-//Author ..
+// Author ..
 func (r *DocumentReferenceResolver) Author() *ReferenceActorResolver {
 	return &ReferenceActorResolver{r.D.Author}
 }
 
-//Authenticator ..
+// Authenticator ..
 func (r *DocumentReferenceResolver) Authenticator() *ReferenceActorResolver {
 	return &ReferenceActorResolver{r.D.Authenticator}
 }
 
-//Custodian ..
+// Custodian ..
 func (r *DocumentReferenceResolver) Custodian() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.D.Custodian}
 }
 
-//Description ..
+// Description ..
 func (r *DocumentReferenceResolver) Description() *string {
 	return r.D.Description
 }
 
-//SecurityLabel ..
+// SecurityLabel ..
 func (r *DocumentReferenceResolver) SecurityLabel() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.D.SecurityLabel}
 }
 
-//Context ..
+// Context ..
 func (r *DocumentReferenceResolver) Context() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{r.D.Context}
 }
 
-//Content array ..
+// Content array ..
 func (r *DocumentReferenceResolver) Content() *[]*DocumentContentResolver {
 
 	if r.D.Content != nil {

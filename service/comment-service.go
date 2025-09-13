@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 Comment service
 ==========================================================================================*/
 
-//CommentService is for creating comment
+// CommentService is for creating comment
 type CommentService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewCommentService creates a new Comment service that has all calls to the database, queries and mutations via the Data Access Layer
+// NewCommentService creates a new Comment service that has all calls to the database, queries and mutations via the Data Access Layer
 func NewCommentService(dal mserver.DataAccessLayer, log *logging.Logger) *CommentService {
 	return &CommentService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewCommentService(dal mserver.DataAccessLayer, log *logging.Logger) *Commen
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *CommentService) FindByID(id string) (*model.Comment, error) {
 
 	if id == "" {
@@ -48,7 +48,7 @@ func (u *CommentService) FindByID(id string) (*model.Comment, error) {
 	return comment, nil
 }
 
-//FindByExternalID ...
+// FindByExternalID ...
 func (u *CommentService) FindByExternalID(externalID string) (*model.Comment, error) {
 	if externalID == "" {
 		return nil, errors.New("Missing parameter")
@@ -79,7 +79,7 @@ func (u *CommentService) FindByExternalID(externalID string) (*model.Comment, er
 Mutation Operations
 ==========================================================================================*/
 
-//CreateCommentOnComment will create a new comment in Mongo using the Data Access Layer
+// CreateCommentOnComment will create a new comment in Mongo using the Data Access Layer
 func (u *CommentService) CreateCommentOnComment(externalID string, comment *model.Comment) (*model.Comment, error) {
 
 	// Get the comment to be updated
@@ -104,7 +104,7 @@ func (u *CommentService) CreateCommentOnComment(externalID string, comment *mode
 	return commentOnComment, nil
 }
 
-//CreateComment will create a new comment in Mongo using the Data Access Layer
+// CreateComment will create a new comment in Mongo using the Data Access Layer
 func (u *CommentService) CreateComment(comment *model.Comment) (*model.Comment, error) {
 	id, err := u.dal.Post(comment)
 	if err != nil {

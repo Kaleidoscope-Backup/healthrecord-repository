@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//VariantInput ...
+// VariantInput ...
 type VariantInput struct {
 	AccessionID     *string `json:"accessionID"`
 	Start           *int32  `json:"start"`
@@ -12,7 +12,7 @@ type VariantInput struct {
 	Cgar            *string `json:"cgar"`
 }
 
-//Variant ...
+// Variant ...
 type Variant struct {
 	Id              string  `json:"id" bson:"_id"`
 	AccessionID     *string `json:"accessionID" bson:"accessionID"`
@@ -23,7 +23,7 @@ type Variant struct {
 	Cgar            *string `json:"cgar" bson:"cgar"`
 }
 
-//ReferenceSequenceInput ...
+// ReferenceSequenceInput ...
 type ReferenceSequenceInput struct {
 	GenomeBuild        string  `json:"genomeBuild"`
 	AccessionID        *string `json:"accessionID"`
@@ -32,7 +32,7 @@ type ReferenceSequenceInput struct {
 	ReferenceSeqString *string `json:"referenceSeqString"`
 }
 
-//ReferenceSequence ...
+// ReferenceSequence ...
 type ReferenceSequence struct {
 	Id                 string  `json:"id" bson:"_id"`
 	GenomeBuild        string  `json:"genomeBuild" bson:"genomeBuild"`
@@ -42,7 +42,7 @@ type ReferenceSequence struct {
 	ReferenceSeqString *string `json:"referenceSeqString" bson:"referenceSeqString"`
 }
 
-//MolecularSequenceRecordCreate ...
+// MolecularSequenceRecordCreate ...
 type MolecularSequenceRecordCreate struct {
 	HealthRecordCreate
 	ReferenceSeq *ReferenceSequenceInput `json:"referenceSeq"`
@@ -50,7 +50,7 @@ type MolecularSequenceRecordCreate struct {
 	ObservedSeq  *string                 `json:"observedSeq"`
 }
 
-//MolecularSequenceRecord ...
+// MolecularSequenceRecord ...
 type MolecularSequenceRecord struct {
 	HealthRecord
 	Id           string             `json:"id" bson:"_id"`

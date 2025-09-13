@@ -3,9 +3,9 @@ package service
 import (
 	"errors"
 
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -13,13 +13,13 @@ import (
 Device Data Source service
 ==========================================================================================*/
 
-//DeviceDataSourceService is for creating device data source
+// DeviceDataSourceService is for creating device data source
 type DeviceDataSourceService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewDeviceDataSourceService creates a new device data source
+// NewDeviceDataSourceService creates a new device data source
 func NewDeviceDataSourceService(dal mserver.DataAccessLayer, log *logging.Logger) *DeviceDataSourceService {
 	return &DeviceDataSourceService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewDeviceDataSourceService(dal mserver.DataAccessLayer, log *logging.Logger
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *DeviceDataSourceService) FindByID(id string) (*model.DeviceDataSource, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -51,7 +51,7 @@ func (u *DeviceDataSourceService) FindByID(id string) (*model.DeviceDataSource, 
 Mutation Operations
 ==========================================================================================*/
 
-//CreateDeviceDataSource ...
+// CreateDeviceDataSource ...
 func (u *DeviceDataSourceService) CreateDeviceDataSource(deviceDataSource *model.DeviceDataSource) (*model.DeviceDataSource, error) {
 
 	_, err := u.dal.Post(deviceDataSource)

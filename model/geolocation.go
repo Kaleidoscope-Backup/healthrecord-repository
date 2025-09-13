@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//GeoLocation represents a specific coordinate
+// GeoLocation represents a specific coordinate
 type GeoLocation struct {
 	Id        string       `json:"id" bson:"_id"`
 	Name      *string      `json:"name" bson:"name"`
@@ -12,7 +12,7 @@ type GeoLocation struct {
 	Meta      *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//GeoLocationInput represents a specific coordinate
+// GeoLocationInput represents a specific coordinate
 type GeoLocationInput struct {
 	Name      *string  `json:"name"`
 	Latitude  float64  `json:"latitude"`

@@ -1,33 +1,33 @@
 package resolver
 
-import "gitlab.com/karte/healthrecord-repository/model"
+import "github.com/karte/healthrecord-repository/model"
 
-//DeviceDataSourceResolver ..
+// DeviceDataSourceResolver ..
 type DeviceDataSourceResolver struct {
 	D *model.DeviceDataSource
 }
 
-//Id ..
+// Id ..
 func (r *DeviceDataSourceResolver) Id() string {
 	return r.D.Id
 }
 
-//Consumer ..
+// Consumer ..
 func (r *DeviceDataSourceResolver) Consumer() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.D.Consumer}
 }
 
-//SourceDevice ..
+// SourceDevice ..
 func (r *DeviceDataSourceResolver) SourceDevice() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{&r.D.SourceDevice}
 }
 
-//SyncStatus ..
+// SyncStatus ..
 func (r *DeviceDataSourceResolver) SyncStatus() *DataSyncStatusResolver {
 	return &DataSyncStatusResolver{r.D.SyncStatus}
 }
 
-//DeviceMetrics array ..
+// DeviceMetrics array ..
 func (r *DeviceDataSourceResolver) DeviceMetrics() *[]*ReferenceEntityResolver {
 
 	if r.D.DeviceMetrics != nil {

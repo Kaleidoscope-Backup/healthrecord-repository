@@ -1,44 +1,44 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 LabResultObservation Resolver
 ================================*/
 
-//LabResultObservationResolver ..
+// LabResultObservationResolver ..
 type LabResultObservationResolver struct {
 	L *model.LabResultObservation
 }
 
-//Id ..
+// Id ..
 func (r *LabResultObservationResolver) Id() string {
 	return r.L.Id
 }
 
-//Name ..
+// Name ..
 func (r *LabResultObservationResolver) Name() string {
 	return r.L.Name
 }
 
-//Category ..
+// Category ..
 func (r *LabResultObservationResolver) Category() *string {
 	return r.L.Category
 }
 
-//Code ..
+// Code ..
 func (r *LabResultObservationResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.L.Code}
 }
 
-//Value ..
+// Value ..
 func (r *LabResultObservationResolver) Value() *ValueResolver {
 	return &ValueResolver{&r.L.Value}
 }
 
-//Ranges array of reference range ..
+// Ranges array of reference range ..
 func (r *LabResultObservationResolver) Ranges() *[]*ReferenceRangeResolver {
 
 	if r.L.Ranges != nil {
@@ -62,7 +62,7 @@ func (r *LabResultObservationResolver) Ranges() *[]*ReferenceRangeResolver {
 	return nil
 }
 
-//Artifacts array of reference range ..
+// Artifacts array of reference range ..
 func (r *LabResultObservationResolver) Artifacts() *[]*AttachmentResolver {
 
 	if r.L.Artifacts != nil {

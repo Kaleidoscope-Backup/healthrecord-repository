@@ -1,90 +1,90 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//QuestionResolver ..
+// QuestionResolver ..
 type QuestionResolver struct {
 	Q *model.Question
 }
 
-//Id ..
+// Id ..
 func (r *QuestionResolver) Id() string {
 	return r.Q.Id
 }
 
-//LinkID ..
+// LinkID ..
 func (r *QuestionResolver) LinkID() string {
 	return r.Q.LinkID
 }
 
-//MaxLength ..
+// MaxLength ..
 func (r *QuestionResolver) MaxLength() *int32 {
 	return r.Q.MaxLength
 }
 
-//Prefix ..
+// Prefix ..
 func (r *QuestionResolver) Prefix() *string {
 	return r.Q.Prefix
 }
 
-//Code ..
+// Code ..
 func (r *QuestionResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.Q.Code}
 }
 
-//Sequence ..
+// Sequence ..
 func (r *QuestionResolver) Sequence() *int32 {
 	return r.Q.Sequence
 }
 
-//Text ..
+// Text ..
 func (r *QuestionResolver) Text() string {
 	return r.Q.Text
 }
 
-//Unit ..
+// Unit ..
 func (r *QuestionResolver) Unit() *string {
 	return r.Q.Unit
 }
 
-//Type ..
+// Type ..
 func (r *QuestionResolver) Type() model.ValueType {
 	return r.Q.Type
 }
 
-//Range ..
+// Range ..
 func (r *QuestionResolver) Range() *ReferenceRangeResolver {
 	return &ReferenceRangeResolver{r.Q.Range}
 }
 
-//QuestionType ..
+// QuestionType ..
 func (r *QuestionResolver) QuestionType() model.QuestionnaireItemType {
 	return r.Q.QuestionType
 }
 
-//Required ..
+// Required ..
 func (r *QuestionResolver) Required() *bool {
 	return r.Q.Required
 }
 
-//Repeats ..
+// Repeats ..
 func (r *QuestionResolver) Repeats() *bool {
 	return r.Q.Repeats
 }
 
-//ReadOnly ..
+// ReadOnly ..
 func (r *QuestionResolver) ReadOnly() *bool {
 	return r.Q.ReadOnly
 }
 
-//EnableWhen ..
+// EnableWhen ..
 func (r *QuestionResolver) EnableWhen() *QuestionEnableRuleResolver {
 	return &QuestionEnableRuleResolver{r.Q.EnableWhen}
 }
 
-//Option array ..
+// Option array ..
 func (r *QuestionResolver) Option() *[]*QuestionOptionResolver {
 
 	if r.Q.Option != nil {
@@ -108,7 +108,7 @@ func (r *QuestionResolver) Option() *[]*QuestionOptionResolver {
 	return nil
 }
 
-//Items array ..
+// Items array ..
 func (r *QuestionResolver) Items() *[]*QuestionResolver {
 
 	if r.Q.Items != nil {

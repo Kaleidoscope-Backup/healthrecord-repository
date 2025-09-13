@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//ContactPointInput ...
+// ContactPointInput ...
 type ContactPointInput struct {
 	System string     `json:"system"`
 	Value  string     `json:"value"`
@@ -14,7 +14,7 @@ type ContactPointInput struct {
 	End    *util.Time `json:"end"`
 }
 
-//ContactPoint ...
+// ContactPoint ...
 type ContactPoint struct {
 	Id     string       `json:"id" bson:"_id"`
 	System string       `json:"system" bson:"system"`

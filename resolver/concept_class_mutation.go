@@ -3,14 +3,14 @@ package resolver
 import (
 	"fmt"
 
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//CreateConceptClass ...
+// CreateConceptClass ...
 func (r *Resolver) CreateConceptClass(ctx context.Context, args *struct {
 	ConceptClass *model.ConceptClassInput
 }) (*ConceptClassResolver, error) {
@@ -39,7 +39,7 @@ func (r *Resolver) CreateConceptClass(ctx context.Context, args *struct {
 	return &ConceptClassResolver{cc}, nil
 }
 
-//CreateConceptClasses ...
+// CreateConceptClasses ...
 func (r *Resolver) CreateConceptClasses(ctx context.Context, args *struct {
 	ConceptClasses *model.ConceptClassesInput
 }) (*[]*ConceptClassResolver, error) {

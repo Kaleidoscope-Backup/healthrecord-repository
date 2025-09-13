@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//NutritionOrderStatus ...
+// NutritionOrderStatus ...
 type NutritionOrderStatus string
 
 const (
@@ -34,7 +34,7 @@ const (
 	NUTRIONORDER_ENTEREDINERROR NutritionOrderStatus = "NUTRIONORDER_ENTEREDINERROR"
 )
 
-//Diet ...
+// Diet ...
 type Diet string
 
 const (
@@ -60,7 +60,7 @@ const (
 	DIET_KOSHER Diet = "DIET_KOSHER"
 )
 
-//NutritionOrderRecordCreate ...
+// NutritionOrderRecordCreate ...
 type NutritionOrderRecordCreate struct {
 	HealthRecordCreate
 	Status                    NutritionOrderStatus          `json:"status"`
@@ -76,7 +76,7 @@ type NutritionOrderRecordCreate struct {
 	AdministrationInstruction *string                       `json:"administrationInstruction"`
 }
 
-//NutritionOrderRecord ...
+// NutritionOrderRecord ...
 type NutritionOrderRecord struct {
 	HealthRecord
 	Id                        string                   `json:"id" bson:"_id"`

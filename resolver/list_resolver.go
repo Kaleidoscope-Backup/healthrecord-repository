@@ -1,64 +1,64 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ElementList Resolver
 ================================*/
 
-//ListResolver ..
+// ListResolver ..
 type ListResolver struct {
 	L *model.List
 }
 
-//Id ..
+// Id ..
 func (r *ListResolver) Id() string {
 	return r.L.Id
 }
 
-//Status ..
+// Status ..
 func (r *ListResolver) Status() model.ListStatus {
 	return r.L.Status
 }
 
-//Mode ..
+// Mode ..
 func (r *ListResolver) Mode() model.ListMode {
 	return r.L.Mode
 }
 
-//Title ..
+// Title ..
 func (r *ListResolver) Title() string {
 	return r.L.Title
 }
 
-//Code ..
+// Code ..
 func (r *ListResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.L.Code}
 }
 
-//Subject ..
+// Subject ..
 func (r *ListResolver) Subject() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{r.L.Subject}
 }
 
-//Owner ..
+// Owner ..
 func (r *ListResolver) Owner() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.L.Owner}
 }
 
-//Source ..
+// Source ..
 func (r *ListResolver) Source() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{r.L.Source}
 }
 
-//Note ..
+// Note ..
 func (r *ListResolver) Note() *string {
 	return r.L.Note
 }
 
-//Items array ..
+// Items array ..
 func (r *ListResolver) Items() *[]*ListEntryResolver {
 
 	if r.L.Items != nil {

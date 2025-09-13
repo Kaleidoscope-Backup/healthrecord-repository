@@ -1,38 +1,38 @@
 package resolver
 
-import "gitlab.com/karte/healthrecord-repository/model"
+import "github.com/karte/healthrecord-repository/model"
 
-//ConditionDefinitionCollectionResolver ...
+// ConditionDefinitionCollectionResolver ...
 type ConditionDefinitionCollectionResolver struct {
 	C *model.ConditionDefinitionCollection
 }
 
-//Id ...
+// Id ...
 func (r *ConditionDefinitionCollectionResolver) Id() string {
 	return r.C.Id
 }
 
-//Name ...
+// Name ...
 func (r *ConditionDefinitionCollectionResolver) Name() string {
 	return r.C.Name
 }
 
-//Source ...
+// Source ...
 func (r *ConditionDefinitionCollectionResolver) Source() *string {
 	return r.C.Source
 }
 
-//Language ...
+// Language ...
 func (r *ConditionDefinitionCollectionResolver) Language() model.Language {
 	return r.C.Language
 }
 
-//Code ...
+// Code ...
 func (r *ConditionDefinitionCollectionResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.C.Code}
 }
 
-//Conditions array ..
+// Conditions array ..
 func (r *ConditionDefinitionCollectionResolver) Conditions() *[]*ConditionTypeResolver {
 
 	if r.C.Conditions != nil {

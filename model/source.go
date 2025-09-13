@@ -1,15 +1,15 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//SourceInput ...
+// SourceInput ...
 type SourceInput struct {
 	Name        string  `json:"name"`
 	URI         string  `json:"uri"`
 	Description *string `json:"description"`
 }
 
-//Source ...
+// Source ...
 type Source struct {
 	Id          string       `json:"id" bson:"_id"`
 	Name        string       `json:"name" bson:"name"`

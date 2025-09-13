@@ -1,13 +1,13 @@
 package config
 
-import "gitlab.com/karte/healthrecord-repository/model"
+import "github.com/karte/healthrecord-repository/model"
 
-//PublisherInterface ....
+// PublisherInterface ....
 type PublisherInterface interface {
 	Send(msg model.HealthRecordMessage) error
 }
 
-//Send ...
+// Send ...
 func Send(msg model.HealthRecordMessage) error {
 	return PubAMQP.Send(msg)
 }

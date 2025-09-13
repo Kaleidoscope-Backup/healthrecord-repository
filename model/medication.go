@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//AdministrationRoute ...
+// AdministrationRoute ...
 type AdministrationRoute string
 
 const (
@@ -21,7 +21,7 @@ const (
 	INHALATION AdministrationRoute = "INHALATION"
 )
 
-//AdministrationRoute ...
+// AdministrationRoute ...
 type MedicationStatus string
 
 const (
@@ -33,7 +33,7 @@ const (
 	MEDICATION_STATUS_ONHOLD MedicationStatus = "MEDICATION_STATUS_ONHOLD"
 )
 
-//Dosage ..
+// Dosage ..
 type Dosage struct {
 	Id        string       `json:"id" bson:"_id"`
 	Value     int32        `json:"value" bson:"value"`
@@ -42,7 +42,7 @@ type Dosage struct {
 	Meta      *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//Strength ..
+// Strength ..
 type Strength struct {
 	Id     string       `json:"id" bson:"_id"`
 	Number int32        `json:"number" bson:"number"`
@@ -50,7 +50,7 @@ type Strength struct {
 	Meta   *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//MedicationCreate input..
+// MedicationCreate input..
 type MedicationCreate struct {
 	MedicationStatus MedicationStatus     `json:"medicationStatus"`
 	Code             *CodableConceptInput `json:"code" bson:"code"`
@@ -69,7 +69,7 @@ type MedicationCreate struct {
 	End              *util.Time           `json:"end,omitempty"`
 }
 
-//Medication ..
+// Medication ..
 type Medication struct {
 	Id               string              `json:"id" bson:"_id"`
 	Code             *CodableConcept     `json:"code" bson:"code"`

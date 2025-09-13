@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//ObservationDefinitionCollection Query
+// ObservationDefinitionCollection Query
 func (r *Resolver) ObservationDefinitionCollection(ctx context.Context, args struct {
 	ID string
 }) (*ObservationDefinitionCollectionResolver, error) {
@@ -22,7 +22,7 @@ func (r *Resolver) ObservationDefinitionCollection(ctx context.Context, args str
 	return &ObservationDefinitionCollectionResolver{observationDefinitionCollection}, nil
 }
 
-//ObservationDefinitionCollections ...
+// ObservationDefinitionCollections ...
 func (r *Resolver) ObservationDefinitionCollections(ctx context.Context, args struct {
 	Param *model.ObservationDefinitionCollectionQueryParam
 }) *[]*ObservationDefinitionCollectionResolver {

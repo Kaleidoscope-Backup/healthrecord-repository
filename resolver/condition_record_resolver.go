@@ -1,70 +1,70 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ConditionRecord Resolver
 ================================*/
 
-//ConditionRecordResolver ..
+// ConditionRecordResolver ..
 type ConditionRecordResolver struct {
 	HealthRecordResolver
 	M *model.ConditionRecord
 }
 
-//Id ..
+// Id ..
 func (r *ConditionRecordResolver) Id() string {
 	return r.M.Id
 }
 
-//Status ..
+// Status ..
 func (r *ConditionRecordResolver) Status() model.ConditionStatus {
 	return r.M.Status
 }
 
-//Code ..
+// Code ..
 func (r *ConditionRecordResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.M.Code}
 }
 
-//Severity ..
+// Severity ..
 func (r *ConditionRecordResolver) Severity() *model.Severity {
 	return r.M.Severity
 }
 
-//BodySite ..
+// BodySite ..
 func (r *ConditionRecordResolver) BodySite() *string {
 	return r.M.BodySite
 }
 
-//BodySiteCode ..
+// BodySiteCode ..
 func (r *ConditionRecordResolver) BodySiteCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.M.BodySiteCode}
 }
 
-//StageAssesment ..
+// StageAssesment ..
 func (r *ConditionRecordResolver) StageAssesment() *string {
 	return r.M.StageAssesment
 }
 
-//StageAssesmentCode ..
+// StageAssesmentCode ..
 func (r *ConditionRecordResolver) StageAssesmentCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.M.StageAssesmentCode}
 }
 
-//Onset ..
+// Onset ..
 func (r *ConditionRecordResolver) Onset() *OnsetResolver {
 	return &OnsetResolver{r.M.Onset}
 }
 
-//Abatement ..
+// Abatement ..
 func (r *ConditionRecordResolver) Abatement() *AbatementResolver {
 	return &AbatementResolver{r.M.Abatement}
 }
 
-//Evidence array ..
+// Evidence array ..
 func (r *ConditionRecordResolver) Evidence() *[]*SymptomResolver {
 
 	if r.M.Evidence != nil {

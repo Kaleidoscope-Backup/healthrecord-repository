@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 Questionnaire service
 ==========================================================================================*/
 
-//QuestionnaireService is for creating Questionnaire
+// QuestionnaireService is for creating Questionnaire
 type QuestionnaireService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewQuestionnaireService creates a new Questionnaire service
+// NewQuestionnaireService creates a new Questionnaire service
 func NewQuestionnaireService(dal mserver.DataAccessLayer, log *logging.Logger) *QuestionnaireService {
 	return &QuestionnaireService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewQuestionnaireService(dal mserver.DataAccessLayer, log *logging.Logger) *
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *QuestionnaireService) FindByID(id string) (*model.Questionnaire, error) {
 
 	if id == "" {
@@ -48,7 +48,7 @@ func (u *QuestionnaireService) FindByID(id string) (*model.Questionnaire, error)
 	return questionnaire, nil
 }
 
-//FindQuestionnaires ..
+// FindQuestionnaires ..
 func (u *QuestionnaireService) FindQuestionnaires(param *model.QuestionnaireQueryParam) (*[]*model.Questionnaire, error) {
 
 	//find the matching Contact (if any) from Mongo
@@ -91,7 +91,7 @@ func (u *QuestionnaireService) FindQuestionnaires(param *model.QuestionnaireQuer
 Mutation Operations
 ==========================================================================================*/
 
-//CreateQuestionnaire will create a new Questionnaire in Mongo using the Data Access Layer
+// CreateQuestionnaire will create a new Questionnaire in Mongo using the Data Access Layer
 func (u *QuestionnaireService) CreateQuestionnaire(questionnaire *model.Questionnaire) (*model.Questionnaire, error) {
 	_, err := u.dal.Post(questionnaire)
 	if err != nil {

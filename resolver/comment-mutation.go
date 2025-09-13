@@ -3,15 +3,15 @@ package resolver
 import (
 	"time"
 
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
+	"github.com/karte/healthrecord-repository/util"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
-	"gitlab.com/karte/healthrecord-repository/util"
 	"golang.org/x/net/context"
 )
 
-//CreateComment ...
+// CreateComment ...
 func (r *Resolver) CreateComment(ctx context.Context, args *struct {
 	Comment *model.CommentInput
 }) (*CommentResolver, error) {
@@ -71,7 +71,7 @@ func (r *Resolver) CreateComment(ctx context.Context, args *struct {
 	return &CommentResolver{cc}, nil
 }
 
-//CreateCommentOnComment ...
+// CreateCommentOnComment ...
 func (r *Resolver) CreateCommentOnComment(ctx context.Context, args *struct {
 	CommentOnComment *model.CommentOnCommentInput
 }) (*CommentResolver, error) {

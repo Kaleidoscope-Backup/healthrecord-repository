@@ -1,55 +1,55 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 CustomerFeedbackResolver Resolver
 ================================*/
 
-//CustomerFeedbackResolver ..
+// CustomerFeedbackResolver ..
 type CustomerFeedbackResolver struct {
 	F *model.CustomerFeedback
 }
 
-//Id ..
+// Id ..
 func (r *CustomerFeedbackResolver) Id() string {
 	return r.F.Id
 }
 
-//Subject ..
+// Subject ..
 func (r *CustomerFeedbackResolver) Subject() string {
 	return r.F.Subject
 }
 
-//Description ..
+// Description ..
 func (r *CustomerFeedbackResolver) Description() string {
 	return r.F.Description
 }
 
-//Type ..
+// Type ..
 func (r *CustomerFeedbackResolver) Type() *string {
 	return r.F.Type
 }
 
-//CreatedAt ..
+// CreatedAt ..
 func (r *CustomerFeedbackResolver) CreatedAt() util.Time {
 	return r.F.CreatedAt
 }
 
-//By ..
+// By ..
 func (r *CustomerFeedbackResolver) By() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.F.By}
 }
 
-//Application ..
+// Application ..
 func (r *CustomerFeedbackResolver) Application() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{&r.F.Application}
 }
 
-//Images array ..
+// Images array ..
 func (r *CustomerFeedbackResolver) Images() *[]*AttachmentResolver {
 
 	if r.F.Images != nil {
@@ -73,7 +73,7 @@ func (r *CustomerFeedbackResolver) Images() *[]*AttachmentResolver {
 	return nil
 }
 
-//Comments array ..
+// Comments array ..
 func (r *CustomerFeedbackResolver) Comments() *[]*CommentResolver {
 
 	if r.F.Comments != nil {

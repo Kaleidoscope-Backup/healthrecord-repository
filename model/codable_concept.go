@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//CodeSystemType ...
+// CodeSystemType ...
 type CodeSystemType string
 
 const (
@@ -37,26 +37,26 @@ const (
 	RXNORM CodeSystemType = "RXNORM"
 )
 
-//ConceptClassesInput ...
+// ConceptClassesInput ...
 type ConceptClassesInput struct {
 	ConceptClasses *[]ConceptClassInput `json:"conceptClasses"`
 }
 
-//ConceptClassQueryParam ...
+// ConceptClassQueryParam ...
 type ConceptClassQueryParam struct {
 	ExternalID *string `json:"externalID"`
 	Name       *string `json:"name"`
 	All        *bool   `json:"all"`
 }
 
-//ConceptClassInput ...
+// ConceptClassInput ...
 type ConceptClassInput struct {
 	ExternalID  string    `json:"externalID"`
 	Name        string    `json:"name"`
 	Description TextInput `json:"description"`
 }
 
-//ConceptClass ...
+// ConceptClass ...
 type ConceptClass struct {
 	Id          string       `json:"id" bson:"_id"`
 	ExternalID  string       `json:"externalID" bson:"externalID"`
@@ -65,14 +65,14 @@ type ConceptClass struct {
 	Meta        *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//CodableConceptInput ...
+// CodableConceptInput ...
 type CodableConceptInput struct {
 	Text         *string      `json:"text"`
 	ConceptClass string       `json:"conceptClass"`
 	Coding       *[]CodeInput `json:"code"`
 }
 
-//CodableConcept ...
+// CodableConcept ...
 type CodableConcept struct {
 	Id           string       `json:"id" bson:"_id"`
 	Text         *string      `json:"text" bson:"text"`
@@ -81,7 +81,7 @@ type CodableConcept struct {
 	Meta         *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//CodeInput ...
+// CodeInput ...
 type CodeInput struct {
 	System       CodeSystemType `json:"system"`
 	Version      *string        `json:"version"`
@@ -93,7 +93,7 @@ type CodeInput struct {
 	UserSelected *bool          `json:"userSelected"`
 }
 
-//Code ...
+// Code ...
 type Code struct {
 	Id           string         `json:"id" bson:"_id"`
 	System       CodeSystemType `json:"system" bson:"system"`
@@ -107,7 +107,7 @@ type Code struct {
 	Meta         *models.Meta   //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//ClinicalCodeInput ...
+// ClinicalCodeInput ...
 type ClinicalCodeInput struct {
 	Code       string         `json:"code"`
 	Display    string         `json:"display"`
@@ -116,7 +116,7 @@ type ClinicalCodeInput struct {
 	Language   *string        `json:"language"`
 }
 
-//ClinicalCode ...
+// ClinicalCode ...
 type ClinicalCode struct {
 	Id         string         `json:"id" bson:"_id"`
 	SystemType CodeSystemType `json:"systemType" bson:"systemType"`

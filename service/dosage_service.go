@@ -4,24 +4,25 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	// "gitlab.com/karte/healthrecord-repository/service"
 
-	"gitlab.com/karte/mongo-lib/mserver"
+	// "github.com/karte/healthrecord-repository/service"
+
+	"github.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 DosageService
 ==========================================================================================*/
 
-//DosageService ..
+// DosageService ..
 type DosageService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewDosageService ..
+// NewDosageService ..
 func NewDosageService(dal mserver.DataAccessLayer, log *logging.Logger) *DosageService {
 	return &DosageService{dal: dal, log: log}
 }
@@ -30,7 +31,7 @@ func NewDosageService(dal mserver.DataAccessLayer, log *logging.Logger) *DosageS
 Query Operations
 ==========================================================================================*/
 
-//FindById ..
+// FindById ..
 func (u *DosageService) FindById(id string) (*model.Dosage, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -55,7 +56,7 @@ func (u *DosageService) FindById(id string) (*model.Dosage, error) {
 Mutation Operations
 ==========================================================================================*/
 
-//CreateDosage will create a new Dosage in Mongo using the Data Access Layer
+// CreateDosage will create a new Dosage in Mongo using the Data Access Layer
 func (u *DosageService) CreateDosage(dosage *model.Dosage) (*model.Dosage, error) {
 	//Validate required fields on Model element are being passed in
 	if dosage.Unit == "" {

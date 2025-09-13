@@ -1,59 +1,59 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Attribute Resolver
 ================================*/
 
-//CodeResolver ..
+// CodeResolver ..
 type CodeResolver struct {
 	C *model.Code
 }
 
-//Id ..
+// Id ..
 func (r *CodeResolver) Id() string {
 	return r.C.Id
 }
 
-//Code ..
+// Code ..
 func (r *CodeResolver) Code() string {
 	return r.C.Code
 }
 
-//Version ..
+// Version ..
 func (r *CodeResolver) Version() *string {
 	return r.C.Version
 }
 
-//Display ..
+// Display ..
 func (r *CodeResolver) Display() string {
 	return r.C.Display
 }
 
-//Definition ..
+// Definition ..
 func (r *CodeResolver) Definition() *string {
 	return r.C.Definition
 }
 
-//Comment ..
+// Comment ..
 func (r *CodeResolver) Comment() *string {
 	return r.C.Comment
 }
 
-//Language ..
+// Language ..
 func (r *CodeResolver) Language() *model.Language {
 	return r.C.Language
 }
 
-//System ..
+// System ..
 func (r *CodeResolver) System() model.CodeSystemType {
 	return r.C.System
 }
 
-//UserSelected ..
+// UserSelected ..
 func (r *CodeResolver) UserSelected() *bool {
 	return r.C.UserSelected
 }

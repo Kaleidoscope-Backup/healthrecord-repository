@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//FamilyMemberHistoryCreate ...
+// FamilyMemberHistoryCreate ...
 type FamilyMemberHistoryCreate struct {
 	MemberName       string               `json:"memberName"`
 	Gender           *Gender              `json:"gender"`
@@ -20,13 +20,13 @@ type FamilyMemberHistoryCreate struct {
 	Note             *string              `json:"note"`
 }
 
-//FamilyMemberHistoryRecordCreate ...
+// FamilyMemberHistoryRecordCreate ...
 type FamilyMemberHistoryRecordCreate struct {
 	HealthRecordCreate
 	MemberHistory *[]FamilyMemberHistoryCreate
 }
 
-//FamilyMemberHistory ...
+// FamilyMemberHistory ...
 type FamilyMemberHistory struct {
 	Id               string          `json:"id" bson:"_id"`
 	MemberName       string          `json:"memberName" bson:"memberName"`
@@ -44,7 +44,7 @@ type FamilyMemberHistory struct {
 
 }
 
-//FamilyMemberHistoryRecord ...
+// FamilyMemberHistoryRecord ...
 type FamilyMemberHistoryRecord struct {
 	HealthRecord
 	Id            string                 `json:"id" bson:"_id"`

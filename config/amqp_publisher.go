@@ -4,15 +4,15 @@ import (
 	"encoding/json"
 	logging "log"
 
+	"github.com/karte/healthrecord-repository/model"
 	"github.com/streadway/amqp"
-	"gitlab.com/karte/healthrecord-repository/model"
 )
 
-//AMQPPublisher ...
+// AMQPPublisher ...
 type AMQPPublisher struct {
 }
 
-//Send ...
+// Send ...
 func (p *AMQPPublisher) Send(msg model.HealthRecordMessage) error {
 	conn, err := amqp.Dial(AMQPUri)
 	if err != nil {

@@ -13,8 +13,8 @@ import (
 	"github.com/globalsign/mgo/bson"
 
 	"github.com/gin-gonic/gin"
-	"gitlab.com/karte/mongo-lib/models"
-	"gitlab.com/karte/mongo-lib/search"
+	"github.com/karte/mongo-lib/models"
+	"github.com/karte/mongo-lib/search"
 )
 
 // BatchController handles FHIR batch operations via input bundles

@@ -1,41 +1,41 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//PractitionerResolver ..
+// PractitionerResolver ..
 type PractitionerResolver struct {
 	ActorResolver
 	M *model.Practitioner
 }
 
-//Id ..
+// Id ..
 func (r *PractitionerResolver) Id() string {
 	return r.M.Id
 }
 
-//Speciality ..
+// Speciality ..
 func (r *PractitionerResolver) Speciality() string {
 	return r.M.Speciality
 }
 
-//Qualification ..
+// Qualification ..
 func (r *PractitionerResolver) Qualification() string {
 	return r.M.Qualification
 }
 
-//Organization ..
+// Organization ..
 func (r *PractitionerResolver) Organization() string {
 	return r.M.Organization
 }
 
-//Photo ..
+// Photo ..
 func (r *PractitionerResolver) Photo() *string {
 	return r.M.Photo
 }
 
-//Contacts ..
+// Contacts ..
 func (r *PractitionerResolver) Contacts() *[]*ContactPointResolver {
 	if r.M.Contacts != nil {
 		var crs []*ContactPointResolver

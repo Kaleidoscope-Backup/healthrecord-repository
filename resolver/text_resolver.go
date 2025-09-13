@@ -1,24 +1,24 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Text Resolver
 ================================*/
 
-//TextResolver ..
+// TextResolver ..
 type TextResolver struct {
 	C *model.Text
 }
 
-//Id ..
+// Id ..
 func (r *TextResolver) Id() string {
 	return r.C.Id
 }
 
-//Content array ..
+// Content array ..
 func (r *TextResolver) Content() *[]*TextContentResolver {
 
 	if r.C.Content != nil {

@@ -3,11 +3,11 @@ package service
 import (
 	"os"
 
+	"github.com/karte/healthrecord-repository/util"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/util"
 )
 
-//NewLogger creates a new logger for Karte
+// NewLogger creates a new logger for Karte
 func NewLogger(config *util.Config) *logging.Logger {
 	backend := logging.NewLogBackend(os.Stderr, "", 0)
 	format := logging.MustStringFormatter(config.LogFormat)

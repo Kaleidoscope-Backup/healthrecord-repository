@@ -8,12 +8,12 @@ import (
 	"testing"
 
 	"github.com/globalsign/mgo"
+	"github.com/karte/healthrecord-repository/service"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/mserver"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/service"
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 var testDAL mserver.DataAccessLayer

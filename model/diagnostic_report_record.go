@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//DiagnosticReportStatus ...
+// DiagnosticReportStatus ...
 type DiagnosticReportStatus string
 
 const (
@@ -22,14 +22,14 @@ const (
 	DIAGNOSTICREPORT_FINAL DiagnosticReportStatus = "DIAGNOSTICREPORT_FINAL"
 )
 
-//DiagnosticReportPerformerInput ...
+// DiagnosticReportPerformerInput ...
 type DiagnosticReportPerformerInput struct {
 	Role     string               `json:"role"`
 	RoleCode *CodableConceptInput `json:"roleCode"`
 	Actor    ReferenceActorInput  `json:"actor"`
 }
 
-//DiagnosticReportPerformer ...
+// DiagnosticReportPerformer ...
 type DiagnosticReportPerformer struct {
 	Id       string          `json:"id" bson:"_id"`
 	Role     string          `json:"role" bson:"role"`
@@ -37,7 +37,7 @@ type DiagnosticReportPerformer struct {
 	Actor    ReferenceActor  `json:"actor" bson:"actor"`
 }
 
-//DiagnosticReportRecordCreate ...
+// DiagnosticReportRecordCreate ...
 type DiagnosticReportRecordCreate struct {
 	HealthRecordCreate
 	BasedOn           ReferenceHealthRecordInput        `json:"basedOn"`
@@ -56,7 +56,7 @@ type DiagnosticReportRecordCreate struct {
 	PresentedForm     *AttachmentInput                  `json:"presentedForm"`
 }
 
-//DiagnosticReportRecord ...
+// DiagnosticReportRecord ...
 type DiagnosticReportRecord struct {
 	HealthRecord
 	Id                string                       `json:"id" bson:"_id"`

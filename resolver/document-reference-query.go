@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//DocumentReference Query
+// DocumentReference Query
 func (r *Resolver) DocumentReference(ctx context.Context, args struct {
 	ID string
 }) (*DocumentReferenceResolver, error) {
@@ -23,7 +23,7 @@ func (r *Resolver) DocumentReference(ctx context.Context, args struct {
 	return &DocumentReferenceResolver{docReference}, nil
 }
 
-//DocumentReferences ...
+// DocumentReferences ...
 func (r *Resolver) DocumentReferences(ctx context.Context, args struct {
 	Param *model.DocumentReferenceQueryParam
 }) *[]*DocumentReferenceResolver {

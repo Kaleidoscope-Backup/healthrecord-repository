@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/healthrecord-repository/util"
+import "github.com/karte/healthrecord-repository/util"
 
-//OrderDetail ..
+// OrderDetail ..
 type OrderDetail struct {
 	// order information
 	Id         string       `json:"_id"`

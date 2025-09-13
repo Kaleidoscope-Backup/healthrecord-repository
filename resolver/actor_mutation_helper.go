@@ -1,10 +1,10 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//CreateActor ...
+// CreateActor ...
 func CreateActor(actorCreate *model.ActorCreate) *model.Actor {
 	actor := &model.Actor{}
 

@@ -4,23 +4,23 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
 
-	"gitlab.com/karte/mongo-lib/mserver"
+	"github.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 ContactPointService
 ==========================================================================================*/
 
-//ContactPointService ..
+// ContactPointService ..
 type ContactPointService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewContactPointService ..
+// NewContactPointService ..
 func NewContactPointService(dal mserver.DataAccessLayer, log *logging.Logger) *ContactPointService {
 	return &ContactPointService{dal: dal, log: log}
 }
@@ -29,7 +29,7 @@ func NewContactPointService(dal mserver.DataAccessLayer, log *logging.Logger) *C
 Query Operations
 ==========================================================================================*/
 
-//FindById ..
+// FindById ..
 func (u *ContactPointService) FindById(id string) (*model.ContactPoint, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -54,7 +54,7 @@ func (u *ContactPointService) FindById(id string) (*model.ContactPoint, error) {
 Mutation Operations
 ==========================================================================================*/
 
-//CreateContactPoint will create a new ContactPoint in Mongo using the Data Access Layer
+// CreateContactPoint will create a new ContactPoint in Mongo using the Data Access Layer
 func (u *ContactPointService) CreateContactPoint(contactPoint *model.ContactPoint) (*model.ContactPoint, error) {
 	//Validate required fields on Model element are being passed in
 	if contactPoint.System == "" || contactPoint.Value == "" {

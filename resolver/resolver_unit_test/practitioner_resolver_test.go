@@ -1,10 +1,10 @@
 package resolver_unit_test
 
 import (
+	"github.com/karte/healthrecord-repository/model"
+	. "github.com/karte/healthrecord-repository/resolver"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"gitlab.com/karte/healthrecord-repository/model"
-	. "gitlab.com/karte/healthrecord-repository/resolver"
 )
 
 var _ = Describe("PractitionerResolver", func() {

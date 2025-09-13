@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//VitalType ...
+// VitalType ...
 type VitalType string
 
 const (
@@ -64,7 +64,7 @@ func (t VitalType) toDescription() string {
 	return ""
 }
 
-//VitalCreate ...
+// VitalCreate ...
 type VitalCreate struct {
 	VitalType VitalType            `json:"vitalType"`
 	Value     int32                `json:"value"`
@@ -72,7 +72,7 @@ type VitalCreate struct {
 	Code      *CodableConceptInput `json:"code"`
 }
 
-//Vital ...
+// Vital ...
 type Vital struct {
 	Id        string          `json:"id" bson:"_id"`
 	VitalType VitalType       `json:"vitalType" bson:"vitalType"`
@@ -82,13 +82,13 @@ type Vital struct {
 	Meta      *models.Meta    //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//VitalObservationRecordCreate ...
+// VitalObservationRecordCreate ...
 type VitalObservationRecordCreate struct {
 	HealthRecordCreate
 	Observations *[]VitalCreate `json:"observations"`
 }
 
-//VitalObservationRecord ...
+// VitalObservationRecord ...
 type VitalObservationRecord struct {
 	HealthRecord
 	Id           string       `json:"id" bson:"_id"`

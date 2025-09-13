@@ -2,18 +2,18 @@ package service
 
 import (
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
-//MessageService ...
+// MessageService ...
 type MessageService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewMessageService ...
+// NewMessageService ...
 func NewMessageService(dal mserver.DataAccessLayer, log *logging.Logger) *MessageService {
 	return &MessageService{dal: dal, log: log}
 }
@@ -22,7 +22,7 @@ func NewMessageService(dal mserver.DataAccessLayer, log *logging.Logger) *Messag
 Query Operations
 ==========================================================================================*/
 
-//FindByID ...
+// FindByID ...
 func (u *MessageService) FindByID(id string) (*model.Message, error) {
 	//find the matching Message (if any) from Mongo
 	hr, err := u.dal.Get(id, &model.Message{})
@@ -39,7 +39,7 @@ func (u *MessageService) FindByID(id string) (*model.Message, error) {
 	return message, nil
 }
 
-//FindByConversation ...
+// FindByConversation ...
 func (u *MessageService) FindByConversation(from string, to string) (*[]*model.Message, error) {
 	var params map[string][]string
 	params = map[string][]string{}
@@ -75,7 +75,7 @@ func (u *MessageService) FindByConversation(from string, to string) (*[]*model.M
 Mutation Operations
 ==========================================================================================*/
 
-//CreateMessage ...
+// CreateMessage ...
 func (u *MessageService) CreateMessage(message *model.Message) (*model.Message, error) {
 	_, err := u.dal.Post(message)
 	if err != nil {

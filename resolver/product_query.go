@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//Product Query
+// Product Query
 func (r *Resolver) Product(ctx context.Context, args struct {
 	ID string
 }) (*ProductResolver, error) {
@@ -22,7 +22,7 @@ func (r *Resolver) Product(ctx context.Context, args struct {
 	return &ProductResolver{product}, nil
 }
 
-//ProductsBySupplier ...
+// ProductsBySupplier ...
 func (r *Resolver) ProductsBySupplier(ctx context.Context, args struct{ SupplierID string }) *[]*ProductResolver {
 	var l []*ProductResolver
 
@@ -41,7 +41,7 @@ func (r *Resolver) ProductsBySupplier(ctx context.Context, args struct{ Supplier
 	return &l
 }
 
-//Products ...
+// Products ...
 func (r *Resolver) Products(ctx context.Context, args struct {
 	Param *model.ProductQueryParam
 }) *[]*ProductResolver {

@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 SlotService
 ==========================================================================================*/
 
-//SlotService ..
+// SlotService ..
 type SlotService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewSlotService ..
+// NewSlotService ..
 func NewSlotService(dal mserver.DataAccessLayer, log *logging.Logger) *SlotService {
 	return &SlotService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewSlotService(dal mserver.DataAccessLayer, log *logging.Logger) *SlotServi
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *SlotService) FindByID(id string) (*model.Slot, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -53,7 +53,7 @@ func (u *SlotService) FindByID(id string) (*model.Slot, error) {
 Mutation Operations
 ==========================================================================================*/
 
-//CreateSlot will create a new Slot in Mongo using the Data Access Layer
+// CreateSlot will create a new Slot in Mongo using the Data Access Layer
 func (u *SlotService) CreateSlot(slot *model.Slot) (*model.Slot, error) {
 	//Validate required fields on Model element are being passed in
 	if &slot.Status == nil {

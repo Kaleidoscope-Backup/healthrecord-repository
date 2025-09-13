@@ -1,35 +1,35 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//ContactResolver ..
+// ContactResolver ..
 type ContactResolver struct {
 	m *model.Contact
 }
 
-//Id ..
+// Id ..
 func (r *ContactResolver) Id() string {
 	return r.m.Id
 }
 
-//Name ..
+// Name ..
 func (r *ContactResolver) Name() string {
 	return r.m.Name
 }
 
-//Relationship ..
+// Relationship ..
 func (r *ContactResolver) Relationship() string {
 	return r.m.Relationship
 }
 
-//Phone ..
+// Phone ..
 func (r *ContactResolver) Phone() string {
 	return r.m.Phone
 }
 
-//Email ..
+// Email ..
 func (r *ContactResolver) Email() string {
 	return r.m.Email
 }

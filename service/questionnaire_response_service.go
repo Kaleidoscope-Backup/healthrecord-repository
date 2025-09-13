@@ -4,23 +4,23 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 QuestionnaireResponse service
 ==========================================================================================*/
 
-//QuestionnaireResponseService is for creating QuestionnaireResponse
+// QuestionnaireResponseService is for creating QuestionnaireResponse
 type QuestionnaireResponseService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewQuestionnaireResponseService creates a new QuestionnaireResponse service
+// NewQuestionnaireResponseService creates a new QuestionnaireResponse service
 func NewQuestionnaireResponseService(dal mserver.DataAccessLayer, log *logging.Logger) *QuestionnaireResponseService {
 	return &QuestionnaireResponseService{dal: dal, log: log}
 }
@@ -29,7 +29,7 @@ func NewQuestionnaireResponseService(dal mserver.DataAccessLayer, log *logging.L
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *QuestionnaireResponseService) FindByID(id string) (*model.QuestionnaireResponse, error) {
 
 	if id == "" {
@@ -53,7 +53,7 @@ func (u *QuestionnaireResponseService) FindByID(id string) (*model.Questionnaire
 Mutation Operations
 ==========================================================================================*/
 
-//CreateQuestionnaireResponse will create a new QuestionnaireResponse in Mongo using the Data Access Layer
+// CreateQuestionnaireResponse will create a new QuestionnaireResponse in Mongo using the Data Access Layer
 func (u *QuestionnaireResponseService) CreateQuestionnaireResponse(questionnaireResponse *model.QuestionnaireResponse) (*model.QuestionnaireResponse, error) {
 	_, err := u.dal.Post(questionnaireResponse)
 	if err != nil {
@@ -63,7 +63,7 @@ func (u *QuestionnaireResponseService) CreateQuestionnaireResponse(questionnaire
 	return questionnaireResponse, nil
 }
 
-//FindByConsumerID ..
+// FindByConsumerID ..
 func (u *QuestionnaireResponseService) FindByConsumerID(id string) (*[]*model.QuestionnaireResponse, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")

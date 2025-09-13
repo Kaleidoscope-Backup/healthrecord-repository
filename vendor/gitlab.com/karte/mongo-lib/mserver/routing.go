@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/mongo-lib/models"
 )
 
 // RegisterController registers the CRUD routes (and middleware) for a FHIR resource

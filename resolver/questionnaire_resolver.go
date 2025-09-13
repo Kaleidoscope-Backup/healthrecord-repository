@@ -1,75 +1,75 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//QuestionnaireResolver ..
+// QuestionnaireResolver ..
 type QuestionnaireResolver struct {
 	Q *model.Questionnaire
 }
 
-//Id ..
+// Id ..
 func (r *QuestionnaireResolver) Id() string {
 	return r.Q.Id
 }
 
-//Status ..
+// Status ..
 func (r *QuestionnaireResolver) Status() model.QuestionnaireStatus {
 	return r.Q.Status
 }
 
-//Language ..
+// Language ..
 func (r *QuestionnaireResolver) Language() model.Language {
 	return r.Q.Language
 }
 
-//Name ..
+// Name ..
 func (r *QuestionnaireResolver) Name() string {
 	return r.Q.Name
 }
 
-//Code ..
+// Code ..
 func (r *QuestionnaireResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.Q.Code}
 }
 
-//Experimental ..
+// Experimental ..
 func (r *QuestionnaireResolver) Experimental() *bool {
 	return r.Q.Experimental
 }
 
-//Publisher ..
+// Publisher ..
 func (r *QuestionnaireResolver) Publisher() *string {
 	return r.Q.Publisher
 }
 
-//Disclaimer ..
+// Disclaimer ..
 func (r *QuestionnaireResolver) Disclaimer() *string {
 	return r.Q.Disclaimer
 }
 
-//Copyright ..
+// Copyright ..
 func (r *QuestionnaireResolver) Copyright() *string {
 	return r.Q.Copyright
 }
 
-//Description ..
+// Description ..
 func (r *QuestionnaireResolver) Description() *string {
 	return r.Q.Description
 }
 
-//Purpose ..
+// Purpose ..
 func (r *QuestionnaireResolver) Purpose() *string {
 	return r.Q.Purpose
 }
 
-//EffectivePeriod ..
+// EffectivePeriod ..
 func (r *QuestionnaireResolver) EffectivePeriod() *PeriodResolver {
 	return &PeriodResolver{r.Q.EffectivePeriod}
 }
 
-//Items array ..
+// Items array ..
 func (r *QuestionnaireResolver) Items() *[]*QuestionResolver {
 
 	if r.Q.Items != nil {

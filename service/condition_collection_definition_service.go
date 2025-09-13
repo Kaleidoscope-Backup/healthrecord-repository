@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 ConditionDefinitionCollection service
 ==========================================================================================*/
 
-//ConditionDefinitionCollectionService is for creating condition templates
+// ConditionDefinitionCollectionService is for creating condition templates
 type ConditionDefinitionCollectionService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewConditionDefinitionCollectionService ...
+// NewConditionDefinitionCollectionService ...
 func NewConditionDefinitionCollectionService(dal mserver.DataAccessLayer, log *logging.Logger) *ConditionDefinitionCollectionService {
 	return &ConditionDefinitionCollectionService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewConditionDefinitionCollectionService(dal mserver.DataAccessLayer, log *l
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *ConditionDefinitionCollectionService) FindByID(id string) (*model.ConditionDefinitionCollection, error) {
 
 	if id == "" {
@@ -52,7 +52,7 @@ func (u *ConditionDefinitionCollectionService) FindByID(id string) (*model.Condi
 Mutation Operations
 ==========================================================================================*/
 
-//CreateConditionDefinitionCollection will create a new condition template in Mongo using the Data Access Layer
+// CreateConditionDefinitionCollection will create a new condition template in Mongo using the Data Access Layer
 func (u *ConditionDefinitionCollectionService) CreateConditionDefinitionCollection(conditionTemplate *model.ConditionDefinitionCollection) (*model.ConditionDefinitionCollection, error) {
 	id, err := u.dal.Post(conditionTemplate)
 	if err != nil {

@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//EndpointStatus ...
+// EndpointStatus ...
 type EndpointStatus string
 
 const (
@@ -25,7 +25,7 @@ const (
 	ENDPOINT_TEST EndpointStatus = "ENDPOINT_TEST"
 )
 
-//EndpointConnectionType ...
+// EndpointConnectionType ...
 type EndpointConnectionType string
 
 const (
@@ -72,7 +72,7 @@ const (
 	DIRECT_PROJECT EndpointConnectionType = "DIRECT_PROJECT"
 )
 
-//EndpointInput ...
+// EndpointInput ...
 type EndpointInput struct {
 	Status               EndpointStatus         `json:"status" bson:"status"`
 	Name                 string                 `json:"name" bson:"name"`
@@ -88,7 +88,7 @@ type EndpointInput struct {
 	Header               *[]string              `json:"header" bson:"header"`
 }
 
-//Endpoint ...
+// Endpoint ...
 type Endpoint struct {
 	Id                   string                 `json:"id" bson:"_id"`
 	Status               EndpointStatus         `json:"status" bson:"status"`

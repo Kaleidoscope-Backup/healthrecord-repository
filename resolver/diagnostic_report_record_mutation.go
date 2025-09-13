@@ -1,12 +1,12 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/model"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
 	"golang.org/x/net/context"
 )
 
-//CreateDiagnosticReportRecord ...
+// CreateDiagnosticReportRecord ...
 func (r *Resolver) CreateDiagnosticReportRecord(ctx context.Context, args *struct {
 	DiagnosticReportRecord *model.DiagnosticReportRecordCreate
 }) (*DiagnosticReportRecordResolver, error) {

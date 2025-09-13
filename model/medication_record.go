@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//MedicationRecordCreate ...
+// MedicationRecordCreate ...
 type MedicationRecordCreate struct {
 	HealthRecordCreate
 	DispensingOrganization *string             `json:"dispensingOrganization"`
@@ -15,7 +15,7 @@ type MedicationRecordCreate struct {
 	Medications            *[]MedicationCreate `json:"medications"`
 }
 
-//MedicationRecord ...
+// MedicationRecord ...
 type MedicationRecord struct {
 	HealthRecord
 	Id                     string        `json:"id" bson:"_id"`

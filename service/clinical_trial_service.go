@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 ClinicalTrial service
 ==========================================================================================*/
 
-//ClinicalTrialService is for creating clinical trial
+// ClinicalTrialService is for creating clinical trial
 type ClinicalTrialService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewClinicalTrialService creates a new ClinicalTrial service that has all calls to the database, queries and mutations via the Data Access Layer
+// NewClinicalTrialService creates a new ClinicalTrial service that has all calls to the database, queries and mutations via the Data Access Layer
 func NewClinicalTrialService(dal mserver.DataAccessLayer, log *logging.Logger) *ClinicalTrialService {
 	return &ClinicalTrialService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewClinicalTrialService(dal mserver.DataAccessLayer, log *logging.Logger) *
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *ClinicalTrialService) FindByID(id string) (*model.ClinicalTrial, error) {
 
 	if id == "" {
@@ -52,7 +52,7 @@ func (u *ClinicalTrialService) FindByID(id string) (*model.ClinicalTrial, error)
 Mutation Operations
 ==========================================================================================*/
 
-//CreateClinicalTrial will create a new clinical trial in Mongo using the Data Access Layer
+// CreateClinicalTrial will create a new clinical trial in Mongo using the Data Access Layer
 func (u *ClinicalTrialService) CreateClinicalTrial(clinicalTrial *model.ClinicalTrial) (*model.ClinicalTrial, error) {
 	_, err := u.dal.Post(clinicalTrial)
 	if err != nil {

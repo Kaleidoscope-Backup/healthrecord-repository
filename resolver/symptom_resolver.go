@@ -1,25 +1,25 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//SymptomResolver ..
+// SymptomResolver ..
 type SymptomResolver struct {
 	M *model.Symptom
 }
 
-//Id ..
+// Id ..
 func (r *SymptomResolver) Id() string {
 	return r.M.Id
 }
 
-//Name ..
+// Name ..
 func (r *SymptomResolver) Name() string {
 	return r.M.Name
 }
 
-//Code ..
+// Code ..
 func (r *SymptomResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.M.Code}
 }

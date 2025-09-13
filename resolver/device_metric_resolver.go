@@ -1,48 +1,48 @@
 package resolver
 
-import "gitlab.com/karte/healthrecord-repository/model"
+import "github.com/karte/healthrecord-repository/model"
 
-//DeviceMetricResolver ..
+// DeviceMetricResolver ..
 type DeviceMetricResolver struct {
 	D *model.DeviceMetric
 }
 
-//Id ..
+// Id ..
 func (r *DeviceMetricResolver) Id() string {
 	return r.D.Id
 }
 
-//Type ..
+// Type ..
 func (r *DeviceMetricResolver) Type() string {
 	return r.D.Type
 }
 
-//Unit ..
+// Unit ..
 func (r *DeviceMetricResolver) Unit() string {
 	return r.D.Unit
 }
 
-//Source ..
+// Source ..
 func (r *DeviceMetricResolver) Source() *ReferenceEntityResolver {
 	return &ReferenceEntityResolver{&r.D.Source}
 }
 
-//OperationalStatus ..
+// OperationalStatus ..
 func (r *DeviceMetricResolver) OperationalStatus() *model.DeviceMetricOperationalStatus {
 	return r.D.OperationalStatus
 }
 
-//Category ..
+// Category ..
 func (r *DeviceMetricResolver) Category() *model.DeviceMetricCategory {
 	return r.D.Category
 }
 
-//Calibration ..
+// Calibration ..
 func (r *DeviceMetricResolver) Calibration() *DeviceCalibrationResolver {
 	return &DeviceCalibrationResolver{r.D.Calibration}
 }
 
-//MeasurementPeriod ..
+// MeasurementPeriod ..
 func (r *DeviceMetricResolver) MeasurementPeriod() *TimingResolver {
 	return &TimingResolver{r.D.MeasurementPeriod}
 }

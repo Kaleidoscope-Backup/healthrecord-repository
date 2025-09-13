@@ -1,44 +1,44 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Clinical Code Resolver
 ================================*/
 
-//ClinicalCodeResolver ...
+// ClinicalCodeResolver ...
 type ClinicalCodeResolver struct {
 	M *model.ClinicalCode
 }
 
-//Id ...
+// Id ...
 func (r *ClinicalCodeResolver) Id() string {
 	return r.M.Id
 }
 
-//Code ...
+// Code ...
 func (r *ClinicalCodeResolver) Code() string {
 	return r.M.Code
 }
 
-//Display ...
+// Display ...
 func (r *ClinicalCodeResolver) Display() string {
 	return r.M.Display
 }
 
-//Definition ...
+// Definition ...
 func (r *ClinicalCodeResolver) Definition() string {
 	return r.M.Definition
 }
 
-//Language ...
+// Language ...
 func (r *ClinicalCodeResolver) Language() *string {
 	return r.M.Language
 }
 
-//SystemType ...
+// SystemType ...
 func (r *ClinicalCodeResolver) SystemType() model.CodeSystemType {
 	//must provide a resolver of the Model Type: Clinical Code Type
 	return r.M.SystemType

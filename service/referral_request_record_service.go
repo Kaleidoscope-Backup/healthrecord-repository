@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 ReferralRequestService
 ==========================================================================================*/
 
-//ReferralRequestService ..
+// ReferralRequestService ..
 type ReferralRequestService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewReferralRequestService ..
+// NewReferralRequestService ..
 func NewReferralRequestService(dal mserver.DataAccessLayer, log *logging.Logger) *ReferralRequestService {
 	return &ReferralRequestService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewReferralRequestService(dal mserver.DataAccessLayer, log *logging.Logger)
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *ReferralRequestService) FindByID(id string) (*model.ReferralRequest, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -53,7 +53,7 @@ func (u *ReferralRequestService) FindByID(id string) (*model.ReferralRequest, er
 Mutation Operations
 ==========================================================================================*/
 
-//CreateReferralRequest will create a new ReferralRequest in Mongo using the Data Access Layer
+// CreateReferralRequest will create a new ReferralRequest in Mongo using the Data Access Layer
 func (u *ReferralRequestService) CreateReferralRequest(refRequest *model.ReferralRequest) (*model.ReferralRequest, error) {
 	//Validate required fields on Model element are being passed in
 	if &refRequest.Status == nil {

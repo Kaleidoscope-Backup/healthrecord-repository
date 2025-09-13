@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//OrderEventType ...
+// OrderEventType ...
 type OrderEventType string
 
 const (
@@ -28,7 +28,7 @@ const (
 	SAMPLE_COLLECTED_EVENT OrderEventType = "SAMPLE_COLLECTED_EVENT"
 )
 
-//OrderEventQueryParam ...
+// OrderEventQueryParam ...
 type OrderEventQueryParam struct {
 	OrderID    *string         `json:"orderID"`
 	ExternalID *string         `json:"externalID"`
@@ -37,7 +37,7 @@ type OrderEventQueryParam struct {
 	Type       *OrderEventType `json:"Type"`
 }
 
-//OrderEventCreate ..
+// OrderEventCreate ..
 type OrderEventCreate struct {
 	OrderID        string              `json:"orderID"`
 	ExternalID     *string             `json:"externalID"`
@@ -49,7 +49,7 @@ type OrderEventCreate struct {
 	TimeStamp      util.Time           `json:"timeStamp"`
 }
 
-//OrderEvent ..
+// OrderEvent ..
 type OrderEvent struct {
 	Id             string         `json:"id" bson:"_id"`
 	OrderID        string         `json:"orderID" bson:"orderID"`

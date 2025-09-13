@@ -1,24 +1,24 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//DataSyncStatusInput ...
+// DataSyncStatusInput ...
 type DataSyncStatusInput struct {
 	Status   string    `json:"status" bson:"status"`
 	LastSync util.Time `json:"lastSync" bson:"lastSync"`
 }
 
-//DataSyncStatus ...
+// DataSyncStatus ...
 type DataSyncStatus struct {
 	Id       string    `json:"id" bson:"_id"`
 	Status   string    `json:"status" bson:"status"`
 	LastSync util.Time `json:"lastSync" bson:"lastSync"`
 }
 
-//DeviceDataSourceCreate ...
+// DeviceDataSourceCreate ...
 type DeviceDataSourceCreate struct {
 	Consumer      ReferenceActorInput     `json:"consumer"`
 	SourceDevice  ReferenceEntityInput    `json:"sourceDevice"`
@@ -26,7 +26,7 @@ type DeviceDataSourceCreate struct {
 	SyncStatus    *DataSyncStatusInput    `json:"syncStatus"`
 }
 
-//DeviceDataSource ...
+// DeviceDataSource ...
 type DeviceDataSource struct {
 	Id            string             `json:"id" bson:"_id"`
 	Consumer      ReferenceActor     `json:"consumer" bson:"consumer"`

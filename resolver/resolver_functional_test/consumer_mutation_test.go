@@ -3,7 +3,7 @@ package resolver_functional_test
 // import (
 // 	"fmt"
 
-// 	"gitlab.com/karte/healthrecord-repository/model"
+// 	"github.com/karte/healthrecord-repository/model"
 
 // 	. "github.com/onsi/ginkgo"
 // 	. "github.com/onsi/gomega"

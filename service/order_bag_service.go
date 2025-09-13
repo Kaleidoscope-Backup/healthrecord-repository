@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 OrderBagService
 ==========================================================================================*/
 
-//OrderBagService ..
+// OrderBagService ..
 type OrderBagService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewOrderBagService ..
+// NewOrderBagService ..
 func NewOrderBagService(dal mserver.DataAccessLayer, log *logging.Logger) *OrderBagService {
 	return &OrderBagService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewOrderBagService(dal mserver.DataAccessLayer, log *logging.Logger) *Order
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *OrderBagService) FindByID(id string) (*model.OrderBag, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -53,7 +53,7 @@ func (u *OrderBagService) FindByID(id string) (*model.OrderBag, error) {
 Mutation Operations
 ==========================================================================================*/
 
-//CreateOrderBag will create a new Order Bag in Mongo using the Data Access Layer
+// CreateOrderBag will create a new Order Bag in Mongo using the Data Access Layer
 func (u *OrderBagService) CreateOrderBag(orderBag *model.OrderBag) (*model.OrderBag, error) {
 
 	id, err := u.dal.Post(orderBag)

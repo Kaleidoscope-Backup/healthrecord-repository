@@ -6,13 +6,13 @@ import (
 	"net/url"
 	"reflect"
 
-	"gitlab.com/karte/mongo-lib/models"
-	"gitlab.com/karte/mongo-lib/mserver"
-	"gitlab.com/karte/mongo-lib/search"
+	"github.com/karte/mongo-lib/models"
+	"github.com/karte/mongo-lib/mserver"
+	"github.com/karte/mongo-lib/search"
 	"gopkg.in/mgo.v2/bson"
 )
 
-//FindRecordsWithOrParams ...
+// FindRecordsWithOrParams ...
 func FindRecordsWithOrParams(params *map[string][]string, recordType interface{}, dal mserver.DataAccessLayer) (recordArr []interface{}, err error) {
 	var bundle *models.Bundle
 
@@ -71,7 +71,7 @@ func createQueryObjectByOrParams(params *map[string][]string, recordType interfa
 	return query
 }
 
-//FindRecords ...
+// FindRecords ...
 func FindRecords(params *map[string]string, recordType interface{}, dal mserver.DataAccessLayer) (recordArr []interface{}, err error) {
 	var bundle *models.Bundle
 

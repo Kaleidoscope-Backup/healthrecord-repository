@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 OrderEventService
 ==========================================================================================*/
 
-//OrderEventService ..
+// OrderEventService ..
 type OrderEventService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewOrderEventService ..
+// NewOrderEventService ..
 func NewOrderEventService(dal mserver.DataAccessLayer, log *logging.Logger) *OrderEventService {
 	return &OrderEventService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewOrderEventService(dal mserver.DataAccessLayer, log *logging.Logger) *Ord
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *OrderEventService) FindByID(id string) (*model.OrderEvent, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -49,7 +49,7 @@ func (u *OrderEventService) FindByID(id string) (*model.OrderEvent, error) {
 	return orderEvent, nil
 }
 
-//FindEvents ...
+// FindEvents ...
 func (u *OrderEventService) FindEvents(orderID string) (*[]*model.OrderEvent, error) {
 	if orderID == "" {
 		return nil, errors.New("Missing parameter id")
@@ -76,7 +76,7 @@ func (u *OrderEventService) FindEvents(orderID string) (*[]*model.OrderEvent, er
 	return &orderEventArr, nil
 }
 
-//FindEventsByParam ...
+// FindEventsByParam ...
 func (u *OrderEventService) FindByParam(param *model.OrderEventQueryParam) (*[]*model.OrderEvent, error) {
 	if param == nil {
 		return nil, errors.New("Missing parameter")
@@ -126,7 +126,7 @@ func (u *OrderEventService) FindByParam(param *model.OrderEventQueryParam) (*[]*
 Mutation Operations
 ==========================================================================================*/
 
-//CreateOrderEvent will create a new Product in Mongo using the Data Access Layer
+// CreateOrderEvent will create a new Product in Mongo using the Data Access Layer
 func (u *OrderEventService) CreateOrderEvent(event *model.OrderEvent) (*model.OrderEvent, error) {
 
 	id, err := u.dal.Post(event)

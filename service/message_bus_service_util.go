@@ -3,10 +3,10 @@ package service
 import (
 	"encoding/json"
 
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//PostRecord ...
+// PostRecord ...
 func PostRecord(record interface{}, consumerID string, recordID string) {
 	msg := &model.HealthRecordMessage{}
 	msg.Address = consumerID

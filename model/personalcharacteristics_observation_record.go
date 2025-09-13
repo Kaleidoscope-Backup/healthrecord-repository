@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//PersonalCharacteristics ...
+// PersonalCharacteristics ...
 type PersonalCharacteristics string
 
 const (
@@ -22,14 +22,14 @@ const (
 	BIRTHDATE PersonalCharacteristics = "BIRTHDATE"
 )
 
-//PersonalCharacteristicsObservationCreate ...
+// PersonalCharacteristicsObservationCreate ...
 type PersonalCharacteristicsObservationCreate struct {
 	Type  PersonalCharacteristics `json:"type"`
 	Value string                  `json:"value"`
 	Code  *CodableConceptInput    `json:"code"`
 }
 
-//PersonalCharacteristicsObservation ...
+// PersonalCharacteristicsObservation ...
 type PersonalCharacteristicsObservation struct {
 	Id    string                  `json:"id" bson:"_id"`
 	Type  PersonalCharacteristics `json:"type" bson:"type"`
@@ -38,13 +38,13 @@ type PersonalCharacteristicsObservation struct {
 	Meta  *models.Meta            //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//PersonalCharacteristicsObservationRecordCreate ...
+// PersonalCharacteristicsObservationRecordCreate ...
 type PersonalCharacteristicsObservationRecordCreate struct {
 	HealthRecordCreate
 	Observations *[]PersonalCharacteristicsObservationCreate `json:"observations"`
 }
 
-//PersonalCharacteristicsObservationRecord ...
+// PersonalCharacteristicsObservationRecord ...
 type PersonalCharacteristicsObservationRecord struct {
 	HealthRecord
 	Id           string                                `json:"id" bson:"_id"`

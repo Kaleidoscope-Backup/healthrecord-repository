@@ -12,20 +12,20 @@ import (
 	"github.com/globalsign/mgo"
 	"github.com/gobuffalo/packr"
 	graphqlGo "github.com/graph-gophers/graphql-go"
+	c "github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/resolver"
+	"github.com/karte/healthrecord-repository/schema"
+	"github.com/karte/healthrecord-repository/service"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/microservice-utilities/auth0"
+	h "github.com/karte/microservice-utilities/handler"
+	"github.com/karte/microservice-utilities/loader"
+	"github.com/karte/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
-	c "gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/resolver"
-	"gitlab.com/karte/healthrecord-repository/schema"
-	"gitlab.com/karte/healthrecord-repository/service"
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/microservice-utilities/auth0"
-	h "gitlab.com/karte/microservice-utilities/handler"
-	"gitlab.com/karte/microservice-utilities/loader"
-	"gitlab.com/karte/mongo-lib/mserver"
 	"golang.org/x/net/context"
 )
 
-//Main function to run
+// Main function to run
 func main() {
 	//Start with Karte's Default Config and change as needed
 	config := util.SetupConfig()

@@ -1,30 +1,30 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 MolecularSequenceRecord Resolver
 ================================*/
 
-//MolecularSequenceRecordResolver ..
+// MolecularSequenceRecordResolver ..
 type MolecularSequenceRecordResolver struct {
 	HealthRecordResolver
 	M *model.MolecularSequenceRecord
 }
 
-//Id ..
+// Id ..
 func (r *MolecularSequenceRecordResolver) Id() string {
 	return r.M.Id
 }
 
-//ReferenceSeq ..
+// ReferenceSeq ..
 func (r *MolecularSequenceRecordResolver) ReferenceSeq() *ReferenceSequenceResolver {
 	return &ReferenceSequenceResolver{r.M.ReferenceSeq}
 }
 
-//Variants array ..
+// Variants array ..
 func (r *MolecularSequenceRecordResolver) Variants() *[]*VariantResolver {
 
 	if r.M.Variants != nil {
@@ -48,7 +48,7 @@ func (r *MolecularSequenceRecordResolver) Variants() *[]*VariantResolver {
 	return nil
 }
 
-//ObservedSeq ..
+// ObservedSeq ..
 func (r *MolecularSequenceRecordResolver) ObservedSeq() *string {
 	return r.M.ObservedSeq
 }

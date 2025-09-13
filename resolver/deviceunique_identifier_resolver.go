@@ -1,40 +1,40 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//DeviceUniqueIdentifierResolver ..
+// DeviceUniqueIdentifierResolver ..
 type DeviceUniqueIdentifierResolver struct {
 	d *model.DeviceUniqueIdentifier
 }
 
-//DeviceIdentifier ..
+// DeviceIdentifier ..
 func (r *DeviceUniqueIdentifierResolver) DeviceIdentifier() *string {
 	return r.d.DeviceIdentifier
 }
 
-//Name ..
+// Name ..
 func (r *DeviceUniqueIdentifierResolver) Name() *string {
 	return r.d.Name
 }
 
-//Jurisdiction ..
+// Jurisdiction ..
 func (r *DeviceUniqueIdentifierResolver) Jurisdiction() *string {
 	return r.d.Jurisdiction
 }
 
-//CarrierCRF ..
+// CarrierCRF ..
 func (r *DeviceUniqueIdentifierResolver) CarrierCRF() *string {
 	return r.d.CarrierCRF
 }
 
-//Issuer ..
+// Issuer ..
 func (r *DeviceUniqueIdentifierResolver) Issuer() *string {
 	return r.d.Issuer
 }
 
-//EntryType ..
+// EntryType ..
 func (r *DeviceUniqueIdentifierResolver) EntryType() *model.UDIType {
 	return r.d.EntryType
 }

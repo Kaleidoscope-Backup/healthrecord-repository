@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 ScheduleService
 ==========================================================================================*/
 
-//ScheduleService ..
+// ScheduleService ..
 type ScheduleService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewScheduleService ..
+// NewScheduleService ..
 func NewScheduleService(dal mserver.DataAccessLayer, log *logging.Logger) *ScheduleService {
 	return &ScheduleService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewScheduleService(dal mserver.DataAccessLayer, log *logging.Logger) *Sched
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *ScheduleService) FindByID(id string) (*model.Schedule, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -53,7 +53,7 @@ func (u *ScheduleService) FindByID(id string) (*model.Schedule, error) {
 Mutation Operations
 ==========================================================================================*/
 
-//CreateSchedule will create a new Schedule in Mongo using the Data Access Layer
+// CreateSchedule will create a new Schedule in Mongo using the Data Access Layer
 func (u *ScheduleService) CreateSchedule(schedule *model.Schedule) (*model.Schedule, error) {
 	//Validate required fields on Model element are being passed in
 	if &schedule.Active == nil {

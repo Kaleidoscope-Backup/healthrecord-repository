@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//ClinicalAssesmentObservationCreate ...
+// ClinicalAssesmentObservationCreate ...
 type ClinicalAssesmentObservationCreate struct {
 	Name  string               `json:"name"`
 	Value string               `json:"value"`
@@ -10,7 +10,7 @@ type ClinicalAssesmentObservationCreate struct {
 	Code  *CodableConceptInput `json:"code"`
 }
 
-//ClinicalAssesmentObservation ...
+// ClinicalAssesmentObservation ...
 type ClinicalAssesmentObservation struct {
 	Id    string          `json:"id" bson:"_id"`
 	Name  string          `json:"name" bson:"name"`
@@ -20,7 +20,7 @@ type ClinicalAssesmentObservation struct {
 	Meta  *models.Meta    //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//ClinicalAssesmentObservationRecordCreate ...
+// ClinicalAssesmentObservationRecordCreate ...
 type ClinicalAssesmentObservationRecordCreate struct {
 	HealthRecordCreate
 	Code           *CodableConceptInput                  `json:"code"`
@@ -31,7 +31,7 @@ type ClinicalAssesmentObservationRecordCreate struct {
 	Observations   *[]ClinicalAssesmentObservationCreate `json:"observations"`
 }
 
-//ClinicalAssesmentObservationRecord ...
+// ClinicalAssesmentObservationRecord ...
 type ClinicalAssesmentObservationRecord struct {
 	HealthRecord
 	Id             string                          `json:"id" bson:"_id"`

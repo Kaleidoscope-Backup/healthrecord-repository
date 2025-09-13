@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//OrderEvent Query
+// OrderEvent Query
 func (r *Resolver) OrderEvent(ctx context.Context, args struct {
 	ID string
 }) (*OrderEventResolver, error) {
@@ -22,7 +22,7 @@ func (r *Resolver) OrderEvent(ctx context.Context, args struct {
 	return &OrderEventResolver{orderEvent}, nil
 }
 
-//OrderEventsByOrder ...
+// OrderEventsByOrder ...
 func (r *Resolver) OrderEventsByOrder(ctx context.Context, args struct {
 	OrderID string
 }) *[]*OrderEventResolver {
@@ -43,7 +43,7 @@ func (r *Resolver) OrderEventsByOrder(ctx context.Context, args struct {
 	return &l
 }
 
-//OrderEvents ...
+// OrderEvents ...
 func (r *Resolver) OrderEvents(ctx context.Context, args struct {
 	Param *model.OrderEventQueryParam
 }) *[]*OrderEventResolver {

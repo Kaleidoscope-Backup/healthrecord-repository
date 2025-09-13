@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//Emotion ...
+// Emotion ...
 type Emotion string
 
 const (
@@ -22,7 +22,7 @@ const (
 	SAD Emotion = "SAD"
 )
 
-//ReviewInput ..
+// ReviewInput ..
 type ReviewInput struct {
 	Context   ReferenceEntityInput `json:"context"`
 	By        ReferenceActorInput  `json:"by"`
@@ -33,7 +33,7 @@ type ReviewInput struct {
 	CreatedAt util.Time            `json:"createdAt"`
 }
 
-//Review ..
+// Review ..
 type Review struct {
 	Id        string          `json:"id" bson:"_id"`
 	Context   ReferenceEntity `json:"context" bson:"context"`

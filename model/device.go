@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//UDIType enum ...
+// UDIType enum ...
 type UDIType string
 
 const (
@@ -28,7 +28,7 @@ const (
 	DEVICE_UNKNOWN UDIType = "DEVICE_UNKNOWN"
 )
 
-//DeviceSafety enum ...
+// DeviceSafety enum ...
 type DeviceSafety string
 
 const (
@@ -51,7 +51,7 @@ const (
 	C106038 DeviceSafety = "C106038"
 )
 
-//DeviceStatus enum ...
+// DeviceStatus enum ...
 type DeviceStatus string
 
 const (
@@ -68,7 +68,7 @@ const (
 	DEVICE_STATUS_UNKNOWN DeviceStatus = "DEVICE_STATUS_UNKNOWN"
 )
 
-//DeviceUniqueIdentifierInput ...
+// DeviceUniqueIdentifierInput ...
 type DeviceUniqueIdentifierInput struct {
 	DeviceIdentifier *string  `json:"deviceIdentifier"`
 	Name             *string  `json:"name"`
@@ -78,7 +78,7 @@ type DeviceUniqueIdentifierInput struct {
 	EntryType        *UDIType `json:"entryType"`
 }
 
-//DeviceUniqueIdentifier ...
+// DeviceUniqueIdentifier ...
 type DeviceUniqueIdentifier struct {
 	DeviceIdentifier *string      `json:"deviceIdentifier" bson:"deviceIdentifier"`
 	Name             *string      `json:"name" bson:"name"`
@@ -89,7 +89,7 @@ type DeviceUniqueIdentifier struct {
 	Meta             *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//DeviceCreate ...
+// DeviceCreate ...
 type DeviceCreate struct {
 	Udi              *DeviceUniqueIdentifierInput `json:"udi"`
 	Status           DeviceStatus                 `json:"status"`
@@ -106,7 +106,7 @@ type DeviceCreate struct {
 	Contact          *ContactPointInput           `json:"contact"`
 }
 
-//Device ...
+// Device ...
 type Device struct {
 	Id               string                  `json:"id" bson:"_id"`
 	Udi              *DeviceUniqueIdentifier `json:"udi" bson:"udi"`

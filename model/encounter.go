@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//EncounterRecord ...
+// EncounterRecord ...
 type EncounterRecord struct {
 	HealthRecord
 	Id            string            `json:"id" bson:"_id"`
@@ -17,7 +17,7 @@ type EncounterRecord struct {
 	Meta          *models.Meta      //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//EncounterOrder ...
+// EncounterOrder ...
 type EncounterOrder struct {
 	Name           string        `json:"name" bson:"name"`
 	ProcedureCode  ProcedureCode `json:"procedureCode" bson:"procedureCode"`
@@ -27,7 +27,7 @@ type EncounterOrder struct {
 	Type           *string       `json:"type" bson:"type"`
 }
 
-//EncounterRecordCreate ...
+// EncounterRecordCreate ...
 type EncounterRecordCreate struct {
 	HealthRecordCreate
 	Reasons              *[]ReasonInput          `json:"reasons,omitempty"`
@@ -39,7 +39,7 @@ type EncounterRecordCreate struct {
 	SourceRecordIDValue  *string                 `json:"sourceRecordIDValue,omitempty"`
 }
 
-//EncounterOrderCreate ...
+// EncounterOrderCreate ...
 type EncounterOrderCreate struct {
 	Name           string        `json:"name"`
 	ProcedureCode  ProcedureCode `json:"procedureCode"`

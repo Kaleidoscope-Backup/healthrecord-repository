@@ -1,27 +1,27 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//SearchResultsResolver ...
+// SearchResultsResolver ...
 type SearchResultsResolver struct {
 	H []*HealthRecordSearchResolver
 	C int32
 	P *model.PageInfo
 }
 
-//TotalCount ...
+// TotalCount ...
 func (r *SearchResultsResolver) TotalCount() int32 {
 	return r.C
 }
 
-//PageInfo ...
+// PageInfo ...
 func (r *SearchResultsResolver) PageInfo() *PageInfoResolver {
 	return &PageInfoResolver{r.P}
 }
 
-//Records ...
+// Records ...
 func (r *SearchResultsResolver) Records() *[]*HealthRecordSearchResolver {
 	return &r.H
 }

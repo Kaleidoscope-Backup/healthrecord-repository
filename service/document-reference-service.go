@@ -3,9 +3,9 @@ package service
 import (
 	"errors"
 
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -13,13 +13,13 @@ import (
 DocumentReference service
 ==========================================================================================*/
 
-//DocumentReferenceService is for creating document reference
+// DocumentReferenceService is for creating document reference
 type DocumentReferenceService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewDeviceService creates a new device
+// NewDeviceService creates a new device
 func NewDocumentReferenceService(dal mserver.DataAccessLayer, log *logging.Logger) *DocumentReferenceService {
 	return &DocumentReferenceService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewDocumentReferenceService(dal mserver.DataAccessLayer, log *logging.Logge
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *DocumentReferenceService) FindByID(id string) (*model.DocumentReference, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -47,7 +47,7 @@ func (u *DocumentReferenceService) FindByID(id string) (*model.DocumentReference
 	return docReference, nil
 }
 
-//FindByParam ...
+// FindByParam ...
 func (u *DocumentReferenceService) FindByParam(param *model.DocumentReferenceQueryParam) (*[]*model.DocumentReference, error) {
 	if param == nil {
 		return nil, errors.New("Missing parameter")
@@ -93,7 +93,7 @@ func (u *DocumentReferenceService) FindByParam(param *model.DocumentReferenceQue
 Mutation Operations
 ==========================================================================================*/
 
-//CreateDocumentReference ...
+// CreateDocumentReference ...
 func (u *DocumentReferenceService) CreateDocumentReference(docReference *model.DocumentReference) (*model.DocumentReference, error) {
 
 	id, err := u.dal.Post(docReference)

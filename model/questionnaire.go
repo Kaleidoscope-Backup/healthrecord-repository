@@ -1,8 +1,8 @@
 package model
 
-import "gitlab.com/karte/mongo-lib/models"
+import "github.com/karte/mongo-lib/models"
 
-//QuestionnaireStatus ...
+// QuestionnaireStatus ...
 type QuestionnaireStatus string
 
 const (
@@ -16,7 +16,7 @@ const (
 	QUESTIONNAIRE_RETIRED QuestionnaireStatus = "QUESTIONNAIRE_RETIRED"
 )
 
-//QuestionnaireItemType ...
+// QuestionnaireItemType ...
 type QuestionnaireItemType string
 
 const (
@@ -36,7 +36,7 @@ const (
 	QUESTION_INPUT QuestionnaireItemType = "QUESTION_INPUT"
 )
 
-//CriteriaOperator ...
+// CriteriaOperator ...
 type CriteriaOperator string
 
 const (
@@ -50,7 +50,7 @@ const (
 	OPERATOR_GREATERTHAN CriteriaOperator = "OPERATOR_GREATERTHAN"
 )
 
-//QuestionEnableRuleType ...
+// QuestionEnableRuleType ...
 type QuestionEnableRuleType string
 
 const (
@@ -61,7 +61,7 @@ const (
 	QUESTIONENABLE_RULE_BASEDON_CRITERIA QuestionEnableRuleType = "QUESTIONENABLE_RULE_BASEDON_CRITERIA"
 )
 
-//QuestionnaireQueryParam ..
+// QuestionnaireQueryParam ..
 type QuestionnaireQueryParam struct {
 	Purpose   *string   `json:"purpose"`
 	Publisher *string   `json:"publisher"`
@@ -69,7 +69,7 @@ type QuestionnaireQueryParam struct {
 	Name      *string   `json:"name"`
 }
 
-//CriteriaInput ...
+// CriteriaInput ...
 type CriteriaInput struct {
 	EntityType       EntityType        `json:"entityType"`
 	HealthRecordType *HealthRecordType `json:"healthRecordType"`
@@ -78,7 +78,7 @@ type CriteriaInput struct {
 	CriteriaOperator CriteriaOperator  `json:"criteriaOperator"`
 }
 
-//Criteria ...
+// Criteria ...
 type Criteria struct {
 	Id               string            `json:"id" bson:"_id"`
 	EntityType       EntityType        `json:"entityType" bson:"entityType"`
@@ -89,7 +89,7 @@ type Criteria struct {
 	Meta             *models.Meta      //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//QuestionEnableRuleInput ...
+// QuestionEnableRuleInput ...
 type QuestionEnableRuleInput struct {
 	EnablingRule QuestionEnableRuleType `json:"enablingRule"`
 	Question     *int32                 `json:"question"`
@@ -99,7 +99,7 @@ type QuestionEnableRuleInput struct {
 	Answers      *ValueInput            `json:"answers"`
 }
 
-//QuestionEnableRule ...
+// QuestionEnableRule ...
 type QuestionEnableRule struct {
 	Id           string                 `json:"id" bson:"_id"`
 	EnablingRule QuestionEnableRuleType `json:"enablingRule" bson:"enablingRule"`
@@ -111,7 +111,7 @@ type QuestionEnableRule struct {
 	Meta         *models.Meta           //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//QuestionOptionInput ...
+// QuestionOptionInput ...
 type QuestionOptionInput struct {
 	Text     string               `json:"text"`
 	Sequence int32                `json:"sequence"`
@@ -119,7 +119,7 @@ type QuestionOptionInput struct {
 	Code     *CodableConceptInput `json:"code"`
 }
 
-//QuestionOption ...
+// QuestionOption ...
 type QuestionOption struct {
 	Id       string          `json:"id" bson:"_id"`
 	LinkID   string          `json:"linkID" bson:"linkID"`
@@ -129,7 +129,7 @@ type QuestionOption struct {
 	Code     *CodableConcept `json:"code" bson:"code"`
 }
 
-//QuestionInput ...
+// QuestionInput ...
 type QuestionInput struct {
 	Code         *CodableConceptInput     `json:"code"`
 	Text         string                   `json:"text"`
@@ -148,7 +148,7 @@ type QuestionInput struct {
 	Items        *[]QuestionInput         `json:"items"`
 }
 
-//Question ...
+// Question ...
 type Question struct {
 	Id           string                `json:"id" bson:"_id"`
 	LinkID       string                `json:"linkID" bson:"linkID"`
@@ -170,7 +170,7 @@ type Question struct {
 	Meta         *models.Meta          //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//QuestionnaireCreate ...
+// QuestionnaireCreate ...
 type QuestionnaireCreate struct {
 	Status          QuestionnaireStatus  `json:"status"`
 	Name            string               `json:"name"`
@@ -186,7 +186,7 @@ type QuestionnaireCreate struct {
 	Items           *[]QuestionInput     `json:"items"`
 }
 
-//Questionnaire ...
+// Questionnaire ...
 type Questionnaire struct {
 	Id              string              `json:"id" bson:"_id"`
 	Status          QuestionnaireStatus `json:"status" bson:"status"`

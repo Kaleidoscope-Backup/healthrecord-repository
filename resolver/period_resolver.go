@@ -1,30 +1,30 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 Period Resolver
 ================================*/
 
-//PeriodResolver ..
+// PeriodResolver ..
 type PeriodResolver struct {
 	P *model.Period
 }
 
-//Id ..
+// Id ..
 func (r *PeriodResolver) Id() string {
 	return r.P.Id
 }
 
-//Start ..
+// Start ..
 func (r *PeriodResolver) Start() util.Time {
 	return r.P.Start
 }
 
-//End ..
+// End ..
 func (r *PeriodResolver) End() util.Time {
 	return r.P.End
 }

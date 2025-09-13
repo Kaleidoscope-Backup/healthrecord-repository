@@ -1,32 +1,32 @@
 package resolver
 
-import "gitlab.com/karte/healthrecord-repository/model"
+import "github.com/karte/healthrecord-repository/model"
 
 /*==============================
 ConceptClass Resolver
 ================================*/
 
-//ConceptClassResolver ..
+// ConceptClassResolver ..
 type ConceptClassResolver struct {
 	C *model.ConceptClass
 }
 
-//Id ..
+// Id ..
 func (r *ConceptClassResolver) Id() string {
 	return r.C.Id
 }
 
-//ExternalID ..
+// ExternalID ..
 func (r *ConceptClassResolver) ExternalID() string {
 	return r.C.ExternalID
 }
 
-//Name ..
+// Name ..
 func (r *ConceptClassResolver) Name() string {
 	return r.C.Name
 }
 
-//Description ..
+// Description ..
 func (r *ConceptClassResolver) Description() *TextResolver {
 	return &TextResolver{&r.C.Description}
 }

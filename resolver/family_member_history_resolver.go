@@ -1,75 +1,75 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 FamilyMemberHistory  Resolver
 ================================*/
 
-//FamilyMemberHistoryResolver ...
+// FamilyMemberHistoryResolver ...
 type FamilyMemberHistoryResolver struct {
 	M *model.FamilyMemberHistory
 }
 
-//Id ...
+// Id ...
 func (r *FamilyMemberHistoryResolver) Id() string {
 	return r.M.Id
 }
 
-//MemberName ...
+// MemberName ...
 func (r *FamilyMemberHistoryResolver) MemberName() string {
 	return r.M.MemberName
 }
 
-//Gender ...
+// Gender ...
 func (r *FamilyMemberHistoryResolver) Gender() *model.Gender {
 	return r.M.Gender
 }
 
-//DateOfBirth ...
+// DateOfBirth ...
 func (r *FamilyMemberHistoryResolver) DateOfBirth() *util.Time {
 	return r.M.DateOfBirth
 }
 
-//Deceased ...
+// Deceased ...
 func (r *FamilyMemberHistoryResolver) Deceased() *bool {
 	return r.M.Deceased
 }
 
-//Relationship ...
+// Relationship ...
 func (r *FamilyMemberHistoryResolver) Relationship() *string {
 	return r.M.Relationship
 }
 
-//Condition ...
+// Condition ...
 func (r *FamilyMemberHistoryResolver) Condition() string {
 	return r.M.Condition
 }
 
-//ConditionCode ...
+// ConditionCode ...
 func (r *FamilyMemberHistoryResolver) ConditionCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.M.ConditionCode}
 }
 
-//Outcome ...
+// Outcome ...
 func (r *FamilyMemberHistoryResolver) Outcome() *string {
 	return r.M.Outcome
 }
 
-//OutcomeCode ...
+// OutcomeCode ...
 func (r *FamilyMemberHistoryResolver) OutcomeCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.M.OutcomeCode}
 }
 
-//RelationshipCode ...
+// RelationshipCode ...
 func (r *FamilyMemberHistoryResolver) RelationshipCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.M.RelationshipCode}
 }
 
-//Note ...
+// Note ...
 func (r *FamilyMemberHistoryResolver) Note() *string {
 	return r.M.Note
 }

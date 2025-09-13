@@ -1,39 +1,39 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ClinicalTrial Resolver
 ================================*/
 
-//ClinicalTrialResolver ...
+// ClinicalTrialResolver ...
 type ClinicalTrialResolver struct {
 	M *model.ClinicalTrial
 }
 
-//Id ...
+// Id ...
 func (r *ClinicalTrialResolver) Id() string {
 	return r.M.Id
 }
 
-//NCT ...
+// NCT ...
 func (r *ClinicalTrialResolver) NCT() string {
 	return r.M.NCT
 }
 
-//Period ...
+// Period ...
 func (r *ClinicalTrialResolver) Period() *PeriodResolver {
 	return &PeriodResolver{&r.M.Period}
 }
 
-//Reason ...
+// Reason ...
 func (r *ClinicalTrialResolver) Reason() string {
 	return r.M.Reason
 }
 
-//ReasonCode ...
+// ReasonCode ...
 func (r *ClinicalTrialResolver) ReasonCode() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.M.ReasonCode}
 }

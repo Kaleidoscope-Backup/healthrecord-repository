@@ -1,8 +1,8 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/model"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
 	"golang.org/x/net/context"
 )
 

@@ -1,64 +1,64 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 Application Resolver
 ================================*/
 
-//ApplicationResolver ..
+// ApplicationResolver ..
 type ApplicationResolver struct {
 	A *model.Application
 }
 
-//Id ..
+// Id ..
 func (r *ApplicationResolver) Id() string {
 	return r.A.Id
 }
 
-//Name ..
+// Name ..
 func (r *ApplicationResolver) Name() string {
 	return r.A.Name
 }
 
-//SupportEmail ..
+// SupportEmail ..
 func (r *ApplicationResolver) SupportEmail() *string {
 	return r.A.SupportEmail
 }
 
-//DefaultLanguage ..
+// DefaultLanguage ..
 func (r *ApplicationResolver) DefaultLanguage() *model.Language {
 	return r.A.DefaultLanguage
 }
 
-//Logo ..
+// Logo ..
 func (r *ApplicationResolver) Logo() *string {
 	return r.A.Logo
 }
 
-//Description ..
+// Description ..
 func (r *ApplicationResolver) Description() *string {
 	return r.A.Description
 }
 
-//CallbackURL ..
+// CallbackURL ..
 func (r *ApplicationResolver) CallbackURL() *string {
 	return r.A.CallbackURL
 }
 
-//Type ..
+// Type ..
 func (r *ApplicationResolver) Type() *model.ApplicationType {
 	return r.A.Type
 }
 
-//Owner ..
+// Owner ..
 func (r *ApplicationResolver) Owner() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.A.Owner}
 }
 
-//Attributes array ..
+// Attributes array ..
 func (r *ApplicationResolver) Attributes() *[]*MetaDataResolver {
 
 	if r.A.Attributes != nil {

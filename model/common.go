@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//Prioroty ...
+// Prioroty ...
 type Prioroty string
 
 const (
@@ -19,7 +19,7 @@ const (
 	EMERGENCY Prioroty = "EMERGENCY"
 )
 
-//SortBy ...
+// SortBy ...
 type SortBy string
 
 const (
@@ -27,7 +27,7 @@ const (
 	LAST_UPDATED SortBy = "LAST_UPDATED"
 )
 
-//EntityType ...
+// EntityType ...
 type EntityType string
 
 const (
@@ -107,7 +107,7 @@ const (
 	ENTITY_HEALTHSCAREERVICE EntityType = "ENTITY_HEALTHSCAREERVICE"
 )
 
-//AgeGroup ...
+// AgeGroup ...
 type AgeGroup string
 
 const (
@@ -130,7 +130,7 @@ const (
 	SENIOR AgeGroup = "SENIOR"
 )
 
-//MimeType ...
+// MimeType ...
 type MimeType string
 
 const (
@@ -150,7 +150,7 @@ const (
 	PDF MimeType = "PDF"
 )
 
-//Severity ...
+// Severity ...
 type Severity string
 
 const (
@@ -164,7 +164,7 @@ const (
 	SEVERITY_HIGH Severity = "SEVERITY_HIGH"
 )
 
-//Priority ...
+// Priority ...
 type Priority string
 
 const (
@@ -183,20 +183,20 @@ type Result struct {
 	Success bool `json:"success"`
 }
 
-//ReferenceEntityInput ...
+// ReferenceEntityInput ...
 type ReferenceEntityInput struct {
 	EntityType EntityType `json:"entityType"`
 	EntityID   string     `json:"entityID"`
 }
 
-//ReferenceEntity ...
+// ReferenceEntity ...
 type ReferenceEntity struct {
 	Id         string     `json:"id" bson:"_id"`
 	EntityType EntityType `json:"entityType" bson:"entityType"`
 	EntityID   string     `json:"entityID" bson:"entityID"`
 }
 
-//AttachmentInput ...
+// AttachmentInput ...
 type AttachmentInput struct {
 	ContentType MimeType  `json:"contentType" bson:"contentType"`
 	Language    *string   `json:"language" bson:"language"`
@@ -206,7 +206,7 @@ type AttachmentInput struct {
 	CreatedOn   util.Time `json:"createdOn" bson:"createdOn"`
 }
 
-//Attachment ...
+// Attachment ...
 type Attachment struct {
 	Id          string       `json:"id" bson:"_id"`
 	ContentType MimeType     `json:"contentType" bson:"contentType"`
@@ -218,7 +218,7 @@ type Attachment struct {
 	Meta        *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//Contact represents the emergency contact
+// Contact represents the emergency contact
 type Contact struct {
 	Id           string       `json:"id" bson:"_id"`
 	Name         string       `json:"name" bson:"name"`
@@ -228,13 +228,13 @@ type Contact struct {
 	Meta         *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//SymptomInput ...
+// SymptomInput ...
 type SymptomInput struct {
 	Name string               `json:"name"`
 	Code *CodableConceptInput `json:"code"`
 }
 
-//Symptom ...
+// Symptom ...
 type Symptom struct {
 	Id   string          `json:"id" bson:"_id"`
 	Name string          `json:"name" bson:"name"`
@@ -242,14 +242,14 @@ type Symptom struct {
 	Meta *models.Meta    //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//OnsetInput ...
+// OnsetInput ...
 type OnsetInput struct {
 	Date *util.Time `json:"date" bson:"date"`
 	Age  *string    `json:"age" bson:"age"`
 	Note *string    `json:"note" bson:"note"`
 }
 
-//Onset ...
+// Onset ...
 type Onset struct {
 	Id   string       `json:"id" bson:"_id"`
 	Date *util.Time   `json:"date" bson:"date"`
@@ -258,7 +258,7 @@ type Onset struct {
 	Meta *models.Meta //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//AbatementInput ...
+// AbatementInput ...
 type AbatementInput struct {
 	Abatement *bool      `json:"abatement" bson:"abatement"`
 	Date      *util.Time `json:"date" bson:"date"`
@@ -266,7 +266,7 @@ type AbatementInput struct {
 	Note      *string    `json:"note" bson:"note"`
 }
 
-//Abatement ...
+// Abatement ...
 type Abatement struct {
 	Id        string       `json:"id" bson:"_id"`
 	Abatement *bool        `json:"abatement" bson:"abatement"`

@@ -1,10 +1,10 @@
 package model
 
 import (
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/mongo-lib/models"
 )
 
-//PractitionerUpdate ...
+// PractitionerUpdate ...
 type PractitionerUpdate struct {
 	Id                 string               `json:"_id"`
 	Qualification      *string              `json:"qualification"`
@@ -14,7 +14,7 @@ type PractitionerUpdate struct {
 	Contacts           *[]ContactPointInput `json:"contacts"`
 }
 
-//PractitionerCreate ...
+// PractitionerCreate ...
 type PractitionerCreate struct {
 	ActorCreate
 	Password      string               `json:"password"`

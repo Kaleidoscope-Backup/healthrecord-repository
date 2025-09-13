@@ -1,11 +1,11 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
+	"github.com/karte/mongo-lib/models"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
-	"gitlab.com/karte/mongo-lib/models"
 	"golang.org/x/net/context"
 )
 
@@ -58,7 +58,7 @@ func (r *Resolver) CreateMolecularSequenceRecord(ctx context.Context, args *stru
 	return &MolecularSequenceRecordResolver{healthRecordResolver, molecularSequenceRecord}, nil
 }
 
-//CreateVariantFromInput ...
+// CreateVariantFromInput ...
 func CreateVariantFromInput(input *model.VariantInput) *model.Variant {
 	if input != nil {
 		variant := model.Variant{}
@@ -75,7 +75,7 @@ func CreateVariantFromInput(input *model.VariantInput) *model.Variant {
 	return nil
 }
 
-//CreateReferenceSequenceFromInput ...
+// CreateReferenceSequenceFromInput ...
 func CreateReferenceSequenceFromInput(input *model.ReferenceSequenceInput) *model.ReferenceSequence {
 	if input != nil {
 		referenceSequence := model.ReferenceSequence{}

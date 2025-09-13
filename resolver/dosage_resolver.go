@@ -1,30 +1,30 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//DosageResolver ..
+// DosageResolver ..
 type DosageResolver struct {
 	M *model.Dosage
 }
 
-//Id ..
+// Id ..
 func (r *DosageResolver) Id() string {
 	return r.M.Id
 }
 
-//Value ..
+// Value ..
 func (r *DosageResolver) Value() int32 {
 	return r.M.Value
 }
 
-//Frequency ..
+// Frequency ..
 func (r *DosageResolver) Frequency() string {
 	return r.M.Frequency
 }
 
-//Unit ..
+// Unit ..
 func (r *DosageResolver) Unit() string {
 	return r.M.Unit
 }

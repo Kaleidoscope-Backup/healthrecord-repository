@@ -4,22 +4,22 @@ import (
 	"errors"
 
 	"github.com/globalsign/mgo/bson"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/mongo-lib/mserver"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/mongo-lib/mserver"
 )
 
 /*==========================================================================================
 ReviewService
 ==========================================================================================*/
 
-//ReviewService ..
+// ReviewService ..
 type ReviewService struct {
 	dal mserver.DataAccessLayer
 	log *logging.Logger
 }
 
-//NewReviewService ..
+// NewReviewService ..
 func NewReviewService(dal mserver.DataAccessLayer, log *logging.Logger) *ReviewService {
 	return &ReviewService{dal: dal, log: log}
 }
@@ -28,7 +28,7 @@ func NewReviewService(dal mserver.DataAccessLayer, log *logging.Logger) *ReviewS
 Query Operations
 ==========================================================================================*/
 
-//FindByID ..
+// FindByID ..
 func (u *ReviewService) FindByID(id string) (*model.Review, error) {
 	if id == "" {
 		return nil, errors.New("Missing parameter id")
@@ -53,7 +53,7 @@ func (u *ReviewService) FindByID(id string) (*model.Review, error) {
 Mutation Operations
 ==========================================================================================*/
 
-//CreateReview will create a new Review in Mongo using the Data Access Layer
+// CreateReview will create a new Review in Mongo using the Data Access Layer
 func (u *ReviewService) CreateReview(review *model.Review) (*model.Review, error) {
 	//Validate required fields on Model element are being passed in
 	if review.Comment == "" {

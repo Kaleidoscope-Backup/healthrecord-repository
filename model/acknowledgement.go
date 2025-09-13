@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//AcknowledgementCreate ..
+// AcknowledgementCreate ..
 type AcknowledgementCreate struct {
 	Created              util.Time `json:"created"`
 	ConsumerID           string    `json:"consumerID"`
@@ -14,7 +14,7 @@ type AcknowledgementCreate struct {
 	Note                 *string   `json:"note"`
 }
 
-//Acknowledgement ..
+// Acknowledgement ..
 type Acknowledgement struct {
 	Id                   string       `json:"id" bson:"_id"`
 	Created              util.Time    `json:"created" bson:"created"`

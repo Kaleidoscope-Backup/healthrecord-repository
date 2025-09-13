@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//LabResultObservationRecord ...
+// LabResultObservationRecord ...
 func (r *Resolver) LabResultObservationRecord(ctx context.Context, args struct {
 	ID string
 }) (*LabResultObservationRecordResolver, error) {
@@ -24,7 +24,7 @@ func (r *Resolver) LabResultObservationRecord(ctx context.Context, args struct {
 	return &LabResultObservationRecordResolver{healthRecordResolver, labResultObservationRecord}, nil
 }
 
-//LabResultObservationRecords ..
+// LabResultObservationRecords ..
 func (r *Resolver) LabResultObservationRecords(ctx context.Context, args struct {
 	Param *model.LabResultObservationRecordQueryParam
 }) (*[]*LabResultObservationRecordResolver, error) {
@@ -46,7 +46,7 @@ func (r *Resolver) LabResultObservationRecords(ctx context.Context, args struct 
 	return &lorrArr, nil
 }
 
-//LabResultObservationRecordsByConsumerID ..
+// LabResultObservationRecordsByConsumerID ..
 func (r *Resolver) LabResultObservationRecordsByConsumerID(ctx context.Context, args struct {
 	ConsumerID string
 }) (*[]*LabResultObservationRecordResolver, error) {

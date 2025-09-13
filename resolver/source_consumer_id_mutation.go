@@ -1,15 +1,15 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
+	"github.com/karte/healthrecord-repository/util"
 	logging "github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
-	"gitlab.com/karte/healthrecord-repository/util"
 	"golang.org/x/net/context"
 )
 
-//CreateSourceConsumerID ..
+// CreateSourceConsumerID ..
 func (r *Resolver) CreateSourceConsumerID(ctx context.Context, args *struct {
 	System   string
 	Value    string

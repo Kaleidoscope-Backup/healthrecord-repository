@@ -1,14 +1,14 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//Application ...
+// Application ...
 func (r *Resolver) Application(ctx context.Context, args struct {
 	ID string
 }) (*ApplicationResolver, error) {
@@ -22,7 +22,7 @@ func (r *Resolver) Application(ctx context.Context, args struct {
 	return &ApplicationResolver{application}, nil
 }
 
-//ApplicationByName ...
+// ApplicationByName ...
 func (r *Resolver) ApplicationByName(ctx context.Context, args struct {
 	Name string
 }) (*[]*ApplicationResolver, error) {
@@ -43,7 +43,7 @@ func (r *Resolver) ApplicationByName(ctx context.Context, args struct {
 	return &rl, nil
 }
 
-//ApplicationProfile ...
+// ApplicationProfile ...
 func (r *Resolver) ApplicationProfile(ctx context.Context, args struct {
 	App     string
 	Profile string

@@ -1,28 +1,28 @@
 package resolver
 
-import "gitlab.com/karte/healthrecord-repository/model"
+import "github.com/karte/healthrecord-repository/model"
 
-//DiagnosticReportPerformerResolver ..
+// DiagnosticReportPerformerResolver ..
 type DiagnosticReportPerformerResolver struct {
 	D *model.DiagnosticReportPerformer
 }
 
-//Id ..
+// Id ..
 func (r *DiagnosticReportPerformerResolver) Id() string {
 	return r.D.Id
 }
 
-//Role ..
+// Role ..
 func (r *DiagnosticReportPerformerResolver) Role() string {
 	return r.D.Role
 }
 
-//RoleCode ..
+// RoleCode ..
 func (r *DiagnosticReportPerformerResolver) RoleCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.D.RoleCode}
 }
 
-//Actor ..
+// Actor ..
 func (r *DiagnosticReportPerformerResolver) Actor() *ReferenceActorResolver {
 	return &ReferenceActorResolver{&r.D.Actor}
 }

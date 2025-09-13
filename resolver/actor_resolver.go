@@ -1,30 +1,30 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//ActorResolver ..
+// ActorResolver ..
 type ActorResolver struct {
 	M *model.Actor
 }
 
-//FirstName ..
+// FirstName ..
 func (r *ActorResolver) FirstName() string {
 	return r.M.FirstName
 }
 
-//LastName ..
+// LastName ..
 func (r *ActorResolver) LastName() string {
 	return r.M.LastName
 }
 
-//Email ..
+// Email ..
 func (r *ActorResolver) Email() string {
 	return r.M.Email
 }
 
-//LanguagePreference ..
+// LanguagePreference ..
 func (r *ActorResolver) LanguagePreference() *string {
 	return r.M.LanguagePreference
 }

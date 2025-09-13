@@ -1,95 +1,95 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ActivityRecord Resolver
 ================================*/
 
-//ActivityRecordResolver ..
+// ActivityRecordResolver ..
 type ActivityRecordResolver struct {
 	HealthRecordResolver
 	A *model.ActivityRecord
 }
 
-//Id ..
+// Id ..
 func (r *ActivityRecordResolver) Id() string {
 	return r.A.Id
 }
 
-//ActivityType ..
+// ActivityType ..
 func (r *ActivityRecordResolver) ActivityType() model.ActivityType {
 	return r.A.ActivityType
 }
 
-//Frequency ..
+// Frequency ..
 func (r *ActivityRecordResolver) Frequency() *int32 {
 	return r.A.Frequency
 }
 
-//FrequencyUnit ..
+// FrequencyUnit ..
 func (r *ActivityRecordResolver) FrequencyUnit() *string {
 	return r.A.FrequencyUnit
 }
 
-//Duration ..
+// Duration ..
 func (r *ActivityRecordResolver) Duration() *int32 {
 	return r.A.Duration
 }
 
-//DurationUnit ..
+// DurationUnit ..
 func (r *ActivityRecordResolver) DurationUnit() *string {
 	return r.A.DurationUnit
 }
 
-//Code ..
+// Code ..
 func (r *ActivityRecordResolver) Code() *CodableConceptResolver {
 	return &CodableConceptResolver{r.A.Code}
 }
 
-//Distance ..
+// Distance ..
 func (r *ActivityRecordResolver) Distance() *int32 {
 	return r.A.Distance
 }
 
-//DistanceUnit ..
+// DistanceUnit ..
 func (r *ActivityRecordResolver) DistanceUnit() *string {
 	return r.A.DistanceUnit
 }
 
-//Steps ..
+// Steps ..
 func (r *ActivityRecordResolver) Steps() *int32 {
 	return r.A.Steps
 }
 
-//Calories ..
+// Calories ..
 func (r *ActivityRecordResolver) Calories() *float64 {
 	return r.A.Calories
 }
 
-//CaloryUnit ..
+// CaloryUnit ..
 func (r *ActivityRecordResolver) CaloryUnit() *string {
 	return r.A.CaloryUnit
 }
 
-//Vigorous ..
+// Vigorous ..
 func (r *ActivityRecordResolver) Vigorous() *int32 {
 	return r.A.Vigorous
 }
 
-//Moderate ..
+// Moderate ..
 func (r *ActivityRecordResolver) Moderate() *int32 {
 	return r.A.Moderate
 }
 
-//Light ..
+// Light ..
 func (r *ActivityRecordResolver) Light() *int32 {
 	return r.A.Light
 }
 
-//Sedentary ..
+// Sedentary ..
 func (r *ActivityRecordResolver) Sedentary() *int32 {
 	return r.A.Sedentary
 }

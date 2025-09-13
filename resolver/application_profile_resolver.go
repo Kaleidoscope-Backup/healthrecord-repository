@@ -1,29 +1,29 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 ApplicationProfile Resolver
 ================================*/
 
-//ApplicationProfileResolver ..
+// ApplicationProfileResolver ..
 type ApplicationProfileResolver struct {
 	A *model.ApplicationProfile
 }
 
-//Name ..
+// Name ..
 func (r *ApplicationProfileResolver) Name() string {
 	return r.A.Name
 }
 
-//Value ..
+// Value ..
 func (r *ApplicationProfileResolver) Value() string {
 	return r.A.Value
 }
 
-//Attributes array ..
+// Attributes array ..
 func (r *ApplicationProfileResolver) Attributes() *[]*MetaDataResolver {
 
 	if r.A.Attributes != nil {

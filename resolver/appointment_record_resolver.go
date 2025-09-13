@@ -1,40 +1,40 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
 /*==============================
 AppointmentRecord Resolver
 ================================*/
 
-//AppointmentRecordResolver ..
+// AppointmentRecordResolver ..
 type AppointmentRecordResolver struct {
 	HealthRecordResolver
 	A *model.AppointmentRecord
 }
 
-//Id ..
+// Id ..
 func (r *AppointmentRecordResolver) Id() string {
 	return r.A.Id
 }
 
-//Status ..
+// Status ..
 func (r *AppointmentRecordResolver) Status() model.AppointmentStatus {
 	return r.A.Status
 }
 
-//StatusCode ..
+// StatusCode ..
 func (r *AppointmentRecordResolver) StatusCode() *ClinicalCodeResolver {
 	return &ClinicalCodeResolver{r.A.StatusCode}
 }
 
-//Speciality ..
+// Speciality ..
 func (r *AppointmentRecordResolver) Speciality() *[]string {
 	return r.A.Speciality
 }
 
-//SpecialityCode array ..
+// SpecialityCode array ..
 func (r *AppointmentRecordResolver) SpecialityCode() *[]*ClinicalCodeResolver {
 
 	if r.A.SpecialityCode != nil {
@@ -59,17 +59,17 @@ func (r *AppointmentRecordResolver) SpecialityCode() *[]*ClinicalCodeResolver {
 	return nil
 }
 
-//AppointmentType ..
+// AppointmentType ..
 func (r *AppointmentRecordResolver) AppointmentType() model.AppointmentType {
 	return r.A.AppointmentType
 }
 
-//ServiceCategory ..
+// ServiceCategory ..
 func (r *AppointmentRecordResolver) ServiceCategory() *[]string {
 	return r.A.ServiceCategory
 }
 
-//ServiceCategoryCode array ..
+// ServiceCategoryCode array ..
 func (r *AppointmentRecordResolver) ServiceCategoryCode() *[]*ClinicalCodeResolver {
 
 	if r.A.ServiceCategoryCode != nil {
@@ -94,12 +94,12 @@ func (r *AppointmentRecordResolver) ServiceCategoryCode() *[]*ClinicalCodeResolv
 	return nil
 }
 
-//Reason ..
+// Reason ..
 func (r *AppointmentRecordResolver) Reason() *[]string {
 	return r.A.Reason
 }
 
-//ReasonCode array ..
+// ReasonCode array ..
 func (r *AppointmentRecordResolver) ReasonCode() *[]*ClinicalCodeResolver {
 
 	if r.A.ReasonCode != nil {
@@ -124,7 +124,7 @@ func (r *AppointmentRecordResolver) ReasonCode() *[]*ClinicalCodeResolver {
 	return nil
 }
 
-//Indication array ..
+// Indication array ..
 func (r *AppointmentRecordResolver) Indication() *[]*ReferenceHealthRecordResolver {
 
 	if r.A.Indication != nil {
@@ -149,7 +149,7 @@ func (r *AppointmentRecordResolver) Indication() *[]*ReferenceHealthRecordResolv
 	return nil
 }
 
-//IncomingReferral array ..
+// IncomingReferral array ..
 func (r *AppointmentRecordResolver) IncomingReferral() *[]*ReferenceEntityResolver {
 
 	if r.A.IncomingReferral != nil {
@@ -174,17 +174,17 @@ func (r *AppointmentRecordResolver) IncomingReferral() *[]*ReferenceEntityResolv
 	return nil
 }
 
-//Priority ..
+// Priority ..
 func (r *AppointmentRecordResolver) Priority() *model.Priority {
 	return r.A.Priority
 }
 
-//MinutesDuration ..
+// MinutesDuration ..
 func (r *AppointmentRecordResolver) MinutesDuration() *int32 {
 	return r.A.MinutesDuration
 }
 
-//Slot array ..
+// Slot array ..
 func (r *AppointmentRecordResolver) Slot() *[]*ReferenceEntityResolver {
 
 	if r.A.Slot != nil {
@@ -209,12 +209,12 @@ func (r *AppointmentRecordResolver) Slot() *[]*ReferenceEntityResolver {
 	return nil
 }
 
-//Comment ..
+// Comment ..
 func (r *AppointmentRecordResolver) Comment() *string {
 	return r.A.Comment
 }
 
-//Participants array ..
+// Participants array ..
 func (r *AppointmentRecordResolver) Participants() *[]*ReferenceActorResolver {
 
 	if r.A.Participants != nil {
@@ -239,7 +239,7 @@ func (r *AppointmentRecordResolver) Participants() *[]*ReferenceActorResolver {
 	return nil
 }
 
-//RequestedPeriod ..
+// RequestedPeriod ..
 func (r *AppointmentRecordResolver) RequestedPeriod() *PeriodResolver {
 	return &PeriodResolver{&r.A.RequestedPeriod}
 }

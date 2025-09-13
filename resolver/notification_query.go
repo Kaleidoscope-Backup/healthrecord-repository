@@ -1,13 +1,13 @@
 package resolver
 
 import (
+	"github.com/karte/healthrecord-repository/constant"
+	"github.com/karte/healthrecord-repository/service"
 	"github.com/op/go-logging"
-	"gitlab.com/karte/healthrecord-repository/constant"
-	"gitlab.com/karte/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 
-//Notification Query
+// Notification Query
 func (r *Resolver) Notification(ctx context.Context, args struct {
 	ID string
 }) (*NotificationResolver, error) {
@@ -22,7 +22,7 @@ func (r *Resolver) Notification(ctx context.Context, args struct {
 	return &NotificationResolver{notification}, nil
 }
 
-//ActiveNotifications ...
+// ActiveNotifications ...
 func (r *Resolver) ActiveNotifications(ctx context.Context, args struct{ Customer string }) *[]*NotificationResolver {
 	var l []*NotificationResolver
 

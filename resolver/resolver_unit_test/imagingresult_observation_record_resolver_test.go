@@ -6,9 +6,9 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"gitlab.com/karte/healthrecord-repository/model"
-	. "gitlab.com/karte/healthrecord-repository/resolver"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	. "github.com/karte/healthrecord-repository/resolver"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 var _ = Describe("ImagingResultObservationRecordResolver", func() {

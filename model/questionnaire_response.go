@@ -1,8 +1,8 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
 // SelectedOptionInput ...
@@ -20,7 +20,7 @@ type SelectedOption struct {
 	Option string          `json:"option" bson:"option"`
 }
 
-//AnswerInput ...
+// AnswerInput ...
 type AnswerInput struct {
 	LinkID          string                 `json:"linkID"`
 	QuestionText    string                 `json:"questionText"`
@@ -30,7 +30,7 @@ type AnswerInput struct {
 	Items           *[]AnswerInput         `json:"items"`
 }
 
-//Answer ...
+// Answer ...
 type Answer struct {
 	Id              string            `json:"id" bson:"_id"`
 	LinkID          string            `json:"linkID" bson:"linkID"`
@@ -42,7 +42,7 @@ type Answer struct {
 	Meta            *models.Meta      //MUST INCLUDE to capture meta data (including timestamps) and is used in Mongo Lib for reflection
 }
 
-//QuestionnaireResponseCreate ...
+// QuestionnaireResponseCreate ...
 type QuestionnaireResponseCreate struct {
 	Code          *CodableConceptInput  `json:"code"`
 	Questionnaire string                `json:"questionnaire"`
@@ -53,7 +53,7 @@ type QuestionnaireResponseCreate struct {
 	Location      *GeoLocationInput     `json:"location" bson:"location"`
 }
 
-//QuestionnaireResponse ...
+// QuestionnaireResponse ...
 type QuestionnaireResponse struct {
 	Id            string           `json:"id" bson:"_id"`
 	Code          *CodableConcept  `json:"code" bson:"code"`

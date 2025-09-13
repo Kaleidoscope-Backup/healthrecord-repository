@@ -1,40 +1,40 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
 /*==============================
 Abatement Resolver
 ================================*/
 
-//AbatementResolver ..
+// AbatementResolver ..
 type AbatementResolver struct {
 	M *model.Abatement
 }
 
-//Id ..
+// Id ..
 func (r *AbatementResolver) Id() string {
 	return r.M.Id
 }
 
-//Abatement ..
+// Abatement ..
 func (r *AbatementResolver) Abatement() *bool {
 	return r.M.Abatement
 }
 
-//Date ..
+// Date ..
 func (r *AbatementResolver) Date() *util.Time {
 	return r.M.Date
 }
 
-//Age ..
+// Age ..
 func (r *AbatementResolver) Age() *string {
 	return r.M.Age
 }
 
-//Note ..
+// Note ..
 func (r *AbatementResolver) Note() *string {
 	return r.M.Note
 }

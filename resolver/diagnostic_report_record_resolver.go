@@ -1,77 +1,77 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
-	"gitlab.com/karte/healthrecord-repository/util"
+	"github.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/util"
 )
 
-//DiagnosticReportRecordResolver ...
+// DiagnosticReportRecordResolver ...
 type DiagnosticReportRecordResolver struct {
 	HealthRecordResolver
 	D *model.DiagnosticReportRecord
 }
 
-//Id ...
+// Id ...
 func (r *DiagnosticReportRecordResolver) Id() string {
 	return r.D.Id
 }
 
-//BasedOn ...
+// BasedOn ...
 func (r *DiagnosticReportRecordResolver) BasedOn() *ReferenceHealthRecordResolver {
 	return &ReferenceHealthRecordResolver{&r.D.BasedOn}
 }
 
-//Status ...
+// Status ...
 func (r *DiagnosticReportRecordResolver) Status() model.DiagnosticReportStatus {
 	return r.D.Status
 }
 
-//Category ...
+// Category ...
 func (r *DiagnosticReportRecordResolver) Category() string {
 	return r.D.Category
 }
 
-//CategoryCode ...
+// CategoryCode ...
 func (r *DiagnosticReportRecordResolver) CategoryCode() *CodableConceptResolver {
 	return &CodableConceptResolver{r.D.CategoryCode}
 }
 
-//Context ...
+// Context ...
 func (r *DiagnosticReportRecordResolver) Context() *ReferenceHealthRecordResolver {
 	return &ReferenceHealthRecordResolver{r.D.Context}
 }
 
-//EffectiveDateTime ...
+// EffectiveDateTime ...
 func (r *DiagnosticReportRecordResolver) EffectiveDateTime() *util.Time {
 	return r.D.EffectiveDateTime
 }
 
-//EffectivePeriod ...
+// EffectivePeriod ...
 func (r *DiagnosticReportRecordResolver) EffectivePeriod() *PeriodResolver {
 	return &PeriodResolver{r.D.EffectivePeriod}
 }
 
-//Issued ...
+// Issued ...
 func (r *DiagnosticReportRecordResolver) Issued() *util.Time {
 	return r.D.Issued
 }
 
-//Conclusion ...
+// Conclusion ...
 func (r *DiagnosticReportRecordResolver) Conclusion() string {
 	return r.D.Conclusion
 }
 
-//CodedDiagnosis ...
+// CodedDiagnosis ...
 func (r *DiagnosticReportRecordResolver) CodedDiagnosis() *CodableConceptResolver {
 	return &CodableConceptResolver{r.D.CodedDiagnosis}
 }
 
-//PresentedForm ...
+// PresentedForm ...
 func (r *DiagnosticReportRecordResolver) PresentedForm() *AttachmentResolver {
 	return &AttachmentResolver{r.D.PresentedForm}
 }
 
-//Performer array ..
+// Performer array ..
 func (r *DiagnosticReportRecordResolver) Performer() *[]*DiagnosticReportPerformerResolver {
 
 	if r.D.Performer != nil {
@@ -99,7 +99,7 @@ func resolveDiagnosticReportPerformer(performer *model.DiagnosticReportPerformer
 	return &DiagnosticReportPerformerResolver{performer}
 }
 
-//Result array ..
+// Result array ..
 func (r *DiagnosticReportRecordResolver) Result() *[]*ReferenceHealthRecordResolver {
 
 	if r.D.Result != nil {
@@ -123,7 +123,7 @@ func (r *DiagnosticReportRecordResolver) Result() *[]*ReferenceHealthRecordResol
 	return nil
 }
 
-//ImagingStudy array ..
+// ImagingStudy array ..
 func (r *DiagnosticReportRecordResolver) ImagingStudy() *[]*AttachmentResolver {
 
 	if r.D.ImagingStudy != nil {

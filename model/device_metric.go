@@ -1,11 +1,11 @@
 package model
 
 import (
-	"gitlab.com/karte/healthrecord-repository/util"
-	"gitlab.com/karte/mongo-lib/models"
+	"github.com/karte/healthrecord-repository/util"
+	"github.com/karte/mongo-lib/models"
 )
 
-//DeviceMetricOperationalStatus enum ...
+// DeviceMetricOperationalStatus enum ...
 type DeviceMetricOperationalStatus string
 
 const (
@@ -22,7 +22,7 @@ const (
 	DEVICE_METRIC_STATUS_ENTERED_IN_ERROR DeviceMetricOperationalStatus = "DEVICE_METRIC_STATUS_ENTERED_IN_ERROR"
 )
 
-//DeviceMetricCategory enum ...
+// DeviceMetricCategory enum ...
 type DeviceMetricCategory string
 
 const (
@@ -39,7 +39,7 @@ const (
 	DEVICE_METRIC_UNSPECIFIED DeviceMetricCategory = "DEVICE_METRIC_UNSPECIFIED"
 )
 
-//DeviceMetricCalibrationState enum ...
+// DeviceMetricCalibrationState enum ...
 type DeviceMetricCalibrationState string
 
 const (
@@ -56,20 +56,20 @@ const (
 	DEVICE_METRIC_CALIBRATION_UNSPECIFIED DeviceMetricCalibrationState = "DEVICE_METRIC_CALIBRATION_UNSPECIFIED"
 )
 
-//DeviceCalibrationInput ...
+// DeviceCalibrationInput ...
 type DeviceCalibrationInput struct {
 	State DeviceMetricCalibrationState `json:"state"`
 	Time  util.Time                    `json:"time"`
 }
 
-//DeviceCalibration ...
+// DeviceCalibration ...
 type DeviceCalibration struct {
 	Id    string                       `json:"id" bson:"_id"`
 	State DeviceMetricCalibrationState `json:"state" bson:"state"`
 	Time  util.Time                    `json:"time" bson:"time"`
 }
 
-//DeviceMetricCreate ...
+// DeviceMetricCreate ...
 type DeviceMetricCreate struct {
 	Type              string                         `json:"type"`
 	Unit              string                         `json:"unit"`
@@ -80,7 +80,7 @@ type DeviceMetricCreate struct {
 	MeasurementPeriod *TimingInput                   `json:"measurementPeriod"`
 }
 
-//DeviceMetric ...
+// DeviceMetric ...
 type DeviceMetric struct {
 	Id                string                         `json:"id" bson:"_id"`
 	Type              string                         `json:"type" bson:"type"`

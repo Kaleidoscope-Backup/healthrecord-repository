@@ -1,25 +1,25 @@
 package resolver
 
 import (
-	"gitlab.com/karte/healthrecord-repository/model"
+	"github.com/karte/healthrecord-repository/model"
 )
 
-//DocumentContentResolver ..
+// DocumentContentResolver ..
 type DocumentContentResolver struct {
 	D *model.DocumentContent
 }
 
-//Id ..
+// Id ..
 func (r *DocumentContentResolver) Id() string {
 	return r.D.Id
 }
 
-//Content ..
+// Content ..
 func (r *DocumentContentResolver) Content() string {
 	return r.D.Content
 }
 
-//Attachment ..
+// Attachment ..
 func (r *DocumentContentResolver) Attachment() *AttachmentResolver {
 	return &AttachmentResolver{r.D.Attachment}
 }
