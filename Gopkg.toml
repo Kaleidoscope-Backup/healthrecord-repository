@@ -60,11 +60,11 @@ required = ["gopkg.in/fsnotify.v1"]
 
 [[constraint]]
   branch = "master"
-  name = "github.com/karte/microservice-utilities"
+  name = "github.com/Kaleidoscope-Backup/microservice-utilities"
 
 [[constraint]]
   branch = "master"
-  name = "github.com/karte/mongo-lib"
+  name = "github.com/Kaleidoscope-Backup/mongo-lib"
 
 [[constraint]]
   branch = "master"

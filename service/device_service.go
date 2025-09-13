@@ -3,8 +3,8 @@ package service
 import (
 	"errors"
 
-	"github.com/karte/healthrecord-repository/model"
-	"github.com/karte/mongo-lib/mserver"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
+	"github.com/Kaleidoscope-Backup/mongo-lib/mserver"
 	"github.com/op/go-logging"
 	"gopkg.in/mgo.v2/bson"
 )

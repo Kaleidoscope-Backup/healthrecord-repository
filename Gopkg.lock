@@ -335,7 +335,7 @@
 [[projects]]
   branch = "master"
   digest = "1:44f7219e2282a0990bcf25243ba3eb4509b8e155a8ec93bf57e0a1a6fb6d02a5"
-  name = "github.com/karte/microservice-utilities"
+  name = "github.com/Kaleidoscope-Backup/microservice-utilities"
   packages = [
     "auth0",
     "handler",
@@ -347,7 +347,7 @@
 [[projects]]
   branch = "master"
   digest = "1:1ceaa0876512945db5ed27a37b4a8c0ccea00dcf66e1424e25d4137c0dd0d186"
-  name = "github.com/karte/mongo-lib"
+  name = "github.com/Kaleidoscope-Backup/mongo-lib"
   packages = [
     "models",
     "mserver",
@@ -513,12 +513,12 @@
     "github.com/satori/go.uuid",
     "github.com/shurcooL/graphql",
     "github.com/streadway/amqp",
-    "github.com/karte/microservice-utilities/auth0",
-    "github.com/karte/microservice-utilities/handler",
-    "github.com/karte/microservice-utilities/loader",
-    "github.com/karte/mongo-lib/models",
-    "github.com/karte/mongo-lib/mserver",
-    "github.com/karte/mongo-lib/search",
+    "github.com/Kaleidoscope-Backup/microservice-utilities/auth0",
+    "github.com/Kaleidoscope-Backup/microservice-utilities/handler",
+    "github.com/Kaleidoscope-Backup/microservice-utilities/loader",
+    "github.com/Kaleidoscope-Backup/mongo-lib/models",
+    "github.com/Kaleidoscope-Backup/mongo-lib/mserver",
+    "github.com/Kaleidoscope-Backup/mongo-lib/search",
     "golang.org/x/crypto/bcrypt",
     "golang.org/x/net/context",
     "golang.org/x/oauth2",

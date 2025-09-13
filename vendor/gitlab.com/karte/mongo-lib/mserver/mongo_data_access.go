@@ -9,10 +9,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/Kaleidoscope-Backup/mongo-lib/models"
+	"github.com/Kaleidoscope-Backup/mongo-lib/search"
 	"github.com/globalsign/mgo"
 	"github.com/globalsign/mgo/bson"
-	"github.com/karte/mongo-lib/models"
-	"github.com/karte/mongo-lib/search"
 )
 
 // MasterSession manages a master session connected to the Mongo database.

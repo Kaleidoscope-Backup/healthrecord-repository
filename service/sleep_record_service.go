@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/karte/healthrecord-repository/model"
-	"github.com/karte/healthrecord-repository/util"
-	"github.com/karte/mongo-lib/mserver"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/util"
+	"github.com/Kaleidoscope-Backup/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
 	"gopkg.in/mgo.v2/bson"
 )

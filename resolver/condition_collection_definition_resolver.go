@@ -1,6 +1,6 @@
 package resolver
 
-import "github.com/karte/healthrecord-repository/model"
+import "github.com/Kaleidoscope-Backup/healthrecord-repository/model"
 
 // ConditionDefinitionCollectionResolver ...
 type ConditionDefinitionCollectionResolver struct {

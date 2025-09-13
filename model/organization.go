@@ -1,7 +1,7 @@
 package model
 
 import (
-	"github.com/karte/mongo-lib/models"
+	"github.com/Kaleidoscope-Backup/mongo-lib/models"
 )
 
 // OrganizationType ...

@@ -4,8 +4,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/karte/healthrecord-repository/model"
-	"github.com/karte/healthrecord-repository/util"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/util"
 )
 
 func createCompleteEMRHealthRecordObjectForTest(recordType model.HealthRecordType, prevRecord string) *model.HealthRecord {

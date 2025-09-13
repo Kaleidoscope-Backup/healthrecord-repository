@@ -4,9 +4,9 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/karte/healthrecord-repository/constant"
-	"github.com/karte/healthrecord-repository/model"
-	"github.com/karte/mongo-lib/mserver"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/constant"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
+	"github.com/Kaleidoscope-Backup/mongo-lib/mserver"
 	logging "github.com/op/go-logging"
 	"gopkg.in/mgo.v2/bson"
 )

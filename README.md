@@ -29,7 +29,7 @@ This project provides models and server components implemented in Go and using M
 
 1. Mongo database
 2. Golang
-3. Karte [Mongo-Lib](https://github.com/karte/mongo-lib) located in Karte Utilities directory
+3. Karte [Mongo-Lib](https://github.com/Kaleidoscope-Backup/mongo-lib) located in Karte Utilities directory
 
 #### NOTE: BEFORE CONTRIBUTING TO THIS, MAKE SURE TO GO TO CONTRIBUTION SECTION
 
@@ -37,17 +37,17 @@ This project provides models and server components implemented in Go and using M
 
 1. Create the file structure in your $GOPATH
     ```bash
-    mkdir $GOPATH/src/github.com/karte
+    mkdir $GOPATH/src/github.com/Kaleidoscope-Backup
     ```
 
 2. Navigate to that new directory
     ```bash
-    cd $GOPATH/src/github.com/karte
+    cd $GOPATH/src/github.com/Kaleidoscope-Backup
     ```
 
 3. Clone the project
     ```bash
-    git clone https://github.com/karte/healthrecord-repository
+    git clone https://github.com/Kaleidoscope-Backup/healthrecord-repository
     ```
 
 ### Usage(Without docker)
@@ -186,7 +186,7 @@ We use [Ginkgo](http://onsi.github.io/ginkgo/).  Make sure it is installed in yo
 
 ### Originally from Go Graphql Starter
 
-[![GitHub license](https://img.shields.io/github/license/OscarYuen/go-graphql-starter.svg)](https://github.com/karte/healthrecord-repository/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/OscarYuen/go-graphql-starter.svg)](https://github.com/Kaleidoscope-Backup/healthrecord-repository/blob/master/LICENSE)
 
 This project aims to use [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go) to build a starter web application. This project has already been used as backend application in production.
 

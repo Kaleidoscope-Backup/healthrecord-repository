@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/Kaleidoscope-Backup/microservice-utilities/loader"
 	"github.com/graph-gophers/graphql-go"
-	"github.com/karte/microservice-utilities/loader"
 )
 
 // GraphQL ...

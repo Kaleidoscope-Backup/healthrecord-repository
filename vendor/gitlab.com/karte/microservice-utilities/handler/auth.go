@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/karte/microservice-utilities/auth0"
+	"github.com/Kaleidoscope-Backup/microservice-utilities/auth0"
 )
 
 func AuthScopeHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {

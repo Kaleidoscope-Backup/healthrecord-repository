@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/karte/mongo-lib/mserver"
+	"github.com/Kaleidoscope-Backup/mongo-lib/mserver"
 )
 
 // Config is used to hold information about the configuration of the Karte server.

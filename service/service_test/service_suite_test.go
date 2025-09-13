@@ -7,10 +7,10 @@ import (
 	"net"
 	"testing"
 
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/service"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/util"
+	"github.com/Kaleidoscope-Backup/mongo-lib/mserver"
 	"github.com/globalsign/mgo"
-	"github.com/karte/healthrecord-repository/service"
-	"github.com/karte/healthrecord-repository/util"
-	"github.com/karte/mongo-lib/mserver"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	logging "github.com/op/go-logging"

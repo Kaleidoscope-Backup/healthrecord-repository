@@ -6,9 +6,9 @@ package service_test
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/karte/healthrecord-repository/constant"
-	"github.com/karte/healthrecord-repository/model"
-	. "github.com/karte/healthrecord-repository/service"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/constant"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
+	. "github.com/Kaleidoscope-Backup/healthrecord-repository/service"
 )
 
 var _ = Describe("ClinicalCodeService", func() {

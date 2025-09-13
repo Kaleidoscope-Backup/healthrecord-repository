@@ -5,10 +5,10 @@ import (
 	"net/url"
 	"reflect"
 
-	"github.com/karte/healthrecord-repository/model"
-	"github.com/karte/mongo-lib/models"
-	"github.com/karte/mongo-lib/mserver"
-	"github.com/karte/mongo-lib/search"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
+	"github.com/Kaleidoscope-Backup/mongo-lib/models"
+	"github.com/Kaleidoscope-Backup/mongo-lib/mserver"
+	"github.com/Kaleidoscope-Backup/mongo-lib/search"
 	"gopkg.in/mgo.v2/bson"
 )
 

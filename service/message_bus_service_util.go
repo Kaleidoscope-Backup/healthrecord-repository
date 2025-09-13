@@ -3,7 +3,7 @@ package service
 import (
 	"encoding/json"
 
-	"github.com/karte/healthrecord-repository/model"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
 )
 
 // PostRecord ...

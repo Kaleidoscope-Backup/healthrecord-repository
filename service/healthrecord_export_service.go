@@ -8,9 +8,9 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/constant"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
 	"github.com/colinmarc/hdfs"
-	"github.com/karte/healthrecord-repository/constant"
-	"github.com/karte/healthrecord-repository/model"
 	logging "github.com/op/go-logging"
 )
 

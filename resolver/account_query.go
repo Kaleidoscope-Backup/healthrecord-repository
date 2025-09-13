@@ -1,9 +1,9 @@
 package resolver
 
 import (
-	"github.com/karte/healthrecord-repository/constant"
-	"github.com/karte/healthrecord-repository/model"
-	"github.com/karte/healthrecord-repository/service"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/constant"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/service"
 	"golang.org/x/net/context"
 )
 

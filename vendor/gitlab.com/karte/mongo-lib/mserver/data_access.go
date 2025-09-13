@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/url"
 
-	"github.com/karte/mongo-lib/models"
-	"github.com/karte/mongo-lib/search"
+	"github.com/Kaleidoscope-Backup/mongo-lib/models"
+	"github.com/Kaleidoscope-Backup/mongo-lib/search"
 )
 
 // DataAccessLayer is an interface for the various interactions that can occur on a Karte data store.

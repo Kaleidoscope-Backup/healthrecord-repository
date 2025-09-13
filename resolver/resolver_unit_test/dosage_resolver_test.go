@@ -4,8 +4,8 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/karte/healthrecord-repository/model"
-	. "github.com/karte/healthrecord-repository/resolver"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
+	. "github.com/Kaleidoscope-Backup/healthrecord-repository/resolver"
 )
 
 var _ = Describe("DosageResolver", func() {

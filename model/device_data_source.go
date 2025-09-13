@@ -1,8 +1,8 @@
 package model
 
 import (
-	"github.com/karte/healthrecord-repository/util"
-	"github.com/karte/mongo-lib/models"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/util"
+	"github.com/Kaleidoscope-Backup/mongo-lib/models"
 )
 
 // DataSyncStatusInput ...

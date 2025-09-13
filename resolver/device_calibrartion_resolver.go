@@ -1,8 +1,8 @@
 package resolver
 
 import (
-	"github.com/karte/healthrecord-repository/model"
-	"github.com/karte/healthrecord-repository/util"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/util"
 )
 
 // DeviceCalibrationResolver ..

@@ -3,7 +3,7 @@ package resolver_functional_test
 // import (
 // 	"fmt"
 
-// 	"github.com/karte/healthrecord-repository/model"
+// 	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
 
 // 	. "github.com/onsi/ginkgo"
 // 	. "github.com/onsi/gomega"

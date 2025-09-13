@@ -1,6 +1,6 @@
 package model
 
-import "github.com/karte/mongo-lib/models"
+import "github.com/Kaleidoscope-Backup/mongo-lib/models"
 
 // VitalType ...
 type VitalType string

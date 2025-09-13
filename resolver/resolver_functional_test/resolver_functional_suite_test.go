@@ -10,23 +10,23 @@ import (
 	"testing"
 	"time"
 
+	c "github.com/Kaleidoscope-Backup/healthrecord-repository/constant"
 	"github.com/codegangsta/negroni"
-	c "github.com/karte/healthrecord-repository/constant"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/shurcooL/graphql"
 	"golang.org/x/oauth2"
 
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/resolver"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/schema"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/service"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/util"
+	"github.com/Kaleidoscope-Backup/microservice-utilities/auth0"
+	h "github.com/Kaleidoscope-Backup/microservice-utilities/handler"
+	"github.com/Kaleidoscope-Backup/microservice-utilities/loader"
+	"github.com/Kaleidoscope-Backup/mongo-lib/mserver"
 	"github.com/globalsign/mgo"
 	graphqlGo "github.com/graph-gophers/graphql-go"
-	"github.com/karte/healthrecord-repository/resolver"
-	"github.com/karte/healthrecord-repository/schema"
-	"github.com/karte/healthrecord-repository/service"
-	"github.com/karte/healthrecord-repository/util"
-	"github.com/karte/microservice-utilities/auth0"
-	h "github.com/karte/microservice-utilities/handler"
-	"github.com/karte/microservice-utilities/loader"
-	"github.com/karte/mongo-lib/mserver"
 )
 
 // GLOBALS

@@ -3,7 +3,7 @@ package service
 import (
 	"os"
 
-	"github.com/karte/healthrecord-repository/util"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/util"
 	"github.com/op/go-logging"
 )
 

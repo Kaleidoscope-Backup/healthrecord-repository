@@ -3,13 +3,13 @@ package service
 import (
 	"errors"
 
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
 	"github.com/globalsign/mgo/bson"
-	"github.com/karte/healthrecord-repository/model"
 	"github.com/op/go-logging"
 
-	// "github.com/karte/healthrecord-repository/service"
+	// "github.com/Kaleidoscope-Backup/healthrecord-repository/service"
 
-	"github.com/karte/mongo-lib/mserver"
+	"github.com/Kaleidoscope-Backup/mongo-lib/mserver"
 )
 
 /*==========================================================================================

@@ -1,14 +1,14 @@
 FROM golang:1.24
 EXPOSE 5000
 
-ENV SRC_DIR=/go/src/github.com/karte/healthrecord-repository/
+ENV SRC_DIR=/go/src/github.com/Kaleidoscope-Backup/healthrecord-repository/
 WORKDIR $SRC_DIR
 
 # Copy source
 COPY . .
 
 # Initialize Go modules (only if not already present)
-RUN go mod init github.com/karte/healthrecord-repository || true
+RUN go mod init github.com/Kaleidoscope-Backup/healthrecord-repository || true
 RUN go mod tidy
 
 # Install dependencies

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	logging "log"
 
-	"github.com/karte/healthrecord-repository/model"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
 	"github.com/streadway/amqp"
 )
 

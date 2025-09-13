@@ -6,7 +6,7 @@ package resolver_functional_test
 // 	. "github.com/onsi/ginkgo"
 // 	. "github.com/onsi/gomega"
 // 	"github.com/shurcooL/graphql"
-// 	"github.com/karte/healthrecord-repository/model"
+// 	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
 // )
 
 // var _ = Describe("OrganizationMutation", func() {

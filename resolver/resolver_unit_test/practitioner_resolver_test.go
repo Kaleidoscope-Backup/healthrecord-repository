@@ -1,8 +1,8 @@
 package resolver_unit_test
 
 import (
-	"github.com/karte/healthrecord-repository/model"
-	. "github.com/karte/healthrecord-repository/resolver"
+	"github.com/Kaleidoscope-Backup/healthrecord-repository/model"
+	. "github.com/Kaleidoscope-Backup/healthrecord-repository/resolver"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
