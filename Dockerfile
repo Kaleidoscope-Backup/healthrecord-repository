@@ -1,23 +1,35 @@
-FROM golang:1.24
-EXPOSE 5000
+# Use the official Go image as build stage
+FROM golang:1.23-alpine AS builder
 
-ENV SRC_DIR=/go/src/github.com/Kaleidoscope-Backup/healthrecord-repository/
-WORKDIR $SRC_DIR
+# Set working directory
+WORKDIR /app
 
-# Copy source
+# Copy go mod files
+COPY go.mod go.sum ./
+
+# Download dependencies
+RUN go mod download
+
+# Copy source code
 COPY . .
 
-# Initialize Go modules (only if not already present)
-RUN go mod init github.com/Kaleidoscope-Backup/healthrecord-repository || true
-RUN go mod tidy
+# Build the application
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 
-# Install dependencies
-RUN go install github.com/kevinburke/go-bindata/...@latest
+# Use minimal alpine image for final stage
+FROM alpine:latest
 
-# Generate schema code
-RUN go generate ./schema
+# Install ca-certificates for HTTPS requests
+RUN apk --no-cache add ca-certificates
 
-# Build binary
-RUN go build -o health_record_repository ./cmd/health_record_repository
+# Set working directory
+WORKDIR /tmp/
 
-ENTRYPOINT ["./health_record_repository"]
+# Copy the binary from builder stage
+COPY --from=builder /app/main .
+
+# Expose port
+EXPOSE 5655
+
+# Run the application
+CMD ["./main"]

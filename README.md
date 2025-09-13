@@ -1,209 +1,89 @@
-# Karte Health Record Repository
+# Health Record Repository - Vulnerable Go Application
 
-This project provides models and server components implemented in Go and using MongoDB as storage. This uses the Karte Libraries that exist in the utilities folder.
+This is a deliberately vulnerable Go application designed for SBOM scanning and security testing.
 
-## Structure
+## Features
 
-    go-graphql-starer
-    │   README.md
-    │   Config.toml         --- the configuration file for setting server parameter
-    │   Dockerfile
-    │   Gopkg.lock          --- generated file from dependency management tool, dep
-    │   Gopkg.toml          --- generated file from dependency management tool, dep
-    │   graphiql.html       --- the html for graphiql which is used for testing query & mutation
-    └───context             --- application context like db configuration
-    └───handler             --- the handler used for chaining http request like authentication, logging etc.
-    └───loader              --- implementation of dataloader for caching and batching the graphql query
-    └───model               --- the folder putting struct file
-    └───resolver            --- implementation of graphql resolvers
-    └───schema              --- implementation of graphql resolvers
-    │   │   schema.go       --- used for generate go code from static graphql files inside 'type' folder
-    │   │   schema.graphql  --- graphql root schema
-    │   └───type            --- folder for storing graphql schema in *.graphql format
-    │       └───...         --- graphql schema files in *.graphql format
-    └───service             --- services for users, authorization etc.
-    └───util                --- utilities
-    └───cmd                 --- contains main package
+- HTTP server running on port 5655
+- Multiple vulnerable dependencies for SBOM testing
+- REST endpoints: `/sbom`, `/login`, `/upload`
+- Hardcoded secrets and insecure practices
 
-## Requirement
-
-1. Mongo database
-2. Golang
-3. Karte [Mongo-Lib](https://github.com/Kaleidoscope-Backup/mongo-lib) located in Karte Utilities directory
-
-#### NOTE: BEFORE CONTRIBUTING TO THIS, MAKE SURE TO GO TO CONTRIBUTION SECTION
-
-### Getting started
-
-1. Create the file structure in your $GOPATH
-    ```bash
-    mkdir $GOPATH/src/github.com/Kaleidoscope-Backup
-    ```
-
-2. Navigate to that new directory
-    ```bash
-    cd $GOPATH/src/github.com/Kaleidoscope-Backup
-    ```
-
-3. Clone the project
-    ```bash
-    git clone https://github.com/Kaleidoscope-Backup/healthrecord-repository
-    ```
-
-### Usage(Without docker)
-
-1. Install go dependencies
-    ```bash
-    go get ./...
-    ```
-
-2. Install go-bindata (tool used to convert our graphql schema into binary)
-    ```bash
-    go get -u github.com/kevinburke/go-bindata/...
-    ```
-
-3. Run the following command at root directory to generate Go code from .graphql file
-    ```bash
-    go-bindata -ignore=\.go -pkg=schema -o=schema/bindata.go schema/...
-    ```
-
-    OR
-
-    ```bash
-    go generate ./schema
-    ```
-    There would be bindata.go generated under `schema` folder
-
-4. Start the server (Ensure your Mongo database is live and its setting in Config.toml is correct)
-    ```bash
-    go run ./cmd/health_record_repository/main.go
-    ```
-
-### Usage(With docker)
-
-Coming Soon
-
-### Usage(With Minikube)
-
-#### Mongo
-
-docker pull mongo:latest
-kubectl run mongo --image=mongo:latest --port=27017
-kubectl expose deployment mongo
-kubectl get services
-
-#### healthrecord-repo
-
-docker build -t healthrecord-repository:v3 .
-
-kubectl run healthrecord-repository --image=healthrecord-repository:v3 --port=3000
-
-kubectl expose deployment healthrecord-repository --type=LoadBalancer
-
-minikube service healthrecord-repository
-
-kubectl delete deployments healthrecord-repository
-kubectl delete service healthrecord-repository
-
-#### Tools
-
-minikube dashboard
-
-kubectl create -f healthrecord-repository-deployment.yaml,healthrecord-repository-service.yaml
-
-### API Documentation
-
-The API docs are served statically from the default endpoint '/'.
-
-For example, to view the docs locally, navigate to: http://localhost:5000
-
-#### Generate New Documentation
+## Local Development
 
 ```bash
-graphdoc -e http://localhost:5000/query -x "Authorization: Bearer <OAUTH_TOKEN>" -o ./doc/schema --force
+# Run locally
+go run main.go
+
+# Build Docker image
+docker build -t healthrecord-repository .
+
+# Run Docker container
+docker run -p 5655:5655 healthrecord-repository
 ```
 
-##### NOTE: See below on generating a new OAUTH_TOKEN from Auth0
+## AWS Deployment (ECR + ECS)
 
-### Interact with the API locally
+### Prerequisites
 
-1. Download https://github.com/skevy/graphiql-app
+1. AWS CLI installed and configured
+2. Docker installed
+3. Appropriate IAM permissions for ECR and ECS
 
-2. Set 'GraphQL Endpoint' to "http://localhost:5000/query"
+### Deployment Steps
 
-3. Generate new OAUTH_TOKEN from Auth0
-    ```curl
-        curl --request POST \
-        --url https://karte-dev.auth0.com/oauth/token \
-        --header 'content-type: application/json' \
-        --data '{"client_id":"<CLIENT_ID_FROM_AUTH0>","client_secret":"CLIENT_SECRET_FROM_AUTH0","audience":"https://healthrecord-repository.karte.io","grant_type":"client_credentials"}'
-    ```
+1. **Update Configuration**:
+   - Edit `deploy.sh` and replace:
+     - `YOUR_ACCOUNT_ID` with your AWS account ID
+     - `us-east-1` with your preferred region
+   - Edit `ecs-task-definition.json` and update:
+     - Subnet IDs in the network configuration
+     - Security group IDs
 
-4. Add Header by Clicking "Edit HTTP Headers" and including the header: 'Authorization: Bearer <OAUTH_TOKEN>'
+2. **Deploy**:
+   ```bash
+   chmod +x deploy.sh
+   ./deploy.sh
+   ```
 
-#### Query
+### Manual Steps
 
-Coming Soon
+If you prefer manual deployment:
 
-#### Mutation
+```bash
+# 1. Create ECR repository
+aws ecr create-repository --repository-name healthrecord-repository
 
-Coming soon
+# 2. Login to ECR
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin YOUR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
 
-### Contribute
+# 3. Build and push
+docker build -t healthrecord-repository .
+docker tag healthrecord-repository:latest YOUR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/healthrecord-repository:latest
+docker push YOUR_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/healthrecord-repository:latest
 
-To set up your enviroment further to contribute to this repository, you must complete a few steps:
+# 4. Create ECS cluster
+aws ecs create-cluster --cluster-name healthrecord-cluster
 
-#### Setup Git Hooks (needed only to be done once per project)
+# 5. Register task definition (after updating the JSON file)
+aws ecs register-task-definition --cli-input-json file://ecs-task-definition.json
 
-1. Make scripts executable
-    ```bash
-    chmod +x scripts/run-tests.bash scripts/pre-commit.bash scripts/install-hooks.bash
-    ```
+# 6. Create ECS service (update network configuration)
+aws ecs create-service --cluster healthrecord-cluster --service-name healthrecord-service --task-definition healthrecord-repository --desired-count 1 --launch-type FARGATE --network-configuration "awsvpcConfiguration={subnets=[subnet-xxx],securityGroups=[sg-xxx],assignPublicIp=ENABLED}"
+```
 
-2. Install Git Hook
-    ```bash
-    ./scripts/install-hooks.bash
-    ```
+## Endpoints
 
-### Test
+- `GET /sbom` - Returns vulnerability information
+- `GET /login?username=user` - Insecure login endpoint
+- `POST /upload` - File upload endpoint
 
-We use [Ginkgo](http://onsi.github.io/ginkgo/).  Make sure it is installed in your gopath
+## Security Vulnerabilities (Intentional)
 
-##### NOTE: If you are running the Functional Tests, then make sure a mongodb is running
+This application contains intentional vulnerabilities for testing:
+- Vulnerable JWT library (github.com/dgrijalva/jwt-go)
+- Hardcoded secrets
+- Insecure file uploads
+- Multiple packages with known CVEs
 
-- Run Tests for entire project (Including Functional and Integration)
-    ```bash
-    go test ./...
-    ```
-
-- Run Unit Tests for sub package (pretty print)
-    ```bash
-    cd ./service/service_test
-    go test
-    ```
-
-## Reference
-
-### Originally from Go Graphql Starter
-
-[![GitHub license](https://img.shields.io/github/license/OscarYuen/go-graphql-starter.svg)](https://github.com/Kaleidoscope-Backup/healthrecord-repository/blob/master/LICENSE)
-
-This project aims to use [graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go) to build a starter web application. This project has already been used as backend application in production.
-
-In case you need to get called from another frontend side, CORS may needed to be enabled in this application as this project mainly focuses on backend logic at this stage.
-
-This project would be continuously under development for enhancement. Pull request is welcome.
-
--[graph-gophers/graphql-go](https://github.com/graph-gophers/graphql-go)
-
--[tonyghita/graphql-go-example](https://github.com/tonyghita/graphql-go-example)
-
-### License - KARTE
-
-Copyright 2018 KARTE
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+Perfect for SBOM scanning tools like Grype, Snyk, or Trivy.
