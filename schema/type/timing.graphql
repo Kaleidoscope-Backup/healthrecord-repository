@@ -1,0 +1,142 @@
+
+enum UnitOfTime {
+   SECOND
+   MINUTE
+   HOUR
+   DAY
+   WEEK
+   MONTH
+   YEAR
+}
+
+enum DaysOfWeek {
+    MONDAY
+    TUESDAY
+    WEDNESDAY
+    THURSDAY
+    FRIDAY
+    SATURDAY
+    SUNDAY
+}
+
+enum EventTiming {
+    EVENT_HS     # event occurs [offset] before the hour of sleep (or trying to)
+    EVENT_WAKE   # event occurs [offset] after waking
+    EVENT_C      # event occurs at a meal (from the Latin cibus)
+    EVENT_CM     # event occurs at breakfast (from the Latin cibus matutinus)
+    EVENT_CD     # event occurs at lunch (from the Latin cibus diurnus)
+    EVENT_CV     # event occurs at dinner (from the Latin ante cibus vespertinus)
+    EVENT_AC     # event occurs [offset] before a meal (from the Latin ante cibus)
+    EVENT_ACM    # event occurs [offset] before breakfast (from the Latin ante cibus matutinus)
+    EVENT_ACD    # event occurs [offset] before lunch (from the Latin ante cibus diurnus)
+    EVENT_ACV    # event occurs [offset] before dinner (from the Latin ante cibus vespertinus)
+    EVENT_PC     # event occurs [offset] before dinner (from the Latin ante cibus vespertinus)
+    EVENT_PCM    # event occurs [offset] after a meal (from the Latin post cibus)
+    EVENT_PCD    # event occurs [offset] after breakfast (from the Latin post cibus matutinus)
+    EVENT_PCV    # event occurs [offset] after lunch (from the Latin post cibus diurnus)
+}
+
+enum TimingAbbreviation {
+   BID    # Two times a day at institution specified time 
+   TID    # Three times a day at institution specified time
+   QID    # Four times a day at institution specified time
+   AM     # Every morning at institution specified times
+   PM     # Every afternoon at institution specified times
+   QD     # Every Day at institution specified times
+   QOD    # Every Other Day at institution specified times
+   Q4H    # Every 4 hours at institution specified times
+   Q6H    # Every 6 Hours at institution specified times
+}
+
+enum FrequenceBoundsType {
+   FREQUENCY_BOUNDS_DURATION
+   FREQUENCY_BOUNDS_RANGE 
+   FREQUENCY_BOUNDS_PERIOD 
+}
+
+input TimingInput {
+   # When the event occurs
+   event: Time 
+   # When the event is to occur
+   boundsType: FrequenceBoundsType
+   # bounds duration 
+   boundsDuration: Int
+   # bounds range
+   boundsRange: RangeInput 
+   # bounds period
+   boundsPeriod: PeriodInput 
+   # Number of times to repeat
+   count: Int 
+   # Maximum number of times to repeat
+   countMax: Int 
+   # How long when it happens
+   duration: Float 
+   # How long when it happens (Max)
+   durationMax: Float 
+   # s | min | h | d | wk | mo | a - unit of time (UCUM)
+   durationUnit: UnitOfTime
+   # Event occurs frequency times per period
+   frequency: Int 
+   # Event occurs up to frequencyMax times per period
+   frequencyMax: Int 
+   # Event occurs frequency times per period
+   period: Float 
+   # Upper limit of period (3-4 hours)
+   periodMax: Float 
+   # s | min | h | d | wk | mo | a - unit of time (UCUM)
+   periodUnit: UnitOfTime
+   # mon | tue | wed | thu | fri | sat | sun
+   dayOfWeek: DaysOfWeek
+   # Time of day for action 
+   time: Time 
+   # Regular life events the event is tied to
+   when: EventTiming 
+   # Minutes from event (before or after)
+   offset: Int 
+   # BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +
+   code: TimingAbbreviation
+}
+
+type Timing {
+   id: String!
+   # When the event occurs
+   event: Time 
+   # When the event is to occur
+   boundsType: FrequenceBoundsType
+   # bounds duration 
+   boundsDuration: Int
+   # bounds range
+   boundsRange: Range 
+   # bounds period
+   boundsPeriod: Period 
+   # Number of times to repeat
+   count: Int 
+   # Maximum number of times to repeat
+   countMax: Int 
+   # How long when it happens
+   duration: Float 
+   # How long when it happens (Max)
+   durationMax: Float 
+   # s | min | h | d | wk | mo | a - unit of time (UCUM)
+   durationUnit: UnitOfTime
+   # Event occurs frequency times per period
+   frequency: Int 
+   # Event occurs up to frequencyMax times per period
+   frequencyMax: Int 
+   # Event occurs frequency times per period
+   period: Float 
+   # Upper limit of period (3-4 hours)
+   periodMax: Float 
+   # s | min | h | d | wk | mo | a - unit of time (UCUM)
+   periodUnit: UnitOfTime
+   # mon | tue | wed | thu | fri | sat | sun
+   dayOfWeek: DaysOfWeek
+   # Time of day for action 
+   time: Time 
+   # Regular life events the event is tied to
+   when: EventTiming 
+   # Minutes from event (before or after)
+   offset: Int 
+   # BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +
+   code: TimingAbbreviation
+}

@@ -1,0 +1,76 @@
+
+# Status
+enum DocumentReferenceStatus {
+   DOCUMENT_CURRENT 
+   DOCUMENT_SUSPENDED
+   DOCUMENT_ENTERED_IN_ERROR
+}
+
+# Composition status
+enum CompositionStatus {
+    COMPOSITIONSTATUS_PRELIMINARY
+    COMPOSITIONSTATUS_FINAL
+    COMPOSITIONSTATUS_APPENDED
+    COMPOSITIONSTATUS_AMENDED
+    COMPOSITIONSTATUS_ENTERED_IN_ERROR
+}
+
+input DocumentReferenceQueryParam {
+    type: String
+    language: Language!
+    class: String!
+    custodian: String!
+}
+
+# content of the document
+input DocumentContentInput {
+    content: String!
+    attachment: AttachmentInput 
+}
+
+
+# content of the document
+type DocumentContent {
+    id: String!
+    content: String!
+    attachment: Attachment 
+}
+
+# A DocumentReference resource is used to describe a document that is made available to a healthcare system.
+input DocumentReferenceInput {
+    language: Language!
+    status: DocumentReferenceStatus!
+    compositionStatus: CompositionStatus!
+    type: String!
+    typeCode: ClinicalCodeInput
+    class: String!
+    classCode: ClinicalCodeInput  
+    created: Time! 
+    author: ReferenceActorInput
+    authenticator: ReferenceActorInput  
+    custodian: ReferenceActorInput!
+    description: String  
+    securityLabel: ClinicalCodeInput  
+    content: [DocumentContentInput!]
+    context: ReferenceEntityInput 
+}
+
+# A DocumentReference resource is used to describe a document that is made available to a healthcare system.
+type DocumentReference {
+    id: String!
+    language: Language!
+    status: DocumentReferenceStatus!
+    compositionStatus: CompositionStatus!
+    type: String!
+    typeCode: ClinicalCode
+    class: String!
+    classCode: ClinicalCode 
+    created: Time! 
+    author: ReferenceActor
+    authenticator: ReferenceActor 
+    custodian: ReferenceActor! 
+    description: String  
+    securityLabel: ClinicalCode 
+    content: [DocumentContent!]
+    context: ReferenceEntity 
+}

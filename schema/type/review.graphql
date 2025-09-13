@@ -1,0 +1,29 @@
+
+enum Emotion {
+    LIKE 
+    DISLIKE 
+    HAPPY 
+    SAD
+}
+
+input ReviewInput {
+    context: ReferenceEntityInput!
+    by: ReferenceActorInput!
+    comment: String!
+    rating: RatingInput
+    emotion: Emotion 
+    images: [AttachmentInput!]
+    createdAt: Time!
+}
+
+type Review {
+    id: String!
+    context: ReferenceEntity!
+    by: ReferenceActor!
+    comment: String!
+    rating: Rating
+    emotion: Emotion 
+    images: [Attachment!]
+    createdAt: Time!
+    comments: [Comment!]
+}

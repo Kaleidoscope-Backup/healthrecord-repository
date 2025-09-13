@@ -1,0 +1,24 @@
+input AttributeInput {
+   name: String!
+   value: ValueInput!
+}
+
+# for any name value
+type Attribute {
+   id: String!
+   name: String!
+   value: Value!
+}
+
+input MetaDataInput {
+    name: String!
+    value: String!
+    attributes: [MetaDataInput!]
+}
+
+type MetaData {
+    id: String!
+    name: String!
+    value: String!
+    attributes: [MetaData!]
+}

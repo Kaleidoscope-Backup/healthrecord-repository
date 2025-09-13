@@ -1,0 +1,63 @@
+type EncounterOrder {
+    name: String!
+    code: ClinicalCode
+    expectedDate: Time
+    expirationDate: Time
+    procedureCode: ProcedureCode!
+    type: String
+}
+
+input EncounterOrderCreate {
+    name: String!
+    expectedDate: Time
+    expirationDate: Time
+    procedureCode: ProcedureCode!
+    type: String
+}
+
+type EncounterRecord implements HealthRecord {
+
+    # health record specific
+    previousRecord: String
+    recordType: HealthRecordType!
+    transactionType: HealthRecordTransactionType!
+    name: String!
+    description: String
+    occurred: Time!
+    source: String!    
+    created: Time!
+    organization: String
+    sourceRecordID: SourceRecordID
+    createdBy: String
+    references: [ReferenceHealthRecord!]
+    location: GeoLocation
+
+    id: String!
+    consumerID: String!
+    reasons: [Reason!]
+    diagnosis: [Diagnosis!]
+    prescriptions: [Medication!]
+    orders: [EncounterOrder!]
+    attendedBy: Practitioner
+}
+
+input EncounterRecordCreate {
+    # From health record
+    name: String!
+    consumerID: String!
+    description: String
+    occurred: Time!
+    source: String!  
+    organization: String  
+    sourceRecordIDSystem: String
+    sourceRecordIDValue: String
+    references: [ReferenceHealthRecordInput!]
+    location: GeoLocationInput 
+
+    # Encounter
+    reasons: [ReasonInput!]
+    diagnosis: [DiagnosisInput!]
+    prescriptions: [MedicationCreate!]
+    orders: [EncounterOrderCreate!]
+    attendedByID: String
+}

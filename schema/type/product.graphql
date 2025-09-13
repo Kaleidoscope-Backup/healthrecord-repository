@@ -1,0 +1,52 @@
+
+input ProductQueryParam {
+    category: String
+    language: Language 
+    label: String
+    supplier: String
+    vendor: String
+}
+
+input ProductUpdate {
+   id: String!
+   name: String
+   description: String
+   image: String
+   unitPrice: Float
+   currency: Currency
+   additionalData: [AttributeInput!]
+   artifacts: [AttachmentInput!]
+}
+
+input ProductCreate {
+   name: String!
+   language: Language!
+   category: String!
+   code: String
+   label: String!
+   description: String
+   image: String
+   supplier: String!
+   vendor: String
+   unitPrice: Float
+   currency: Currency!
+   additionalData: [AttributeInput!]
+   artifacts: [AttachmentInput!]
+}
+
+type Product {
+   id: String!
+   name: String!
+   language: Language!
+   category: String!
+   code: ClinicalCode
+   label: String!
+   description: String
+   image: String
+   supplier: String!
+   vendor: String
+   unitPrice: Float
+   currency: Currency!
+   additionalData: [Attribute!]
+   artifacts: [Attachment!]
+}

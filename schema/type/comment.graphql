@@ -1,0 +1,26 @@
+
+input CommentInput {
+   commentText: String!
+   context: ReferenceEntityInput!
+   attachments: [AttachmentInput!]
+   commentedBy: ReferenceActorInput!
+   location: GeoLocationInput
+}
+
+input CommentOnCommentInput {
+   externalID: String! 
+   attachments: [AttachmentInput!]
+   commentedBy: ReferenceActorInput!
+}
+
+type Comment {
+    id: String!
+    externalID: String! 
+    createdAt: Time!
+    context: ReferenceEntity!
+    commentText: String!
+    commentedBy: ReferenceActor!
+    comments: [Comment!]
+    attachments: [Attachment!]
+    location: GeoLocation
+}

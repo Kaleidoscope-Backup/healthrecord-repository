@@ -1,0 +1,10 @@
+
+input AccountVerifyInput {
+    userName: String!
+    secret: String! 
+}
+
+type AccountAttribute {
+    otpCode: String!
+}
+

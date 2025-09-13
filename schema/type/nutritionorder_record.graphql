@@ -1,0 +1,81 @@
+
+enum NutritionOrderStatus {
+   NUTRIONORDER_PROPOSED
+   NUTRIONORDER_DRAFT
+   NUTRIONORDER_PLANNED
+   NUTRIONORDER_REQUESTED
+   NUTRIONORDER_ACTIVE
+   NUTRIONORDER_ONHOLD
+   NUTRIONORDER_COMPLETED
+   NUTRIONORDER_CANCELLED
+   NUTRIONORDER_ENTEREDINERROR
+}
+
+enum Diet {
+   DIET_VEGETARIAN
+   DIET_DAIRY_FREE
+   DIET_NUT_FREE
+   DIET_GLUTEN_FREE
+   DIET_VEGEN
+   DIET_HALAL
+   DIET_KOSHER
+}
+
+input NutritionOrderRecordCreate {
+    # From health record
+    name: String!
+    consumerID: String!
+    description: String
+    occurred: Time!
+    source: String!  
+    organization: String  
+    sourceRecordID: SourceRecordIDInput
+    references: [ReferenceHealthRecordInput!]
+    location: GeoLocationInput 
+
+    # nutrition order record
+    status: NutritionOrderStatus!
+    orderer: ReferenceActorInput!
+    product: ReferenceEntityInput!
+    allergyIntolerence: [ReferenceHealthRecordInput!]
+    foodPreferenceModifier: [Diet!]
+    excludeFoodModifier: [String!]
+    excludeFoodModifierCode: [CodableConceptInput!]
+    routeOfAdministration: AdministrationRoute!
+    routeOfAdministrationCode: CodableConceptInput 
+    maxVolumeToDeliver: Int
+    administrationInstruction: String
+}
+
+type NutritionOrderRecord implements HealthRecord {
+
+    # health record specific
+    id: String!
+    consumerID: String!
+    previousRecord: String
+    recordType: HealthRecordType!
+    transactionType: HealthRecordTransactionType!
+    name: String!
+    description: String
+    occurred: Time!
+    source: String!    
+    created: Time!
+    organization: String
+    sourceRecordID: SourceRecordID
+    createdBy: String
+    references: [ReferenceHealthRecord!]
+    location: GeoLocation
+
+    # nutrition order record
+    status: NutritionOrderStatus!
+    orderer: ReferenceActor!
+    product: ReferenceEntity!
+    allergyIntolerence: [ReferenceHealthRecord!]
+    foodPreferenceModifier: [Diet!]
+    excludeFoodModifier: [String!]
+    excludeFoodModifierCode: [CodableConcept!]
+    routeOfAdministration: AdministrationRoute!
+    routeOfAdministrationCode: CodableConcept
+    maxVolumeToDeliver: Int
+    administrationInstruction: String
+}

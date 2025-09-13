@@ -1,0 +1,71 @@
+
+input FamilyMemberHistoryCreate {
+    # Family member history
+    memberName: String!
+    gender: Gender
+    dateOfBirth: Time
+    deceased: Boolean
+    relationship: String
+    relationshipCode: CodableConceptInput 
+    condition: String!
+    conditionCode: CodableConceptInput 
+    outcome: String
+    outcomeCode: CodableConceptInput
+    note: String
+}
+
+type FamilyMemberHistory {
+    # family member
+    id: String!
+    memberName: String!
+    gender: Gender
+    dateOfBirth: Time
+    deceased: Boolean
+    relationship: String
+    relationshipCode: CodableConcept
+    condition: String!
+    conditionCode: CodableConcept
+    outcome: String
+    outcomeCode: CodableConcept
+}
+
+
+input FamilyMemberHistoryRecordCreate {
+    # From health record
+    name: String!
+    consumerID: String!
+    description: String
+    occurred: Time!
+    source: String!  
+    organization: String  
+    sourceRecordID: SourceRecordIDInput
+    references: [ReferenceHealthRecordInput!]
+    location: GeoLocationInput
+
+    # Family member history
+    memberHistory: [FamilyMemberHistoryCreate!]
+
+}
+
+type FamilyMemberHistoryRecord implements HealthRecord {
+
+    # health record specific
+    id: String!
+    consumerID: String!
+    previousRecord: String
+    recordType: HealthRecordType!
+    transactionType: HealthRecordTransactionType!
+    name: String!
+    description: String
+    occurred: Time!
+    source: String!    
+    created: Time!
+    organization: String
+    sourceRecordID: SourceRecordID
+    createdBy: String
+    references: [ReferenceHealthRecord!]
+    location: GeoLocation
+    
+    # array of member history
+    memberHistory: [FamilyMemberHistory!]
+}

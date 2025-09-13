@@ -1,0 +1,15 @@
+
+type GeoLocation {
+    id: String!
+    name: String
+    latitude: Float!
+    longitude: Float!
+    elevation: Float 
+}
+
+input GeoLocationInput {
+    name: String
+    latitude: Float!
+    longitude: Float!
+    elevation: Float 
+}

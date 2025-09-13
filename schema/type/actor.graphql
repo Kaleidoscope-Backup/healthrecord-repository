@@ -1,0 +1,24 @@
+enum ActorType {
+    CONSUMER
+    PRACTITIONER
+    ORGANIZATION
+}
+
+input ReferenceActorInput {
+    actorType: ActorType!
+    actorID: String!
+}
+
+type ReferenceActor {
+    id: String!
+    actorType: ActorType!
+    actorID: String!
+}
+
+interface Actor {
+    id: String!
+    firstName: String!
+    lastName: String!
+    email: String!
+    languagePreference: String
+}

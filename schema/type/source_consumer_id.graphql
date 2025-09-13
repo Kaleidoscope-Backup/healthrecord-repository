@@ -1,0 +1,43 @@
+enum SourceConsumerIDUse {
+    USUAL,
+    OFFICIAL,
+    TEMP,
+    SECONDARY
+}
+
+enum SourceConsumerIDType {
+    DL,	    # Driver's license number	
+    PPN,	# Passport number	
+    BRN,	# Breed Registry Number	
+    MR,	    # Medical record number	
+    MCN,	# Microchip Number	
+    EN,	    # Employer number	
+    TAX,	# Tax ID number	
+    NIIP,   # National Insurance Payor Identifier (Payor)	
+    PRN,	# Provider number	
+    DR,	    # Donor Registration Number	
+    ACSN    # Accession ID
+    AUTH_0   # Auth0 ID
+    ETHEREUM_ID #Ethereum blockchain ID
+}
+
+input SourceConsumerIDInput {
+    system: String!
+    value: String!
+    start: Time
+    end: Time
+    assigner: String!
+    use: SourceConsumerIDUse
+    type: SourceConsumerIDType
+}
+
+type SourceConsumerID {
+    id: String!
+    system: String!
+    value: String!
+    start: Time
+    end: Time
+    assigner: String!
+    use: SourceConsumerIDUse
+    type: SourceConsumerIDType
+}

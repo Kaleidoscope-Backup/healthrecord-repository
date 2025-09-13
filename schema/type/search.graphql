@@ -1,0 +1,37 @@
+
+# Information for paginating this records
+type PageInfo {
+    # start ID of the record
+	startCursor: String
+    # end ID of the record
+    endCursor: String
+    # has more records or not
+	hasNext: Boolean!
+}
+
+# A wrapper object for serach result
+type SearchResults {
+	# The total number of records
+	totalCount: Int!
+	# The records for fetch.
+	records: [HealthRecordSearch!]
+	# Information for paginating this records
+	pageInfo: PageInfo!
+}
+
+input SearchInput {
+    # for which consumer
+    consumerID: String!
+    # record types if null then all types
+    filters: [HealthRecordType!]
+    # maximum number of records
+    limit: Int
+    # end cusrsor
+    lastEndCursor: String
+    # start time
+    start: Time
+    # end time
+    end: Time
+}
+
+union HealthRecordSearch = AdverseEventRecord | SleepRecord | MealRecord | ActivityRecord | ImmunizationRecord | AllergyRecord | ClinicalAssesmentObservationRecord | ConditionRecord | EncounterRecord | FamilyMemberHistoryRecord | ImagingResultObservationRecord | LabResultObservationRecord | MedicationRecord | PersonalCharacteristicsObservationRecord | ProcedureRecord | SocialHistoryObservationRecord | VitalObservationRecord

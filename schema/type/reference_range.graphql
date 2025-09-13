@@ -1,0 +1,40 @@
+
+enum ReferenceRangeType {
+    NORMAL
+    OPTIMAL
+    HIGH
+    VERY_HIGH
+    LOW
+    VERY_LOW
+    NOT_RECOMMENDED
+    RECOMMENDED 
+}
+
+input ReferenceRangeInput {
+    range: RangeInput 
+    lowerLimit: Int 
+    higherLimit: Int 
+    rangeUnit: String 
+    ageMin: Int
+    ageMax: Int
+    ageUnit: String
+    ageGroup: [AgeGroup!]
+    type: ReferenceRangeType!
+    appliesTo: [String!]
+    appliesToCode: [ClinicalCodeInput!] 
+}
+
+type ReferenceRange {
+    id: String!
+    range: Range 
+    lowerLimit: Int 
+    higherLimit: Int 
+    rangeUnit: String
+    ageMin: Int
+    ageMax: Int
+    ageUnit: String
+    ageGroup: [AgeGroup!]
+    type: ReferenceRangeType!
+    appliesTo: [String!]
+    appliesToCode: [ClinicalCode!]
+}

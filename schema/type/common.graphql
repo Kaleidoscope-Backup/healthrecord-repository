@@ -1,0 +1,182 @@
+
+
+enum Prioroty {
+    ROUTINE
+    URGENT
+    ASAP
+    EMERGENCY
+}
+
+enum SortBy {
+    LAST_UPDATED
+}
+
+enum EntityType {
+    ENTITY_CONSUMER
+    ENTITY_PRACTITIONER
+    ENTITY_ORGANIZATION
+    ENTITY_HEALTHRECORD
+    ENTITY_CONSENT
+    ENTITY_QUESTIONNAIRE
+    ENTITY_QUESTIONNAIRE_RESPONSE
+    ENTITY_CLINICAL_TRIAL
+    ENTITY_ORDER
+    ENTITY_ORDER_EVENT
+    ENTITY_PRODUCT
+    ENTITY_NOTIFICATION
+    ENTITY_ACKNOWLEDGEMENT
+    ENTITY_SCHEDULE
+    ENTITY_SLOT
+    ENTITY_REFERRAL_REQUEST
+    ENTITY_DEVICE
+    ENTITY_DEVICE_METRIC
+    ENTITY_APPLICATION
+    ENTITY_MESSAGE
+    ENTITY_REVIEW
+    ENTITY_COMMENT 
+    ENTITY_RELATIONSHIP
+    ENTITY_LOCATION 
+    ENTITY_HEALTHSCAREERVICE
+}
+
+
+enum Severity {
+    SEVERITY_MILD
+    SEVERITY_MEDIUM
+    SEVERITY_HIGH
+}
+
+enum AgeGroup {
+   NEWBORN
+   INFANT
+   CHILDREN
+   YOUNG_ADULT
+   ADULT
+   SENIOR
+}
+
+enum ContactPointSystem {
+    PHONE
+    FAX
+    EMAIL
+    PAGER
+    SMS
+    WECHAT
+    MESSENGER
+}
+
+enum ContactPointUse {
+    HOME
+    WORK
+    MOBILE
+    OLD
+}
+
+enum MimeType {
+    TEXT_PLAIN
+    TEXT_HTML
+    IMAGE
+    VIDEO
+    PDF
+}
+
+enum Priority {
+    PRIORITY_HIGH
+    PRIORITY_MEDIUM
+    PRIORITY_LOW
+}
+
+type Result {
+    success: Boolean!
+}
+
+input ReferenceEntityInput {
+   entityType: EntityType!
+   entityID: String!
+}
+
+type ReferenceEntity {
+   id: String!
+   entityType: EntityType!
+   entityID: String!
+}
+
+
+input AttachmentInput {
+    contentType: MimeType!
+    language: String
+    uRL: String!
+    size: Int
+    title: String!
+    createdOn : Time!
+}
+
+type Attachment {
+    id: String!
+    contentType: MimeType!
+    language: String
+    uRL: String!
+    size: Int
+    title: String!
+    createdOn : Time!
+}
+
+input ContactPointInput {
+    system: ContactPointSystem!
+    value: String!
+    rank: Int
+    start: Time
+    end: Time
+}
+
+type ContactPoint {
+    id: String!
+    system: ContactPointSystem!
+    value: String!
+    rank: Int
+    start: Time
+    end: Time
+}
+
+input SymptomInput {
+     name: String!
+     code: CodableConceptInput
+ }
+
+ type Symptom {
+     id: String!
+     name: String!
+     code: CodableConcept
+ }
+
+ input OnsetInput {
+    date: Time
+    age: String
+    note: String
+}
+
+
+# When condition was identified
+type Onset {
+    id: String!
+    date: Time
+    age: String
+    note: String
+}
+
+input AbatementInput {
+    abatement: Boolean
+    date: Time
+    age: String
+    note: String
+}
+
+# When condition was remissioned
+type Abatement {
+    id: String!
+    abatement: Boolean
+    date: Time
+    age: String
+    note: String
+}
+

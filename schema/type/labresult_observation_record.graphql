@@ -1,0 +1,80 @@
+
+input LabResultObservationCreate {
+    name: String!
+    value: ValueInput!
+    category: String 
+    code: CodableConceptInput 
+    ranges: [ReferenceRangeInput!]
+    artifacts: [AttachmentInput!]
+}
+
+type LabResultObservation {
+    id: String!
+    name: String!
+    value: Value!
+    category: String 
+    code: CodableConcept
+    ranges: [ReferenceRange!]
+    artifacts: [Attachment!]
+}
+
+input LabResultObservationRecordQueryParam {
+    consumerID: String!
+    name: String
+    category: String
+    observationName: [String!]
+}
+ 
+input LabResultObservationRecordCreate {
+    # From health record
+    name: String!
+    category: String!
+    consumerID: String!
+    description: String
+    occurred: Time!
+    source: String!  
+    organization: String  
+    sourceRecordID: SourceRecordIDInput
+    references: [ReferenceHealthRecordInput!]
+    location: GeoLocationInput
+
+    # observation record
+    code: CodableConceptInput
+    specimen: String
+    comment: String
+    method: String
+    methodCode: CodableConceptInput 
+    interpretation: String
+    observations: [LabResultObservationCreate!]
+}
+
+
+# TestResult - Laboratory test result like blood glucose, or an estimated GFR
+type LabResultObservationRecord implements HealthRecord {
+    # From health record
+    id: String!
+    category: String!
+    consumerID: String!
+    previousRecord: String
+    recordType: HealthRecordType!
+    transactionType: HealthRecordTransactionType!
+    name: String!
+    description: String
+    occurred: Time!
+    source: String!    
+    created: Time!
+    organization: String
+    sourceRecordID: SourceRecordID
+    createdBy: String
+    references: [ReferenceHealthRecord!]
+    location: GeoLocation
+
+    # observation record
+    code: CodableConcept 
+    specimen: String
+    comment: String
+    method: String
+    methodCode: CodableConcept
+    interpretation: String
+    observations: [LabResultObservation!]
+}

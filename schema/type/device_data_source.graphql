@@ -1,0 +1,31 @@
+
+input DataSyncStatusInput {
+   # Status of the most recent sync
+   status: String! 
+   # The last time the synchronization task ran for this user
+   lastSync: Time!
+}
+
+type DataSyncStatus {
+   id: String!
+   # Status of the most recent sync
+   status: String! 
+   # The last time the synchronization task ran for this user
+   lastSync: Time!
+}
+
+input DeviceDataSourceCreate {
+    consumer: ReferenceActorInput!
+    sourceDevice: ReferenceEntityInput!
+    deviceMetrics: [ReferenceEntityInput!]
+    syncStatus: DataSyncStatusInput
+}
+
+# a device data source to collect data
+type DeviceDataSource {
+    id: String!
+    consumer: ReferenceActor!
+    sourceDevice: ReferenceEntity!
+    deviceMetrics: [ReferenceEntity!]
+    syncStatus: DataSyncStatus
+}

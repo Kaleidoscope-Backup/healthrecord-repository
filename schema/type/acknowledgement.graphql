@@ -1,0 +1,17 @@
+
+input AcknowledgementCreate {
+    created: Time!
+    consumerID: String!
+    refrenceNotification: String!
+    note: String
+    ackOption: String!
+}
+
+type Acknowledgement {
+    id: String! 
+    created: Time!
+    consumerID: String!
+    refrenceNotification: String!
+    note: String
+    ackOption: String!
+}

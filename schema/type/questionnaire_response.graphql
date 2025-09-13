@@ -1,0 +1,80 @@
+
+# Input for each option
+input SelectedOptionInput {
+    # Pointer to specific option
+    linkID: String!
+    # Pointer to specific option text
+    option: String!
+}
+
+# Input for each option in a question
+type SelectedOption {
+    id: String!
+    # Pointer to specific option
+    linkID: String!
+    # Pointer to specific option text
+    option: String!
+}
+
+# For each question in a questionnaire
+input AnswerInput {
+    # Cached question text
+    questionText: String!
+    # Pointer to specific item from Questionnaire
+    linkID: String!
+    # code
+    code: CodableConceptInput
+    # options selected for multi or single choice
+    selectedOptions: [SelectedOptionInput!]
+    # The response(s) to the question
+    answerValue: ValueInput
+    # Nested questionnaire response items
+    items: [AnswerInput!]
+}
+
+# answers to the questionnaire
+type Answer {
+    # Cached question text
+    questionText: String!
+    id: String!
+    # Pointer to specific item from Questionnaire
+    linkID: String!
+    # code
+    code: CodableConcept
+    # options selected for multi or single choice
+    selectedOptions: [SelectedOption!]
+    # The response(s) to the question
+    answerValue: Value
+    # Nested questionnaire response items
+    items: [Answer!]
+}
+
+input QuestionnaireResponseCreate {
+    code: CodableConceptInput 
+    # Form being answered
+    questionnaire: String!
+    consumerID: String!
+    context: ReferenceEntityInput
+    # Groups and questions answers
+    items: [AnswerInput!]
+    # Timestamp when it was answered
+    timeStamp: Time!
+    location: GeoLocationInput 
+}
+
+# A structured set of questions and their answers. The questions are ordered and 
+# grouped into coherent subsets, corresponding to the structure of the 
+# grouping of the questionnaire being responded to.
+type QuestionnaireResponse {
+    id: String!
+    code: CodableConcept
+    # Form being answered
+    questionnaire: String!
+    consumerID: String!
+    context: ReferenceEntity
+    # Groups and questions answers
+    items: [Answer!]
+    # Timestamp when it was answered
+    timeStamp: Time!
+    location: GeoLocation
+}

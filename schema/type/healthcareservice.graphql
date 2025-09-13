@@ -1,0 +1,232 @@
+
+
+enum HealthcareServiceCategory {
+   #Aged Care	
+   SERVICE_AGED_CARE 
+
+   # Allied Health
+   SERVICE_ALLIED_HEALTH
+
+   # Adoption 
+   SERVICE_ADOPTION 
+
+   # Alternative/Complementary
+   SERVICE_ALERNATE_THERAPIES
+
+   # Child Care /Kindergarten
+   SERVICE_CHILDCARE_KINDERGARTEN
+
+   # Child Development
+   SERVICE_CHILD_DEVELOPMENT 
+
+   # Child Protection & Family Services
+   SERVICE_CHILDPROTECTION_AND_FAMILY_SERVICES
+
+   # Community Health Care
+   SERVICE_COMMUNITY_HEALTH_CARE 
+
+   # Counselling
+   SERVICE_COUNSELLING 
+
+   # Crisis Line 
+   SERVICE_CRISIS_LINE
+
+   # Death Services
+   SERVICE_DEATH_SERVICE 
+
+   # Dental
+   SERVICE_DENTAL 
+
+   # Disability Support
+   SERVICE_DISABILITY_SUPPORT 
+
+   # Drug/Alcohol 
+   SERVICE_DRUG_ALCOHOL 
+
+   # Education & Learning 
+   SERVICE_EDUCATION_AND_LEARNING 
+
+   # Emergency Department
+   SERVICE_EMERGENCY_DEPARTMENT 
+
+   # Employment 
+   SERVICE_EMPLOYMENT 
+
+   # Financial & Material Aid
+   SERVICE_FINANCIAL_AND_MATERIAL_AID
+
+   # General Practice
+   SERVICE_GENERAL_PRACTICE
+
+   # Hospital
+   SERVICE_HOSPITAL 
+
+   # Housing/Homelessness
+   SERVICE_HOUSING_HOMELESSNESS 
+
+   # Interpreting
+   SERVICE_INTERPRETING 
+
+   # Justice 
+   SERVICE_JUSTICE 
+
+   # Legal
+   SERVICE_LEGAL 
+
+   # Mental Health
+   SERVICE_MENTAL_HEALTH 
+
+   # NDIA
+   SERVICE_NDIA 
+
+   # Physical Activity & Recreation
+   SERVICE_PHYSICAL_ACTIVITY_AND_RECREATION 
+
+   # Regulation
+   SERVICE_REGULATION 
+
+   # Specialist Clinical Pathology
+   SERVICE_SPECIALIST_CLINICAL_PATHOLOGY 
+
+   # Specialist Medical 
+   SERVICE_SPECIALIST_MEDICAL 
+
+   # Specialist Obstetrics & Gynecology
+   SERVICE_SPECIALIST_OBSTETRICS_GYNOCOLOGY 
+
+   # Specialist Paediatric
+   SERVICE_SPECIALIST_PAEDIATRIC 
+
+   # Specialist Radiology/Imaging
+   SERVICE_SPECIALIST_RADIOLOGY_IMAGING
+
+   # Specialist Surgical 
+   SERVICE_SPECIALIST_SURGICAL 
+
+   # Support Group/s 
+   SERVICE_SUPPORT_GROUPS 
+
+   # Transport 
+   SERVICE_TRANSPORT 
+}
+
+input HealthcareServiceCreateInput {
+    # Whether this HealthcareService record is in active use
+    active: Boolean!
+    # Organization that provides this service
+    providedBy: ReferenceActorInput!
+    # Broad category of service being performed or delivered
+    category: [HealthcareServiceCategory!]
+    # Type of service that may be delivered or performed
+    type: String! 
+    typeCode: CodableConceptInput 
+    # Specialties handled by the HealthcareService
+    speciality: String 
+    specialityCode: CodableConceptInput 
+    # Location(s) where service may be provided
+    location: AddressInput! 
+    # Description of service as presented to a consumer while searching 
+    name: String! 
+    # Additional description and/or any specific issues not covered elsewhere
+    comment: String 
+    # Facilitates quick identification of the service
+    photo: [AttachmentInput!]
+    # Telecom 
+    telecom: [ContactPointInput!]
+    # Location(s) service is intended for/available to 
+    coverageArea: [LocationInput!]
+    # Conditions under which service is available/offered
+    seviceProvision: String 
+    seviceProvisionCode: CodableConceptInput
+    # Specific eligibility requirements required to use the service 
+    eligibility: String 
+    eligibilityCode: CodableConceptInput 
+    eligibilityComment: String 
+    # Programs that this service is applicable to 
+    program: [String!]
+    programCodes: [CodableConceptInput!]
+    # Collection of characteristics (attributes)
+    characteristic: [String!] 
+    characteristicCodes: [CodableConceptInput!]
+    # The language that this service is offered in
+    communication: [String!]
+    communicationCodes: [CodableConceptInput!] 
+    # Ways that the service accepts referrals
+    referralMethod: [String!]
+    referralMethodCodes: [CodableConceptInput!] 
+    # If an appointment is required for access to this service
+    appointmentRequired: Boolean 
+    # Times the Service Site is available
+    allDay: Boolean
+    availableDaysOfWeek: DaysOfWeek 
+    availableStartTime: Time 
+    availableEndTime: Time 
+    # Not available during this time due to provided reason 
+    notAvailableDescription: String 
+    notAvailableDuring: PeriodInput   
+    availabilityException: String 
+    # Technical endpoints providing access to electronic services operated for the healthcare service
+    endpoints: [EndpointInput!]
+}
+
+# The HealthcareService resource is used to describe a single healthcare service or category of services that are provided by an organization at a location.
+# Common examples of HealthcareServices resources are: Allied Health, Clinical Neuropsychologist, Podiatry Service
+type HealthcareService {
+    id: String!
+    # Whether this HealthcareService record is in active use
+    active: Boolean!
+    # Organization that provides this service
+    providedBy: ReferenceActor!
+    # Broad category of service being performed or delivered
+    category: [HealthcareServiceCategory!]
+    # Type of service that may be delivered or performed
+    type: String! 
+    typeCode: CodableConcept 
+    # Specialties handled by the HealthcareService
+    speciality: String 
+    specialityCode: CodableConcept 
+    # Location(s) where service may be provided
+    location: Address! 
+    # Description of service as presented to a consumer while searching 
+    name: String! 
+    # Additional description and/or any specific issues not covered elsewhere
+    comment: String 
+    # Facilitates quick identification of the service
+    photo: [Attachment!]
+    # Telecom 
+    telecom: [ContactPoint!]
+    # Location(s) service is intended for/available to 
+    coverageArea: [Location!]
+    # Conditions under which service is available/offered
+    seviceProvision: String 
+    seviceProvisionCode: CodableConcept
+    # Specific eligibility requirements required to use the service 
+    eligibility: String 
+    eligibilityCode: CodableConcept
+    eligibilityComment: String 
+    # Programs that this service is applicable to 
+    program: [String!]
+    programCodes: [CodableConcept!]
+    # Collection of characteristics (attributes)
+    characteristic: [String!] 
+    characteristicCodes: [CodableConcept!]
+    # The language that this service is offered in
+    communication: [String!]
+    communicationCodes: [CodableConcept!] 
+    # Ways that the service accepts referrals
+    referralMethod: [String!]
+    referralMethodCodes: [CodableConcept!] 
+    # If an appointment is required for access to this service
+    appointmentRequired: Boolean 
+    # Times the Service Site is available
+    allDay: Boolean
+    availableDaysOfWeek: DaysOfWeek 
+    availableStartTime: Time 
+    availableEndTime: Time 
+    # Not available during this time due to provided reason 
+    notAvailableDescription: String 
+    notAvailableDuring: Period   
+    availabilityException: String 
+    # Technical endpoints providing access to electronic services operated for the healthcare service
+    endpoints: [Endpoint!]
+}

@@ -1,0 +1,29 @@
+enum AppointmentResponseStatus {
+     APPOINTMENT_RESPONSE_STATUS_ACCEPTED
+     APPOINTMENT_RESPONSE_STATUS_DECLINED
+     APPOINTMENT_RESPONSE_STATUS_TENTATIVE
+     APPOINTMENT_RESPONSE_STATUS_INPROCESS
+     APPOINTMENT_RESPONSE_STATUS_COMPLETED
+     APPOINTMENT_RESPONSE_STATUS_NEEDSACTION
+     APPOINTMENT_RESPONSE_STATUS_ENTEREDINERROR
+}
+
+input AppointmentResponseCreate {
+    status: AppointmentResponseStatus!
+    appointment: ReferenceEntityInput!
+    start: Time!
+    end: Time!
+    actor: ReferenceActorInput!
+    comment: String
+}
+
+type AppointmentResponse {
+    id: String!
+    status: AppointmentResponseStatus!
+    appointment: ReferenceEntity!
+    start: Time!
+    end: Time!
+    actor: ReferenceActor!
+    comment: String
+}
+

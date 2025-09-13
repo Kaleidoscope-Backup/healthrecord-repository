@@ -1,0 +1,31 @@
+# payment type used for the order bag
+enum PaymentType {
+    CREDITCARD
+    ALIPAY
+    WECHATPAY
+    BNAKTRANSFER
+    PAYPAL
+}
+
+# represents shopping cart and associated orders
+input OrderBagCreate {
+    paymentType: PaymentType
+    externalID: String!
+    timeStamp: Time!
+    consumerID: String!
+    shippingAddress: AddressInput! 
+    orderedItems: [OrderCreate!]
+}
+
+# represents shopping cart and associated orders
+type OrderBag {
+    id: String!
+    paymentType: PaymentType
+    # id provided by payment gateway such as stripe
+    externalID: String!
+    timeStamp: Time!
+    consumerID: String!
+    # individual orders in the bag
+    orderedItems: [ReferenceEntity!]
+    shippingAddress: Address 
+}

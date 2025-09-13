@@ -1,0 +1,21 @@
+
+input CustomerFeedbackInput {
+    by: ReferenceActorInput!
+    application: ReferenceEntityInput!
+    subject: String!
+    description: String!
+    type: String 
+    images: [AttachmentInput!]
+}
+
+type CustomerFeedback {
+    id: String!
+    by: ReferenceActor!
+    application: ReferenceEntity!
+    subject: String!
+    description: String!
+    type: String 
+    images: [Attachment!]
+    createdAt: Time!
+    comments: [Comment!]
+}

@@ -1,0 +1,197 @@
+
+enum ActivityType {
+   # individual sports 
+   WALKING
+
+   # The user is walking at a moderate to high pace, for fitness.
+   WALKING_FITNESS
+
+   # The user is performing Nordic walking (with poles).
+   WALKING_NORDIC
+
+   # The user is walking while pushing a stroller.
+   WALKING_STROLLER
+
+   # The user is walking on a treadmill
+   WALKING_TREADMILL
+
+   # The user is on a wheel chair.
+   WHEELCHAIR
+
+   # The user is wind surfing.
+   WINDSURFING
+
+   # The user is performing Yoga poses.
+   YOGA
+
+   # The users is performing Zumba exercises.
+   ZUMBA
+
+   RUNNING
+   CYCLING
+   EXCERCISE
+   ARCHERY
+   BOWLING
+   FENCING
+   GYMNASTICS
+   TRACK_AND_FIELD
+
+   # team sports
+   AMERICAN_FOOTBALL
+   AUSTRELIAN_FOOTBALL
+   BASEBALL
+   BASKETBALL
+   CRICKET
+   HANDBALL
+   HOCKEY
+   LACROSSE
+   RUGBY
+   SOCCER 
+   SOFTBALL 
+
+   # The user is playing volleyball.
+   VOLLEYBALL 
+
+   # The user is playing beach volleyball.
+   VOLLEYBALL_BEACH
+
+   # The user is playing indoor volleyball.
+   VOLLEYBALL_INDOOR
+
+   # excercise and fitness
+   CORE_TRAINING 
+   ELLIPTICAL 
+   MIXED_CARDIO 
+   STAIR_CLIMBING 
+   STAIRS 
+   STEP_TRAINING 
+   # studio activity 
+   DANCE 
+   YOGA 
+   AEROBIC
+   MIND_AND_BODY 
+   PILATES
+   MEDITATION
+
+   # The user is sleeping.
+   SLEEP
+
+   # The user is in an awake period in the middle of sleep.
+   SLEEP_AWAKE
+
+   # The user is in a deep sleep cycle.
+   SLEEP_DEEP
+
+   # The user is in a light sleep cycle.
+   SLEEP_LIGHT
+
+   # The user is in a REM sleep cycle.
+   SLEEP_REM
+
+   # martial arts 
+   BOXING 
+   KICK_BOXING 
+   TAI_CHI 
+   WRESTLING 
+   # racket sports 
+   BADMINTON 
+   RACQUETBALL
+   SQUASH 
+   TABLE_TENNIS 
+   TENNIS 
+   ACTIVITY_TYPE_OTHER
+}
+
+input ActivityRecordQueryParam {
+    consumerID: String!
+    activityType: ActivityType
+    sort: SortBy
+    limit: Int
+}
+
+input ActivityRecordCreate {
+    # From health record
+    name: String!
+    consumerID: String!
+    description: String
+    occurred: Time!
+    source: String!  
+    organization: String  
+    sourceRecordID: SourceRecordIDInput
+    references: [ReferenceHealthRecordInput!]
+    location: GeoLocationInput
+
+    # activity record
+    activityType: ActivityType!
+    code: CodableConceptInput
+    frequency: Int 
+    frequencyUnit: String  
+    # duration of the activity
+    duration: Int
+    # duration unit
+    durationUnit: String
+    # total distance covered during the activity if applicable
+    distance: Int
+    # Unit of distance
+    distanceUnit: String
+    steps: Int
+    # The number of estimated calories burned during the activity
+    calories: Float
+    # unit of measurement for calory
+    caloryUnit: String
+    # The number of minutes of vigorous activity
+    vigorous: Int
+    # The number of minutes of moderate activity
+    moderate: Int
+    # The number of minutes of light activity
+    light: Int
+    # The number of minutes of sedentary activity
+    sedentary: Int
+
+}
+
+type ActivityRecord implements HealthRecord {
+    # From health record
+    id: String!
+    consumerID: String!
+    previousRecord: String
+    recordType: HealthRecordType!
+    transactionType: HealthRecordTransactionType!
+    name: String!
+    description: String
+    occurred: Time!
+    source: String!    
+    created: Time!
+    organization: String
+    sourceRecordID: SourceRecordID
+    createdBy: String
+    references: [ReferenceHealthRecord!]
+    location: GeoLocation
+
+    # activity record
+    activityType: ActivityType!
+    code: CodableConcept
+    frequency: Int 
+    frequencyUnit: String  
+    # duration of the activity
+    duration: Int
+    # duration unit
+    durationUnit: String
+    # total distance covered during the activity if applicable
+    distance: Int
+    # distance unit
+    distanceUnit: String
+    steps: Int
+    # The number of estimated calories burned during the activity
+    calories: Float
+    # unit of measurement for calory
+    caloryUnit: String 
+    # The number of minutes of vigorous activity
+    vigorous: Int
+    # The number of minutes of moderate activity
+    moderate: Int
+    # The number of minutes of light activity
+    light: Int
+    # The number of minutes of sedentary activity
+    sedentary: Int
+}

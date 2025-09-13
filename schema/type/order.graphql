@@ -1,0 +1,52 @@
+
+enum OrderStatus {
+    ORDER_DRAFT
+    ORDER_ACTIVE
+    ORDER_SUSPENDED
+    ORDER_CANCELLED
+    ORDER_COMPLETED
+    ORDER_ENTERED_IN_ERROR
+    ORDER_UNKNOWN
+}
+
+input OrderQueryParam {
+    status: OrderStatus
+    fromID: String!
+    toID: String
+    supplier: String
+    orderedItem: String
+}
+
+input OrderCreate  {
+    status: OrderStatus!
+    priority: Priority!
+    from: ReferenceActorInput!
+    to: ReferenceActorInput!
+    requester: ReferenceActorInput
+    supplier: String! 
+    quantity: Int!
+    totalPrice: Float
+    orderedItem: String!
+    attributes: [AttributeInput!]
+    shippingAddress: AddressInput
+    timeStamp: Time!
+}
+
+type Order  {
+    id: String!
+    status: OrderStatus!
+    priority: Priority!
+    from: ReferenceActor!
+    to: ReferenceActor!
+    requester: ReferenceActor
+    supplier: String! 
+    quantity: Int!
+    totalPrice: Float
+    orderedItem: String!
+    attributes: [Attribute!]
+    shippingAddress: Address 
+    timeStamp: Time!
+}
+
+
+

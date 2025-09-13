@@ -1,0 +1,63 @@
+input ClinicalAssesmentObservationCreate {
+    name: String!
+    value: String!
+    score: Int
+    code: CodableConceptInput
+}
+
+type ClinicalAssesmentObservation {
+    id: String!
+    name: String!
+    value: String!
+    score: Int
+    code: CodableConcept 
+}
+
+input ClinicalAssesmentObservationRecordCreate {
+    # From health record
+    name: String!
+    consumerID: String!
+    description: String
+    occurred: Time!
+    source: String!  
+    organization: String  
+    sourceRecordID: SourceRecordIDInput
+    references: [ReferenceHealthRecordInput!]
+    location: GeoLocationInput
+
+    # observation record
+    code: CodableConceptInput
+    comment: String
+    method: String
+    methodCode: CodableConceptInput
+    interpretation: String
+    observations: [ClinicalAssesmentObservationCreate!]
+}
+
+# ClinicalAssesmentObservationRecord - Clinical assessment tools such as APGAR, Glasgow Coma Score, Moode Evaluation, MSE
+type ClinicalAssesmentObservationRecord implements HealthRecord {
+    # From health record
+    id: String!
+    consumerID: String!
+    previousRecord: String
+    recordType: HealthRecordType!
+    transactionType: HealthRecordTransactionType!
+    name: String!
+    description: String
+    occurred: Time!
+    source: String!    
+    created: Time!
+    organization: String
+    sourceRecordID: SourceRecordID
+    createdBy: String
+    references: [ReferenceHealthRecord!]
+    location: GeoLocation
+
+    # observation record
+    code: CodableConcept 
+    comment: String
+    method: String
+    methodCode: CodableConcept 
+    interpretation: String
+    observations: [ClinicalAssesmentObservation!]
+}

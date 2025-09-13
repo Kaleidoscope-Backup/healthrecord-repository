@@ -1,0 +1,18 @@
+Logging:
+  Level: DEBUG
+
+PUBLISHER:
+  Type: AMQP
+  
+AMQP:
+  Host: localhost
+  Port: 5672
+  Username: guest
+  Password: guest
+  HealthRecordKnowledgeTopic: healthrecord-knowledge-topic
+  HealthRecordTopic: healthrecord-topic
+  HealthRecordHashTopic: healthrecord-hash
+
+IPFS:
+  Host: localhost
+  Port: 5001

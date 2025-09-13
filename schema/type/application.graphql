@@ -1,0 +1,37 @@
+
+enum ApplicationType {
+    MOBILE_NATIVE_APP
+    MOBILE_HYBRID_APP
+    WEB_APP
+}
+
+input ApplicationCreate {
+    name: String!
+    supportEmail: String
+    callbackURL: String
+    defaultLanguage: Language
+    logo: String
+    description: String
+    owner: ReferenceActorInput!
+    type: ApplicationType
+    attributes: [MetaDataInput!]
+}
+
+type Application {
+    id: String!
+    name: String!
+    supportEmail: String
+    callbackURL: String
+    defaultLanguage: Language
+    logo: String
+    description: String
+    owner: ReferenceActor!
+    type: ApplicationType
+    attributes: [MetaData!]
+}
+
+type ApplicationProfile {
+    name: String!
+    value: String!
+    attributes: [MetaData!]
+}

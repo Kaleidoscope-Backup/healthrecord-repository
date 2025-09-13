@@ -1,0 +1,44 @@
+
+enum RelationshipType {
+    FAMILY_MEMBER,
+    CARE_TEAM,
+    CUSTOMER,
+    STAFF,
+    TEST_ADMINISTRATOR,
+    PARTNER,
+    ACCOUNT_MANAGER
+}
+
+input RelationshipCreate {
+    active: Boolean!
+    from: ReferenceActorInput!
+    to: ReferenceActorInput!
+    label: String!
+    type: RelationshipType
+    code: String
+    consent: String
+    period: PeriodInput
+    additionalData: [AttributeInput!]
+}
+
+type Relationship {
+    id: String!
+    active: Boolean!
+    from: ReferenceActor!
+    to: ReferenceActor!
+    label: String!
+    type: RelationshipType
+    code: ClinicalCode
+    consent: String
+    period: Period
+    additionalData: [Attribute!]
+}
+
+input RelationshipQueryParam {
+    fromID: String
+    fromType: ActorType
+    toID: String
+    toType: ActorType
+    relType: RelationshipType
+    label: String
+}

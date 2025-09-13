@@ -1,0 +1,11 @@
+
+input SourceRecordIDInput {
+    system: String!
+    value: String!
+}
+
+type SourceRecordID {
+    id: String!
+    system: String!
+    value: String!
+}

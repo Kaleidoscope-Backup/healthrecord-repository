@@ -1,0 +1,63 @@
+
+enum PersonalCharacteristics {
+    EYE_COLOR
+    HAIR_COLOR
+    SKIN_COLOR
+    AGE
+    RACE
+    GENDER
+    BIRTHDATE
+}
+
+input PersonalCharacteristicsObservationCreate {
+    type: PersonalCharacteristics!
+    value: String!
+    code: CodableConceptInput 
+}
+
+
+type PersonalCharacteristicsObservation {
+    id: String!
+    type: PersonalCharacteristics!
+    value: String!
+    code: CodableConcept
+}
+
+input PersonalCharacteristicsObservationRecordCreate {
+    # From health record
+    name: String!
+    consumerID: String!
+    description: String
+    occurred: Time!
+    source: String!  
+    organization: String  
+    sourceRecordID: SourceRecordIDInput
+    references: [ReferenceHealthRecordInput!]
+    location: GeoLocationInput 
+
+    # observation record
+    observations: [PersonalCharacteristicsObservationCreate!]
+}
+
+# PersonalCharacteristicsObservationRecord - observations such as eye color, skin color etc.
+type PersonalCharacteristicsObservationRecord implements HealthRecord {
+    # From health record
+    id: String!
+    consumerID: String!
+    previousRecord: String
+    recordType: HealthRecordType!
+    transactionType: HealthRecordTransactionType!
+    name: String!
+    description: String
+    occurred: Time!
+    source: String!    
+    created: Time!
+    organization: String
+    sourceRecordID: SourceRecordID
+    createdBy: String
+    references: [ReferenceHealthRecord!]
+    location: GeoLocation
+
+    # observation record
+    observations: [PersonalCharacteristicsObservation!]
+}

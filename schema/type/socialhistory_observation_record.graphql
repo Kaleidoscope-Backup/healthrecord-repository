@@ -1,0 +1,78 @@
+enum SocialHistoryObservationType {
+    SMOKING
+    ALCOHOL
+    RECREATIONAL_DRUG
+    INTERNET_SURFING
+    SEX_LIFE
+    OTHER
+}
+
+enum SocialHistoryObservationStatus {
+    NEVER
+    INFREQUENT
+    LIGHT
+    MODERATE
+    HEAVY
+    VERY_HEAVY
+    QUIT
+    UNKNOWN
+}
+
+input SocialHistoryObservationRecordQueryParam {
+    consumerID: String!
+    type: SocialHistoryObservationType
+    status: SocialHistoryObservationStatus
+}
+
+input SocialHistoryObservationRecordCreate {
+    # From health record
+    name: String!
+    consumerID: String!
+    description: String
+    occurred: Time!
+    source: String!  
+    organization: String  
+    sourceRecordID: SourceRecordIDInput
+    references: [ReferenceHealthRecordInput!]
+    location: GeoLocationInput 
+
+    # From Addiction
+    type: SocialHistoryObservationType!
+    status: SocialHistoryObservationStatus!
+    duration: Int
+    durationUnit: String 
+    value: ValueInput 
+    code: CodableConceptInput
+    start: Time
+    end: Time
+}
+
+type SocialHistoryObservationRecord implements HealthRecord {
+
+    # health record specific
+    id: String!
+    consumerID: String!
+    previousRecord: String
+    recordType: HealthRecordType!
+    transactionType: HealthRecordTransactionType!
+    name: String!
+    description: String
+    occurred: Time!
+    source: String!    
+    created: Time!
+    organization: String
+    sourceRecordID: SourceRecordID
+    createdBy: String
+    references: [ReferenceHealthRecord!]
+    location: GeoLocation
+
+    # Habit specific
+    type: SocialHistoryObservationType!
+    status: SocialHistoryObservationStatus!
+    duration: Int
+    durationUnit: String 
+    value: Value 
+    code: CodableConcept
+    start: Time
+    end: Time
+}

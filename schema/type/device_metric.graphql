@@ -1,0 +1,53 @@
+
+enum DeviceMetricOperationalStatus {
+     DEVICE_METRIC_STATUS_ON
+     DEVICE_METRIC_STATUS_OFF
+     DEVICE_METRIC_STATUS_STANDBY
+     DEVICE_METRIC_STATUS_ENTERED_IN_ERROR
+}
+
+enum DeviceMetricCategory {
+    DEVICE_METRIC_MEASUREMENT
+    DEVICE_METRIC_SETTING
+    DEVICE_METRIC_CALCULATION
+    DEVICE_METRIC_UNSPECIFIED
+}
+
+enum DeviceMetricCalibrationState {
+    DEVICE_METRIC_CALIBRATION_REQUIRED
+    DEVICE_METRIC_CALIBRATED 
+    DEVICE_METRIC_CALIBRATION_NOT_REQUIRED
+    DEVICE_METRIC_CALIBRATION_UNSPECIFIED
+}
+
+input DeviceCalibrationInput {
+    state: DeviceMetricCalibrationState!
+    time: Time! 
+}
+
+type DeviceCalibration {
+    id: String!
+    state: DeviceMetricCalibrationState!
+    time: Time! 
+}
+
+input DeviceMetricCreate {
+    type: String!
+    unit: String!
+    source: ReferenceEntityInput!
+    operationalStatus: DeviceMetricOperationalStatus
+    category: DeviceMetricCategory
+    measurementPeriod: TimingInput
+    calibration: DeviceCalibrationInput
+}
+
+type DeviceMetric {
+    id: String!
+    type: String!
+    unit: String!
+    source: ReferenceEntity!
+    operationalStatus: DeviceMetricOperationalStatus
+    category: DeviceMetricCategory
+    measurementPeriod: Timing
+    calibration: DeviceCalibration
+}

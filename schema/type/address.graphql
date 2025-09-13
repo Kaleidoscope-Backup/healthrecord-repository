@@ -1,0 +1,23 @@
+
+
+input AddressInput {
+    name: String
+    streetNumber: String!
+    streetName: String!
+    city: String!
+    state: String!
+    country: String!
+    zipCode: String!    
+}
+
+type Address {
+    id: String!
+    name: String
+    streetNumber: String!
+    streetName: String!
+    city: String!
+    state: String!
+    country: String!
+    zipCode: String!
+    location: GeoLocation
+}

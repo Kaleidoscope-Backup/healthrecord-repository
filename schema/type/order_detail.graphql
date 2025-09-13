@@ -1,0 +1,27 @@
+
+# fetches the order and associated product information
+# only for query
+type OrderDetail {
+    # order information
+    id: String!
+    status: OrderStatus
+    priority: Priority
+    fromName: String 
+    fromID: String 
+    toName: String
+    toID: String 
+    quantity: Int
+    totalPrice: Float
+    timeStamp: Time
+
+    # product information
+    name: String
+    category: String
+    label: String
+    description: String
+    image: String
+    supplier: String
+    vendor: String
+    unitPrice: Float
+    currency: Currency 
+}

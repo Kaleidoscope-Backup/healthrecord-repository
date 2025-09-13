@@ -1,0 +1,225 @@
+
+enum QuestionnaireStatus {
+    QUESTIONNAIRE_DRAFT
+    QUESTIONNAIRE_ACTIVE
+    QUESTIONNAIRE_RETIRED   
+}
+
+# type of questions
+enum QuestionnaireItemType {
+    # Text for display that will not capture an answer or have child items.
+    QUESTION_DISPLAY
+
+    # Answer is a Coding drawn from a list of options - user can choose multiplple choices from option list
+    QUESTION_MULTI_CHOICE
+
+    # Answer is a Coding drawn from a list of options - user can choose only one option from option list
+    QUESTION_SINGLE_CHOICE
+
+    # An item with no direct answer but should have at least one child item.
+    QUESTION_GROUP
+
+    # Input	Question requires user input 
+    QUESTION_INPUT
+}
+
+# Query parameters for questions
+input QuestionnaireQueryParam {
+    purpose: String 
+    publisher: String 
+    language: Language
+    name: String
+}
+
+enum QuestionEnableRuleType {
+     QUESTIONENABLE_RULE_BASEDON_ANSWER
+     QUESTIONENABLE_RULE_BASEDON_CRITERIA
+}
+
+# operator that can be applied on criteria value
+enum CriteriaOperator {
+     OPERATOR_EQUAL
+     OPERATOR_LESSTHAN
+     OPERATOR_GREATERTHAN
+}
+
+# Criterial value for rule evaluation
+input CriteriaInput {
+    entityType: EntityType!
+    healthRecordType: HealthRecordType
+    propertyName: String!
+    expectedValue: ValueInput! 
+    criteriaOperator: CriteriaOperator!
+}
+
+# Criterial value for rule evaluation
+type Criteria {
+    id: String!
+    entityType: EntityType!
+    healthRecordType: HealthRecordType
+    propertyName: String!
+    expectedValue: Value! 
+    criteriaOperator: CriteriaOperator!
+}
+
+# Only allow data when
+input QuestionEnableRuleInput {
+    enablingRule: QuestionEnableRuleType!
+    # criteria definition
+    criteria: [CriteriaInput!]
+    # Question that determines whether item is enabled
+    question: Int  
+    hasAnswer: Boolean 
+    option: Int 
+    # Value question must have
+    answers: ValueInput
+}
+
+# Only allow data when
+type QuestionEnableRule {
+    id: String!
+    enablingRule: QuestionEnableRuleType!
+    # criteria definition
+    criteria: [Criteria!]
+    # Question that determines whether item is enabled
+    question: Int  
+    hasAnswer: Boolean 
+    option: Int 
+    # Value question must have
+    answers: Value
+}
+
+input QuestionOptionInput {
+    text: String!
+    sequence: Int!
+    type: ValueType!
+    code: CodableConceptInput
+}
+
+type QuestionOption {
+    id: String!
+    linkID: String!
+    text: String!
+    sequence: Int!
+    type: ValueType!
+    code: CodableConcept
+}
+
+input QuestionInput {
+    # in what sequence it will be displayed and answered
+    sequence: Int
+    code: CodableConceptInput
+    # Primary text for the item
+    text: String!
+    questionType: QuestionnaireItemType!
+    type: ValueType!
+    range: ReferenceRangeInput
+    unit: String
+    maxLength: Int
+    # E.g. 1(a), 2.5.3
+    prefix: String 
+    # Whether the item must be included in data results
+    required: Boolean
+    # Whether the item may repeat
+    repeats: Boolean
+    # Don't allow human editing
+    readOnly: Boolean 
+    # Only allow data when
+    enableWhen: QuestionEnableRuleInput
+    # Permitted answer
+    option: [QuestionOptionInput!]
+    # Nested questionnaire items
+    items: [QuestionInput!]    
+}
+
+# Questions and sections within the Questionnaire
+type Question {
+    id: String!
+    # unique ID that can be linked to answer
+    linkID: String!
+    # in what sequence it will be displayed and answered
+    sequence: Int
+    code: CodableConcept
+    # Primary text for the item
+    text: String!
+    questionType: QuestionnaireItemType!
+    type: ValueType!
+    range: ReferenceRange
+    unit: String
+    maxLength: Int
+    # E.g. 1(a), 2.5.3
+    prefix: String 
+    # Whether the item must be included in data results
+    required: Boolean
+    # Whether the item may repeat
+    repeats: Boolean 
+    # Don't allow human editing
+    readOnly: Boolean 
+    # Only allow data when
+    enableWhen: QuestionEnableRule
+    # Permitted answer
+    option: [QuestionOption!]
+    # Nested questionnaire items
+    items: [Question!]
+}
+
+input QuestionnaireCreate {
+    #draft | active | retired | unknown
+    status: QuestionnaireStatus!
+    language: Language!
+    name: String!
+    code: CodableConceptInput
+    #For testing purposes, not real usage
+    experimental: Boolean
+    # Name of the publisher (organization or individual)
+    publisher: String
+    # any regulatory disclaimer
+    disclaimer: String
+    # copyright notice
+    copyright: String
+    # Natural language description of the questionnaire
+    description: String
+    # Why this questionnaire is defined
+    purpose: String
+    # When the questionnaire is expected to be used
+    effectivePeriod: PeriodInput
+    # Questions and sections within the Questionnaire
+    items: [QuestionInput!]
+}
+
+# A structured set of questions intended to guide the collection of 
+# answers from end-users. Questionnaires provide detailed control over order, 
+# presentation, phraseology and grouping to allow coherent, consistent data collection.
+# Examples of Questionnaires include:
+# 1. Past medical history (PMH)
+# 2. Family diseases
+# 3. Social history
+# 4. Research questionnaires/Clinical research forms (CRFs)
+# 5. Quality and evaluation forms
+# 6. Patient intake form (e.g. clipboard)
+# 7. Insurance claim form
+type Questionnaire {
+    id: String!
+    #draft | active | retired | unknown
+    status: QuestionnaireStatus!
+    language: Language!
+    name: String!
+    # Concept that represents the overall questionnaire
+    code: CodableConcept
+    #For testing purposes, not real usage
+    experimental: Boolean
+    # Name of the publisher (organization or individual)
+    publisher: String
+    # any regulatory disclaimer
+    disclaimer: String
+    # copyright notice
+    copyright: String
+    # Natural language description of the questionnaire
+    description: String
+    # Why this questionnaire is defined
+    purpose: String
+    # When the questionnaire is expected to be used
+    effectivePeriod: Period
+    # Questions and sections within the Questionnaire
+    items: [Question!]
+}

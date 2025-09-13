@@ -1,0 +1,86 @@
+ enum MedicationStatus {
+   MEDICATION_STATUS_ACTIVE,
+   MEDICATION_STATUS_INACTIVE,
+   MEDICATION_STATUS_ONHOLD
+}
+
+enum AdministrationRoute {
+    ORAL_ADMINISTRATION,
+    INJECTION,
+    INTRAMASCULER_INJECTION,
+    SUBCUTENOUS_INJECTION,
+    INHALATION,
+    SUBLINGUAL_ADMINISTRATION
+}
+
+type Dosage {
+    #form: String!
+    id: String!
+    value: Int!
+    frequency: String!
+    unit: String!
+}
+
+type Strength {
+    id: String!
+    number: Int!
+    unit: String!
+}
+
+input MedicationCreate {
+    code: CodableConceptInput 
+    medicationStatus: MedicationStatus!
+    productName: String!
+    isOverTheCounter: Boolean!
+    route: AdministrationRoute!
+    instructions: String!
+    dosageValue: Int!
+    dosageFrequency: String!
+    dosageUnit: String!
+    refillsRemaining: Int
+    refillsTotal: Int
+    strengthNumber: Int!
+    strengthUnit: String!
+    start: Time!
+    end: Time
+}
+
+type Medication {
+    # coming from prescription or entered by doctor/ patient
+    id: String!
+    code: CodableConcept 
+    medicationStatus: MedicationStatus!
+    productName: String!
+    isOverTheCounter: Boolean!
+    route: AdministrationRoute!
+    instructions: String!
+    dosage: Dosage
+    refillsRemaining: Int
+    refillsTotal: Int
+    strength: Strength
+    start: Time!
+    end: Time
+
+    # coming from knowledge graph
+    manufacturer: String
+    ndcCode: String
+    # The RxCUI drug identifier from RXNORM.
+    rxcui: String
+    commonBrandName: String
+    # Any precaution, guidance, contraindication, etc. related to consumption of alcohol while taking this drug.
+    alcoholWarning: String
+    # Any precaution, guidance, contraindication, etc. related to this drug's use by breastfeeding mothers.
+    breastFeedingWarning: String
+    # Any precaution, guidance, contraindication, etc. related to consumption of specific foods while taking this drug.
+    foodWarning: String
+    # any FDA warning
+    warning: String
+    # Any information related to overdose on a drug, including signs or symptoms, treatments, 
+    # contact information for emergency response.
+    overdose: String
+    # the common side effects of this drug
+    sideEffects: [String]
+}
+
+
+

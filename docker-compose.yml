@@ -1,0 +1,19 @@
+version: '3.6'
+
+services:
+  healthrecord-repository:
+    image: healthrecord-repository
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: --entrypoint=host
+    ports:
+      - "5000:5000"
+    depends_on:
+      - "mongo"
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    restart: unless-stopped

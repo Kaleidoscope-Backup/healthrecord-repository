@@ -1,0 +1,64 @@
+
+# List status
+enum ListStatus {
+   LIST_RETIRED
+   LIST_ACTIVE
+   LIST_ENTERED_IN_ERROR
+}
+
+# List mode
+enum ListMode {
+    LIST_WORKING
+    LIST_SNAPSHOT
+    LIST_CHANGES
+}
+
+# Entries in the list
+input ListEntryInput {
+    date: Time 
+    deleted: Boolean 
+    entry: [AttributeInput!]
+}
+
+# Entries in the list
+type ListEntry {
+    id: String!
+    date: Time 
+    deleted: Boolean 
+    entry: [Attribute!]
+}
+
+#The ElementList resource is a flat, possibly ordered collection of records.
+input ListInput {
+    status: ListStatus!
+    mode: ListMode!
+    title: String!
+    code: CodableConceptInput
+    # If all resources have the same subject
+    subject: ReferenceEntityInput 
+    # WHo owns the list data
+    owner: ReferenceActorInput!
+    # Source - Who and/or what defined the list contents (aka Author)
+    source: ReferenceEntityInput 
+    note: String
+    # Entries in the list
+    items: [ListEntryInput!]
+}
+
+#The List resource is a flat, possibly ordered collection of records.
+type List {
+    id: String!
+    status: ListStatus!
+    mode: ListMode!
+    title: String!
+    code: CodableConcept
+    # If all resources have the same subject
+    subject: ReferenceEntity 
+    # WHo owns the list data
+    owner: ReferenceActor!
+    # Source - Who and/or what defined the list contents (aka Author)
+    source: ReferenceEntity 
+    note: String
+    # Entries in the list
+    items: [ListEntry!]
+}

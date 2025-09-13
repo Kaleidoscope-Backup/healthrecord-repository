@@ -1,0 +1,106 @@
+enum AllergyCategory {
+    ALLERGY_FOOD
+    ALLERGY_MEDICATION
+    ALLERGY_ENVIRONMENT
+    ALLERGY_BIOLOGIC
+}
+
+enum AllergyCriticality {
+    ALLERGY_LOW
+    ALLERGY_HIGH
+    ALLERGY_UNABLE_TO_ASSES
+}
+
+enum AllergyStatus {
+    ALLERGY_ACTIVE
+    ALLERGY_INACTIVE
+    ALLERGY_RESOLVED
+}
+
+input AllergyOnsetCreate {
+    onsetDate: Time
+    onsetAge: String
+    onsetNote: String
+}
+
+input AllergyReactionInput {
+    substance: String!
+    substanceCode: CodableConceptInput 
+    manifestation: String!
+    manifestationCode: CodableConceptInput 
+    exposureRoute: String!
+    exposureRouteCode: CodableConceptInput 
+    description: String
+    severity: Severity
+}
+
+type AllergyReaction {
+    substance: String!
+    substanceCode: CodableConcept
+    manifestation: String!
+    manifestationCode: CodableConcept
+    exposureRoute: String!
+    exposureRouteCode: CodableConcept
+    description: String
+    severity: Severity
+}
+
+# When allergy or intolerance was identified
+type AllergyOnset {
+    onsetDate: Time
+    onsetAge: String
+    onsetNote: String
+}
+
+
+input AllergyRecordCreate {
+    # From health record
+    name: String!
+    consumerID: String!
+    description: String
+    occurred: Time!
+    source: String!  
+    organization: String  
+    sourceRecordID: SourceRecordIDInput
+    references: [ReferenceHealthRecordInput!]
+    location: GeoLocationInput
+
+    # From Allergy
+    onsetDate: AllergyOnsetCreate
+    lastOccurrence: Time
+    category: AllergyCategory!
+    criticality: AllergyCriticality!
+    status: AllergyStatus!
+    code: CodableConceptInput
+    reactions: [AllergyReactionInput!]
+}
+
+# Allergy - generally: Risk of adverse reaction to a substance
+type AllergyRecord implements HealthRecord {
+    # From health record
+    id: String!
+    consumerID: String!
+    previousRecord: String
+    recordType: HealthRecordType!
+    transactionType: HealthRecordTransactionType!
+    name: String!
+    description: String
+    occurred: Time!
+    source: String!    
+    created: Time!
+    organization: String
+    sourceRecordID: SourceRecordID
+    createdBy: String
+    references: [ReferenceHealthRecord!]
+    location: GeoLocation
+
+    # allergy record
+    onsetDate: AllergyOnset
+    lastOccurrence: Time
+    category: AllergyCategory!
+    criticality: AllergyCriticality!
+    status: AllergyStatus!
+    code: CodableConcept 
+    reactions: [AllergyReaction!]
+}
+

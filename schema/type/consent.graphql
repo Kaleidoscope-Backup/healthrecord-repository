@@ -1,0 +1,123 @@
+
+# Actions controlled by this consent
+# Collect - Gather/acquire information by an entity to achieve a stated purpose
+# Access - Provide an entity access to information to achieve a stated purpose
+# Use - Use of stored information by an entity fo the stated purpose
+# Disclose - Release / transfer of information to an entity
+# Correct - Allowing an entity to correct a patient's information
+enum ConsentAction {
+   COLLECT
+   ACCESS
+   USE
+   DISCLOSE
+   CORRECT
+}
+
+# PurposeOfUse - Context of activities covered by this exception
+# HEALTHCARE_MARKETING - To perform one or more operations on information for marketing services and products related to health care.
+# HEALTHCARE_OPERATIONS - To perform one or more operations on information used for conducting administrative and contractual 
+# activities related to the provision of health care.
+# DONATION - To perform one or more operations on information used for cadaveric organ, eye or tissue donation.
+# FRAUD - To perform one or more operations on information used for fraud detection and prevention processes.
+# GOVERNMENT - To perform one or more operations on information used within government processes.
+# HEALTH_ACCREDITION - To perform one or more operations on information for conducting activities related to meeting accreditation criteria.
+# HEALTH_COMPLIANCE - To perform one or more operations on information used for conducting activities required to meet a mandate.
+# DECEDENT - To perform one or more operations on information used for handling deceased patient matters.
+# LEGAL - To perform one or more operations on information for conducting activities required by legal proceeding.
+# HEALTH_OUTCOME_MEASURE - To perform one or more operations on information used for assessing results and 
+# comparative effectiveness achieved by health care practices and interventions.
+# HEALTH_PROGRAM_REPORTING - To perform one or more operations on information used for conducting activities to meet program accounting requirements.
+# HEALTH_QUALITY_IMPROVEMENT - To perform one or more operations on information used for conducting administrative activities to improve health care quality.
+# HEALTHCARE_RESEARCH - To perform one or more operations on information for conducting scientific investigations to obtain health care knowledge.
+# CLINICAL_TRIAL_RESEARCH - To perform one or more operations on information for conducting scientific investigations 
+# in accordance with clinical trial protocols to obtain health care knowledge.
+# CLINICAL_TRIAL - To perform health care as part of the clinical trial protocol.
+# EMERGENCY_TREATMENT - To perform one or more operations on information for provision of immediately needed health care for an emergent condition.
+enum PurposeOfUse {
+   HEALTHCARE_MARKETING
+   HEALTHCARE_OPERATIONS
+   DONATION
+   FRAUD
+   GOVERNMENT_USE
+   HEALTH_ACCREDITION
+   HEALTH_COMPLIANCE
+   DECEDENT
+   LEGAL
+   HEALTH_OUTCOME_MEASURE
+   HEALTH_PROGRAM_REPORTING
+   HEALTH_QUALITY_IMPROVEMENT
+   HEALTHCARE_RESEARCH
+   CLINICAL_TRIAL
+   EMERGENCY_TREATMENT 
+}
+
+
+# Consent Record - A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) 
+# or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
+
+input ConsentCreate {
+    
+    name: String
+    content: String
+
+    # Classification of the consent statement - for indexing/retrieval
+    category: String!
+    # the subject
+    consumerID: String!
+    #context for which the consent is taken
+    context: ReferenceEntityInput
+    # Period that this consent applies
+    period: PeriodInput
+    # Who is agreeing to the policy and exceptions
+    consentingParty: [ReferenceActorInput!]
+    # Custodian org of the consent
+    custodian: String
+    # Actions controlled by this consent
+    action: ConsentAction
+    # Context of activities covered by this exception
+    purpose: PurposeOfUse!
+    # questionnaire filled during the consent is taken
+    questionnaireResponse: String
+    # When this Consent was created or indexed
+    dateTime: Time!
+
+}
+
+# There are four anticipated uses for the Consent Resource, all of which are written or verbal agreements by a healthcare 
+# consumer [grantor] or a personal representative, made to an authorized entity [grantee] concerning authorized or restricted 
+# actions with any limitations on purpose of use, and handling instructions to which the authorized entity must comply:
+# 1. Privacy Consent Directive: Agreement to collect, access, use or disclose (share) information.
+# 2. Medical Treatment Consent Directive: Consent to undergo a specific treatment (or record of refusal to consent).
+# 3. Research Consent Directive: Consent to participate in research protocol and information sharing required.
+# 4. Advance Care Directives: Consent to instructions for potentially needed medical treatment (e.g. DNR).
+type Consent {
+
+    # health record specific
+    id: String!
+
+    name: String
+    content: String
+
+    # Classification of the consent statement - for indexing/retrieval
+    category: String!
+    categoryCode: ClinicalCode
+    #context from which this consent is taken
+    context: ReferenceEntity
+    # the subject
+    consumerID: String!
+    # Period that this consent applies
+    period: Period
+    # Who is agreeing to the policy and exceptions
+    consentingParty: [ReferenceActor!]
+    # Custodian org of the consent
+    custodian: String
+    # Actions controlled by this consent
+    action: ConsentAction
+    # Context of activities covered by this exception
+    purpose: PurposeOfUse!
+    purposeCode: ClinicalCode
+    # questionnaire filled during the consent is taken
+    questionnaireResponse: String
+    # When this Consent was created or indexed
+    dateTime: Time!
+}
