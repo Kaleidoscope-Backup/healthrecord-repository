@@ -16,3 +16,6 @@ Thumbs.db
 
 # Ignore build artifacts
 main
+
+# Ignore test files
+test-docker.sh

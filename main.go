@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/beevik/etree"                  // known RCE CVE
 	mssqldb "github.com/denisenkom/go-mssqldb" // known Critical CVE
@@ -139,9 +140,18 @@ func main() {
 		log.Println("Failed to parse private key")
 	}
 
-	log.Println("Server starting on :" + PORT)
+	log.Printf("Server starting on port %s", PORT)
+	log.Printf("Environment: %v", os.Environ())
+
+	// Add a simple health check endpoint
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("OK"))
+	})
+
+	log.Printf("Starting HTTP server on :%s", PORT)
 	server_err := http.ListenAndServe(":"+PORT, nil)
 	if server_err != nil {
-		log.Fatal("Server failed to start:", server_err)
+		log.Fatalf("Server failed to start: %v", server_err)
 	}
 }
